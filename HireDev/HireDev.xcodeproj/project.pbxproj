@@ -56,15 +56,47 @@
 		4076389D1D82421600C7A892 /* HireDev */ = {
 			isa = PBXGroup;
 			children = (
-				4076389E1D82421600C7A892 /* AppDelegate.swift */,
-				407638A01D82421600C7A892 /* MasterViewController.swift */,
-				407638A21D82421600C7A892 /* DetailViewController.swift */,
-				407638A41D82421600C7A892 /* Main.storyboard */,
-				407638A71D82421600C7A892 /* Assets.xcassets */,
-				407638A91D82421600C7A892 /* LaunchScreen.storyboard */,
-				407638AC1D82421600C7A892 /* Info.plist */,
+				407638B61D82441E00C7A892 /* Controller */,
+				407638B51D82441E00C7A892 /* View */,
+				407638B31D82441400C7A892 /* Model */,
+				407638B21D82440400C7A892 /* UI */,
 			);
 			path = HireDev;
+			sourceTree = "<group>";
+		};
+		407638B21D82440400C7A892 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				407638A41D82421600C7A892 /* Main.storyboard */,
+				407638A91D82421600C7A892 /* LaunchScreen.storyboard */,
+				407638A71D82421600C7A892 /* Assets.xcassets */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		407638B31D82441400C7A892 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4076389E1D82421600C7A892 /* AppDelegate.swift */,
+				407638AC1D82421600C7A892 /* Info.plist */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		407638B51D82441E00C7A892 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		407638B61D82441E00C7A892 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				407638A01D82421600C7A892 /* MasterViewController.swift */,
+				407638A21D82421600C7A892 /* DetailViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +324,7 @@
 				407638B11D82421600C7A892 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
