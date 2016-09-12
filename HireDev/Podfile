@@ -7,6 +7,6 @@ target 'HireDev' do
 
   # Pods for HireDev
   pod 'Firebase'
-
+  pod 'Firebase/Auth'
 
 end

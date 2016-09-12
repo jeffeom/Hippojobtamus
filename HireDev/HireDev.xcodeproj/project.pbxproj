@@ -16,6 +16,9 @@
 		407638AB1D82421600C7A892 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407638A91D82421600C7A892 /* LaunchScreen.storyboard */; };
 		407638BA1D8245C100C7A892 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638B91D8245C100C7A892 /* LoginViewController.swift */; };
 		407638BC1D82958900C7A892 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638BB1D82958900C7A892 /* CreateAccountViewController.swift */; };
+		40D0F0811D864CA90076891D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */; };
+		40D0F0821D864CA90076891D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */; };
+		40D0F0831D864CA90076891D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F0801D864CA90076891D /* FBSDKShareKit.framework */; };
 		40EF26BF1D862FE800F81503 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EF26BE1D862FE800F81503 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +35,10 @@
 		407638AC1D82421600C7A892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		407638B91D8245C100C7A892 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		407638BB1D82958900C7A892 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		40D0F0801D864CA90076891D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		40D0F0841D86643F0076891D /* HireDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HireDev.entitlements; sourceTree = "<group>"; };
 		40EF26BE1D862FE800F81503 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		81280D31713E265017FB9967 /* Pods-HireDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HireDev/Pods-HireDev.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,7 +48,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40D0F0831D864CA90076891D /* FBSDKShareKit.framework in Frameworks */,
 				1BD5FCC3BB807DEA5856500A /* Pods_HireDev.framework in Frameworks */,
+				40D0F0811D864CA90076891D /* FBSDKCoreKit.framework in Frameworks */,
+				40D0F0821D864CA90076891D /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +61,9 @@
 		0B7E3CD36CF2545C04663210 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */,
+				40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */,
+				40D0F0801D864CA90076891D /* FBSDKShareKit.framework */,
 				2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */,
 			);
 			name = Frameworks;
@@ -86,6 +99,7 @@
 		4076389D1D82421600C7A892 /* HireDev */ = {
 			isa = PBXGroup;
 			children = (
+				40D0F0841D86643F0076891D /* HireDev.entitlements */,
 				407638B61D82441E00C7A892 /* Controller */,
 				407638B51D82441E00C7A892 /* View */,
 				407638B31D82441400C7A892 /* Model */,
@@ -169,6 +183,11 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = RJSTWC7526;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -382,9 +401,23 @@
 			baseConfigurationReference = 81280D31713E265017FB9967 /* Pods-HireDev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = RJSTWC7526;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
+					"~/Documents/FacebookSDK",
+				);
 				INFOPLIST_FILE = HireDev/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeffeom.HireDev;
@@ -399,9 +432,23 @@
 			baseConfigurationReference = 00353D0515AA1900B3822BA0 /* Pods-HireDev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = RJSTWC7526;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
+					"~/Documents/FacebookSDK",
+				);
 				INFOPLIST_FILE = HireDev/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeffeom.HireDev;
