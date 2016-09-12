@@ -10,8 +10,7 @@ import UIKit
 
 class CreateAccountViewController: UIViewController {
     
-    @IBAction func cancelClicked(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func cancelClicked(_ sender: AnyObject) {
+        _ = self.navigationController?.popViewController(animated: true)
     }
-    
 }
