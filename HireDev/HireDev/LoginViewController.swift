@@ -15,12 +15,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var facebookView: UIView!
+    //@IBOutlet weak var facebookButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,16 +47,24 @@ class LoginViewController: UIViewController {
     @IBAction func loginFBButtonClicked(_ sender: AnyObject) {
         let login: FBSDKLoginManager = FBSDKLoginManager.init()
         
-        login.logIn(withReadPermissions: ["public_profile"], from: self) { (result, error) in
+        login.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
             if (error != nil){
                 NSLog("Process Error")
             }else if (result?.isCancelled)!{
                 NSLog("Canceled")
             }else {
                 NSLog("Logged In")
-                let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "master")
-                self.navigationController?.pushViewController(confirmedViewController!
-                    , animated: true)
+                let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                    if let error = error{
+                        NSLog("Error occured: \(error)")
+                    }else{
+                        NSLog("User: \(user?.displayName), \(user?.email)")
+                        let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "master")
+                        self.navigationController?.pushViewController(confirmedViewController!
+                            , animated: true)
+                    }
+                }
             }
         }
     }
