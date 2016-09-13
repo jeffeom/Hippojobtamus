@@ -70,6 +70,20 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func forgotPassword(_ sender: AnyObject) {
+        if emailField.text != "" {
+            FIRAuth.auth()?.sendPasswordReset(withEmail: emailField.text!, completion: { (error) in
+                if let _ = error{
+                    self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
+                }else{
+                    self.errorLabel.text = "Reset password has been sent!"
+                }
+            })
+        }else{
+            self.errorLabel.text = "Type in the email first and re-try it"
+        }
+    }
+    
     func verifiedUser() {
         let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "master")
         self.navigationController?.pushViewController(confirmedViewController!
