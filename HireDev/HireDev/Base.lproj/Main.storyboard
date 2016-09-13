@@ -148,13 +148,17 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKD-OY-r9B" userLabel="LoginButton">
                                 <subviews>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Loginbutton" translatesAutoresizingMaskIntoConstraints="NO" id="bxe-AA-5RN">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SignUpButton" translatesAutoresizingMaskIntoConstraints="NO" id="bxe-AA-5RN">
                                         <frame key="frameInset" width="240" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xa1-wd-bPC">
                                         <frame key="frameInset" width="240" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="loginEmailButtonClicked:" destination="YyV-rH-eLv" eventType="touchUpInside" id="WAT-pB-hED"/>
                                         </connections>
@@ -175,7 +179,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gb7-76-aNc" userLabel="Facebook">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facebooklogofinal" translatesAutoresizingMaskIntoConstraints="NO" id="tSl-1m-9Zp">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facebooklogofinal" highlightedImage="background" translatesAutoresizingMaskIntoConstraints="NO" id="tSl-1m-9Zp">
                                                 <frame key="frameInset" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -185,6 +189,7 @@
                                                     <constraint firstAttribute="width" constant="70" id="S6N-lP-Aek"/>
                                                 </constraints>
                                                 <connections>
+                                                    <action selector="fbTouchDown:" destination="YyV-rH-eLv" eventType="touchDown" id="6lC-og-9Ym"/>
                                                     <action selector="loginFBButtonClicked:" destination="YyV-rH-eLv" eventType="touchUpInside" id="HRz-mB-qHv"/>
                                                 </connections>
                                             </button>
@@ -208,6 +213,8 @@
                                                     <constraint firstAttribute="height" constant="70" id="ViT-QX-4Nl"/>
                                                 </constraints>
                                                 <connections>
+                                                    <action selector="emailTouchDown:" destination="YyV-rH-eLv" eventType="touchDown" id="8zA-x9-vWd"/>
+                                                    <action selector="loginEmailButtonClicked:" destination="YyV-rH-eLv" eventType="touchUpInside" id="2nS-4X-k8P"/>
                                                     <segue destination="5DT-rZ-78J" kind="show" id="KD0-YJ-Lnc"/>
                                                 </connections>
                                             </button>
@@ -230,7 +237,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Is0-2T-3ex" firstAttribute="centerY" secondItem="jDk-ea-HyF" secondAttribute="centerY" multiplier="1.8" id="0up-pz-wop"/>
                             <constraint firstItem="MaZ-b1-SJc" firstAttribute="centerX" secondItem="jDk-ea-HyF" secondAttribute="centerX" id="39f-ba-ggL"/>
@@ -258,8 +264,9 @@
                     <navigationItem key="navigationItem" id="LE9-E8-dpB"/>
                     <connections>
                         <outlet property="emailField" destination="Fl8-lG-v41" id="wcL-2V-D3R"/>
+                        <outlet property="emailLogo" destination="xGz-Ts-fTi" id="tKZ-Ek-4jj"/>
                         <outlet property="errorLabel" destination="Dpa-ae-zHH" id="lkV-HW-QXy"/>
-                        <outlet property="facebookView" destination="Gb7-76-aNc" id="itf-3F-dcd"/>
+                        <outlet property="fbLogo" destination="tSl-1m-9Zp" id="kxw-Kw-bPG"/>
                         <outlet property="passwordField" destination="9XJ-Ny-dg1" id="mci-hl-wBn"/>
                     </connections>
                 </viewController>
@@ -510,7 +517,6 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mVr-EI-873" firstAttribute="centerX" secondItem="e3C-8v-sjQ" secondAttribute="centerX" id="GNi-Ba-OOE"/>
                             <constraint firstAttribute="leadingMargin" secondItem="LmM-Fs-Hmi" secondAttribute="leading" constant="-15" id="GyI-QE-FTp"/>
@@ -604,7 +610,6 @@
     </scenes>
     <resources>
         <image name="Cancelbutton" width="584" height="100"/>
-        <image name="Loginbutton" width="511" height="88"/>
         <image name="SignUpButton" width="584" height="100"/>
         <image name="background" width="750" height="1334"/>
         <image name="blankinputbox" width="653" height="102"/>

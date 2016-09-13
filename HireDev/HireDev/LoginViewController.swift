@@ -14,19 +14,25 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var facebookView: UIView!
     @IBOutlet weak var errorLabel: UILabel!
+    
+    @IBOutlet weak var emailLogo: UIImageView!
+    @IBOutlet weak var fbLogo: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        self.emailLogo?.isHighlighted = false
+        self.fbLogo?.isHighlighted = false
     }
     
     @IBAction func loginEmailButtonClicked(_ sender: AnyObject) {
@@ -46,6 +52,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginFBButtonClicked(_ sender: AnyObject) {
+        
         let login: FBSDKLoginManager = FBSDKLoginManager.init()
         
         login.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
@@ -82,6 +89,14 @@ class LoginViewController: UIViewController {
         }else{
             self.errorLabel.text = "Type in the email first and re-try it"
         }
+    }
+    @IBAction func fbTouchDown(_ sender: AnyObject) {
+        fbLogo.highlightedImage = UIImage.init(named: "facebooklogopressed")
+        fbLogo.isHighlighted = true
+    }
+    @IBAction func emailTouchDown(_ sender: AnyObject) {
+        emailLogo.highlightedImage = UIImage.init(named: "emaillogopressed")
+        emailLogo.isHighlighted = true
     }
     
     func verifiedUser() {
