@@ -12,35 +12,26 @@ import Firebase
 
 class CreateAccountViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
-    
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBAction func cancelClicked(_ sender: AnyObject) {
         _ = self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func signUpClicked(_ sender: AnyObject) {
-        if let _ = email.text, let _ = password.text {
-            if (email.text != nil && password.text != nil && password.text == confirmPassword.text) {
-                FIRAuth.auth()?.createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
-                    if let _ = error {
-                        NSLog("Error occured \(error)")
-                    }else{
-                        FIRAuth.auth()?.currentUser?.sendEmailVerification()
-                        NSLog("Email Sent")
-                        if let navController = self.navigationController{
-                            navController.popViewController(animated: true)
-                        }
-                    }
-                })
+        FIRAuth.auth()?.createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
+            if let _ = error {
+                self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
             }else{
-                NSLog("password and confirmpassword do not match")
+                FIRAuth.auth()?.currentUser?.sendEmailVerification()
+                NSLog("Email Sent")
+                if let navController = self.navigationController{
+                    navController.popViewController(animated: true)
+                }
             }
-        }
-        else{
-            NSLog("email or password is empty")
-        }
+        })
     }
     
     func verifiedUser() {

@@ -94,7 +94,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="cDJ-6q-iaa"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -119,7 +119,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="sQu-H4-WUl"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -310,7 +310,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="A9I-gk-SL7"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -336,7 +336,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="ylk-aX-oIh"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -362,7 +362,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="vzb-dh-fvY"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -388,7 +388,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="kxN-fC-Wo4"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -414,7 +414,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="rqM-9l-dNT"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -430,6 +430,14 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhe-et-T23" userLabel="errorLabel">
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="gfl-Le-Q3F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mVr-EI-873" userLabel="confirmCancel">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRI-6m-V6i" userLabel="Sign Up">
@@ -506,18 +514,22 @@
                             <constraint firstItem="SMF-0W-2Jp" firstAttribute="centerX" secondItem="e3C-8v-sjQ" secondAttribute="centerX" id="LcM-MH-aG6"/>
                             <constraint firstItem="qkX-kL-L4G" firstAttribute="top" secondItem="0JJ-TU-vRu" secondAttribute="bottom" id="Nrm-lH-ogj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0JJ-TU-vRu" secondAttribute="trailing" constant="-20" id="Vu5-Dh-1vy"/>
+                            <constraint firstItem="yhe-et-T23" firstAttribute="top" secondItem="LmM-Fs-Hmi" secondAttribute="bottom" constant="-1" id="Xx4-DY-U3p"/>
                             <constraint firstItem="mVr-EI-873" firstAttribute="centerY" secondItem="e3C-8v-sjQ" secondAttribute="centerY" multiplier="1.735" id="a6i-wv-FLz"/>
                             <constraint firstItem="SMF-0W-2Jp" firstAttribute="centerY" secondItem="e3C-8v-sjQ" secondAttribute="centerY" multiplier="0.22" id="aZ1-WQ-3qa"/>
                             <constraint firstItem="0JJ-TU-vRu" firstAttribute="top" secondItem="e3C-8v-sjQ" secondAttribute="topMargin" id="akj-rq-fpv"/>
                             <constraint firstItem="LmM-Fs-Hmi" firstAttribute="centerX" secondItem="e3C-8v-sjQ" secondAttribute="centerX" id="bro-tK-QQi"/>
                             <constraint firstItem="0JJ-TU-vRu" firstAttribute="leading" secondItem="e3C-8v-sjQ" secondAttribute="leadingMargin" constant="-20" id="fGc-BJ-SyP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LmM-Fs-Hmi" secondAttribute="trailing" constant="15" id="hep-1E-gIP"/>
+                            <constraint firstItem="yhe-et-T23" firstAttribute="centerX" secondItem="e3C-8v-sjQ" secondAttribute="centerX" id="mNL-vu-N3g"/>
+                            <constraint firstItem="yhe-et-T23" firstAttribute="width" secondItem="1dX-9P-QgA" secondAttribute="width" id="ngX-3j-OMJ"/>
                             <constraint firstItem="LmM-Fs-Hmi" firstAttribute="centerY" secondItem="e3C-8v-sjQ" secondAttribute="centerY" multiplier="0.93" id="sok-cB-w9G"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="confirmPassword" destination="8wf-oW-fmy" id="tcq-jN-Bsv"/>
                         <outlet property="email" destination="BO2-Lg-0r4" id="tKR-Pu-9UN"/>
+                        <outlet property="errorLabel" destination="yhe-et-T23" id="J39-Um-76d"/>
                         <outlet property="password" destination="0BD-RI-RQT" id="LpU-Vc-zOo"/>
                     </connections>
                 </viewController>

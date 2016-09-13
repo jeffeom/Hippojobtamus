@@ -29,22 +29,18 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginEmailButtonClicked(_ sender: AnyObject) {
-        if let _ = emailField.text, let _ = passwordField.text {
-            FIRAuth.auth()?.signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
-                if let _ = error{
-                    self.errorLabel.text = "Wrong Email or password"
-                    self.passwordField.text = ""
+        FIRAuth.auth()?.signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+            if let _ = error{
+                self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
+                self.passwordField.text = ""
+            }else{
+                if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
+                    self.verifiedUser()
                 }else{
-                    if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
-                        self.verifiedUser()
-                    }else{
-                        self.errorLabel.text = "You need to verify your email first"
-                        self.passwordField.text = ""
-                    }
+                    self.errorLabel.text = "You need to verify your email first"
+                    self.passwordField.text = ""
                 }
             }
-        }else{
-            self.errorLabel.text = "Email or password is blank"
         }
     }
     
@@ -61,7 +57,7 @@ class LoginViewController: UIViewController {
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                     if let _ = error{
-                        self.errorLabel.text = "Error occured during credential process"
+                        self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
                     }else{
                         NSLog("User: \(user?.displayName), \(user?.email)")
                         let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "master")
