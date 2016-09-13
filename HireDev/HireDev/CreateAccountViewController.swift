@@ -27,9 +27,11 @@ class CreateAccountViewController: UIViewController {
                     if let _ = error {
                         NSLog("Error occured \(error)")
                     }else{
-                        let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "master")
-                        self.navigationController?.pushViewController(confirmedViewController!
-                            , animated: true)
+                        FIRAuth.auth()?.currentUser?.sendEmailVerification()
+                        NSLog("Email Sent")
+                        if let navController = self.navigationController{
+                            navController.popViewController(animated: true)
+                        }
                     }
                 })
             }else{
@@ -40,4 +42,11 @@ class CreateAccountViewController: UIViewController {
             NSLog("email or password is empty")
         }
     }
+    
+    func verifiedUser() {
+        let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "master")
+        self.navigationController?.pushViewController(confirmedViewController!
+            , animated: true)
+    }
+    
 }

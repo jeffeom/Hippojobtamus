@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var facebookView: UIView!
-    //@IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,15 +32,19 @@ class LoginViewController: UIViewController {
         if let _ = emailField.text, let _ = passwordField.text {
             FIRAuth.auth()?.signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
                 if let _ = error{
-                    NSLog("Error occured during login process: \(error)")
+                    self.errorLabel.text = "Wrong Email or password"
+                    self.passwordField.text = ""
                 }else{
-                    let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "master")
-                    self.navigationController?.pushViewController(confirmedViewController!
-                        , animated: true)
+                    if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
+                        self.verifiedUser()
+                    }else{
+                        self.errorLabel.text = "You need to verify your email first"
+                        self.passwordField.text = ""
+                    }
                 }
             }
         }else{
-            NSLog("email or password are blank")
+            self.errorLabel.text = "Email or password is blank"
         }
     }
     
@@ -49,15 +53,15 @@ class LoginViewController: UIViewController {
         
         login.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
             if (error != nil){
-                NSLog("Process Error")
+                self.errorLabel.text = "Facebook Process Error"
             }else if (result?.isCancelled)!{
-                NSLog("Canceled")
+                self.errorLabel.text = "Facebook Canceled"
             }else {
-                NSLog("Logged In")
+                self.errorLabel.text = "Logged In"
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-                    if let error = error{
-                        NSLog("Error occured: \(error)")
+                    if let _ = error{
+                        self.errorLabel.text = "Error occured during credential process"
                     }else{
                         NSLog("User: \(user?.displayName), \(user?.email)")
                         let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "master")
@@ -67,5 +71,11 @@ class LoginViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func verifiedUser() {
+        let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "master")
+        self.navigationController?.pushViewController(confirmedViewController!
+            , animated: true)
     }
 }

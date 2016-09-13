@@ -138,6 +138,14 @@
                                     <constraint firstItem="aCC-MI-63Y" firstAttribute="width" secondItem="Hbx-HK-d2t" secondAttribute="width" id="w21-WI-yqB"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpa-ae-zHH" userLabel="errorLabel">
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="Qzc-Ng-lG8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKD-OY-r9B" userLabel="LoginButton">
                                 <subviews>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Loginbutton" translatesAutoresizingMaskIntoConstraints="NO" id="bxe-AA-5RN">
@@ -158,11 +166,6 @@
                                     <constraint firstAttribute="width" constant="240" id="yYN-NT-bOc"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZE-wK-FsV">
-                                <state key="normal" title="Forgot your password?">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up With" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJc-mW-ACL">
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -218,6 +221,11 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZE-wK-FsV">
+                                <state key="normal" title="Forgot your password?">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -227,7 +235,6 @@
                             <constraint firstItem="7qe-qe-DAa" firstAttribute="leading" secondItem="jDk-ea-HyF" secondAttribute="leading" id="JUP-n6-Zx8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MaZ-b1-SJc" secondAttribute="trailing" constant="15" id="JYK-4m-XlK"/>
                             <constraint firstItem="oKD-OY-r9B" firstAttribute="centerX" secondItem="jDk-ea-HyF" secondAttribute="centerX" id="K0z-TA-dIO"/>
-                            <constraint firstItem="oKD-OY-r9B" firstAttribute="top" secondItem="MaZ-b1-SJc" secondAttribute="bottom" constant="8" id="LUg-1x-9dK"/>
                             <constraint firstItem="Is0-2T-3ex" firstAttribute="centerX" secondItem="jDk-ea-HyF" secondAttribute="centerX" id="MZS-0F-JT8"/>
                             <constraint firstItem="7qe-qe-DAa" firstAttribute="top" secondItem="jDk-ea-HyF" secondAttribute="top" id="N3n-eo-Vt3"/>
                             <constraint firstItem="qZE-wK-FsV" firstAttribute="top" secondItem="oKD-OY-r9B" secondAttribute="bottom" id="QFY-as-wzS"/>
@@ -236,21 +243,26 @@
                             <constraint firstItem="jqw-vy-VvR" firstAttribute="centerX" secondItem="jDk-ea-HyF" secondAttribute="centerX" id="ZiU-9U-G8k"/>
                             <constraint firstAttribute="trailing" secondItem="7qe-qe-DAa" secondAttribute="trailing" id="gKV-o5-yTV"/>
                             <constraint firstItem="Is0-2T-3ex" firstAttribute="top" secondItem="GJc-mW-ACL" secondAttribute="bottom" constant="5" id="gTa-cv-24e"/>
+                            <constraint firstItem="Dpa-ae-zHH" firstAttribute="centerX" secondItem="jDk-ea-HyF" secondAttribute="centerX" id="gca-Dh-4sQ"/>
                             <constraint firstItem="MaZ-b1-SJc" firstAttribute="centerY" secondItem="jDk-ea-HyF" secondAttribute="centerY" multiplier="1.05" id="h3L-aV-Uok"/>
+                            <constraint firstItem="Dpa-ae-zHH" firstAttribute="width" secondItem="aCC-MI-63Y" secondAttribute="width" id="mDB-lv-fa4"/>
+                            <constraint firstItem="Dpa-ae-zHH" firstAttribute="top" secondItem="MaZ-b1-SJc" secondAttribute="bottom" id="mbS-0Y-XsC"/>
                             <constraint firstItem="GJc-mW-ACL" firstAttribute="centerX" secondItem="jDk-ea-HyF" secondAttribute="centerX" id="sbR-6D-g3z"/>
                             <constraint firstItem="cgl-rD-y6z" firstAttribute="top" secondItem="7qe-qe-DAa" secondAttribute="bottom" id="tmd-Wr-Ukq"/>
+                            <constraint firstItem="oKD-OY-r9B" firstAttribute="top" secondItem="Dpa-ae-zHH" secondAttribute="bottom" constant="-1" id="wTt-gT-hsd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LE9-E8-dpB"/>
                     <connections>
                         <outlet property="emailField" destination="Fl8-lG-v41" id="wcL-2V-D3R"/>
+                        <outlet property="errorLabel" destination="Dpa-ae-zHH" id="lkV-HW-QXy"/>
                         <outlet property="facebookView" destination="Gb7-76-aNc" id="itf-3F-dcd"/>
                         <outlet property="passwordField" destination="9XJ-Ny-dg1" id="mci-hl-wBn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyM-ow-6Nw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="914" y="-1279"/>
+            <point key="canvasLocation" x="912.79999999999995" y="-1279.6101949025488"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="1uL-Rj-LfE">
