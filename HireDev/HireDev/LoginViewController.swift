@@ -33,6 +33,8 @@ class LoginViewController: UIViewController {
         
         self.emailLogo?.isHighlighted = false
         self.fbLogo?.isHighlighted = false
+        
+        self.errorLabel.text = ""
     }
     
     @IBAction func loginEmailButtonClicked(_ sender: AnyObject) {
