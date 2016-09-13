@@ -16,6 +16,12 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var confirmPassword: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+    }
+    
     @IBAction func cancelClicked(_ sender: AnyObject) {
         _ = self.navigationController?.popViewController(animated: true)
     }
