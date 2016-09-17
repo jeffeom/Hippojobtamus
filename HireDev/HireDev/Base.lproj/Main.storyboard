@@ -23,7 +23,101 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="258" y="-630"/>
+            <point key="canvasLocation" x="241" y="-630"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="wYI-VP-gih">
+            <objects>
+                <viewController storyboardIdentifier="homeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tVi-V6-S3K" customClass="HomeViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z4O-Sv-EmA"/>
+                        <viewControllerLayoutGuide type="bottom" id="qwM-WM-thc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QP1-0U-O4Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cpW-VV-4En">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hippobar" translatesAutoresizingMaskIntoConstraints="NO" id="M8Y-JN-fog"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHi-qp-q8k" userLabel="CategoryView">
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="NIZ-Oy-8yP">
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="age-cY-Gf0">
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9s-9P-YvM">
+                                                                <color key="backgroundColor" red="0.9137254901960784" green="0.90980392156862744" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P67-s5-0Zt">
+                                                                <color key="backgroundColor" red="0.9137254901960784" green="0.90980392156862744" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="903-vc-sUs">
+                                                                <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="m7l-Wr-uvW">
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEC-9z-nQp">
+                                                                <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kpe-1h-oHI">
+                                                                <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B43-ne-lNK">
+                                                                <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="qoG-by-C4v">
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZ2-TB-6Hk">
+                                                                <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dl2-sX-aks">
+                                                                <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zu9-z2-GrG">
+                                                                <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="NIZ-Oy-8yP" firstAttribute="leading" secondItem="hHi-qp-q8k" secondAttribute="leading" id="5fe-t4-cvF"/>
+                                            <constraint firstItem="NIZ-Oy-8yP" firstAttribute="top" secondItem="hHi-qp-q8k" secondAttribute="top" id="9xy-o4-s17"/>
+                                            <constraint firstAttribute="bottom" secondItem="NIZ-Oy-8yP" secondAttribute="bottom" id="OdA-au-pph"/>
+                                            <constraint firstAttribute="trailing" secondItem="NIZ-Oy-8yP" secondAttribute="trailing" id="nEr-qx-fgG"/>
+                                        </constraints>
+                                    </view>
+                                    <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TWC-y0-YQL">
+                                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                        <items>
+                                            <tabBarItem systemItem="favorites" id="aig-wg-1dl"/>
+                                            <tabBarItem systemItem="more" id="f5U-cE-5PM"/>
+                                            <tabBarItem systemItem="history" id="GCD-Kw-kDt"/>
+                                        </items>
+                                    </tabBar>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cpW-VV-4En" firstAttribute="leading" secondItem="QP1-0U-O4Y" secondAttribute="leading" id="1XF-od-gHt"/>
+                            <constraint firstAttribute="trailing" secondItem="cpW-VV-4En" secondAttribute="trailing" id="2Vq-uU-z9t"/>
+                            <constraint firstItem="cpW-VV-4En" firstAttribute="top" secondItem="QP1-0U-O4Y" secondAttribute="top" id="JQ5-Va-DYH"/>
+                            <constraint firstItem="M8Y-JN-fog" firstAttribute="height" secondItem="QP1-0U-O4Y" secondAttribute="height" multiplier="2.5:10" id="jqY-EM-fJd"/>
+                            <constraint firstItem="qwM-WM-thc" firstAttribute="top" secondItem="cpW-VV-4En" secondAttribute="bottom" id="oaS-hO-Amv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z44-37-d6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="240.80000000000001" y="45.42728635682159"/>
         </scene>
         <!--Detail-->
         <scene sceneID="yUG-lL-AsK">
@@ -73,8 +167,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="7qe-qe-DAa"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle only logo modni" translatesAutoresizingMaskIntoConstraints="NO" id="jqw-vy-VvR" userLabel="logo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenbackground" translatesAutoresizingMaskIntoConstraints="NO" id="7qe-qe-DAa"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_logo" translatesAutoresizingMaskIntoConstraints="NO" id="jqw-vy-VvR" userLabel="logo">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jqw-vy-VvR" secondAttribute="height" multiplier="1:1" id="XTH-EJ-pq5"/>
                                     <constraint firstAttribute="height" constant="150" id="pjs-K0-b6u"/>
@@ -148,7 +242,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKD-OY-r9B" userLabel="LoginButton">
                                 <subviews>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SignUpButton" translatesAutoresizingMaskIntoConstraints="NO" id="bxe-AA-5RN">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Sign Up Button" translatesAutoresizingMaskIntoConstraints="NO" id="bxe-AA-5RN">
                                         <frame key="frameInset" width="240" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -203,7 +297,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAN-M3-Kfd" userLabel="Email">
                                         <subviews>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emaillogofinal" translatesAutoresizingMaskIntoConstraints="NO" id="xGz-Ts-fTi">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email logofinal" translatesAutoresizingMaskIntoConstraints="NO" id="xGz-Ts-fTi">
                                                 <frame key="frameInset" width="70" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -286,7 +380,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="0JJ-TU-vRu"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenbackground" translatesAutoresizingMaskIntoConstraints="NO" id="0JJ-TU-vRu"/>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMF-0W-2Jp" userLabel="Logo">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hippo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oQ-bp-Yrj">
@@ -452,7 +546,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRI-6m-V6i" userLabel="Sign Up">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignUpButton" translatesAutoresizingMaskIntoConstraints="NO" id="AzF-gy-icd">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sign Up Button" translatesAutoresizingMaskIntoConstraints="NO" id="AzF-gy-icd">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="240" id="b0g-J2-liL"/>
                                                     <constraint firstAttribute="height" constant="50" id="ii9-bv-6Vg"/>
@@ -484,7 +578,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82N-Pm-3e3" userLabel="Cancel">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cancelbutton" translatesAutoresizingMaskIntoConstraints="NO" id="dnx-1f-0NS">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancelbutton" translatesAutoresizingMaskIntoConstraints="NO" id="dnx-1f-0NS">
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="240" id="XCq-JG-2DY"/>
                                                     <constraint firstAttribute="height" constant="50" id="oqr-TX-hyg"/>
@@ -549,7 +643,7 @@
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController storyboardIdentifier="master" title="Master" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="masterVC" title="Master" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -559,11 +653,11 @@
                                 <rect key="frame" x="0.0" y="86" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <frame key="frameInset" minX="15" width="345" height="43.5"/>
+                                            <frame key="frameInset" minX="15" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -587,7 +681,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="909" y="-630"/>
+            <point key="canvasLocation" x="913" y="-630"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="859-aM-87V">
@@ -605,16 +699,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhc-nK-ksN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="257" y="-1281"/>
+            <point key="canvasLocation" x="242" y="-1280"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Cancelbutton" width="584" height="100"/>
-        <image name="SignUpButton" width="584" height="100"/>
+        <image name="Sign Up Button" width="584" height="100"/>
         <image name="background" width="750" height="1334"/>
         <image name="blankinputbox" width="653" height="102"/>
-        <image name="circle only logo modni" width="101" height="101"/>
-        <image name="emaillogofinal" width="103" height="103"/>
+        <image name="cancelbutton" width="584" height="100"/>
+        <image name="circle_logo" width="152" height="152"/>
+        <image name="email logofinal" width="103" height="103"/>
         <image name="facebooklogofinal" width="103" height="103"/>
+        <image name="greenbackground" width="750" height="1334"/>
+        <image name="hippobar" width="750" height="334"/>
     </resources>
 </document>
