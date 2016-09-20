@@ -39,11 +39,4 @@ class CreateAccountViewController: UIViewController {
             }
         })
     }
-    
-    func verifiedUser() {
-        let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "master")
-        self.navigationController?.pushViewController(confirmedViewController!
-            , animated: true)
-    }
-    
 }
