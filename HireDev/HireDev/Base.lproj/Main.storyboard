@@ -25,19 +25,19 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0am-qN-Kc8" userLabel="Header">
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hippobar" translatesAutoresizingMaskIntoConstraints="NO" id="M8Y-JN-fog">
-                                                <frame key="frameInset" width="414" height="197"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ten-W5-hej">
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hippobar" translatesAutoresizingMaskIntoConstraints="NO" id="M8Y-JN-fog"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6m-M8-8GW">
                                                 <state key="normal" title="Vancouver, BC"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="Ten-W5-hej" firstAttribute="centerY" secondItem="0am-qN-Kc8" secondAttribute="centerY" multiplier="1.41" id="58c-9b-8eX"/>
-                                            <constraint firstItem="Ten-W5-hej" firstAttribute="centerX" secondItem="0am-qN-Kc8" secondAttribute="centerX" id="R0D-Y7-DAR"/>
+                                            <constraint firstItem="M8Y-JN-fog" firstAttribute="leading" secondItem="0am-qN-Kc8" secondAttribute="leading" id="5Q8-pu-ogW"/>
+                                            <constraint firstAttribute="trailing" secondItem="M8Y-JN-fog" secondAttribute="trailing" id="BCk-K0-axD"/>
+                                            <constraint firstItem="J6m-M8-8GW" firstAttribute="centerY" secondItem="0am-qN-Kc8" secondAttribute="centerY" multiplier="1.5" id="BI5-Ug-e84"/>
+                                            <constraint firstItem="M8Y-JN-fog" firstAttribute="top" secondItem="0am-qN-Kc8" secondAttribute="top" id="Ytf-o0-k5W"/>
+                                            <constraint firstAttribute="bottom" secondItem="M8Y-JN-fog" secondAttribute="bottom" id="Zkf-Cz-rfC"/>
+                                            <constraint firstItem="J6m-M8-8GW" firstAttribute="centerX" secondItem="0am-qN-Kc8" secondAttribute="centerX" id="tIC-w5-kzW"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHi-qp-q8k" userLabel="CategoryView">
@@ -340,6 +340,7 @@
                         <constraints>
                             <constraint firstItem="cpW-VV-4En" firstAttribute="leading" secondItem="QP1-0U-O4Y" secondAttribute="leading" id="1XF-od-gHt"/>
                             <constraint firstAttribute="trailing" secondItem="cpW-VV-4En" secondAttribute="trailing" id="2Vq-uU-z9t"/>
+                            <constraint firstItem="M8Y-JN-fog" firstAttribute="height" secondItem="QP1-0U-O4Y" secondAttribute="height" multiplier="0.25:1" id="A3l-yN-Sso"/>
                             <constraint firstItem="cpW-VV-4En" firstAttribute="top" secondItem="QP1-0U-O4Y" secondAttribute="top" id="JQ5-Va-DYH"/>
                             <constraint firstItem="qwM-WM-thc" firstAttribute="top" secondItem="cpW-VV-4En" secondAttribute="bottom" id="oaS-hO-Amv"/>
                         </constraints>
