@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BD5FCC3BB807DEA5856500A /* Pods_HireDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */; };
+		400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400842C51D8D1C9000B30904 /* HomeViewController.swift */; };
 		4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076389E1D82421600C7A892 /* AppDelegate.swift */; };
 		407638A11D82421600C7A892 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A01D82421600C7A892 /* MasterViewController.swift */; };
 		407638A31D82421600C7A892 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A21D82421600C7A892 /* DetailViewController.swift */; };
@@ -15,9 +17,17 @@
 		407638AB1D82421600C7A892 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407638A91D82421600C7A892 /* LaunchScreen.storyboard */; };
 		407638BA1D8245C100C7A892 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638B91D8245C100C7A892 /* LoginViewController.swift */; };
 		407638BC1D82958900C7A892 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638BB1D82958900C7A892 /* CreateAccountViewController.swift */; };
+		40D0F0811D864CA90076891D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */; };
+		40D0F0821D864CA90076891D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */; };
+		40D0F0831D864CA90076891D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F0801D864CA90076891D /* FBSDKShareKit.framework */; };
+		40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */; };
+		40EF26BF1D862FE800F81503 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EF26BE1D862FE800F81503 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00353D0515AA1900B3822BA0 /* Pods-HireDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-HireDev/Pods-HireDev.release.xcconfig"; sourceTree = "<group>"; };
+		2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HireDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		400842C51D8D1C9000B30904 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4076389B1D82421600C7A892 /* HireDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HireDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4076389E1D82421600C7A892 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		407638A01D82421600C7A892 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +38,13 @@
 		407638AC1D82421600C7A892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		407638B91D8245C100C7A892 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		407638BB1D82958900C7A892 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		40D0F0801D864CA90076891D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		40D0F0841D86643F0076891D /* HireDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HireDev.entitlements; sourceTree = "<group>"; };
+		40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+KeyboardDismiss.swift"; sourceTree = "<group>"; };
+		40EF26BE1D862FE800F81503 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		81280D31713E265017FB9967 /* Pods-HireDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HireDev/Pods-HireDev.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +52,43 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40D0F0831D864CA90076891D /* FBSDKShareKit.framework in Frameworks */,
+				1BD5FCC3BB807DEA5856500A /* Pods_HireDev.framework in Frameworks */,
+				40D0F0811D864CA90076891D /* FBSDKCoreKit.framework in Frameworks */,
+				40D0F0821D864CA90076891D /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B7E3CD36CF2545C04663210 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */,
+				40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */,
+				40D0F0801D864CA90076891D /* FBSDKShareKit.framework */,
+				2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0C1AE6E3ADFFBFA95DBF254C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81280D31713E265017FB9967 /* Pods-HireDev.debug.xcconfig */,
+				00353D0515AA1900B3822BA0 /* Pods-HireDev.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		407638921D82421600C7A892 = {
 			isa = PBXGroup;
 			children = (
 				4076389D1D82421600C7A892 /* HireDev */,
 				4076389C1D82421600C7A892 /* Products */,
+				0C1AE6E3ADFFBFA95DBF254C /* Pods */,
+				0B7E3CD36CF2545C04663210 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +103,7 @@
 		4076389D1D82421600C7A892 /* HireDev */ = {
 			isa = PBXGroup;
 			children = (
+				40D0F0841D86643F0076891D /* HireDev.entitlements */,
 				407638B61D82441E00C7A892 /* Controller */,
 				407638B51D82441E00C7A892 /* View */,
 				407638B31D82441400C7A892 /* Model */,
@@ -83,6 +127,7 @@
 			children = (
 				4076389E1D82421600C7A892 /* AppDelegate.swift */,
 				407638AC1D82421600C7A892 /* Info.plist */,
+				40EF26BE1D862FE800F81503 /* GoogleService-Info.plist */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -101,6 +146,8 @@
 				407638A21D82421600C7A892 /* DetailViewController.swift */,
 				407638B91D8245C100C7A892 /* LoginViewController.swift */,
 				407638BB1D82958900C7A892 /* CreateAccountViewController.swift */,
+				40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */,
+				400842C51D8D1C9000B30904 /* HomeViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -112,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 407638AF1D82421600C7A892 /* Build configuration list for PBXNativeTarget "HireDev" */;
 			buildPhases = (
+				CAC464DB354EC8BB1720E2DE /* [CP] Check Pods Manifest.lock */,
 				407638971D82421600C7A892 /* Sources */,
 				407638981D82421600C7A892 /* Frameworks */,
 				407638991D82421600C7A892 /* Resources */,
+				BC13D5A55D1ADF6BC40E4FD0 /* [CP] Embed Pods Frameworks */,
+				6F643E4AC487EDA3B9AEC533 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,12 +182,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Jeff Eom";
 				TargetAttributes = {
 					4076389A1D82421600C7A892 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = RJSTWC7526;
+						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -165,12 +221,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				407638AB1D82421600C7A892 /* LaunchScreen.storyboard in Resources */,
+				40EF26BF1D862FE800F81503 /* GoogleService-Info.plist in Resources */,
 				407638A81D82421600C7A892 /* Assets.xcassets in Resources */,
 				407638A61D82421600C7A892 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6F643E4AC487EDA3B9AEC533 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HireDev/Pods-HireDev-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC13D5A55D1ADF6BC40E4FD0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HireDev/Pods-HireDev-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAC464DB354EC8BB1720E2DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		407638971D82421600C7A892 /* Sources */ = {
@@ -179,8 +284,10 @@
 			files = (
 				407638BC1D82958900C7A892 /* CreateAccountViewController.swift in Sources */,
 				407638BA1D8245C100C7A892 /* LoginViewController.swift in Sources */,
+				40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */,
 				407638A31D82421600C7A892 /* DetailViewController.swift in Sources */,
 				407638A11D82421600C7A892 /* MasterViewController.swift in Sources */,
+				400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */,
 				4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,8 +328,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -244,7 +353,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -267,8 +376,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -284,9 +395,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -294,29 +406,63 @@
 		};
 		407638B01D82421600C7A892 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81280D31713E265017FB9967 /* Pods-HireDev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = RJSTWC7526;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
+					"~/Documents/FacebookSDK",
+				);
 				INFOPLIST_FILE = HireDev/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeffeom.HireDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		407638B11D82421600C7A892 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00353D0515AA1900B3822BA0 /* Pods-HireDev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = RJSTWC7526;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
+					"~/Documents/FacebookSDK",
+				);
 				INFOPLIST_FILE = HireDev/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeffeom.HireDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
