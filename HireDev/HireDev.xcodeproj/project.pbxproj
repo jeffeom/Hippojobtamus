@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1BD5FCC3BB807DEA5856500A /* Pods_HireDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */; };
 		400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400842C51D8D1C9000B30904 /* HomeViewController.swift */; };
+		401BDED31D93BFA500D5A749 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401BDED21D93BFA500D5A749 /* Bolts.framework */; };
 		4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076389E1D82421600C7A892 /* AppDelegate.swift */; };
 		407638A11D82421600C7A892 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A01D82421600C7A892 /* MasterViewController.swift */; };
 		407638A31D82421600C7A892 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A21D82421600C7A892 /* DetailViewController.swift */; };
@@ -28,6 +29,7 @@
 		00353D0515AA1900B3822BA0 /* Pods-HireDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-HireDev/Pods-HireDev.release.xcconfig"; sourceTree = "<group>"; };
 		2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HireDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		400842C51D8D1C9000B30904 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		401BDED21D93BFA500D5A749 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
 		4076389B1D82421600C7A892 /* HireDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HireDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4076389E1D82421600C7A892 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		407638A01D82421600C7A892 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				401BDED31D93BFA500D5A749 /* Bolts.framework in Frameworks */,
 				40D0F0831D864CA90076891D /* FBSDKShareKit.framework in Frameworks */,
 				1BD5FCC3BB807DEA5856500A /* Pods_HireDev.framework in Frameworks */,
 				40D0F0811D864CA90076891D /* FBSDKCoreKit.framework in Frameworks */,
@@ -65,6 +68,7 @@
 		0B7E3CD36CF2545C04663210 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				401BDED21D93BFA500D5A749 /* Bolts.framework */,
 				40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */,
 				40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */,
 				40D0F0801D864CA90076891D /* FBSDKShareKit.framework */,
