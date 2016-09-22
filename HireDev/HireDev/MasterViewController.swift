@@ -11,8 +11,9 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
-
+    
+    //from homeVC
+    var contents = [AnyObject]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(_ sender: AnyObject) {
-        objects.insert(Date() as AnyObject, at: 0)
+        contents.insert("NEW" as AnyObject, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
@@ -45,9 +46,9 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[(indexPath as NSIndexPath).row] as! Date
+                let content = contents[(indexPath as NSIndexPath).row]
                 let controller = segue.destination as! DetailViewController
-                controller.detailItem = object as AnyObject?
+                controller.detailItem = content as AnyObject?
             }
         }
     }
@@ -59,14 +60,19 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return contents.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        let object = objects[(indexPath as NSIndexPath).row] as! Date
-        cell.textLabel!.text = object.description
+        
+        if (contents.count != 0) {
+            let content = contents[(indexPath as NSIndexPath).row]
+            cell.textLabel!.text = content as? String
+        }else{
+            NSLog("content is empty")
+        }
+        
         return cell
     }
 
@@ -77,7 +83,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            objects.remove(at: (indexPath as NSIndexPath).row)
+            contents.remove(at: (indexPath as NSIndexPath).row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
