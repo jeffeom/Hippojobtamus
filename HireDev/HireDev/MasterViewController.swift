@@ -36,7 +36,7 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(_ sender: AnyObject) {
-        contents.insert(Date() as AnyObject, at: 0)
+        contents.insert("NEW" as AnyObject, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
@@ -46,7 +46,7 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let content = contents[(indexPath as NSIndexPath).row] as! String
+                let content = contents[(indexPath as NSIndexPath).row]
                 let controller = segue.destination as! DetailViewController
                 controller.detailItem = content as AnyObject?
             }
