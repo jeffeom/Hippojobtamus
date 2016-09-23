@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoViewController: UIImagePickerController, UIImagePickerControllerDelegate {
+class PhotoViewController: UIViewController, UIImagePickerControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,21 +16,21 @@ class PhotoViewController: UIImagePickerController, UIImagePickerControllerDeleg
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
-            let cameraAlert: UIAlertController = UIAlertController.init(title: "Error", message: "Seems like you do not have Camera installed in the device", preferredStyle: UIAlertControllerStyle.alert)
-            
-            let myAlertAction: UIAlertAction = UIAlertAction.init(title: "OK", style: .cancel, handler: nil)
-            
-            cameraAlert.addAction(myAlertAction)
-            
-            self.present(cameraAlert, animated: true, completion: nil)
-        }else{
-            self.allowsEditing = false
-            self.sourceType = .camera
-            self.cameraCaptureMode = .photo
-            self.modalPresentationStyle = .fullScreen
-            self.present(self,animated: true,completion: nil)
-        }
+//        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+//            let cameraAlert: UIAlertController = UIAlertController.init(title: "Error", message: "Seems like you do not have Camera installed in the device", preferredStyle: UIAlertControllerStyle.alert)
+//            
+//            let myAlertAction: UIAlertAction = UIAlertAction.init(title: "OK", style: .cancel, handler: nil)
+//            
+//            cameraAlert.addAction(myAlertAction)
+//            
+//            self.present(cameraAlert, animated: true, completion: nil)
+//        }else{
+//            self.allowsEditing = false
+//            self.sourceType = .camera
+//            self.cameraCaptureMode = .photo
+//            self.modalPresentationStyle = .fullScreen
+//            self.present(self,animated: true,completion: nil)
+//        }
     }
 
     override func didReceiveMemoryWarning() {
