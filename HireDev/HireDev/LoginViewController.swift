@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
+import FontAwesome_swift
 
 class LoginViewController: UIViewController {
     

@@ -8,11 +8,6 @@ target 'HireDev' do
   # Pods for HireDev
   pod 'Firebase'
   pod 'Firebase/Auth'
-
-  source 'https://github.com/CocoaPods/Specs.git'
-  platform :ios, '8.0'
-  use_frameworks!
-
-  pod 'FontAwesome.swift'
+  pod 'FontAwesome.swift', :git => 'https://github.com/thii/FontAwesome.swift'
 
 end

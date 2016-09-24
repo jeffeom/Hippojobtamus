@@ -1,6 +1,6 @@
 // FontAwesome.swift
 //
-// Copyright (c) 2014-2015 Thi Doan
+// Copyright (c) 2014-present FontAwesome.swift contributors
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -35,17 +35,16 @@ public extension UIFont {
     public class func fontAwesomeOfSize(_ fontSize: CGFloat) -> UIFont {
         let name = "FontAwesome"
         if UIFont.fontNames(forFamilyName: name).isEmpty {
-            let oneTimeThing: () = {
-                FontLoader.loadFont(name)
-            }()
+            FontLoader.loadFont(name)
         }
+
         return UIFont(name: name, size: fontSize)!
     }
 }
 
 /// A FontAwesome extension to String.
 public extension String {
-
+    
     /// Get a FontAwesome icon string with the given icon name.
     ///
     /// - parameter name: The preferred icon name.
@@ -53,23 +52,37 @@ public extension String {
     public static func fontAwesomeIconWithName(_ name: FontAwesome) -> String {
         return name.rawValue.substring(to: name.rawValue.characters.index(name.rawValue.startIndex, offsetBy: 1))
     }
-
+    
     /// Get a FontAwesome icon string with the given CSS icon code. Icon code can be found here: http://fontawesome.io/icons/
     ///
     /// - parameter code: The preferred icon name.
     /// - returns: A string that will appear as icon with FontAwesome.
     public static func fontAwesomeIconWithCode(_ code: String) -> String? {
+        
+        guard let name = self.fontAwesomeFromCode(code) else {
+            return nil
+        }
+        
+        return self.fontAwesomeIconWithName(name)
+    }
+    
+    /// Get a FontAwesome icon with the given CSS icon code. Icon code can be found here: http://fontawesome.io/icons/
+    ///
+    /// - parameter code: The preferred icon name.
+    /// - returns: An internal corresponding FontAwesome code.
+    public static func fontAwesomeFromCode(_ code: String) -> FontAwesome? {
+        
         guard let raw = FontAwesomeIcons[code], let icon = FontAwesome(rawValue: raw) else {
             return nil
         }
-
-        return self.fontAwesomeIconWithName(icon)
+        
+        return icon
     }
 }
 
 /// A FontAwesome extension to UIImage.
 public extension UIImage {
-
+    
     /// Get a FontAwesome image with the given icon name, text color, size and an optional background color.
     ///
     /// - parameter name: The preferred icon name.
@@ -92,6 +105,18 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         return image!
     }
+    
+    /// Get a FontAwesome image with the given icon css code, text color, size and an optional background color.
+    ///
+    /// - parameter code: The preferred icon css code.
+    /// - parameter textColor: The text color.
+    /// - parameter size: The image size.
+    /// - parameter backgroundColor: The background color (optional).
+    /// - returns: A string that will appear as icon with FontAwesome
+    public static func fontAwesomeIconWithCode(_ code: String, textColor: UIColor, size: CGSize, backgroundColor: UIColor = UIColor.clear) -> UIImage? {
+        guard let name = String.fontAwesomeFromCode(code) else { return nil }
+        return fontAwesomeIconWithName(name, textColor: textColor, size: size, backgroundColor: backgroundColor)
+    }
 }
 
 // MARK: - Private
@@ -99,9 +124,9 @@ public extension UIImage {
 private class FontLoader {
     class func loadFont(_ name: String) {
         let bundle = Bundle(for: FontLoader.self)
-        var fontURL: URL
         let identifier = bundle.bundleIdentifier
 
+        var fontURL: URL
         if identifier?.hasPrefix("org.cocoapods") == true {
             // If this framework is added using CocoaPods, resources is placed under a subdirectory
             fontURL = bundle.url(forResource: name, withExtension: "otf", subdirectory: "FontAwesome.swift.bundle")!

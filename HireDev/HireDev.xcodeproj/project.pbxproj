@@ -416,6 +416,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 81280D31713E265017FB9967 /* Pods-HireDev.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -447,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 00353D0515AA1900B3822BA0 /* Pods-HireDev.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

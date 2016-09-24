@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KGD-UQ-gOr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="26I-HY-EX6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -654,6 +654,16 @@
                                                     <constraint firstAttribute="height" constant="50" id="2ZX-9Q-YOk"/>
                                                 </constraints>
                                             </imageView>
+                                            <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rvs-e5-VjL" customClass="FontAwesomeView" customModule="FontAwesome_swift">
+                                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="4qW-KG-yvU"/>
+                                                    <constraint firstAttribute="height" constant="20" id="z5G-TF-mtk"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="iconCode" value="fa-envelope"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fl8-lG-v41">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="cDJ-6q-iaa"/>
@@ -663,13 +673,14 @@
                                             </textField>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="rvs-e5-VjL" firstAttribute="centerY" secondItem="dbK-rJ-cUt" secondAttribute="centerY" id="7o1-Vz-p0R"/>
                                             <constraint firstAttribute="trailing" secondItem="Fl8-lG-v41" secondAttribute="trailing" constant="10" id="HZV-RB-tAM"/>
-                                            <constraint firstItem="Fl8-lG-v41" firstAttribute="centerX" secondItem="dbK-rJ-cUt" secondAttribute="centerX" id="Nqr-Sq-xmx"/>
-                                            <constraint firstItem="Fl8-lG-v41" firstAttribute="leading" secondItem="dbK-rJ-cUt" secondAttribute="leading" constant="10" id="bok-Vu-DpZ"/>
+                                            <constraint firstItem="rvs-e5-VjL" firstAttribute="leading" secondItem="dbK-rJ-cUt" secondAttribute="leading" constant="8" id="SbD-WY-fln"/>
                                             <constraint firstItem="Fl8-lG-v41" firstAttribute="centerY" secondItem="dbK-rJ-cUt" secondAttribute="centerY" id="cL5-Bv-J53"/>
                                             <constraint firstItem="Hbx-HK-d2t" firstAttribute="centerX" secondItem="dbK-rJ-cUt" secondAttribute="centerX" id="kAF-zt-bTw"/>
                                             <constraint firstItem="Hbx-HK-d2t" firstAttribute="centerY" secondItem="dbK-rJ-cUt" secondAttribute="centerY" id="tEq-Te-YXI"/>
                                             <constraint firstAttribute="height" constant="50" id="und-Rw-0Cc"/>
+                                            <constraint firstItem="Fl8-lG-v41" firstAttribute="leading" secondItem="rvs-e5-VjL" secondAttribute="trailing" constant="8" id="wwW-c8-66A"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9G-cu-fxD" userLabel="PasswordInput">
@@ -679,6 +690,16 @@
                                                     <constraint firstAttribute="height" constant="50" id="yqD-z5-Drv"/>
                                                 </constraints>
                                             </imageView>
+                                            <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cS-6D-wJt" customClass="FontAwesomeView" customModule="FontAwesome_swift">
+                                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="6Am-ku-d9x"/>
+                                                    <constraint firstAttribute="height" constant="20" id="ly5-ww-Ga2"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="iconCode" value="fa-key"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9XJ-Ny-dg1">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="sQu-H4-WUl"/>
@@ -689,9 +710,10 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="9XJ-Ny-dg1" secondAttribute="trailing" constant="10" id="EOE-ok-dpr"/>
-                                            <constraint firstItem="9XJ-Ny-dg1" firstAttribute="leading" secondItem="K9G-cu-fxD" secondAttribute="leading" constant="10" id="IQz-BE-F79"/>
-                                            <constraint firstItem="9XJ-Ny-dg1" firstAttribute="centerX" secondItem="K9G-cu-fxD" secondAttribute="centerX" id="NdU-E2-o2Y"/>
+                                            <constraint firstItem="1cS-6D-wJt" firstAttribute="centerY" secondItem="K9G-cu-fxD" secondAttribute="centerY" id="J8j-fP-P9P"/>
+                                            <constraint firstItem="1cS-6D-wJt" firstAttribute="leading" secondItem="K9G-cu-fxD" secondAttribute="leading" constant="8" id="OuJ-2n-tev"/>
                                             <constraint firstItem="9XJ-Ny-dg1" firstAttribute="centerY" secondItem="K9G-cu-fxD" secondAttribute="centerY" id="P8z-Vv-u4i"/>
+                                            <constraint firstItem="9XJ-Ny-dg1" firstAttribute="leading" secondItem="1cS-6D-wJt" secondAttribute="trailing" constant="8" id="RCC-l3-e5X"/>
                                             <constraint firstItem="aCC-MI-63Y" firstAttribute="centerX" secondItem="K9G-cu-fxD" secondAttribute="centerX" id="b4y-6u-LgV"/>
                                             <constraint firstItem="aCC-MI-63Y" firstAttribute="centerY" secondItem="K9G-cu-fxD" secondAttribute="centerY" id="oNS-a2-cAF"/>
                                             <constraint firstAttribute="height" constant="50" id="zMD-tr-xnf"/>
@@ -837,7 +859,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyM-ow-6Nw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1157.9710144927537" y="-1265.217391304348"/>
+            <point key="canvasLocation" x="913" y="-1266"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="1uL-Rj-LfE">
@@ -1109,7 +1131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQY-xt-Y5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1831.8840579710147" y="-1266.0326086956522"/>
+            <point key="canvasLocation" x="1585" y="-1265"/>
         </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
