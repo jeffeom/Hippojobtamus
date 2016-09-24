@@ -24,6 +24,8 @@
 		40D0F0821D864CA90076891D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */; };
 		40D0F0831D864CA90076891D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F0801D864CA90076891D /* FBSDKShareKit.framework */; };
 		40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */; };
+		40F301601D9680880035D47A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F3015F1D9680880035D47A /* SettingViewController.swift */; };
+		40F301621D9680DC0035D47A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F301611D9680DC0035D47A /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		40D0F0801D864CA90076891D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		40D0F0841D86643F0076891D /* HireDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HireDev.entitlements; sourceTree = "<group>"; };
 		40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+KeyboardDismiss.swift"; sourceTree = "<group>"; };
+		40F3015F1D9680880035D47A /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		40F301611D9680DC0035D47A /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		81280D31713E265017FB9967 /* Pods-HireDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HireDev/Pods-HireDev.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +145,7 @@
 		407638B51D82441E00C7A892 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				40F301611D9680DC0035D47A /* TabBarController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */,
 				400842C51D8D1C9000B30904 /* HomeViewController.swift */,
 				409B00821D9509D700E5174E /* PhotoViewController.swift */,
+				40F3015F1D9680880035D47A /* SettingViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -294,7 +300,9 @@
 				40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */,
 				407638A31D82421600C7A892 /* DetailViewController.swift in Sources */,
 				407638A11D82421600C7A892 /* MasterViewController.swift in Sources */,
+				40F301601D9680880035D47A /* SettingViewController.swift in Sources */,
 				409B00831D9509D700E5174E /* PhotoViewController.swift in Sources */,
+				40F301621D9680DC0035D47A /* TabBarController.swift in Sources */,
 				400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */,
 				4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */,
 			);

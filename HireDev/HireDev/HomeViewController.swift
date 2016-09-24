@@ -27,7 +27,6 @@ class HomeViewController: UIViewController {
         serverObjects = (["hi, server"] as AnyObject) as! [AnyObject]
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -546,7 +546,7 @@
                             <constraint firstAttribute="trailing" secondItem="tgd-G7-aXU" secondAttribute="trailing" id="j51-kE-cr3"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Photo" image="email logofinal" id="EYX-TT-t6c"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AL6-O5-kyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -565,7 +565,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="emaillogopressed" id="1kH-wq-trp"/>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWd-L8-5IT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -574,7 +574,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="7jm-JU-gZQ">
             <objects>
-                <tabBarController storyboardIdentifier="verifiedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KGD-UQ-gOr" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="verifiedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KGD-UQ-gOr" customClass="TabBarController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="nr3-Vp-MaG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1146,11 +1146,11 @@
                                 <rect key="frame" x="0.0" y="86" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <frame key="frameInset" minX="15" width="345" height="43.5"/>
+                                            <frame key="frameInset" minX="15" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1180,11 +1180,9 @@
         <scene sceneID="Mr6-jn-GZU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Weo-bh-k9g" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="facebooklogofinal" id="L8U-Th-QVA">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1202,7 +1200,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1226,7 +1224,6 @@
         <image name="circle_logo" width="152" height="152"/>
         <image name="education" width="300" height="300"/>
         <image name="email logofinal" width="103" height="103"/>
-        <image name="emaillogopressed" width="103" height="103"/>
         <image name="facebooklogofinal" width="103" height="103"/>
         <image name="greenbackground" width="750" height="1334"/>
         <image name="grocery" width="300" height="300"/>
