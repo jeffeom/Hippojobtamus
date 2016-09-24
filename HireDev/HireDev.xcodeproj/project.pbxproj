@@ -10,6 +10,7 @@
 		1BD5FCC3BB807DEA5856500A /* Pods_HireDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */; };
 		400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400842C51D8D1C9000B30904 /* HomeViewController.swift */; };
 		401BDED31D93BFA500D5A749 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401BDED21D93BFA500D5A749 /* Bolts.framework */; };
+		40426E9E1D9504AD005D704E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40426E9D1D9504AD005D704E /* GoogleService-Info.plist */; };
 		4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076389E1D82421600C7A892 /* AppDelegate.swift */; };
 		407638A11D82421600C7A892 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A01D82421600C7A892 /* MasterViewController.swift */; };
 		407638A31D82421600C7A892 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A21D82421600C7A892 /* DetailViewController.swift */; };
@@ -18,11 +19,13 @@
 		407638AB1D82421600C7A892 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407638A91D82421600C7A892 /* LaunchScreen.storyboard */; };
 		407638BA1D8245C100C7A892 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638B91D8245C100C7A892 /* LoginViewController.swift */; };
 		407638BC1D82958900C7A892 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638BB1D82958900C7A892 /* CreateAccountViewController.swift */; };
+		409B00831D9509D700E5174E /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B00821D9509D700E5174E /* PhotoViewController.swift */; };
 		40D0F0811D864CA90076891D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */; };
 		40D0F0821D864CA90076891D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */; };
 		40D0F0831D864CA90076891D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F0801D864CA90076891D /* FBSDKShareKit.framework */; };
 		40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */; };
-		40EF26BF1D862FE800F81503 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40EF26BE1D862FE800F81503 /* GoogleService-Info.plist */; };
+		40F301601D9680880035D47A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F3015F1D9680880035D47A /* SettingViewController.swift */; };
+		40F301621D9680DC0035D47A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F301611D9680DC0035D47A /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,7 @@
 		2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HireDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		400842C51D8D1C9000B30904 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		401BDED21D93BFA500D5A749 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		40426E9D1D9504AD005D704E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/HIPPO/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4076389B1D82421600C7A892 /* HireDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HireDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4076389E1D82421600C7A892 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		407638A01D82421600C7A892 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -40,12 +44,14 @@
 		407638AC1D82421600C7A892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		407638B91D8245C100C7A892 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		407638BB1D82958900C7A892 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		409B00821D9509D700E5174E /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		40D0F0801D864CA90076891D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		40D0F0841D86643F0076891D /* HireDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HireDev.entitlements; sourceTree = "<group>"; };
 		40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+KeyboardDismiss.swift"; sourceTree = "<group>"; };
-		40EF26BE1D862FE800F81503 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		40F3015F1D9680880035D47A /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		40F301611D9680DC0035D47A /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		81280D31713E265017FB9967 /* Pods-HireDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HireDev/Pods-HireDev.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,7 +137,7 @@
 			children = (
 				4076389E1D82421600C7A892 /* AppDelegate.swift */,
 				407638AC1D82421600C7A892 /* Info.plist */,
-				40EF26BE1D862FE800F81503 /* GoogleService-Info.plist */,
+				40426E9D1D9504AD005D704E /* GoogleService-Info.plist */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -139,6 +145,7 @@
 		407638B51D82441E00C7A892 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				40F301611D9680DC0035D47A /* TabBarController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -152,6 +159,8 @@
 				407638BB1D82958900C7A892 /* CreateAccountViewController.swift */,
 				40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */,
 				400842C51D8D1C9000B30904 /* HomeViewController.swift */,
+				409B00821D9509D700E5174E /* PhotoViewController.swift */,
+				40F3015F1D9680880035D47A /* SettingViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -225,7 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				407638AB1D82421600C7A892 /* LaunchScreen.storyboard in Resources */,
-				40EF26BF1D862FE800F81503 /* GoogleService-Info.plist in Resources */,
+				40426E9E1D9504AD005D704E /* GoogleService-Info.plist in Resources */,
 				407638A81D82421600C7A892 /* Assets.xcassets in Resources */,
 				407638A61D82421600C7A892 /* Main.storyboard in Resources */,
 			);
@@ -291,6 +300,9 @@
 				40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */,
 				407638A31D82421600C7A892 /* DetailViewController.swift in Sources */,
 				407638A11D82421600C7A892 /* MasterViewController.swift in Sources */,
+				40F301601D9680880035D47A /* SettingViewController.swift in Sources */,
+				409B00831D9509D700E5174E /* PhotoViewController.swift in Sources */,
+				40F301621D9680DC0035D47A /* TabBarController.swift in Sources */,
 				400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */,
 				4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */,
 			);
@@ -412,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 81280D31713E265017FB9967 /* Pods-HireDev.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -443,6 +456,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 00353D0515AA1900B3822BA0 /* Pods-HireDev.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
