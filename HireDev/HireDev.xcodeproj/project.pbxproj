@@ -19,7 +19,7 @@
 		407638AB1D82421600C7A892 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407638A91D82421600C7A892 /* LaunchScreen.storyboard */; };
 		407638BA1D8245C100C7A892 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638B91D8245C100C7A892 /* LoginViewController.swift */; };
 		407638BC1D82958900C7A892 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638BB1D82958900C7A892 /* CreateAccountViewController.swift */; };
-		409B00831D9509D700E5174E /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B00821D9509D700E5174E /* PhotoViewController.swift */; };
+		409B00831D9509D700E5174E /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B00821D9509D700E5174E /* UploadViewController.swift */; };
 		40D0F0811D864CA90076891D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */; };
 		40D0F0821D864CA90076891D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */; };
 		40D0F0831D864CA90076891D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F0801D864CA90076891D /* FBSDKShareKit.framework */; };
@@ -44,7 +44,7 @@
 		407638AC1D82421600C7A892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		407638B91D8245C100C7A892 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		407638BB1D82958900C7A892 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
-		409B00821D9509D700E5174E /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		409B00821D9509D700E5174E /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		40D0F0801D864CA90076891D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 				407638BB1D82958900C7A892 /* CreateAccountViewController.swift */,
 				40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */,
 				400842C51D8D1C9000B30904 /* HomeViewController.swift */,
-				409B00821D9509D700E5174E /* PhotoViewController.swift */,
+				409B00821D9509D700E5174E /* UploadViewController.swift */,
 				40F3015F1D9680880035D47A /* SettingViewController.swift */,
 			);
 			name = Controller;
@@ -301,7 +301,7 @@
 				407638A31D82421600C7A892 /* DetailViewController.swift in Sources */,
 				407638A11D82421600C7A892 /* MasterViewController.swift in Sources */,
 				40F301601D9680880035D47A /* SettingViewController.swift in Sources */,
-				409B00831D9509D700E5174E /* PhotoViewController.swift in Sources */,
+				409B00831D9509D700E5174E /* UploadViewController.swift in Sources */,
 				40F301621D9680DC0035D47A /* TabBarController.swift in Sources */,
 				400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */,
 				4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */,
