@@ -8,6 +8,7 @@ target 'HireDev' do
   # Pods for HireDev
   pod 'Firebase'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
   pod 'FontAwesome.swift', :git => 'https://github.com/thii/FontAwesome.swift'
 
 end

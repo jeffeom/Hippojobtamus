@@ -73,9 +73,7 @@ class LoginViewController: UIViewController {
                         self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
                     }else{
                         NSLog("User: \(user?.displayName), \(user?.email)")
-                        let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
-                        self.navigationController?.pushViewController(confirmedViewController!
-                            , animated: true)
+                        self.verifiedUser()
                     }
                 }
             }

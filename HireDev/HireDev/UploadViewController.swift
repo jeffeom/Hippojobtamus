@@ -9,6 +9,8 @@
 import UIKit
 import MobileCoreServices
 import FontAwesome_swift
+import FirebaseDatabase
+import Firebase
 
 class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
@@ -21,14 +23,20 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
     @IBOutlet weak var seeMore: UILabel!
     
+    
     // MARK: Properties
+    let ref = FIRDatabase.database().reference(withPath: "job-post")
+    var savedJobs: [JobItem] = []
+    
     let category: [String] = ["Cafe", "Server", "Tutor", "Sales", "Reception", "Grocery", "Bank", "Others"]
     var hidden: Bool = true
     var selectedIndexPath: IndexPath = IndexPath()
     var checked: [Bool] = [false, false, false, false, false, false, false, false]
     var newMedia: Bool?
-    
     let heartShape: String = String.fontAwesomeIconWithName(FontAwesome.Heart)
+    var imageData: NSData = NSData()
+    var imageString: String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +99,9 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 as! UIImage
             
             photoView.image = image
+            imageData = UIImageJPEGRepresentation(image, 0.1)! as NSData
+            imageString = imageData.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
+            
             
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
@@ -148,16 +159,6 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    @IBAction func submitButton(_ sender: AnyObject) {
-        let selectedCategory: [String] = chosenCategory(array: checked)
-        
-        NSLog("I checked: \(selectedCategory.count) of category and they are \(selectedCategory.description)")
-        
-        let alert = UIAlertController(title: "Thank You!", message: "Job is posted. Fellow Hippos will appreciate your work " + "❤️", preferredStyle: UIAlertControllerStyle.alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
     
     @IBAction func takePhoto(_ sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
@@ -176,6 +177,25 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func submitButton(_ sender: AnyObject) {
+        let selectedCategory: [String] = chosenCategory(array: checked)
+        
+        NSLog("I checked: \(selectedCategory.count) of category and they are \(selectedCategory.description)")
+        
+        let alert = UIAlertController(title: "Thank You!", message: "Job is posted. Fellow Hippos will appreciate your work " + "❤️", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//        let currentUser = FIRAuth.auth()?.currentUser
+        self.present(alert, animated: true) {
+            let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString)
+            self.savedJobs.append(jobItem)
+            
+            let jobItemRef = self.ref.child((self.titleField.text?.lowercased())!)
+            jobItemRef.setValue(jobItem.toAnyObject())
+            
         }
     }
     

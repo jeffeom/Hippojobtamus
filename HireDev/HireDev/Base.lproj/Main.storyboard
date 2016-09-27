@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KGD-UQ-gOr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="26I-HY-EX6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -647,12 +647,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1180"/>
                     <connections>
-                        <outlet property="commentsField" destination="dNk-ge-gEI" id="Byj-Dh-jtw"/>
+                        <outlet property="commentsField" destination="dNk-ge-gEI" id="UNK-FI-Wpn"/>
                         <outlet property="myTableView" destination="HOy-Ed-gdn" id="StW-0Y-PH5"/>
                         <outlet property="photoButton" destination="gcB-Fg-Zvt" id="YCL-z2-oEm"/>
                         <outlet property="photoView" destination="aVr-9O-4wh" id="P4M-fh-tTT"/>
                         <outlet property="seeMore" destination="408-5w-gaw" id="CV2-YA-ibY"/>
-                        <outlet property="titleField" destination="7Cz-25-bZt" id="4m6-xK-9OI"/>
+                        <outlet property="titleField" destination="7Cz-25-bZt" id="bwZ-hb-bdG"/>
                         <outlet property="viewHeight" destination="qZ5-ug-vkX" id="bWa-TT-bgk"/>
                     </connections>
                 </viewController>
