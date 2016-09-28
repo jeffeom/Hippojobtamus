@@ -15,6 +15,7 @@ import Firebase
 class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
     // MARK: IBOutlets
+    
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var photoView: UIImageView!
@@ -25,6 +26,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     // MARK: Properties
+    
     let ref = FIRDatabase.database().reference(withPath: "job-post")
     var savedJobs: [JobItem] = []
     
@@ -43,7 +45,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         viewHeight.constant = 1050
         self.myTableView.isHidden = hidden
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +91,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: Photo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    
+        
         let mediaType = info[UIImagePickerControllerMediaType] as! String
         
         self.dismiss(animated: true, completion: nil)
@@ -111,7 +113,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {
         
-        if error != nil {
+        if let _ = error {
             let alert = UIAlertController(title: "Save Failed",
                                           message: "Failed to save image",
                                           preferredStyle: UIAlertControllerStyle.alert)
@@ -121,14 +123,14 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             alert.addAction(cancelAction)
             self.present(alert, animated: true,
-                                       completion: nil)
+                         completion: nil)
         }else{
             let alert = UIAlertController(title: "Saved to Device",
                                           message: "Your photo is seaved Successfully",
                                           preferredStyle: UIAlertControllerStyle.alert)
             
             let okayAction = UIAlertAction(title: "OK",
-                                             style: .default, handler: nil)
+                                           style: .default, handler: nil)
             
             alert.addAction(okayAction)
             self.present(alert, animated: true,
@@ -185,17 +187,24 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         NSLog("I checked: \(selectedCategory.count) of category and they are \(selectedCategory.description)")
         
-        let alert = UIAlertController(title: "Thank You!", message: "Job is posted. Fellow Hippos will appreciate your work " + "❤️", preferredStyle: UIAlertControllerStyle.alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//        let currentUser = FIRAuth.auth()?.currentUser
-        self.present(alert, animated: true) {
-            let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString)
-            self.savedJobs.append(jobItem)
+        if (check() && selectedCategory.count != 0){
+            let alert = UIAlertController(title: "Thank You!", message: "Job is posted. Fellow Hippos will appreciate your work " + "❤️", preferredStyle: UIAlertControllerStyle.alert)
             
-            let jobItemRef = self.ref.child((self.titleField.text?.lowercased())!)
-            jobItemRef.setValue(jobItem.toAnyObject())
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             
+            //        let currentUser = FIRAuth.auth()?.currentUser
+            self.present(alert, animated: true) {
+                let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString)
+                self.savedJobs.append(jobItem)
+                let jobItemRef = self.ref.child((self.titleField.text?.lowercased())!)
+                jobItemRef.setValue(jobItem.toAnyObject())
+                
+                self.reset()
+            }
+        }else{
+            let alert = UIAlertController(title: "Error", message: "Sorry, I think you left one of the fields empty", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -209,5 +218,29 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         return chosenCategory
+    }
+    
+    // MARK: Check
+    
+    func check() -> Bool {
+        if let _ = titleField.text, !imageString.isEmpty {
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    // MARK: Reset
+    
+    func reset() {
+        titleField.text = ""
+        commentsField.text = "Optional"
+        photoView.image = UIImage.init(named: "upload_box")
+        checked = [false, false, false, false, false, false, false, false]
+        imageString = ""
+        myTableView.reloadData()
+        viewHeight.constant = 1050
+        self.myTableView.isHidden = hidden
     }
 }
