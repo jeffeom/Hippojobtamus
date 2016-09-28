@@ -140,6 +140,7 @@
 				4076389E1D82421600C7A892 /* AppDelegate.swift */,
 				407638AC1D82421600C7A892 /* Info.plist */,
 				40426E9D1D9504AD005D704E /* GoogleService-Info.plist */,
+				40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */,
 				40DAA3A41D99F040005806BE /* JobItem.swift */,
 			);
 			name = Model;
@@ -160,7 +161,6 @@
 				407638A21D82421600C7A892 /* DetailViewController.swift */,
 				407638B91D8245C100C7A892 /* LoginViewController.swift */,
 				407638BB1D82958900C7A892 /* CreateAccountViewController.swift */,
-				40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */,
 				400842C51D8D1C9000B30904 /* HomeViewController.swift */,
 				409B00821D9509D700E5174E /* UploadViewController.swift */,
 				40F3015F1D9680880035D47A /* SettingViewController.swift */,

@@ -42,10 +42,10 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         
         viewHeight.constant = 1050
         self.myTableView.isHidden = hidden
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
