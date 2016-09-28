@@ -42,7 +42,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+//        self.hideKeyboardWhenTappedAround()
         
         viewHeight.constant = 1050
         self.myTableView.isHidden = hidden
@@ -114,27 +114,13 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {
         
         if let _ = error {
-            let alert = UIAlertController(title: "Save Failed",
-                                          message: "Failed to save image",
-                                          preferredStyle: UIAlertControllerStyle.alert)
-            
-            let cancelAction = UIAlertAction(title: "OK",
-                                             style: .cancel, handler: nil)
-            
-            alert.addAction(cancelAction)
-            self.present(alert, animated: true,
-                         completion: nil)
+            showAlert(text: "Failed to save image", title: "Save Failed", fn: {
+                return
+            })
         }else{
-            let alert = UIAlertController(title: "Saved to Device",
-                                          message: "Your photo is seaved Successfully",
-                                          preferredStyle: UIAlertControllerStyle.alert)
-            
-            let okayAction = UIAlertAction(title: "OK",
-                                           style: .default, handler: nil)
-            
-            alert.addAction(okayAction)
-            self.present(alert, animated: true,
-                         completion: nil)
+            showAlert(text: "Your photo is saved successfully", title: "Saved to Device", fn: {
+                return
+            })
         }
     }
     
@@ -194,7 +180,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             //        let currentUser = FIRAuth.auth()?.currentUser
             self.present(alert, animated: true) {
-                let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString)
+                let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString, addedByUser: (UserDefaults.standard.object(forKey: "email") as? String)! )
                 self.savedJobs.append(jobItem)
                 let jobItemRef = self.ref.child((self.titleField.text?.lowercased())!)
                 jobItemRef.setValue(jobItem.toAnyObject())
@@ -240,7 +226,5 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
         checked = [false, false, false, false, false, false, false, false]
         imageString = ""
         myTableView.reloadData()
-        viewHeight.constant = 1050
-        self.myTableView.isHidden = hidden
     }
 }

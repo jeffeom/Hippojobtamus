@@ -23,21 +23,4 @@ class TabBarController: UITabBarController {
         self.viewControllers?[1].tabBarItem = UITabBarItem(title: "Upload", image: addTabImage, selectedImage: addTabImage)
         self.viewControllers?[2].tabBarItem = UITabBarItem(title: "Setting", image: settingTabImage, selectedImage: settingTabImage)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

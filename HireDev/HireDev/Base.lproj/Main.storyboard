@@ -682,21 +682,58 @@
         <!--Profile-->
         <scene sceneID="qHZ-ov-KC6">
             <objects>
-                <viewController id="uWm-3i-vUC" sceneMemberID="viewController">
+                <viewController id="uWm-3i-vUC" customClass="SettingViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Clp-PV-grg"/>
                         <viewControllerLayoutGuide type="bottom" id="Ebz-HA-nRo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gcs-gM-c2S">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTZ-Ly-03o">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QxK-Fb-2Fe">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xu-tG-2gw">
+                                                <state key="normal" title="Sign Out"/>
+                                                <connections>
+                                                    <action selector="signOutButton:" destination="uWm-3i-vUC" eventType="touchUpInside" id="oBs-ZT-lDZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="9xu-tG-2gw" firstAttribute="centerX" secondItem="QxK-Fb-2Fe" secondAttribute="centerX" id="DaL-Uc-yyj"/>
+                                            <constraint firstItem="9xu-tG-2gw" firstAttribute="centerY" secondItem="QxK-Fb-2Fe" secondAttribute="centerY" id="FIw-Gb-bg3"/>
+                                            <constraint firstAttribute="height" constant="1000" id="O4w-yg-TFC"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="QxK-Fb-2Fe" secondAttribute="trailing" id="Cql-wa-WEu"/>
+                                    <constraint firstItem="QxK-Fb-2Fe" firstAttribute="top" secondItem="lTZ-Ly-03o" secondAttribute="top" id="ZCL-LC-eqw"/>
+                                    <constraint firstAttribute="bottom" secondItem="QxK-Fb-2Fe" secondAttribute="bottom" id="w0M-Ks-aPI"/>
+                                    <constraint firstItem="QxK-Fb-2Fe" firstAttribute="leading" secondItem="lTZ-Ly-03o" secondAttribute="leading" id="yWw-F4-0ee"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lTZ-Ly-03o" firstAttribute="height" secondItem="gcs-gM-c2S" secondAttribute="height" id="QUo-Kb-hvd"/>
+                            <constraint firstItem="lTZ-Ly-03o" firstAttribute="centerX" secondItem="gcs-gM-c2S" secondAttribute="centerX" id="Vbu-KF-xwo"/>
+                            <constraint firstItem="QxK-Fb-2Fe" firstAttribute="width" secondItem="gcs-gM-c2S" secondAttribute="width" id="XOG-s9-H3S"/>
+                            <constraint firstItem="lTZ-Ly-03o" firstAttribute="width" secondItem="gcs-gM-c2S" secondAttribute="width" id="Xhf-NU-YCv"/>
+                            <constraint firstItem="lTZ-Ly-03o" firstAttribute="centerY" secondItem="gcs-gM-c2S" secondAttribute="centerY" id="g43-z6-ub6"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWd-L8-5IT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2260" y="44"/>
+            <point key="canvasLocation" x="2254" y="193"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7jm-JU-gZQ">
@@ -1331,7 +1368,7 @@
         <!--Navigation Controller-->
         <scene sceneID="sBi-4Y-EBq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="26I-HY-EX6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

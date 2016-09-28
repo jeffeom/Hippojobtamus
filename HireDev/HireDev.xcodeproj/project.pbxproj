@@ -10,6 +10,8 @@
 		1BD5FCC3BB807DEA5856500A /* Pods_HireDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */; };
 		400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400842C51D8D1C9000B30904 /* HomeViewController.swift */; };
 		401BDED31D93BFA500D5A749 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401BDED21D93BFA500D5A749 /* Bolts.framework */; };
+		403A169D1D9B8709001FB468 /* ViewController+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */; };
+		403A169F1D9B8939001FB468 /* UIAlertController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */; };
 		40426E9E1D9504AD005D704E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40426E9D1D9504AD005D704E /* GoogleService-Info.plist */; };
 		4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076389E1D82421600C7A892 /* AppDelegate.swift */; };
 		407638A11D82421600C7A892 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A01D82421600C7A892 /* MasterViewController.swift */; };
@@ -34,6 +36,8 @@
 		2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HireDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		400842C51D8D1C9000B30904 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		401BDED21D93BFA500D5A749 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+AlertView.swift"; sourceTree = "<group>"; };
+		403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Present.swift"; sourceTree = "<group>"; };
 		40426E9D1D9504AD005D704E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/HIPPO/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4076389B1D82421600C7A892 /* HireDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HireDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4076389E1D82421600C7A892 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				407638AC1D82421600C7A892 /* Info.plist */,
 				40426E9D1D9504AD005D704E /* GoogleService-Info.plist */,
 				40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */,
+				403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */,
+				403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */,
 				40DAA3A41D99F040005806BE /* JobItem.swift */,
 			);
 			name = Model;
@@ -300,10 +306,12 @@
 			files = (
 				407638BC1D82958900C7A892 /* CreateAccountViewController.swift in Sources */,
 				407638BA1D8245C100C7A892 /* LoginViewController.swift in Sources */,
+				403A169D1D9B8709001FB468 /* ViewController+AlertView.swift in Sources */,
 				40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */,
 				407638A31D82421600C7A892 /* DetailViewController.swift in Sources */,
 				407638A11D82421600C7A892 /* MasterViewController.swift in Sources */,
 				40F301601D9680880035D47A /* SettingViewController.swift in Sources */,
+				403A169F1D9B8939001FB468 /* UIAlertController+Present.swift in Sources */,
 				409B00831D9509D700E5174E /* UploadViewController.swift in Sources */,
 				40F301621D9680DC0035D47A /* TabBarController.swift in Sources */,
 				400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */,

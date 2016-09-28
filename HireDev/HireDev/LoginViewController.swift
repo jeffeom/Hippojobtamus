@@ -33,20 +33,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         emailField.delegate = self
-        emailField.tag = 0
-        
         passwordField.delegate = self
-        passwordField.tag = 1
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        self.emailLogo?.isHighlighted = false
-        self.fbLogo?.isHighlighted = false
-        
-        self.errorLabel.text = ""
+        if let _ = UserDefaults.standard.object(forKey: "uid"){
+            self.verifiedUser()
+        }else {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.emailLogo?.isHighlighted = false
+            self.fbLogo?.isHighlighted = false
+            
+            self.errorLabel.text = ""
+        }
     }
     
     //MARK: Button Functions
@@ -119,9 +119,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: Navigate if Verified
     
     func verifiedUser() {
-        let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
-        self.navigationController?.pushViewController(confirmedViewController!
-            , animated: true)
+        if let _ = UserDefaults.standard.object(forKey: "uid"){
+            let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
+            self.navigationController?.pushViewController(confirmedViewController!
+                , animated: true)
+        }else{
+            UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.uid, forKey: "uid")
+            UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.email, forKey: "email")
+            UserDefaults.standard.synchronize()
+            let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
+            self.navigationController?.pushViewController(confirmedViewController!
+                , animated: true)
+        }
     }
     
     
