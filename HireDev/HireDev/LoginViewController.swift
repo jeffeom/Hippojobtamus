@@ -11,14 +11,17 @@ import FBSDKLoginKit
 import Firebase
 import FontAwesome_swift
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
+    
+    //MARK: IBOutlets
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
-    
     @IBOutlet weak var emailLogo: UIImageView!
     @IBOutlet weak var fbLogo: UIImageView!
+    
+    //MARK: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +31,25 @@ class LoginViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        emailField.delegate = self
+        passwordField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-        self.emailLogo?.isHighlighted = false
-        self.fbLogo?.isHighlighted = false
-        
-        self.errorLabel.text = ""
+        if let _ = UserDefaults.standard.object(forKey: "uid"){
+            self.verifiedUser()
+        }else {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+            self.emailLogo?.isHighlighted = false
+            self.fbLogo?.isHighlighted = false
+            
+            self.errorLabel.text = ""
+        }
     }
+    
+    //MARK: Button Functions
     
     @IBAction func loginEmailButtonClicked(_ sender: AnyObject) {
         FIRAuth.auth()?.signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
@@ -73,9 +84,7 @@ class LoginViewController: UIViewController {
                         self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
                     }else{
                         NSLog("User: \(user?.displayName), \(user?.email)")
-                        let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
-                        self.navigationController?.pushViewController(confirmedViewController!
-                            , animated: true)
+                        self.verifiedUser()
                     }
                 }
             }
@@ -95,6 +104,9 @@ class LoginViewController: UIViewController {
             self.errorLabel.text = "Type in the email first and re-try it"
         }
     }
+    
+    //MARK: Button Images
+    
     @IBAction func fbTouchDown(_ sender: AnyObject) {
         fbLogo.highlightedImage = UIImage.init(named: "facebooklogopressed")
         fbLogo.isHighlighted = true
@@ -104,11 +116,25 @@ class LoginViewController: UIViewController {
         emailLogo.isHighlighted = true
     }
     
+    //MARK: Navigate if Verified
+    
     func verifiedUser() {
-        let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
-        self.navigationController?.pushViewController(confirmedViewController!
-            , animated: true)
+        if let _ = UserDefaults.standard.object(forKey: "uid"){
+            let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
+            self.navigationController?.pushViewController(confirmedViewController!
+                , animated: true)
+        }else{
+            UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.uid, forKey: "uid")
+            UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.email, forKey: "email")
+            UserDefaults.standard.synchronize()
+            let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
+            self.navigationController?.pushViewController(confirmedViewController!
+                , animated: true)
+        }
     }
+    
+    
+    // MARK: Keyboard Functions
     
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
@@ -124,5 +150,15 @@ class LoginViewController: UIViewController {
                 self.view.frame.origin.y += keyboardSize.height / 2.5
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Try to find next responder
+        if (textField == emailField){
+            passwordField.becomeFirstResponder()
+        } else if (textField == passwordField) {
+            textField.resignFirstResponder()
+        }
+        return false
     }
 }

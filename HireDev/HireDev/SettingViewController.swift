@@ -9,6 +9,12 @@
 import UIKit
 
 class SettingViewController: UIViewController {
+    
+    //MARK: IBOutlets
+    
+    
+    
+    //MARK: UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +27,16 @@ class SettingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func signOutButton(_ sender: AnyObject) {
+        let appDomain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: appDomain)
+        
+        self.showAlert(text: "You have successfully signed out", title: "Success!") { 
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "loginVC")
+            self.present(vc!, animated: true)
+        }
+        
+    }
 
     /*
     // MARK: - Navigation

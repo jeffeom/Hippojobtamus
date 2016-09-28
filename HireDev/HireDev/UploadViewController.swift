@@ -9,10 +9,13 @@
 import UIKit
 import MobileCoreServices
 import FontAwesome_swift
+import FirebaseDatabase
+import Firebase
 
 class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
     // MARK: IBOutlets
+    
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var photoView: UIImageView!
@@ -21,21 +24,28 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
     @IBOutlet weak var seeMore: UILabel!
     
+    
     // MARK: Properties
+    
+    let ref = FIRDatabase.database().reference(withPath: "job-post")
+    var savedJobs: [JobItem] = []
+    
     let category: [String] = ["Cafe", "Server", "Tutor", "Sales", "Reception", "Grocery", "Bank", "Others"]
     var hidden: Bool = true
     var selectedIndexPath: IndexPath = IndexPath()
     var checked: [Bool] = [false, false, false, false, false, false, false, false]
     var newMedia: Bool?
-    
     let heartShape: String = String.fontAwesomeIconWithName(FontAwesome.Heart)
+    var imageData: NSData = NSData()
+    var imageString: String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.hideKeyboardWhenTappedAround()
         
         viewHeight.constant = 1050
         self.myTableView.isHidden = hidden
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +91,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: Photo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    
+        
         let mediaType = info[UIImagePickerControllerMediaType] as! String
         
         self.dismiss(animated: true, completion: nil)
@@ -91,6 +101,9 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 as! UIImage
             
             photoView.image = image
+            imageData = UIImageJPEGRepresentation(image, 0.1)! as NSData
+            imageString = imageData.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
+            
             
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
@@ -100,28 +113,14 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {
         
-        if error != nil {
-            let alert = UIAlertController(title: "Save Failed",
-                                          message: "Failed to save image",
-                                          preferredStyle: UIAlertControllerStyle.alert)
-            
-            let cancelAction = UIAlertAction(title: "OK",
-                                             style: .cancel, handler: nil)
-            
-            alert.addAction(cancelAction)
-            self.present(alert, animated: true,
-                                       completion: nil)
+        if let _ = error {
+            showAlert(text: "Failed to save image", title: "Save Failed", fn: {
+                return
+            })
         }else{
-            let alert = UIAlertController(title: "Saved to Device",
-                                          message: "Your photo is seaved Successfully",
-                                          preferredStyle: UIAlertControllerStyle.alert)
-            
-            let okayAction = UIAlertAction(title: "OK",
-                                             style: .default, handler: nil)
-            
-            alert.addAction(okayAction)
-            self.present(alert, animated: true,
-                         completion: nil)
+            showAlert(text: "Your photo is saved successfully", title: "Saved to Device", fn: {
+                return
+            })
         }
     }
     
@@ -148,16 +147,6 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    @IBAction func submitButton(_ sender: AnyObject) {
-        let selectedCategory: [String] = chosenCategory(array: checked)
-        
-        NSLog("I checked: \(selectedCategory.count) of category and they are \(selectedCategory.description)")
-        
-        let alert = UIAlertController(title: "Thank You!", message: "Job is posted. Fellow Hippos will appreciate your work " + "❤️", preferredStyle: UIAlertControllerStyle.alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
     
     @IBAction func takePhoto(_ sender: AnyObject) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
@@ -179,6 +168,32 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    @IBAction func submitButton(_ sender: AnyObject) {
+        let selectedCategory: [String] = chosenCategory(array: checked)
+        
+        NSLog("I checked: \(selectedCategory.count) of category and they are \(selectedCategory.description)")
+        
+        if (check() && selectedCategory.count != 0){
+            let alert = UIAlertController(title: "Thank You!", message: "Job is posted. Fellow Hippos will appreciate your work " + "❤️", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            //        let currentUser = FIRAuth.auth()?.currentUser
+            self.present(alert, animated: true) {
+                let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString, addedByUser: (UserDefaults.standard.object(forKey: "email") as? String)! )
+                self.savedJobs.append(jobItem)
+                let jobItemRef = self.ref.child((self.titleField.text?.lowercased())!)
+                jobItemRef.setValue(jobItem.toAnyObject())
+                
+                self.reset()
+            }
+        }else{
+            let alert = UIAlertController(title: "Error", message: "Sorry, I think you left one of the fields empty", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     // MARK: Function
     
     func chosenCategory (array: [Bool]) -> [String] {
@@ -189,5 +204,27 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         return chosenCategory
+    }
+    
+    // MARK: Check
+    
+    func check() -> Bool {
+        if let _ = titleField.text, !imageString.isEmpty {
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    // MARK: Reset
+    
+    func reset() {
+        titleField.text = ""
+        commentsField.text = "Optional"
+        photoView.image = UIImage.init(named: "upload_box")
+        checked = [false, false, false, false, false, false, false, false]
+        imageString = ""
+        myTableView.reloadData()
     }
 }
