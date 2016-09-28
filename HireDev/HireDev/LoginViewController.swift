@@ -13,12 +13,15 @@ import FontAwesome_swift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    //MARK: IBOutlets
+    
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
-    
     @IBOutlet weak var emailLogo: UIImageView!
     @IBOutlet weak var fbLogo: UIImageView!
+    
+    //MARK: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +48,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.errorLabel.text = ""
     }
+    
+    //MARK: Button Functions
     
     @IBAction func loginEmailButtonClicked(_ sender: AnyObject) {
         FIRAuth.auth()?.signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
@@ -99,6 +104,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.errorLabel.text = "Type in the email first and re-try it"
         }
     }
+    
+    //MARK: Button Images
+    
     @IBAction func fbTouchDown(_ sender: AnyObject) {
         fbLogo.highlightedImage = UIImage.init(named: "facebooklogopressed")
         fbLogo.isHighlighted = true
@@ -108,6 +116,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailLogo.isHighlighted = true
     }
     
+    //MARK: Navigate if Verified
+    
     func verifiedUser() {
         let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
         self.navigationController?.pushViewController(confirmedViewController!
@@ -115,11 +125,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    // MARK: Keyboard
-    
-    @IBAction func primaryActionTriggered(_ sender: AnyObject) {
-        
-    }
+    // MARK: Keyboard Functions
     
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{

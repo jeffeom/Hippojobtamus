@@ -11,10 +11,15 @@ import Firebase
 //import FirebaseAuth
 
 class CreateAccountViewController: UIViewController {
+    
+    //MARK: IBOutlets
+    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    
+    //MARK: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +29,8 @@ class CreateAccountViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
+    
+    //MARK: Button functions
     
     @IBAction func cancelClicked(_ sender: AnyObject) {
         _ = self.navigationController?.popViewController(animated: true)
@@ -42,6 +49,8 @@ class CreateAccountViewController: UIViewController {
             }
         })
     }
+    
+    //MARK: Keyboard functions
     
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
