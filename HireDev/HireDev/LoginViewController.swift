@@ -11,7 +11,7 @@ import FBSDKLoginKit
 import Firebase
 import FontAwesome_swift
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -28,6 +28,12 @@ class LoginViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        emailField.delegate = self
+        emailField.tag = 0
+        
+        passwordField.delegate = self
+        passwordField.tag = 1
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,6 +114,13 @@ class LoginViewController: UIViewController {
             , animated: true)
     }
     
+    
+    // MARK: Keyboard
+    
+    @IBAction func primaryActionTriggered(_ sender: AnyObject) {
+        
+    }
+    
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
             if self.view.frame.origin.y == 0 {
@@ -122,5 +135,15 @@ class LoginViewController: UIViewController {
                 self.view.frame.origin.y += keyboardSize.height / 2.5
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Try to find next responder
+        if (textField == emailField){
+            passwordField.becomeFirstResponder()
+        } else if (textField == passwordField) {
+            textField.resignFirstResponder()
+        }
+        return false
     }
 }
