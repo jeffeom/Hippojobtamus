@@ -29,7 +29,6 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     let ref = FIRDatabase.database().reference(withPath: "job-post")
     var savedJobs: [JobItem] = []
-    
     let category: [String] = ["Cafe", "Server", "Tutor", "Sales", "Reception", "Grocery", "Bank", "Others"]
     var hidden: Bool = true
     var selectedIndexPath: IndexPath = IndexPath()
@@ -178,12 +177,14 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             
-            //        let currentUser = FIRAuth.auth()?.currentUser
             self.present(alert, animated: true) {
                 let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString, addedByUser: (UserDefaults.standard.object(forKey: "email") as? String)! )
                 self.savedJobs.append(jobItem)
-                let jobItemRef = self.ref.child((self.titleField.text?.lowercased())!)
-                jobItemRef.setValue(jobItem.toAnyObject())
+                
+                for aCategory in selectedCategory{
+                    let jobItemRef = self.ref.child(aCategory).child((self.titleField.text?.lowercased())!)
+                    jobItemRef.setValue(jobItem.toAnyObject())
+                }
                 
                 self.reset()
             }
