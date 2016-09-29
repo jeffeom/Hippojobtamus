@@ -23,58 +23,12 @@ class HomeViewController: UIViewController {
     var bankObjects = [JobItem]()
     var othersObjects = [JobItem]()
     var allItems = [JobItem]()
-    
-    let ref = FIRDatabase.database().reference(withPath: "job-post")
-    var distributedItem: [String: [JobItem]] = ["Cafe":[], "Server":[], "Tutor":[], "Sales":[], "Reception":[], "Grocery":[], "Bank":[], "Others":[], "All":[]]
-    let category: [String] = ["Cafe", "Server", "Tutor", "Sales", "Reception", "Grocery", "Bank", "Others", "All"]
+
     
     //MARK: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for aCategory in category{
-            self.ref.child(aCategory).observe(.value, with: { (snapshot) in
-                var newItems: [JobItem] = []
-                
-                for item in snapshot.children {
-                    let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
-                    newItems.append(jobItem)
-                }
-                self.distributeItem(item: newItems, name: aCategory)
-                self.allObjects = self.distributedItem["All"]!
-                self.cafeObjects = self.distributedItem["Cafe"]!
-                self.serverObjects = self.distributedItem["Server"]!
-                self.tutorObjects = self.distributedItem["Tutor"]!
-                self.salesObjects = self.self.distributedItem["Sales"]!
-                self.receptionObjects = self.distributedItem["Reception"]!
-                self.groceryObjects = self.distributedItem["Grocery"]!
-                self.bankObjects = self.distributedItem["Bank"]!
-                self.othersObjects = self.distributedItem["Others"]!
-            })
-            
-        }
-        //        }
-        //
-        //        self.ref.observe(.value, with: { snapshot in
-        //            var newItems: [JobItem] = []
-        //
-        //            for item in snapshot.children {
-        //                let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
-        //                newItems.append(jobItem)
-        //            }
-        //            self.distributeItem(item: newItems)
-        //
-        //            self.cafeObjects = self.distributedItem["Cafe"]!
-        //            self.serverObjects = self.distributedItem["Server"]!
-        //            self.tutorObjects = self.distributedItem["Tutor"]!
-        //            self.salesObjects = self.self.distributedItem["Sales"]!
-        //            self.receptionObjects = self.distributedItem["Reception"]!
-        //            self.groceryObjects = self.distributedItem["Grocery"]!
-        //            self.bankObjects = self.distributedItem["Bank"]!
-        //            self.othersObjects = self.distributedItem["Others"]!
-        //            self.allObjects = newItems
-        //        })
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -91,31 +45,31 @@ class HomeViewController: UIViewController {
             switch segue.identifier! as String {
             case "cafeTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = cafeObjects
+                controller.contents = "Cafe"
             case "serverTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = serverObjects
+                controller.contents = "Server"
             case "tutorTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = tutorObjects
+                controller.contents = "Tutor"
             case "salesTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = salesObjects
+                controller.contents = "Sales"
             case "allTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = allObjects
+                controller.contents = "All"
             case "receptionTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = receptionObjects
+                controller.contents = "Reception"
             case "groceryTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = groceryObjects
+                controller.contents = "Grocery"
             case "bankTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = bankObjects
+                controller.contents = "Bank"
             case "othersTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = othersObjects
+                controller.contents = "Others"
             default:
                 NSLog("Wrong Segue")
             }
@@ -124,11 +78,5 @@ class HomeViewController: UIViewController {
         }
     }
     
-    //MARK: Function
-    
-    func distributeItem(item: [JobItem], name: String){
-        for aItem: JobItem in item{
-            distributedItem[name]!.append(aItem)            
-        }
-    }
+
 }
