@@ -13,24 +13,68 @@ class HomeViewController: UIViewController {
     
     //MARK: Properties
     
-    var cafeObjects = [AnyObject]()
-    var serverObjects = [AnyObject]()
-    var tutorObjects = [AnyObject]()
-    var salesObjects = [AnyObject]()
-    var allObjects = [AnyObject]()
-    var receptionObjects = [AnyObject]()
-    var groceryObjects = [AnyObject]()
-    var bankObjects = [AnyObject]()
-    var othersObjects = [AnyObject]()
+    var cafeObjects = [JobItem]()
+    var serverObjects = [JobItem]()
+    var tutorObjects = [JobItem]()
+    var salesObjects = [JobItem]()
+    var allObjects = [JobItem]()
+    var receptionObjects = [JobItem]()
+    var groceryObjects = [JobItem]()
+    var bankObjects = [JobItem]()
+    var othersObjects = [JobItem]()
+    var allItems = [JobItem]()
     
+    let ref = FIRDatabase.database().reference(withPath: "job-post")
+    var distributedItem: [String: [JobItem]] = ["Cafe":[], "Server":[], "Tutor":[], "Sales":[], "Reception":[], "Grocery":[], "Bank":[], "Others":[], "All":[]]
+    let category: [String] = ["Cafe", "Server", "Tutor", "Sales", "Reception", "Grocery", "Bank", "Others", "All"]
     
     //MARK: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cafeObjects = (["herro, cafe"] as AnyObject) as! [AnyObject]
-        serverObjects = (["hi, server"] as AnyObject) as! [AnyObject]
+        for aCategory in category{
+            self.ref.child(aCategory).observe(.value, with: { (snapshot) in
+                var newItems: [JobItem] = []
+                
+                for item in snapshot.children {
+                    let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
+                    newItems.append(jobItem)
+                }
+                self.distributeItem(item: newItems, name: aCategory)
+                self.allObjects = self.distributedItem["All"]!
+                self.cafeObjects = self.distributedItem["Cafe"]!
+                self.serverObjects = self.distributedItem["Server"]!
+                self.tutorObjects = self.distributedItem["Tutor"]!
+                self.salesObjects = self.self.distributedItem["Sales"]!
+                self.receptionObjects = self.distributedItem["Reception"]!
+                self.groceryObjects = self.distributedItem["Grocery"]!
+                self.bankObjects = self.distributedItem["Bank"]!
+                self.othersObjects = self.distributedItem["Others"]!
+            })
+            
+        }
+        //        }
+        //
+        //        self.ref.observe(.value, with: { snapshot in
+        //            var newItems: [JobItem] = []
+        //
+        //            for item in snapshot.children {
+        //                let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
+        //                newItems.append(jobItem)
+        //            }
+        //            self.distributeItem(item: newItems)
+        //
+        //            self.cafeObjects = self.distributedItem["Cafe"]!
+        //            self.serverObjects = self.distributedItem["Server"]!
+        //            self.tutorObjects = self.distributedItem["Tutor"]!
+        //            self.salesObjects = self.self.distributedItem["Sales"]!
+        //            self.receptionObjects = self.distributedItem["Reception"]!
+        //            self.groceryObjects = self.distributedItem["Grocery"]!
+        //            self.bankObjects = self.distributedItem["Bank"]!
+        //            self.othersObjects = self.distributedItem["Others"]!
+        //            self.allObjects = newItems
+        //        })
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -77,6 +121,14 @@ class HomeViewController: UIViewController {
             }
         }else{
             NSLog("Segue nil")
+        }
+    }
+    
+    //MARK: Function
+    
+    func distributeItem(item: [JobItem], name: String){
+        for aItem: JobItem in item{
+            distributedItem[name]!.append(aItem)            
         }
     }
 }

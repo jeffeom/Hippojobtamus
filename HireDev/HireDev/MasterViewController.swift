@@ -13,16 +13,13 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     
     //from homeVC
-    var contents = [AnyObject]()
+    var contents = [JobItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 //        self.navigationItem.leftBarButtonItem = self.editButtonItem
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(MasterViewController.insertNewObject(_:)))
-        self.navigationItem.rightBarButtonItem = addButton
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -33,12 +30,6 @@ class MasterViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    func insertNewObject(_ sender: AnyObject) {
-        contents.insert("NEW" as AnyObject, at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        self.tableView.insertRows(at: [indexPath], with: .automatic)
     }
 
     // MARK: - Segues
@@ -64,11 +55,11 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! JobTableViewCell
         
         if (contents.count != 0) {
             let content = contents[(indexPath as NSIndexPath).row]
-            cell.textLabel!.text = content as? String
+            cell.titleLabel!.text = content.title
         }else{
             NSLog("content is empty")
         }

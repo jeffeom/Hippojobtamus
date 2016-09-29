@@ -172,7 +172,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         NSLog("I checked: \(selectedCategory.count) of category and they are \(selectedCategory.description)")
         
-        if (check() && selectedCategory.count != 0){
+        if (check() && selectedCategory.count != 1){
             let alert = UIAlertController(title: "Thank You!", message: "Job is posted. Fellow Hippos will appreciate your work " + "❤️", preferredStyle: UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -204,6 +204,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 chosenCategory.append(category[pos])
             }
         }
+        chosenCategory.append("All")
         return chosenCategory
     }
     
