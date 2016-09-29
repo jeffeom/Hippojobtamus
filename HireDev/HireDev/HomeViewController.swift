@@ -13,24 +13,22 @@ class HomeViewController: UIViewController {
     
     //MARK: Properties
     
-    var cafeObjects = [AnyObject]()
-    var serverObjects = [AnyObject]()
-    var tutorObjects = [AnyObject]()
-    var salesObjects = [AnyObject]()
-    var allObjects = [AnyObject]()
-    var receptionObjects = [AnyObject]()
-    var groceryObjects = [AnyObject]()
-    var bankObjects = [AnyObject]()
-    var othersObjects = [AnyObject]()
-    
+    var cafeObjects = [JobItem]()
+    var serverObjects = [JobItem]()
+    var tutorObjects = [JobItem]()
+    var salesObjects = [JobItem]()
+    var allObjects = [JobItem]()
+    var receptionObjects = [JobItem]()
+    var groceryObjects = [JobItem]()
+    var bankObjects = [JobItem]()
+    var othersObjects = [JobItem]()
+    var allItems = [JobItem]()
+
     
     //MARK: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        cafeObjects = (["herro, cafe"] as AnyObject) as! [AnyObject]
-        serverObjects = (["hi, server"] as AnyObject) as! [AnyObject]
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
@@ -47,31 +45,31 @@ class HomeViewController: UIViewController {
             switch segue.identifier! as String {
             case "cafeTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = cafeObjects
+                controller.contents = "Cafe"
             case "serverTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = serverObjects
+                controller.contents = "Server"
             case "tutorTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = tutorObjects
+                controller.contents = "Tutor"
             case "salesTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = salesObjects
+                controller.contents = "Sales"
             case "allTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = allObjects
+                controller.contents = "All"
             case "receptionTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = receptionObjects
+                controller.contents = "Reception"
             case "groceryTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = groceryObjects
+                controller.contents = "Grocery"
             case "bankTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = bankObjects
+                controller.contents = "Bank"
             case "othersTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = othersObjects
+                controller.contents = "Others"
             default:
                 NSLog("Wrong Segue")
             }
@@ -79,4 +77,6 @@ class HomeViewController: UIViewController {
             NSLog("Segue nil")
         }
     }
+    
+
 }
