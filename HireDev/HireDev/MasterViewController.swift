@@ -17,11 +17,19 @@ class MasterViewController: UITableViewController {
     
     var contents = ""
     var categoryContents = [JobItem]()
-    
+    var indicator = UIActivityIndicatorView()
     let ref = FIRDatabase.database().reference(withPath: "job-post")
     
+    //MARK: UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        indicator.color = UIColor.gray
+        indicator.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
+        indicator.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 10)
+        self.view.addSubview(indicator)
+        indicator.bringSubview(toFront: self.view)
+        indicator.startAnimating()
         
         self.ref.child(contents).observe(.value, with: { (snapshot) in
             var newItems: [JobItem] = []
@@ -31,6 +39,8 @@ class MasterViewController: UITableViewController {
                 newItems.append(jobItem)
             }
             self.categoryContents = newItems
+            self.indicator.stopAnimating()
+            self.indicator.hidesWhenStopped = true
             self.tableView.reloadData()
         })
         
