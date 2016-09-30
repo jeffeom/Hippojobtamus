@@ -24,6 +24,7 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = contents
         indicator.color = UIColor.gray
         indicator.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
         indicator.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 10)
