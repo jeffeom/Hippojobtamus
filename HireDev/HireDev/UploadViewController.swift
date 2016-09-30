@@ -12,7 +12,7 @@ import FontAwesome_swift
 import FirebaseDatabase
 import Firebase
 
-class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
     // MARK: IBOutlets
     
@@ -37,14 +37,25 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let heartShape: String = String.fontAwesomeIconWithName(FontAwesome.Heart)
     var imageData: NSData = NSData()
     var imageString: String = ""
+    var placeholderLabel : UILabel!
     
+    //MARK: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.hideKeyboardWhenTappedAround()
         
         viewHeight.constant = 1050
         self.myTableView.isHidden = hidden
+        
+        commentsField.delegate = self
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "Optional"
+        placeholderLabel.font = UIFont.systemFont(ofSize: (commentsField.font?.pointSize)!)
+        placeholderLabel.sizeToFit()
+        commentsField.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint.init(x: 5, y: (commentsField.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor(white: 0, alpha: 0.25)
+        placeholderLabel.isHidden = !commentsField.text.isEmpty
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +65,12 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: UITextViewDelegate
+    
+    func textViewDidChange(_ textView: UITextView) {
+        placeholderLabel.isHidden = !textView.text.isEmpty
     }
     
     // MARK: TableView
@@ -102,7 +119,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
             photoView.image = image
             imageData = UIImageJPEGRepresentation(image, 0.1)! as NSData
             imageString = imageData.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
-            
+            self.photoButton.setTitle("", for: .normal)
             
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
@@ -118,6 +135,7 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
             })
         }else{
             showAlert(text: "Your photo is saved successfully", title: "Saved to Device", fn: {
+                self.photoButton.setTitle("", for: .normal)
                 return
             })
         }
@@ -161,7 +179,6 @@ class UploadViewController: UIViewController, UITableViewDelegate, UITableViewDa
             newMedia = true
         }else{
             let alert = UIAlertController(title: "Error", message: "I am sorry, but your phone seems to have a problem with the Camera", preferredStyle: UIAlertControllerStyle.alert)
-            
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
