@@ -65,9 +65,9 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let categoryContents = self.categoryContents[(indexPath as NSIndexPath).row]
+                let categoryContent = self.categoryContents[(indexPath as NSIndexPath).row]
                 let controller = segue.destination as! DetailViewController
-                controller.detailItem = categoryContents as AnyObject?
+                controller.detailItem = categoryContent as JobItem
             }
         }
     }
@@ -97,20 +97,6 @@ class MasterViewController: UITableViewController {
         }
         
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            categoryContents.remove(at: (indexPath as NSIndexPath).row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
     }
     
     func getImageFromString(string: String) -> UIImage {

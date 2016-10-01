@@ -195,7 +195,8 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             
             self.present(alert, animated: true) {
-                let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString, addedByUser: (UserDefaults.standard.object(forKey: "email") as? String)! )
+                let currentDate = self.getCurrentDate()
+                let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString, addedByUser: (UserDefaults.standard.object(forKey: "email") as? String)!, date: currentDate)
                 self.savedJobs.append(jobItem)
                 
                 for aCategory in selectedCategory{
@@ -246,4 +247,16 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         imageString = ""
         myTableView.reloadData()
     }
+    
+    // MARK: dateToString
+    
+    func getCurrentDate() -> String {
+        let date = NSDate()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: date as Date)
+        
+        return dateString
+    }
+    
 }
