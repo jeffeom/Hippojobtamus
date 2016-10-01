@@ -26,18 +26,35 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0am-qN-Kc8" userLabel="Header">
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hippobar" translatesAutoresizingMaskIntoConstraints="NO" id="M8Y-JN-fog"/>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6m-M8-8GW">
-                                                <state key="normal" title="Vancouver, BC"/>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="FHw-ty-7SM">
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mH4-8x-VmQ" customClass="FontAwesomeView" customModule="FontAwesome_swift">
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="mH4-8x-VmQ" secondAttribute="height" multiplier="1:1" id="adZ-Wm-Tzs"/>
+                                                            <constraint firstAttribute="height" constant="15" id="iYZ-V3-ZCf"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="iconCode" value="fa-map-marker"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PL7-Gb-mfj">
+                                                        <state key="normal" title="Vancouver, BC"/>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="mH4-8x-VmQ" firstAttribute="centerY" secondItem="FHw-ty-7SM" secondAttribute="centerY" id="ShI-4W-CeX"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="M8Y-JN-fog" firstAttribute="leading" secondItem="0am-qN-Kc8" secondAttribute="leading" id="5Q8-pu-ogW"/>
+                                            <constraint firstItem="FHw-ty-7SM" firstAttribute="centerY" secondItem="0am-qN-Kc8" secondAttribute="centerY" multiplier="1.5" id="AEC-gs-Ak1"/>
                                             <constraint firstAttribute="trailing" secondItem="M8Y-JN-fog" secondAttribute="trailing" id="BCk-K0-axD"/>
-                                            <constraint firstItem="J6m-M8-8GW" firstAttribute="centerY" secondItem="0am-qN-Kc8" secondAttribute="centerY" multiplier="1.5" id="BI5-Ug-e84"/>
                                             <constraint firstItem="M8Y-JN-fog" firstAttribute="top" secondItem="0am-qN-Kc8" secondAttribute="top" id="Ytf-o0-k5W"/>
                                             <constraint firstAttribute="bottom" secondItem="M8Y-JN-fog" secondAttribute="bottom" id="Zkf-Cz-rfC"/>
-                                            <constraint firstItem="J6m-M8-8GW" firstAttribute="centerX" secondItem="0am-qN-Kc8" secondAttribute="centerX" id="tIC-w5-kzW"/>
+                                            <constraint firstItem="FHw-ty-7SM" firstAttribute="centerX" secondItem="0am-qN-Kc8" secondAttribute="centerX" id="qfi-uD-ew5"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHi-qp-q8k" userLabel="CategoryView">
@@ -416,14 +433,31 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnP-bY-tqX" userLabel="Header">
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iH8-C8-pfS">
-                                                                <state key="normal" title="Vancouver, BC"/>
-                                                            </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post a Job" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWx-9p-rsh">
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ezS-dh-cPk">
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rrk-Hp-b7M" customClass="FontAwesomeView" customModule="FontAwesome_swift">
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="rrk-Hp-b7M" secondAttribute="height" multiplier="1:1" id="bWe-jE-ken"/>
+                                                                            <constraint firstAttribute="height" constant="15" id="bga-HH-9wt"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="iconCode" value="fa-map-marker"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a20-Az-tKJ">
+                                                                        <state key="normal" title="Vancouver, BC"/>
+                                                                    </button>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="rrk-Hp-b7M" firstAttribute="centerY" secondItem="ezS-dh-cPk" secondAttribute="centerY" id="ECw-FH-scj"/>
+                                                                </constraints>
+                                                            </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhm-Sr-ypD" customClass="FontAwesomeView" customModule="FontAwesome_swift">
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7v-By-rrO">
@@ -448,12 +482,12 @@
                                                         </subviews>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="120" id="A2b-LY-Khu"/>
+                                                            <constraint firstItem="ezS-dh-cPk" firstAttribute="centerX" secondItem="bnP-bY-tqX" secondAttribute="centerX" id="5bK-id-9EA"/>
+                                                            <constraint firstAttribute="height" constant="130" id="A2b-LY-Khu"/>
                                                             <constraint firstItem="jWx-9p-rsh" firstAttribute="centerY" secondItem="bnP-bY-tqX" secondAttribute="centerY" multiplier="0.8" id="GXb-eQ-FNC"/>
-                                                            <constraint firstItem="iH8-C8-pfS" firstAttribute="centerX" secondItem="bnP-bY-tqX" secondAttribute="centerX" id="ZKX-hI-vyf"/>
                                                             <constraint firstItem="jhm-Sr-ypD" firstAttribute="centerY" secondItem="bnP-bY-tqX" secondAttribute="centerY" id="c6e-rc-tmo"/>
                                                             <constraint firstItem="jWx-9p-rsh" firstAttribute="centerX" secondItem="bnP-bY-tqX" secondAttribute="centerX" id="cMi-dE-AnK"/>
-                                                            <constraint firstItem="iH8-C8-pfS" firstAttribute="centerY" secondItem="bnP-bY-tqX" secondAttribute="centerY" multiplier="1.5" id="fIJ-e8-fxX"/>
+                                                            <constraint firstItem="ezS-dh-cPk" firstAttribute="centerY" secondItem="bnP-bY-tqX" secondAttribute="centerY" multiplier="1.5" id="kqs-ia-EtC"/>
                                                             <constraint firstAttribute="trailing" secondItem="jhm-Sr-ypD" secondAttribute="trailing" constant="8" id="lux-os-uPm"/>
                                                         </constraints>
                                                     </view>
@@ -1355,9 +1389,9 @@
                                         <constraint firstItem="a0W-xY-IAv" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="topMargin" constant="2" id="9kx-hB-QJ0"/>
                                         <constraint firstItem="bza-iW-mOT" firstAttribute="leading" secondItem="2td-M2-BB0" secondAttribute="trailing" constant="8" id="CPx-yV-tu2"/>
                                         <constraint firstItem="2td-M2-BB0" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leadingMargin" id="KpO-Cy-kAK"/>
-                                        <constraint firstItem="bza-iW-mOT" firstAttribute="top" secondItem="a0W-xY-IAv" secondAttribute="bottom" constant="10" id="OiZ-JJ-CEv"/>
+                                        <constraint firstItem="bza-iW-mOT" firstAttribute="top" secondItem="a0W-xY-IAv" secondAttribute="bottom" id="OiZ-JJ-CEv"/>
                                         <constraint firstItem="2td-M2-BB0" firstAttribute="centerY" secondItem="37f-cq-3Eg" secondAttribute="centerY" id="Otg-fU-V4r"/>
-                                        <constraint firstItem="hbn-DV-CA5" firstAttribute="top" secondItem="bza-iW-mOT" secondAttribute="bottom" constant="8" id="g2i-Hg-djH"/>
+                                        <constraint firstItem="hbn-DV-CA5" firstAttribute="top" secondItem="bza-iW-mOT" secondAttribute="bottom" constant="10" id="g2i-Hg-djH"/>
                                         <constraint firstItem="a0W-xY-IAv" firstAttribute="leading" secondItem="2td-M2-BB0" secondAttribute="trailing" constant="8" id="gzE-7O-nrJ"/>
                                         <constraint firstItem="hbn-DV-CA5" firstAttribute="leading" secondItem="2td-M2-BB0" secondAttribute="trailing" constant="8" id="ms8-FI-dQY"/>
                                     </constraints>

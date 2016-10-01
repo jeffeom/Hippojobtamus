@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FontAwesome_swift
 
 class MasterViewController: UITableViewController {
     
@@ -39,6 +40,7 @@ class MasterViewController: UITableViewController {
                 let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
                 newItems.append(jobItem)
             }
+            
             self.categoryContents = newItems
             self.indicator.stopAnimating()
             self.indicator.hidesWhenStopped = true
@@ -86,6 +88,10 @@ class MasterViewController: UITableViewController {
         if (categoryContents.count != 0) {
             let categoryContents = self.categoryContents[(indexPath as NSIndexPath).row]
             cell.titleLabel!.text = categoryContents.title
+            cell.commentsLabel.text = categoryContents.comments
+            cell.myImageView.image = self.getImageFromString(string: categoryContents.photo)
+            cell.locationLabel.font = UIFont.fontAwesomeOfSize(15)
+            cell.locationLabel.text = String.fontAwesomeIconWithName(FontAwesome.MapMarker) + " " + "Vancouver, BC"
         }else{
             NSLog("categoryContents is empty")
         }
@@ -105,6 +111,13 @@ class MasterViewController: UITableViewController {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+    }
+    
+    func getImageFromString(string: String) -> UIImage {
+        let data: NSData = NSData.init(base64Encoded: string, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
+        let image: UIImage = UIImage.init(data: data as Data)!
+        
+        return image
     }
 }
 
