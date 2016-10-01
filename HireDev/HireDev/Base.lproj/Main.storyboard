@@ -813,6 +813,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usS-rQ-jG9">
                                                                 <connections>
                                                                     <action selector="locationClicked:" destination="uWm-3i-vUC" eventType="touchUpInside" id="itv-qp-d53"/>
+                                                                    <segue destination="TYv-8r-NNs" kind="show" id="6W3-q5-GFY"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -1782,6 +1783,98 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sZF-Fk-GYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="240.57971014492756" y="44.836956521739133"/>
+        </scene>
+        <!--Location Setting View Controller-->
+        <scene sceneID="GJd-an-dVH">
+            <objects>
+                <viewController id="TYv-8r-NNs" customClass="LocationSettingViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JPI-s6-aA8"/>
+                        <viewControllerLayoutGuide type="bottom" id="5xm-hA-eOs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ifh-co-jbb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="03K-3V-T1l">
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ImY-Vo-4cn">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="big-1J-ble"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Look Up Address"/>
+                                            <segment title="Search Distance"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9pr-4I-M0m">
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Em-Rd-ql5">
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-tb-yKl" customClass="FontAwesomeView" customModule="FontAwesome_swift">
+                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="20" id="5pe-mi-Iqp"/>
+                                                            <constraint firstAttribute="width" secondItem="a1g-tb-yKl" secondAttribute="height" multiplier="1:1" id="L1m-Ye-8N2"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="iconCode" value="fa-map-marker"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gem-sN-ZRF">
+                                                        <state key="normal" title="Use Current Location"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="gem-sN-ZRF" secondAttribute="trailing" id="2IJ-Yf-20Z"/>
+                                                    <constraint firstItem="gem-sN-ZRF" firstAttribute="leading" secondItem="a1g-tb-yKl" secondAttribute="trailing" constant="-80" id="2Pq-e4-e3c"/>
+                                                    <constraint firstItem="gem-sN-ZRF" firstAttribute="leading" secondItem="6Em-Rd-ql5" secondAttribute="leading" id="2fQ-Ng-eCx"/>
+                                                    <constraint firstAttribute="height" constant="50" id="bXw-sG-7If"/>
+                                                    <constraint firstItem="gem-sN-ZRF" firstAttribute="top" secondItem="6Em-Rd-ql5" secondAttribute="top" id="uc8-0f-Ovs"/>
+                                                    <constraint firstItem="a1g-tb-yKl" firstAttribute="centerY" secondItem="6Em-Rd-ql5" secondAttribute="centerY" id="xZI-7h-R5g"/>
+                                                    <constraint firstAttribute="bottom" secondItem="gem-sN-ZRF" secondAttribute="bottom" id="y5i-6l-W2h"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xD3-pO-25s">
+                                                <subviews>
+                                                    <searchBar contentMode="redraw" placeholder="Search For place or address" translatesAutoresizingMaskIntoConstraints="NO" id="hkz-MZ-njL">
+                                                        <color key="barTintColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </searchBar>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="hkz-MZ-njL" secondAttribute="trailing" id="Zq0-ts-hoZ"/>
+                                                    <constraint firstItem="hkz-MZ-njL" firstAttribute="top" secondItem="xD3-pO-25s" secondAttribute="top" id="dPH-4o-O27"/>
+                                                    <constraint firstAttribute="bottom" secondItem="hkz-MZ-njL" secondAttribute="bottom" id="eW4-tP-bXE"/>
+                                                    <constraint firstItem="hkz-MZ-njL" firstAttribute="leading" secondItem="xD3-pO-25s" secondAttribute="leading" id="iqd-ds-9kt"/>
+                                                    <constraint firstAttribute="height" constant="50" id="kU3-2K-VXV"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JzD-td-ZBd">
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="384" id="Dwb-r9-1tR"/>
+                                        </constraints>
+                                    </mapView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="03K-3V-T1l" secondAttribute="trailing" id="Ix4-6W-bzw"/>
+                            <constraint firstItem="03K-3V-T1l" firstAttribute="leading" secondItem="Ifh-co-jbb" secondAttribute="leading" id="N52-MU-HK0"/>
+                            <constraint firstItem="03K-3V-T1l" firstAttribute="top" secondItem="JPI-s6-aA8" secondAttribute="bottom" id="Yus-K8-Kf6"/>
+                            <constraint firstItem="5xm-hA-eOs" firstAttribute="top" secondItem="03K-3V-T1l" secondAttribute="bottom" id="g4P-Fe-3os"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ehr-OQ-rNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4720.8000000000002" y="162.3688155922039"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sBi-4Y-EBq">
