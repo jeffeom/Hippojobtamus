@@ -150,7 +150,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 self.myTableView.isHidden = false
             }
             hidden = false
-            viewHeight.constant = 1190
+            viewHeight.constant = 1150
             self.loadViewIfNeeded()
             seeMore.text = "Less"
         }else{
@@ -158,7 +158,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 self.myTableView.isHidden = true
             }
             hidden = true
-            viewHeight.constant = 1050
+            viewHeight.constant = 1010
             self.loadViewIfNeeded()
             seeMore.text = "Tab to see more"
         }

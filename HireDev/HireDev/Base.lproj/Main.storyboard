@@ -422,7 +422,7 @@
                         <viewControllerLayoutGuide type="bottom" id="q3P-0u-VI1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gu0-ZF-QS3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1180"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="EdS-OP-XBf">
@@ -483,9 +483,9 @@
                                                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                                         <constraints>
                                                             <constraint firstItem="ezS-dh-cPk" firstAttribute="centerX" secondItem="bnP-bY-tqX" secondAttribute="centerX" id="5bK-id-9EA"/>
-                                                            <constraint firstAttribute="height" constant="130" id="A2b-LY-Khu"/>
+                                                            <constraint firstAttribute="height" constant="100" id="A2b-LY-Khu"/>
                                                             <constraint firstItem="jWx-9p-rsh" firstAttribute="centerY" secondItem="bnP-bY-tqX" secondAttribute="centerY" multiplier="0.8" id="GXb-eQ-FNC"/>
-                                                            <constraint firstItem="jhm-Sr-ypD" firstAttribute="centerY" secondItem="bnP-bY-tqX" secondAttribute="centerY" id="c6e-rc-tmo"/>
+                                                            <constraint firstItem="jhm-Sr-ypD" firstAttribute="centerY" secondItem="bnP-bY-tqX" secondAttribute="centerY" multiplier="1.1" id="c6e-rc-tmo"/>
                                                             <constraint firstItem="jWx-9p-rsh" firstAttribute="centerX" secondItem="bnP-bY-tqX" secondAttribute="centerX" id="cMi-dE-AnK"/>
                                                             <constraint firstItem="ezS-dh-cPk" firstAttribute="centerY" secondItem="bnP-bY-tqX" secondAttribute="centerY" multiplier="1.5" id="kqs-ia-EtC"/>
                                                             <constraint firstAttribute="trailing" secondItem="jhm-Sr-ypD" secondAttribute="trailing" constant="8" id="lux-os-uPm"/>
@@ -630,10 +630,9 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="trailing" secondItem="gcB-Fg-Zvt" secondAttribute="trailing" id="4h7-zk-flH"/>
                                                                             <constraint firstItem="aVr-9O-4wh" firstAttribute="top" secondItem="Iv7-sG-ppj" secondAttribute="top" id="5oo-tD-sKl"/>
+                                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="515" id="G7y-UT-kVe"/>
                                                                             <constraint firstAttribute="bottom" secondItem="gcB-Fg-Zvt" secondAttribute="bottom" id="Rb7-9q-rLZ"/>
-                                                                            <constraint firstItem="aVr-9O-4wh" firstAttribute="height" secondItem="Iv7-sG-ppj" secondAttribute="height" id="bA2-uU-VO8"/>
                                                                             <constraint firstAttribute="bottom" secondItem="aVr-9O-4wh" secondAttribute="bottom" id="onc-T8-Jo6"/>
-                                                                            <constraint firstItem="gcB-Fg-Zvt" firstAttribute="height" secondItem="aVr-9O-4wh" secondAttribute="height" id="rMN-G5-UHb"/>
                                                                             <constraint firstAttribute="trailing" secondItem="aVr-9O-4wh" secondAttribute="trailing" id="uuF-cs-WlX"/>
                                                                             <constraint firstItem="aVr-9O-4wh" firstAttribute="leading" secondItem="Iv7-sG-ppj" secondAttribute="leading" id="wgI-0v-tea"/>
                                                                             <constraint firstItem="gcB-Fg-Zvt" firstAttribute="top" secondItem="Iv7-sG-ppj" secondAttribute="top" id="xuZ-PU-Jbw"/>
@@ -675,7 +674,7 @@
                                             <constraint firstItem="NQZ-L3-UhH" firstAttribute="top" secondItem="3GA-pF-8VO" secondAttribute="top" id="gOB-sx-AFD"/>
                                             <constraint firstAttribute="bottom" secondItem="NQZ-L3-UhH" secondAttribute="bottom" id="hNz-lH-g6E"/>
                                             <constraint firstAttribute="trailing" secondItem="NQZ-L3-UhH" secondAttribute="trailing" id="ow6-1L-HnA"/>
-                                            <constraint firstAttribute="height" constant="1180" id="qZ5-ug-vkX"/>
+                                            <constraint firstAttribute="height" constant="1150" id="qZ5-ug-vkX"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -698,7 +697,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="1180"/>
+                    <size key="freeformSize" width="375" height="1150"/>
                     <connections>
                         <outlet property="commentsField" destination="dNk-ge-gEI" id="UNK-FI-Wpn"/>
                         <outlet property="myTableView" destination="HOy-Ed-gdn" id="StW-0Y-PH5"/>
@@ -745,7 +744,7 @@
                                             <constraint firstAttribute="bottom" secondItem="VDk-DZ-Xeo" secondAttribute="bottom" id="a3Q-sq-p7X"/>
                                             <constraint firstItem="K6l-28-Xkb" firstAttribute="centerY" secondItem="YmL-3Z-qAy" secondAttribute="centerY" id="fFu-Ev-gGb"/>
                                             <constraint firstItem="K6l-28-Xkb" firstAttribute="centerX" secondItem="YmL-3Z-qAy" secondAttribute="centerX" id="j7b-Ig-zZ1"/>
-                                            <constraint firstAttribute="height" constant="130" id="lKz-0N-MaD"/>
+                                            <constraint firstAttribute="height" constant="100" id="lKz-0N-MaD"/>
                                             <constraint firstItem="VDk-DZ-Xeo" firstAttribute="leading" secondItem="YmL-3Z-qAy" secondAttribute="leading" id="tp1-SP-opK"/>
                                         </constraints>
                                     </view>
