@@ -150,7 +150,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 self.myTableView.isHidden = false
             }
             hidden = false
-            viewHeight.constant = 1150
+            viewHeight.constant = 1170
             self.loadViewIfNeeded()
             seeMore.text = "Less"
         }else{

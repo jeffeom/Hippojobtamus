@@ -125,7 +125,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 , animated: true)
         }else{
             UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.uid, forKey: "uid")
-            UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.displayName, forKey: "email")
+            UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.email, forKey: "email")
             UserDefaults.standard.synchronize()
             let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
             self.navigationController?.pushViewController(confirmedViewController!
