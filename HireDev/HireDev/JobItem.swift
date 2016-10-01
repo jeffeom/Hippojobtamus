@@ -17,15 +17,17 @@ struct JobItem{
     let comments: String
     let photo: String
     let addedByUser: String
+    let date: String
     let ref: FIRDatabaseReference?
     
-    init(title: String, category: [String], comments: String, photo: String, addedByUser: String, key: String = "") {
+    init(title: String, category: [String], comments: String, photo: String, addedByUser: String, date: String, key: String = "") {
         self.key = key
         self.title = title
         self.category = category
         self.comments = comments
         self.photo = photo
         self.addedByUser = addedByUser
+        self.date = date
         self.ref = nil
     }
     
@@ -37,6 +39,7 @@ struct JobItem{
         comments = snapshotValue["comments"] as! String
         photo = snapshotValue["photo"] as! String
         addedByUser = snapshotValue["addedByUser"] as! String
+        date = snapshotValue["date"] as! String
         ref = snapshot.ref
     }
     
@@ -46,7 +49,8 @@ struct JobItem{
             "category": category,
             "comments": comments,
             "photo": photo,
-            "addedByUser": addedByUser
+            "addedByUser": addedByUser,
+            "date": date
         ]
     }
     

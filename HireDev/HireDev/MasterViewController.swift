@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FontAwesome_swift
 
 class MasterViewController: UITableViewController {
     
@@ -24,6 +25,7 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = contents
         indicator.color = UIColor.gray
         indicator.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
         indicator.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 10)
@@ -38,6 +40,7 @@ class MasterViewController: UITableViewController {
                 let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
                 newItems.append(jobItem)
             }
+            
             self.categoryContents = newItems
             self.indicator.stopAnimating()
             self.indicator.hidesWhenStopped = true
@@ -62,9 +65,9 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let categoryContents = self.categoryContents[(indexPath as NSIndexPath).row]
+                let categoryContent = self.categoryContents[(indexPath as NSIndexPath).row]
                 let controller = segue.destination as! DetailViewController
-                controller.detailItem = categoryContents as AnyObject?
+                controller.detailItem = categoryContent as JobItem
             }
         }
     }
@@ -85,6 +88,10 @@ class MasterViewController: UITableViewController {
         if (categoryContents.count != 0) {
             let categoryContents = self.categoryContents[(indexPath as NSIndexPath).row]
             cell.titleLabel!.text = categoryContents.title
+            cell.commentsLabel.text = categoryContents.comments
+            cell.myImageView.image = self.getImageFromString(string: categoryContents.photo)
+            cell.locationLabel.font = UIFont.fontAwesomeOfSize(15)
+            cell.locationLabel.text = String.fontAwesomeIconWithName(FontAwesome.MapMarker) + " " + "Vancouver, BC"
         }else{
             NSLog("categoryContents is empty")
         }
@@ -92,18 +99,11 @@ class MasterViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            categoryContents.remove(at: (indexPath as NSIndexPath).row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
+    func getImageFromString(string: String) -> UIImage {
+        let data: NSData = NSData.init(base64Encoded: string, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
+        let image: UIImage = UIImage.init(data: data as Data)!
+        
+        return image
     }
 }
 

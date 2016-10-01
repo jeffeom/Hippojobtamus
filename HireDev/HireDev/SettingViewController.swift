@@ -12,40 +12,51 @@ class SettingViewController: UIViewController {
     
     //MARK: IBOutlets
     
-    
-    
-    //MARK: UIViewController
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func signOutButton(_ sender: AnyObject) {
         let appDomain = Bundle.main.bundleIdentifier!
         UserDefaults.standard.removePersistentDomain(forName: appDomain)
         
-        self.showAlert(text: "You have successfully signed out", title: "Success!") { 
+        self.showAlert(text: "You have successfully signed out", title: "Success!") {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "loginVC")
             self.present(vc!, animated: true)
         }
+    }
+    
+    
+    //MARK: UIViewController
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    //MARK: Button Actions
+    
+    @IBAction func profileClicked(_ sender: AnyObject) {
+        self.view.viewWithTag(1)?.backgroundColor = UIColor.blue
+    }
+    @IBAction func locationClicked(_ sender: AnyObject) {
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func feedbackClicked(_ sender: AnyObject) {
+        
     }
-    */
-
+    @IBAction func rateClicked(_ sender: AnyObject) {
+        
+    }
+    @IBAction func helpClicked(_ sender: AnyObject) {
+        
+    }
+    @IBAction func aboutClicked(_ sender: AnyObject) {
+        
+    }
+    
+    
 }
