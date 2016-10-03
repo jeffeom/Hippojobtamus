@@ -1,3 +1,6 @@
 .DS_Store
 *.xcuserstate
 xcuserdata/
+GoogleService-Info.plist
+Podfile.lock
+Pods/

@@ -88,10 +88,9 @@ class MasterViewController: UITableViewController {
         if (categoryContents.count != 0) {
             let categoryContents = self.categoryContents[(indexPath as NSIndexPath).row]
             cell.titleLabel!.text = categoryContents.title
-            cell.commentsLabel.text = categoryContents.comments
+            cell.commentsLabel.text = categoryContents.date
             cell.myImageView.image = self.getImageFromString(string: categoryContents.photo)
-            cell.locationLabel.font = UIFont.fontAwesomeOfSize(15)
-            cell.locationLabel.text = String.fontAwesomeIconWithName(FontAwesome.MapMarker) + " " + "Vancouver, BC"
+            cell.locationLabel.text = "Vancouver, BC"
         }else{
             NSLog("categoryContents is empty")
         }

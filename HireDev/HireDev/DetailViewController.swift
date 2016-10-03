@@ -15,7 +15,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var commentsLabel: UILabel!
+    @IBOutlet weak var commentsLabel: UITextView!
     
     var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", photo: "", addedByUser: "", date: "")
 
@@ -23,9 +23,9 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.imageView.image = self.getImageFromString(string: (self.detailItem.photo))
-        self.dateLabel.text = " " + self.detailItem.date
-        self.locationLabel.text = " " + "Vancouver, BC"
-        self.commentsLabel.text = " " + self.detailItem.comments
+        self.dateLabel.text = "  " + self.detailItem.date
+        self.locationLabel.text = "  " + "Vancouver, BC"
+        self.commentsLabel.text = "  " + self.detailItem.comments
         
         // Do any additional setup after loading the view, typically from a nib.
         self.title = self.detailItem.title

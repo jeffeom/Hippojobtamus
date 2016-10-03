@@ -27,6 +27,7 @@
 		40D0F0821D864CA90076891D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */; };
 		40D0F0831D864CA90076891D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F0801D864CA90076891D /* FBSDKShareKit.framework */; };
 		40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */; };
+		40D111491DA0331000AAD34E /* LocationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D111481DA0331000AAD34E /* LocationSettingViewController.swift */; };
 		40DAA3A51D99F040005806BE /* JobItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA3A41D99F040005806BE /* JobItem.swift */; };
 		40F301601D9680880035D47A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F3015F1D9680880035D47A /* SettingViewController.swift */; };
 		40F301621D9680DC0035D47A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F301611D9680DC0035D47A /* TabBarController.swift */; };
@@ -57,6 +58,7 @@
 		40D0F0801D864CA90076891D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		40D0F0841D86643F0076891D /* HireDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HireDev.entitlements; sourceTree = "<group>"; };
 		40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+KeyboardDismiss.swift"; sourceTree = "<group>"; };
+		40D111481DA0331000AAD34E /* LocationSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSettingViewController.swift; sourceTree = "<group>"; };
 		40DAA3A41D99F040005806BE /* JobItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobItem.swift; sourceTree = "<group>"; };
 		40F3015F1D9680880035D47A /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		40F301611D9680DC0035D47A /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				400842C51D8D1C9000B30904 /* HomeViewController.swift */,
 				409B00821D9509D700E5174E /* UploadViewController.swift */,
 				40F3015F1D9680880035D47A /* SettingViewController.swift */,
+				40D111481DA0331000AAD34E /* LocationSettingViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			files = (
 				407638BC1D82958900C7A892 /* CreateAccountViewController.swift in Sources */,
 				407638BA1D8245C100C7A892 /* LoginViewController.swift in Sources */,
+				40D111491DA0331000AAD34E /* LocationSettingViewController.swift in Sources */,
 				403A169D1D9B8709001FB468 /* ViewController+AlertView.swift in Sources */,
 				4032FF811D9D0E7900C91B5E /* JobTableViewCell.swift in Sources */,
 				40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */,
