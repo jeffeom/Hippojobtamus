@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
         
         self.imageView.image = self.getImageFromString(string: (self.detailItem.photo))
         self.dateLabel.text = "  " + self.detailItem.date
-        self.locationLabel.text = "  " + "Vancouver, BC"
+        self.locationLabel.text = "  " + self.detailItem.location
         self.commentsLabel.text = "  " + self.detailItem.comments
         
         // Do any additional setup after loading the view, typically from a nib.
