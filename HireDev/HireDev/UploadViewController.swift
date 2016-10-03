@@ -239,7 +239,8 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     
     func reset() {
         titleField.text = ""
-        commentsField.text = "Optional"
+        commentsField.text = ""
+        placeholderLabel.isHidden = !commentsField.text.isEmpty
         photoView.image = UIImage.init(named: "upload_box")
         checked = [false, false, false, false, false, false, false, false]
         imageString = ""
