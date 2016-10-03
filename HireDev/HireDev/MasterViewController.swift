@@ -88,7 +88,7 @@ class MasterViewController: UITableViewController {
         if (categoryContents.count != 0) {
             let categoryContents = self.categoryContents[(indexPath as NSIndexPath).row]
             cell.titleLabel!.text = categoryContents.title
-            cell.commentsLabel.text = "Posted at: " + categoryContents.date
+            cell.commentsLabel.text = categoryContents.date
             cell.myImageView.image = self.getImageFromString(string: categoryContents.photo)
             cell.locationLabel.text = "Vancouver, BC"
         }else{
