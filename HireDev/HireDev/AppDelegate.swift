@@ -11,6 +11,7 @@ import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
 import FBSDKShareKit
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Facebook
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        // GooglePlaces
+        
+        var keys: NSDictionary?
+        
+        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
+        if let dict = keys {
+            let API = dict["googleAPI"] as? String
+            
+            // Initialize Parse.
+            GMSPlacesClient.provideAPIKey(API!)
+        }
+        
         
         return true
     }
