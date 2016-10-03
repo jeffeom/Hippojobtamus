@@ -21,8 +21,8 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var commentsField: UITextView!
     @IBOutlet weak var photoButton: UIButton!
-    @IBOutlet weak var viewHeight: NSLayoutConstraint!
     @IBOutlet weak var seeMore: UILabel!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     
     
     // MARK: Properties
@@ -44,7 +44,6 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewHeight.constant = 1050
         self.myTableView.isHidden = hidden
         
         commentsField.delegate = self
@@ -150,7 +149,6 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 self.myTableView.isHidden = false
             }
             hidden = false
-            viewHeight.constant = 1170
             self.loadViewIfNeeded()
             seeMore.text = "Less"
         }else{
@@ -158,7 +156,6 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 self.myTableView.isHidden = true
             }
             hidden = true
-            viewHeight.constant = 1010
             self.loadViewIfNeeded()
             seeMore.text = "Tab to see more"
         }
@@ -190,6 +187,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         NSLog("I checked: \(selectedCategory.count) of category and they are \(selectedCategory.description)")
         
         if (check() && selectedCategory.count != 1){
+            self.loadViewIfNeeded()
             let alert = UIAlertController(title: "Thank You!", message: "Job is posted. Fellow Hippos will appreciate your work " + "❤️", preferredStyle: UIAlertControllerStyle.alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
