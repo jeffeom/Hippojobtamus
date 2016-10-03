@@ -1661,7 +1661,7 @@
                                 <rect key="frame" x="0.0" y="86" width="320" height="115"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="320" height="114.5"/>
+                                    <frame key="frameInset" width="320" height="114"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2td-M2-BB0">
@@ -1927,7 +1927,7 @@
         <image name="greenbackground" width="750" height="1334"/>
         <image name="grocery" width="300" height="300"/>
         <image name="hippobar" width="750" height="334"/>
-        <image name="receptionist" width="300" height="300"/>
+        <image name="receptionist" width="225" height="145"/>
         <image name="restaurant" width="300" height="300"/>
         <image name="upload_box" width="412" height="377"/>
     </resources>
