@@ -118,7 +118,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
             photoView.image = image
             imageData = UIImageJPEGRepresentation(image, 0.1)! as NSData
             imageString = imageData.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
-            self.photoButton.setTitle("", for: .normal)
+            self.photoButton.setTitle("Tap again to retake", for: .normal)
             
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
@@ -134,7 +134,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
             })
         }else{
             showAlert(text: "Your photo is saved successfully", title: "Saved to Device", fn: {
-                self.photoButton.setTitle("", for: .normal)
+                self.photoButton.setTitle("Tap again to retake", for: .normal)
                 return
             })
         }
@@ -157,7 +157,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
             }
             hidden = true
             self.loadViewIfNeeded()
-            seeMore.text = "Tab to see more"
+            seeMore.text = "Tap to see more"
         }
     }
     
@@ -243,6 +243,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         placeholderLabel.isHidden = !commentsField.text.isEmpty
         photoView.image = UIImage.init(named: "upload_box")
         checked = [false, false, false, false, false, false, false, false]
+        photoButton.setTitle("Tap here to take a photo", for: .normal)
         imageString = ""
         myTableView.reloadData()
     }
