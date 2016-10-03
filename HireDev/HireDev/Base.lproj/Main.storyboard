@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qwM-WM-thc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QP1-0U-O4Y">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cpW-VV-4En">
@@ -66,7 +66,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9s-9P-YvM" userLabel="1">
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="92c-XZ-eny">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="92c-XZ-eny">
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cafe" translatesAutoresizingMaskIntoConstraints="NO" id="eF5-Kh-Ju8">
                                                                                 <constraints>
@@ -101,7 +101,7 @@
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P67-s5-0Zt" userLabel="2">
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uRf-JV-sTY">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uRf-JV-sTY">
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="restaurant" translatesAutoresizingMaskIntoConstraints="NO" id="wER-Na-Qq3">
                                                                                 <constraints>
@@ -135,7 +135,7 @@
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="903-vc-sUs" userLabel="3">
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ff0-71-7vP">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ff0-71-7vP">
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="education" translatesAutoresizingMaskIntoConstraints="NO" id="GI5-gE-5zA">
                                                                                 <constraints>
@@ -174,7 +174,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEC-9z-nQp" userLabel="4">
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ykf-pm-f3b">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ykf-pm-f3b">
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_logo" translatesAutoresizingMaskIntoConstraints="NO" id="h27-Je-xJK">
                                                                                 <constraints>
@@ -208,7 +208,7 @@
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kpe-1h-oHI" userLabel="5">
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WRb-g2-79f">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WRb-g2-79f">
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_logo" translatesAutoresizingMaskIntoConstraints="NO" id="dIu-5Z-3z5">
                                                                                 <constraints>
@@ -242,9 +242,9 @@
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B43-ne-lNK" userLabel="6">
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="w4a-Xh-CWN">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="w4a-Xh-CWN">
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="receptionist" translatesAutoresizingMaskIntoConstraints="NO" id="7NH-CD-Ly8">
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="receptionist" translatesAutoresizingMaskIntoConstraints="NO" id="7NH-CD-Ly8">
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" secondItem="7NH-CD-Ly8" secondAttribute="height" multiplier="1:0.9" id="3Z1-uo-23J"/>
                                                                                 </constraints>
@@ -281,7 +281,7 @@
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZ2-TB-6Hk" userLabel="7">
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-KU-gZR">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zaT-KU-gZR">
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grocery" translatesAutoresizingMaskIntoConstraints="NO" id="pkB-Ha-PVb">
                                                                                 <constraints>
@@ -319,7 +319,7 @@
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dl2-sX-aks" userLabel="8">
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ont-Sx-l4g">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ont-Sx-l4g">
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank" translatesAutoresizingMaskIntoConstraints="NO" id="UWk-VY-Jwy">
                                                                                 <constraints>
@@ -353,7 +353,7 @@
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zu9-z2-GrG" userLabel="9">
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-9G-qJt">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-9G-qJt">
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_logo" translatesAutoresizingMaskIntoConstraints="NO" id="vAc-3X-hN3">
                                                                                 <constraints>
@@ -548,11 +548,11 @@
                                                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mpt-2b-jtc" id="Vic-MX-KRB">
-                                                                                    <frame key="frameInset" width="375" height="43"/>
+                                                                                    <frame key="frameInset" width="375" height="43.666666666666664"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mqA-Tg-5U1">
-                                                                                            <frame key="frameInset" minX="15" width="345" height="43"/>
+                                                                                            <frame key="frameInset" minX="15" width="345" height="43.666666666666664"/>
                                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                             <nil key="textColor"/>
@@ -707,7 +707,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AL6-O5-kyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2313" y="538"/>
+            <point key="canvasLocation" x="2313" y="460"/>
         </scene>
         <!--Settings-->
         <scene sceneID="qHZ-ov-KC6">
@@ -718,7 +718,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Ebz-HA-nRo"/>
                     </layoutGuides>
                     <view key="view" tag="6" contentMode="scaleToFill" id="gcs-gM-c2S">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" tag="8" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xiE-wA-GWV">
@@ -1138,7 +1138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963" y="-490"/>
+            <point key="canvasLocation" x="956" y="-553"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="2D0-J1-ojX">
@@ -1149,7 +1149,7 @@
                         <viewControllerLayoutGuide type="bottom" id="cgl-rD-y6z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jDk-ea-HyF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenbackground" translatesAutoresizingMaskIntoConstraints="NO" id="7qe-qe-DAa"/>
@@ -1390,7 +1390,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qkX-kL-L4G"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e3C-8v-sjQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greenbackground" translatesAutoresizingMaskIntoConstraints="NO" id="0JJ-TU-vRu"/>
@@ -1658,15 +1658,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="masterVC" title="Master" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="115" id="WCw-Qf-5nD" customClass="JobTableViewCell" customModule="HireDev" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="86" width="320" height="115"/>
+                                <rect key="frame" x="0.0" y="86" width="414" height="115"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="320" height="114"/>
+                                    <frame key="frameInset" width="414" height="114.66666666666667"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2td-M2-BB0">
@@ -1752,7 +1752,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Weo-bh-k9g" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1774,7 +1774,7 @@
                         <viewControllerLayoutGuide type="bottom" id="5xm-hA-eOs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ifh-co-jbb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="03K-3V-T1l">
@@ -1865,7 +1865,7 @@
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1884,7 +1884,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j0S-kT-hOS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1903,7 +1903,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kIl-xk-SdC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1924,7 +1924,7 @@
         <image name="blankinputbox" width="653" height="102"/>
         <image name="cafe" width="300" height="300"/>
         <image name="cancelbutton" width="584" height="100"/>
-        <image name="circle_logo" width="152" height="152"/>
+        <image name="circle_logo" width="101" height="101"/>
         <image name="education" width="300" height="300"/>
         <image name="email logofinal" width="103" height="103"/>
         <image name="facebooklogofinal" width="103" height="103"/>
