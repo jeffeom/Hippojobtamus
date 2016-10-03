@@ -74,7 +74,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cafe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUp-UG-bgO">
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -109,7 +109,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J06-Fz-Fab">
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -143,7 +143,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCZ-YZ-7zl">
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -682,6 +682,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Post a Job" id="BEp-tc-VFf">
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="hr2-B1-4zd">
+                            <connections>
+                                <action selector="resetButton:" destination="hk3-8V-q4W" id="acz-Oq-nNa"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Pjk-gw-DfR">
                             <connections>
                                 <action selector="submitButton:" destination="hk3-8V-q4W" id="JgU-xN-mxk"/>
@@ -1686,10 +1691,9 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbn-DV-CA5">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbn-DV-CA5">
                                             <constraints>
-                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="61" id="Hd7-Wn-jZ1"/>
-                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="221" id="xMP-Yq-RQ2"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="196" id="9Uj-v4-NVi"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                             <nil key="textColor"/>
@@ -1710,13 +1714,13 @@
                                     <constraints>
                                         <constraint firstItem="Mmu-dZ-y4E" firstAttribute="leading" secondItem="2td-M2-BB0" secondAttribute="trailing" constant="8" id="0iY-KK-eF4"/>
                                         <constraint firstItem="a0W-xY-IAv" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="topMargin" id="9kx-hB-QJ0"/>
+                                        <constraint firstAttribute="trailing" secondItem="hbn-DV-CA5" secondAttribute="trailing" constant="8" id="Kcd-To-cPK"/>
                                         <constraint firstItem="2td-M2-BB0" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leadingMargin" id="KpO-Cy-kAK"/>
                                         <constraint firstItem="2td-M2-BB0" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="topMargin" id="LR7-eq-B3j"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hbn-DV-CA5" secondAttribute="bottom" id="LTb-kU-THU"/>
                                         <constraint firstItem="Mmu-dZ-y4E" firstAttribute="top" secondItem="a0W-xY-IAv" secondAttribute="bottom" constant="2" id="Nop-HZ-sAY"/>
                                         <constraint firstItem="bza-iW-mOT" firstAttribute="top" secondItem="a0W-xY-IAv" secondAttribute="bottom" id="OiZ-JJ-CEv"/>
-                                        <constraint firstItem="hbn-DV-CA5" firstAttribute="top" secondItem="bza-iW-mOT" secondAttribute="bottom" constant="10" id="g2i-Hg-djH"/>
                                         <constraint firstItem="a0W-xY-IAv" firstAttribute="leading" secondItem="2td-M2-BB0" secondAttribute="trailing" constant="8" id="gzE-7O-nrJ"/>
-                                        <constraint firstItem="hbn-DV-CA5" firstAttribute="leading" secondItem="2td-M2-BB0" secondAttribute="trailing" constant="8" id="ms8-FI-dQY"/>
                                         <constraint firstItem="bza-iW-mOT" firstAttribute="leading" secondItem="Mmu-dZ-y4E" secondAttribute="trailing" id="unM-RJ-31Z"/>
                                     </constraints>
                                 </tableViewCellContentView>

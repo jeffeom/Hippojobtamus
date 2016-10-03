@@ -245,6 +245,10 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         imageString = ""
         myTableView.reloadData()
     }
+
+    @IBAction func resetButton(_ sender: AnyObject) {
+        reset()
+    }
     
     // MARK: dateToString
     
