@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Please allow our app to use your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please allow our app to use your location</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -71,9 +75,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSCameraUsageDescription</key>
-    <string>Please allow our app to use your camera.</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>Please allow our app to use your photo library.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow our app to use your camera.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please allow our app to use your photo library.</string>
 </dict>
 </plist>

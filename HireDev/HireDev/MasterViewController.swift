@@ -90,7 +90,7 @@ class MasterViewController: UITableViewController {
             cell.titleLabel!.text = categoryContents.title
             cell.commentsLabel.text = categoryContents.date
             cell.myImageView.image = self.getImageFromString(string: categoryContents.photo)
-            cell.locationLabel.text = "Vancouver, BC"
+            cell.locationLabel.text = categoryContents.location
         }else{
             NSLog("categoryContents is empty")
         }
