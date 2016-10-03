@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
     var othersObjects = [JobItem]()
     var allItems = [JobItem]()
 
+    @IBOutlet weak var locationButton: UIButton!
     
     //MARK: UIViewController
     
@@ -31,11 +32,18 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        self.setUpLocationForButton(locationButton: locationButton)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+
+        self.setUpLocationForButton(locationButton: locationButton)
+
     }
     
     // MARK: - Navigation
@@ -76,6 +84,14 @@ class HomeViewController: UIViewController {
         }else{
             NSLog("Segue nil")
         }
+    }
+    
+    //MARK: IBAction
+    
+    @IBAction func locationSetting(_ sender: AnyObject) {
+        let locationSettingController = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
+        self.navigationController?.pushViewController(locationSettingController!
+            , animated: true)
     }
     
 

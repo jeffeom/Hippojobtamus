@@ -23,7 +23,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var seeMore: UILabel!
     @IBOutlet weak var doneButton: UIBarButtonItem!
-    
+    @IBOutlet weak var locationLabel: UILabel!
     
     // MARK: Properties
     
@@ -55,10 +55,14 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         placeholderLabel.frame.origin = CGPoint.init(x: 5, y: (commentsField.font?.pointSize)! / 2)
         placeholderLabel.textColor = UIColor(white: 0, alpha: 0.25)
         placeholderLabel.isHidden = !commentsField.text.isEmpty
+        
+        self.setUpLocationForLabel(locationLabel: locationLabel)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        self.setUpLocationForLabel(locationLabel: locationLabel)
     }
     
     override func didReceiveMemoryWarning() {
@@ -194,7 +198,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
             
             self.present(alert, animated: true) {
                 let currentDate = self.getCurrentDate()
-                let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString, addedByUser: (UserDefaults.standard.object(forKey: "email") as? String)!, date: currentDate)
+                let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString, addedByUser: (UserDefaults.standard.object(forKey: "email") as? String)!, date: currentDate, location: self.locationLabel.text!)
                 self.savedJobs.append(jobItem)
                 
                 for aCategory in selectedCategory{
@@ -251,6 +255,14 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     @IBAction func resetButton(_ sender: AnyObject) {
         reset()
     }
+    
+    @IBAction func locationSetting(_ sender: AnyObject) {
+        let locationSettingController = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
+        self.navigationController?.pushViewController(locationSettingController!
+            , animated: true)
+    }
+    
+    
     
     // MARK: dateToString
     
