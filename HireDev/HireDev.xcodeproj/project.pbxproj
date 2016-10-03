@@ -14,7 +14,7 @@
 		403A169D1D9B8709001FB468 /* ViewController+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */; };
 		403A169F1D9B8939001FB468 /* UIAlertController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */; };
 		40426E9E1D9504AD005D704E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40426E9D1D9504AD005D704E /* GoogleService-Info.plist */; };
-		406132031DA250B90025EF0E /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 406132021DA250B90025EF0E /* keys.plist */; };
+		406132031DA250B90025EF0E /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 406132021DA250B90025EF0E /* Keys.plist */; };
 		4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076389E1D82421600C7A892 /* AppDelegate.swift */; };
 		407638A11D82421600C7A892 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A01D82421600C7A892 /* MasterViewController.swift */; };
 		407638A31D82421600C7A892 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A21D82421600C7A892 /* DetailViewController.swift */; };
@@ -43,7 +43,7 @@
 		403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+AlertView.swift"; sourceTree = "<group>"; };
 		403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Present.swift"; sourceTree = "<group>"; };
 		40426E9D1D9504AD005D704E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/HIPPO/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		406132021DA250B90025EF0E /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
+		406132021DA250B90025EF0E /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		4076389B1D82421600C7A892 /* HireDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HireDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4076389E1D82421600C7A892 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		407638A01D82421600C7A892 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -155,7 +155,7 @@
 				403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */,
 				403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */,
 				40DAA3A41D99F040005806BE /* JobItem.swift */,
-				406132021DA250B90025EF0E /* keys.plist */,
+				406132021DA250B90025EF0E /* Keys.plist */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -251,7 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				406132031DA250B90025EF0E /* keys.plist in Resources */,
+				406132031DA250B90025EF0E /* Keys.plist in Resources */,
 				407638AB1D82421600C7A892 /* LaunchScreen.storyboard in Resources */,
 				40426E9E1D9504AD005D704E /* GoogleService-Info.plist in Resources */,
 				407638A81D82421600C7A892 /* Assets.xcassets in Resources */,
