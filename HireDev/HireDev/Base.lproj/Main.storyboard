@@ -1765,7 +1765,7 @@
             </objects>
             <point key="canvasLocation" x="236" y="310"/>
         </scene>
-        <!--Location Setting View Controller-->
+        <!--Location Settings-->
         <scene sceneID="GJd-an-dVH">
             <objects>
                 <viewController id="TYv-8r-NNs" customClass="LocationSettingViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
@@ -1855,6 +1855,7 @@
                             <constraint firstItem="03K-3V-T1l" firstAttribute="top" secondItem="JPI-s6-aA8" secondAttribute="bottom" constant="20" id="Yus-K8-Kf6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Location Settings" id="JxH-nd-b77"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ehr-OQ-rNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
