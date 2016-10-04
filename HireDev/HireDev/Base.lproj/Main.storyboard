@@ -26,8 +26,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0am-qN-Kc8" userLabel="Header">
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hippo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrx-jB-Ux2">
-                                                <color key="backgroundColor" red="0.84705882349999995" green="0.88235294119999996" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="50"/>
+                                                <fontDescription key="fontDescription" name="BodoniSvtyTwoSCITCTT-Book" family="Bodoni 72 Smallcaps" pointSize="100"/>
                                                 <color key="textColor" red="0.21960784310000001" green="0.23921568630000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -55,14 +54,14 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.84705882352941175" green="0.88235294117647056" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="wrx-jB-Ux2" secondAttribute="bottom" id="2GB-48-IHq"/>
-                                            <constraint firstItem="wrx-jB-Ux2" firstAttribute="top" secondItem="0am-qN-Kc8" secondAttribute="top" id="4Yu-Nh-oX9"/>
-                                            <constraint firstItem="FHw-ty-7SM" firstAttribute="centerY" secondItem="0am-qN-Kc8" secondAttribute="centerY" multiplier="1.6" id="AEC-gs-Ak1"/>
-                                            <constraint firstAttribute="trailing" secondItem="wrx-jB-Ux2" secondAttribute="trailing" id="B1z-jX-pcd"/>
-                                            <constraint firstItem="wrx-jB-Ux2" firstAttribute="leading" secondItem="0am-qN-Kc8" secondAttribute="leading" id="VL4-Y0-4Cb"/>
+                                            <constraint firstItem="FHw-ty-7SM" firstAttribute="centerY" secondItem="0am-qN-Kc8" secondAttribute="centerY" multiplier="1.67" id="AEC-gs-Ak1"/>
+                                            <constraint firstItem="wrx-jB-Ux2" firstAttribute="top" secondItem="0am-qN-Kc8" secondAttribute="top" id="EQb-AV-tDp"/>
+                                            <constraint firstAttribute="trailing" secondItem="wrx-jB-Ux2" secondAttribute="trailing" id="Q9c-4a-ArO"/>
+                                            <constraint firstItem="wrx-jB-Ux2" firstAttribute="leading" secondItem="0am-qN-Kc8" secondAttribute="leading" id="odT-rs-Ob9"/>
                                             <constraint firstItem="FHw-ty-7SM" firstAttribute="centerX" secondItem="0am-qN-Kc8" secondAttribute="centerX" id="qfi-uD-ew5"/>
+                                            <constraint firstAttribute="bottom" secondItem="wrx-jB-Ux2" secondAttribute="bottom" id="wgL-yT-L0s"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHi-qp-q8k" userLabel="CategoryView">
@@ -80,7 +79,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="Nic-TD-VJE"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -112,7 +111,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="yrX-1e-IL6"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -143,7 +142,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="VgD-bn-C7d"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -179,7 +178,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="nn2-lv-n9l"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -210,7 +209,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="GRu-n5-XRe"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -234,14 +233,14 @@
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B43-ne-lNK" userLabel="6">
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="w4a-Xh-CWN">
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="w4a-Xh-CWN">
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="receptionist" translatesAutoresizingMaskIntoConstraints="NO" id="7NH-CD-Ly8"/>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reception" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LL5-He-Rsi">
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="PGP-6m-oJC"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -277,7 +276,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="GMz-Ae-Z5b"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -308,7 +307,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="h8k-3z-TeS"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -339,7 +338,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="qtI-AW-rL5"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -378,7 +377,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="0am-qN-Kc8" firstAttribute="height" secondItem="cpW-VV-4En" secondAttribute="height" multiplier="0.25:1" id="NaZ-XV-hMn"/>
+                                    <constraint firstItem="0am-qN-Kc8" firstAttribute="height" secondItem="cpW-VV-4En" secondAttribute="height" multiplier="0.3:1" id="NaZ-XV-hMn"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -1740,7 +1739,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Weo-bh-k9g" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2059,7 +2058,7 @@
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2078,7 +2077,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j0S-kT-hOS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2097,7 +2096,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kIl-xk-SdC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
