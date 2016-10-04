@@ -18,7 +18,6 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var locationLabel: UILabel!
     var newAddress: String = ""
-    var locationHistory: [String] = []
     var newLocationHistory: [String] = []
     
     //MARK: IBOutlets
@@ -37,6 +36,12 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         
+        if newLocationHistory.count == 0{
+            if let myLocationHistory = UserDefaults.standard.array(forKey: "locationHistory"){
+                newLocationHistory = myLocationHistory as! [String]
+            }
+        }
+        
         placesClient = GMSPlacesClient.shared()
         locationView.isHidden = true
         
@@ -47,8 +52,20 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if newLocationHistory.count == 0{
+            if let myLocationHistory = UserDefaults.standard.array(forKey: "locationHistory"){
+                newLocationHistory = myLocationHistory as! [String]
+            }
+        }
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UserDefaults.standard.setValue(newLocationHistory, forKey: "locationHistory")
     }
     
     //MARK: UITableView
@@ -91,7 +108,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
                     UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
                     
                     if (self.checkForSameData(array: self.newLocationHistory, string: self.newAddress)){
-                        self.newLocationHistory .append(self.newAddress)
+                        self.newLocationHistory.append(self.newAddress)
                     }
                     self.tableView.reloadData()
                 }
@@ -112,6 +129,9 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         
         if newLocationHistory.count == 0{
             newLocationHistory.append(string)
+            boolValue = false
+            
+            return boolValue
         }else{
             for aSub in array{
                 if string == aSub{
@@ -146,6 +166,7 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
         
         if (self.checkForSameData(array: self.newLocationHistory, string: self.newAddress)){
             self.newLocationHistory.append(self.newAddress)
+
         }
         
         self.dismiss(animated: true, completion: {
