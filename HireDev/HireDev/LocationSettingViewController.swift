@@ -68,6 +68,8 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         if newLocationHistory.count > 7 {
             newLocationHistory.removeFirst(newLocationHistory.count - 7)
             UserDefaults.standard.setValue(newLocationHistory, forKey: "locationHistory")
+        }else{
+            UserDefaults.standard.setValue(newLocationHistory, forKey: "locationHistory")
         }
         
     }
@@ -84,6 +86,17 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         cell.textLabel?.text = newLocationHistory[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            let selectedCellAddress = cell.textLabel?.text
+            UserDefaults.standard.set(selectedCellAddress, forKey: "currentLocation")
+
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            }
+        }
     }
     
     //MARK: IBActions
