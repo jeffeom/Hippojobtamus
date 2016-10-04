@@ -27,8 +27,7 @@ extension UIViewController{
             
         }else{
             
-            locationLabel.text = UserDefaults.standard.string(forKey: "Please press to setup an address")
-
+            locationLabel.text = "Please press to setup an address"
         }
     }
 }
