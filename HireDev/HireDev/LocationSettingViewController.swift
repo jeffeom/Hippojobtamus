@@ -15,16 +15,20 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     
     var placesClient: GMSPlacesClient?
     
-    @IBOutlet weak var locationView: UIView!
-    @IBOutlet weak var locationLabel: UILabel!
     var newAddress: String = ""
     var newLocationHistory: [String] = []
+    let locationManager = CLLocationManager()
     
     //MARK: IBOutlets
     
-    let locationManager = CLLocationManager()
-    
+    @IBOutlet weak var locationView: UIView!
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var locationSegmented: UISegmentedControl!
+    
+    @IBOutlet weak var lookUpAddressView: UIView!
+    @IBOutlet weak var searchDistanceView: UIView!
+    @IBOutlet weak var sliderDistance: UISlider!
     
     //MARK: UIViewController
     
@@ -44,6 +48,9 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         
         placesClient = GMSPlacesClient.shared()
         locationView.isHidden = true
+        
+        self.searchDistanceView.isHidden = true
+        self.lookUpAddressView.isHidden = false
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
@@ -100,6 +107,75 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     }
     
     //MARK: IBActions
+    
+    @IBAction func segmentedValueChanged(_ sender: AnyObject) {
+        
+        switch locationSegmented.selectedSegmentIndex {
+        case 0:
+            lookUpAddressView.isHidden = false
+            searchDistanceView.isHidden = true
+        
+        case 1:
+            lookUpAddressView.isHidden = true
+            searchDistanceView.isHidden = false
+            
+            let theCase = UserDefaults.standard.integer(forKey: "distanceCase")
+            
+            if theCase != 0{
+                sliderDistance.value = Float(theCase)
+            }else{
+                sliderDistance.value = 3
+            }
+            
+        default:
+            lookUpAddressView.isHidden = false
+            searchDistanceView.isHidden = true
+        }
+        
+    }
+    
+    @IBAction func sliderValueChanged(_ sender: AnyObject) {
+        let step: Float = 1
+        
+        let roundedValue = round(sender.value / step) * step
+        sender.setValue(roundedValue, animated: true)
+        
+        var distance: Int
+        var theCase: Int
+        
+        let number = sliderDistance.value
+        
+        switch number {
+        case 0:
+            distance = 1
+            theCase = 0
+            
+        case 1:
+            distance = 5
+            theCase = 1
+
+        case 2:
+            distance = 10
+            theCase = 2
+
+        case 3:
+            distance = 20
+            theCase = 3
+
+        case 4:
+            distance = 50
+            theCase = 4
+
+        default:
+            distance = 20
+            theCase = 3
+
+        }
+        
+        UserDefaults.standard.setValue(distance, forKey: "searchDistance")
+        UserDefaults.standard.setValue(theCase, forKey: "distanceCase")
+    }
+    
     
     @IBAction func currentLocation(_ sender: AnyObject) {
         self.locationView.isHidden = false
