@@ -65,7 +65,11 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        UserDefaults.standard.setValue(newLocationHistory, forKey: "locationHistory")
+        if newLocationHistory.count > 7 {
+            newLocationHistory.removeFirst(newLocationHistory.count - 7)
+            UserDefaults.standard.setValue(newLocationHistory, forKey: "locationHistory")
+        }
+        
     }
     
     //MARK: UITableView
