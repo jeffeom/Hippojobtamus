@@ -9,7 +9,7 @@
 import UIKit
 import GooglePlaces
 
-class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLocationManagerDelegate {
+class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
     
@@ -18,12 +18,14 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var locationLabel: UILabel!
     var newAddress: String = ""
+    var locationHistory: [String] = []
+    var newLocationHistory: [String] = []
     
     //MARK: IBOutlets
     
-    @IBOutlet weak var searchBar: UISearchBar!
     let locationManager = CLLocationManager()
     
+    @IBOutlet weak var tableView: UITableView!
     
     //MARK: UIViewController
     
@@ -47,6 +49,20 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         
+    }
+    
+    //MARK: UITableView
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return newLocationHistory.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "locationCell", for: indexPath)
+        
+        cell.textLabel?.text = newLocationHistory[indexPath.row]
+        
+        return cell
     }
     
     //MARK: IBActions
@@ -73,9 +89,88 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
                     self.locationLabel.text = self.newAddress
                     
                     UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
+                    
+                    if (self.checkForSameData(array: self.newLocationHistory, string: self.newAddress)){
+                        self.newLocationHistory .append(self.newAddress)
+                    }
+                    self.tableView.reloadData()
                 }
             }
         })
+    }
+    
+    @IBAction func searchButton(_ sender: AnyObject) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        self.present(autocompleteController, animated: true, completion: nil)
+    }
+    
+    //MARK: Function
+    
+    func checkForSameData(array: [String], string: String) -> Bool{
+        var boolValue: Bool = false
+        
+        if newLocationHistory.count == 0{
+            newLocationHistory.append(string)
+        }else{
+            for aSub in array{
+                if string == aSub{
+                    boolValue = false
+                    return boolValue
+                }else{
+                    boolValue = true
+                }
+            }
+        }
+        return boolValue
+    }
+}
+
+//MARK: Google Places extension
+
+extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        
+        var addressArray: [String] = []
+        var fixedArray: [String] = []
+        
+        addressArray = (place.formattedAddress?.components(separatedBy: ", "))!
+        fixedArray.append(addressArray[0])
+        fixedArray.append(addressArray[1])
+        self.newAddress = fixedArray.joined(separator: ", ")
+        self.locationLabel.text = self.newAddress
+        
+        UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
+        
+        if (self.checkForSameData(array: self.newLocationHistory, string: self.newAddress)){
+            self.newLocationHistory.append(self.newAddress)
+        }
+        
+        self.dismiss(animated: true, completion: {
+            self.locationView.isHidden = false
+            self.tableView.reloadData()
+        })
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
 }
