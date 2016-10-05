@@ -35,6 +35,7 @@ class HomeViewController: UIViewController {
         
         self.setUpLocationForButton(locationButton: locationButton)
         
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,8 +82,6 @@ class HomeViewController: UIViewController {
             default:
                 NSLog("Wrong Segue")
             }
-        }else{
-            NSLog("Segue nil")
         }
     }
     

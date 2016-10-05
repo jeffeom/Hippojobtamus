@@ -20,10 +20,13 @@ class MasterViewController: UITableViewController {
     var categoryContents = [JobItem]()
     var indicator = UIActivityIndicatorView()
     let ref = FIRDatabase.database().reference(withPath: "job-post")
+    var rejectionCounter = 0
+    var itemCounter = 0
     
     //MARK: UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         self.title = contents
         indicator.color = UIColor.gray
@@ -37,14 +40,61 @@ class MasterViewController: UITableViewController {
             var newItems: [JobItem] = []
             
             for item in snapshot.children {
+                self.itemCounter += 1
+                
                 let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
-                newItems.append(jobItem)
+                
+                let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation")?.replacingOccurrences(of: " ", with: ""))!
+                let readableDestination: String = jobItem.location.replacingOccurrences(of: " ", with: "")
+                
+                self.checkDistance(origin: readableOrigin, destination: readableDestination) { (fetchedData) in
+                    DispatchQueue.main.async {
+                        
+                        let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
+                        let readableDistanceRequest = userDistanceRequest * 1000
+                        
+                        if let aDistance = fetchedData?.first{
+                            if aDistance > Float(readableDistanceRequest){
+                                self.rejectionCounter += 1
+                            }else{
+                                newItems.append(jobItem)
+                                
+                                newItems = newItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
+                                
+                                self.categoryContents = newItems
+                                self.tableView.reloadData()
+                                
+
+                            }
+                        }else{
+                            self.rejectionCounter += 1
+                        }
+                    }
+                    
+                    if self.rejectionCounter == self.itemCounter{
+                        let serachDistance = UserDefaults.standard.integer(forKey: "searchDistance")
+                        
+                        let alert = UIAlertController(title: "No jobs found", message: "Could not find any jobs within \(serachDistance) Km. Please increase the Search Distance", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
+                            
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
+                            self.navigationController?.pushViewController(vc!, animated: true)
+                        }))
+                        
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
+                            return
+                        }))
+                        
+                        alert.show()
+                    }
+                }
             }
             
-            self.categoryContents = newItems
+            
             self.indicator.stopAnimating()
             self.indicator.hidesWhenStopped = true
-            self.tableView.reloadData()
+            
         })
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -91,8 +141,6 @@ class MasterViewController: UITableViewController {
             cell.commentsLabel.text = categoryContents.date
             cell.myImageView.image = self.getImageFromString(string: categoryContents.photo)
             cell.locationLabel.text = categoryContents.location
-        }else{
-            NSLog("categoryContents is empty")
         }
         
         return cell

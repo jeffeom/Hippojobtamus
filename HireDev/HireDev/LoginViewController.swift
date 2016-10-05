@@ -83,7 +83,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     if let _ = error{
                         self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
                     }else{
-                        NSLog("User: \(user?.displayName), \(user?.email)")
                         self.verifiedUser()
                     }
                 }
