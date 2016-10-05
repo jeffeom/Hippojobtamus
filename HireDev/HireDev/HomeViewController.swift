@@ -35,6 +35,9 @@ class HomeViewController: UIViewController {
         
         self.setUpLocationForButton(locationButton: locationButton)
         
+        self.checkDistance(origin: "vancouver,bc", destination: "westvancouver,bc") { (success) in
+            NSLog("yes!!")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
