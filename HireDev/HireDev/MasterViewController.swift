@@ -54,13 +54,10 @@ class MasterViewController: UITableViewController {
                         let readableDistanceRequest = userDistanceRequest * 1000
                         
                         if let aDistance = fetchedData?.first{
-                            NSLog("Measure Found")
                             if aDistance > Float(readableDistanceRequest){
                                 self.rejectionCounter += 1
-                                NSLog("Reject Found. Too far")
                             }else{
                                 newItems.append(jobItem)
-                                NSLog("Add In")
                                 
                                 newItems = newItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
                                 
@@ -70,13 +67,10 @@ class MasterViewController: UITableViewController {
 
                             }
                         }else{
-                            NSLog("Error, no measuredDistance found")
                             self.rejectionCounter += 1
                         }
                     }
                     
-                    NSLog("End of check")
-                    NSLog("rej: \(self.rejectionCounter), ite: \(self.itemCounter)")
                     if self.rejectionCounter == self.itemCounter{
                         let serachDistance = UserDefaults.standard.integer(forKey: "searchDistance")
                         
@@ -147,8 +141,6 @@ class MasterViewController: UITableViewController {
             cell.commentsLabel.text = categoryContents.date
             cell.myImageView.image = self.getImageFromString(string: categoryContents.photo)
             cell.locationLabel.text = categoryContents.location
-        }else{
-            NSLog("categoryContents is empty")
         }
         
         return cell

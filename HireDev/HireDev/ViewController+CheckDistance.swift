@@ -41,7 +41,6 @@ extension UIViewController{
                                     for aElement in elements{
                                         if let distance = aElement["distance"] as? [String: Any]{
                                             measuredDistances.append(distance["value"]! as! Float)
-                                            NSLog("Append Complete")
                                         }
                                     }
                                     completion(measuredDistances)
@@ -53,9 +52,7 @@ extension UIViewController{
                     }
                 }
             }
-            task.resume()
-            NSLog("json fetch complete")
-            
+            task.resume()            
         }
     }
 }

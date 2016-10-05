@@ -188,8 +188,6 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     @IBAction func submitButton(_ sender: AnyObject) {
         let selectedCategory: [String] = chosenCategory(array: checked)
         
-        NSLog("I checked: \(selectedCategory.count) of category and they are \(selectedCategory.description)")
-        
         if (check() && selectedCategory.count != 1 && (UserDefaults.standard.string(forKey: "currentLocation") != nil)){
             self.loadViewIfNeeded()
             let alert = UIAlertController(title: "Thank You!", message: "Job is posted. Fellow Hippos will appreciate your work " + "❤️", preferredStyle: UIAlertControllerStyle.alert)
