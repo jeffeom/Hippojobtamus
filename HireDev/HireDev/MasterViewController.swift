@@ -71,6 +71,7 @@ class MasterViewController: UITableViewController {
                             }
                         }else{
                             NSLog("Error, no measuredDistance found")
+                            self.rejectionCounter += 1
                         }
                     }
                     
