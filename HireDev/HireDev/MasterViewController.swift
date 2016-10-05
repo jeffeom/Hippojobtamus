@@ -38,13 +38,36 @@ class MasterViewController: UITableViewController {
             
             for item in snapshot.children {
                 let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
-                newItems.append(jobItem)
+                
+                let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation")?.replacingOccurrences(of: " ", with: ""))!
+                let readableDestination: String = jobItem.location.replacingOccurrences(of: " ", with: "")
+                
+                self.checkDistance(origin: readableOrigin, destination: readableDestination) { (fetchedData) in
+                    DispatchQueue.main.async {
+                        
+                        let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
+                        let readableDistanceRequest = userDistanceRequest * 1000
+                        
+                        if let aDistance = fetchedData?.first{
+                            NSLog("Measure Found")
+                            if aDistance > Float(readableDistanceRequest){
+                                NSLog("Reject Found. Too far")
+                            }else{
+                                newItems.append(jobItem)
+                                NSLog("Add In")
+                                self.categoryContents = newItems
+                                self.tableView.reloadData()
+                            }
+                        }else{
+                            NSLog("Error, no measuredDistance found")
+                        }
+                    }
+                    NSLog("End of check")
+                }
             }
             
-            self.categoryContents = newItems
             self.indicator.stopAnimating()
             self.indicator.hidesWhenStopped = true
-            self.tableView.reloadData()
         })
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
