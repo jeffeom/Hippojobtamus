@@ -20,10 +20,13 @@ class MasterViewController: UITableViewController {
     var categoryContents = [JobItem]()
     var indicator = UIActivityIndicatorView()
     let ref = FIRDatabase.database().reference(withPath: "job-post")
+    var rejectionCounter = 0
+    var itemCounter = 0
     
     //MARK: UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         self.title = contents
         indicator.color = UIColor.gray
@@ -37,6 +40,8 @@ class MasterViewController: UITableViewController {
             var newItems: [JobItem] = []
             
             for item in snapshot.children {
+                self.itemCounter += 1
+                
                 let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
                 
                 let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation")?.replacingOccurrences(of: " ", with: ""))!
@@ -51,23 +56,50 @@ class MasterViewController: UITableViewController {
                         if let aDistance = fetchedData?.first{
                             NSLog("Measure Found")
                             if aDistance > Float(readableDistanceRequest){
+                                self.rejectionCounter += 1
                                 NSLog("Reject Found. Too far")
                             }else{
                                 newItems.append(jobItem)
                                 NSLog("Add In")
+                                
+                                newItems = newItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
+                                
                                 self.categoryContents = newItems
                                 self.tableView.reloadData()
+                                
+
                             }
                         }else{
                             NSLog("Error, no measuredDistance found")
                         }
                     }
+                    
                     NSLog("End of check")
+                    NSLog("rej: \(self.rejectionCounter), ite: \(self.itemCounter)")
+                    if self.rejectionCounter == self.itemCounter{
+                        let serachDistance = UserDefaults.standard.integer(forKey: "searchDistance")
+                        
+                        let alert = UIAlertController(title: "No jobs found", message: "Could not find any jobs within \(serachDistance) Km. Please increase the Search Distance", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
+                            
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
+                            self.navigationController?.pushViewController(vc!, animated: true)
+                        }))
+                        
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
+                            return
+                        }))
+                        
+                        alert.show()
+                    }
                 }
             }
             
+            
             self.indicator.stopAnimating()
             self.indicator.hidesWhenStopped = true
+            
         })
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
