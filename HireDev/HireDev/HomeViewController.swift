@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     //MARK: Properties
     
@@ -24,29 +24,81 @@ class HomeViewController: UIViewController {
     var othersObjects = [JobItem]()
     var allItems = [JobItem]()
     
+    var latestContents = [JobItem]()
+    
+    let ref = FIRDatabase.database().reference(withPath: "job-post")
+    
     @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var latestCollectionView: UICollectionView!
     
     //MARK: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
         self.setUpLocationForButton(locationButton: locationButton)
         
-        
+        ref.child("All").observe(.value, with: { snapshot in
+            var latestItems: [JobItem] = []
+            var fiveItems: [JobItem] = []
+            
+            for item in snapshot.children {
+                let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
+                latestItems.append(jobItem)
+                
+                if latestItems.count < 5 {
+                    fiveItems.append(jobItem)
+                }
+            }
+            
+            self.latestContents = fiveItems
+            self.latestCollectionView.reloadData()
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        let nav = self.navigationController?.navigationBar
+        nav?.barTintColor = UIColor.init(red: 216.0/255.0, green: 225.0/255.0, blue: 233.0/255.0, alpha: 1.0)
+        nav?.tintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)]
+        
+        if let font = UIFont(name: "GillSans-UltraBold", size: 34) {
+            nav?.titleTextAttributes = [NSFontAttributeName: font]
+        }
+        
         self.tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
         self.tabBarController?.tabBar.tintColor = UIColor.white
         self.setUpLocationForButton(locationButton: locationButton)
         
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        
+    }
+    
+    //MARK: CollectionViewDataSource
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+        return latestContents.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! LatestJobCollectionViewCell
+        
+        let latestContent = self.latestContents[(indexPath as NSIndexPath).item]
+        
+        cell.imageView.image = self.getImageFromString(string: latestContent.photo)
+        cell.titleLabel.text = latestContent.title
+        cell.dateLabel.text = latestContent.date
+        
+        return cell
+    }
+    
+    
     
     // MARK: - Navigation
     
@@ -92,6 +144,15 @@ class HomeViewController: UIViewController {
         let locationSettingController = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
         self.navigationController?.pushViewController(locationSettingController!
             , animated: true)
+    }
+    
+    //MARK: Function
+    
+    func getImageFromString(string: String) -> UIImage {
+        let data: NSData = NSData.init(base64Encoded: string, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
+        let image: UIImage = UIImage.init(data: data as Data)!
+        
+        return image
     }
     
     

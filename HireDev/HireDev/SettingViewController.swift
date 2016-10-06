@@ -26,6 +26,12 @@ class SettingViewController: UIViewController, MFMailComposeViewControllerDelega
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)]
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        
+    }
+    
     //MARK: Button Actions
     
     @IBAction func logOutClicked(_ sender: AnyObject) {
