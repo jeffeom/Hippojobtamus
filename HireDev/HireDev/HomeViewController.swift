@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
     var bankObjects = [JobItem]()
     var othersObjects = [JobItem]()
     var allItems = [JobItem]()
-
+    
     @IBOutlet weak var locationButton: UIButton!
     
     //MARK: UIViewController
@@ -35,16 +35,17 @@ class HomeViewController: UIViewController {
         
         self.setUpLocationForButton(locationButton: locationButton)
         
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-
+        self.tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
+        self.tabBarController?.tabBar.tintColor = UIColor.white
         self.setUpLocationForButton(locationButton: locationButton)
-
+        
     }
     
     // MARK: - Navigation
@@ -93,5 +94,5 @@ class HomeViewController: UIViewController {
             , animated: true)
     }
     
-
+    
 }

@@ -56,11 +56,20 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         placeholderLabel.textColor = UIColor(white: 0, alpha: 0.25)
         placeholderLabel.isHidden = !commentsField.text.isEmpty
         
+//        navigationController?.navigationBar.barTintColor = UIColor.init(red: 195.0, green: 210.0, blue: 224.0, alpha: 1.0)
+        
+//        UINavigationBar.appearance().barTintColor = UIColor.init(red: 195.0, green: 210.0, blue: 224.0, alpha: 1.0)
+        
         self.setUpLocationForLabel(locationLabel: locationLabel)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        let nav = self.navigationController?.navigationBar
+        nav?.barTintColor = UIColor.init(red: 216.0/255.0, green: 225.0/255.0, blue: 233.0/255.0, alpha: 1.0)
+        nav?.tintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)]
         
         self.setUpLocationForLabel(locationLabel: locationLabel)
     }
