@@ -173,7 +173,7 @@
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ykf-pm-f3b">
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="education" translatesAutoresizingMaskIntoConstraints="NO" id="h27-Je-xJK"/>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retail" translatesAutoresizingMaskIntoConstraints="NO" id="h27-Je-xJK"/>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPx-KA-GxH">
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="nn2-lv-n9l"/>
@@ -204,7 +204,11 @@
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WRb-g2-79f">
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grocery" translatesAutoresizingMaskIntoConstraints="NO" id="dIu-5Z-3z5"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKe-91-hYp">
+                                                                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="70"/>
+                                                                                <color key="textColor" red="0.21960784310000001" green="0.23921568630000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME0-I7-Vyy">
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="GRu-n5-XRe"/>
@@ -333,7 +337,7 @@
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9ml-9G-qJt">
                                                                         <subviews>
-                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="receptionist" translatesAutoresizingMaskIntoConstraints="NO" id="vAc-3X-hN3"/>
+                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="others" translatesAutoresizingMaskIntoConstraints="NO" id="vAc-3X-hN3"/>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Others" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swY-mg-5U1">
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="qtI-AW-rL5"/>
@@ -2113,22 +2117,24 @@
     <resources>
         <image name="Sign Up Button" width="584" height="100"/>
         <image name="background" width="750" height="1334"/>
-        <image name="bank" width="300" height="300"/>
+        <image name="bank" width="210" height="230"/>
         <image name="blankinputbox" width="653" height="102"/>
-        <image name="cafe" width="300" height="300"/>
+        <image name="cafe" width="180" height="150"/>
         <image name="cancelbutton" width="584" height="100"/>
         <image name="circle_logo" width="152" height="152"/>
-        <image name="education" width="300" height="300"/>
+        <image name="education" width="235" height="170"/>
         <image name="email logofinal" width="103" height="103"/>
         <image name="facebooklogofinal" width="103" height="103"/>
         <image name="greenbackground" width="750" height="1334"/>
-        <image name="grocery" width="300" height="300"/>
+        <image name="grocery" width="235" height="155"/>
+        <image name="others" width="180" height="165"/>
         <image name="powerGoogle" width="144" height="18"/>
-        <image name="receptionist" width="225" height="145"/>
-        <image name="restaurant" width="300" height="300"/>
+        <image name="receptionist" width="230" height="150"/>
+        <image name="restaurant" width="230" height="160"/>
+        <image name="retail" width="180" height="160"/>
         <image name="upload_box" width="412" height="377"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EnS-p7-7jN"/>
+        <segue reference="yIS-q8-wov"/>
     </inferredMetricsTieBreakers>
 </document>
