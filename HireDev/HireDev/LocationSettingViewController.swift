@@ -148,34 +148,31 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         switch number {
         case 1:
             distance = 1
-            theCase = 0
+            theCase = 1
             
         case 2:
             distance = 5
-            theCase = 1
+            theCase = 2
 
         case 3:
             distance = 10
-            theCase = 2
+            theCase = 3
 
         case 4:
             distance = 20
-            theCase = 3
+            theCase = 4
 
         case 5:
             distance = 50
-            theCase = 4
+            theCase = 5
 
         default:
             distance = 10
             theCase = 2
 
         }
-        NSLog("currentNumber: \(number)")
         UserDefaults.standard.setValue(distance, forKey: "searchDistance")
-        NSLog("searchDistanceSaved to \(distance)")
         UserDefaults.standard.setValue(theCase, forKey: "distanceCase")
-        NSLog("DistanceCaseSaved to \(theCase)")
     }
     
     

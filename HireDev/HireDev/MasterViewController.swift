@@ -56,7 +56,6 @@ class MasterViewController: UITableViewController {
                         if let aDistance = fetchedData?.first{
                             if aDistance > Float(readableDistanceRequest){
                                 self.rejectionCounter += 1
-                                NSLog("\(self.rejectionCounter), \(self.itemCounter)")
                                 if self.rejectionCounter == self.itemCounter{
                                     let serachDistance = UserDefaults.standard.integer(forKey: "searchDistance")
                                     
@@ -87,7 +86,6 @@ class MasterViewController: UITableViewController {
                             }
                         }else{
                             self.rejectionCounter += 1
-                            NSLog("\(self.rejectionCounter), \(self.itemCounter)")
                             if self.rejectionCounter == self.itemCounter{
                                 
                                 let alert = UIAlertController(title: "Not Available", message: "Not available in this area", preferredStyle: UIAlertControllerStyle.alert)
@@ -119,6 +117,8 @@ class MasterViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
