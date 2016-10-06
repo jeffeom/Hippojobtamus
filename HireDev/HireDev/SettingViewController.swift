@@ -10,19 +10,6 @@ import UIKit
 
 class SettingViewController: UIViewController {
     
-    //MARK: IBOutlets
-    
-    @IBAction func signOutButton(_ sender: AnyObject) {
-        let appDomain = Bundle.main.bundleIdentifier!
-        UserDefaults.standard.removePersistentDomain(forName: appDomain)
-        
-        self.showAlert(text: "You have successfully signed out", title: "Success!") {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "loginVC")
-            self.present(vc!, animated: true)
-        }
-    }
-    
-    
     //MARK: UIViewController
     
     override func viewDidLoad() {
@@ -40,12 +27,27 @@ class SettingViewController: UIViewController {
     
     //MARK: Button Actions
     
-    @IBAction func profileClicked(_ sender: AnyObject) {
-        self.view.viewWithTag(1)?.backgroundColor = UIColor.blue
-    }
-    @IBAction func locationClicked(_ sender: AnyObject) {
+    @IBAction func logOutClicked(_ sender: AnyObject) {
         
+        let alert = UIAlertController(title: "Do you want to log out?", message: "You will lose all of your location history", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Log out", style: UIAlertActionStyle.destructive, handler: {(alert: UIAlertAction!) in
+            
+            let appDomain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: appDomain)
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "loginVC")
+            self.present(vc!, animated: true)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
+            return
+        }))
+        
+        alert.show()
     }
+    
+    
     @IBAction func feedbackClicked(_ sender: AnyObject) {
         
     }
@@ -55,8 +57,12 @@ class SettingViewController: UIViewController {
     @IBAction func helpClicked(_ sender: AnyObject) {
         
     }
-    @IBAction func aboutClicked(_ sender: AnyObject) {
-        
+
+    
+    @IBAction func PrivacyPolicy(_ sender: AnyObject) {
+    }
+    
+    @IBAction func termsOfService(_ sender: AnyObject) {
     }
     
     
