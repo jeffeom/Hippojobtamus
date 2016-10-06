@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     //MARK: UIViewController
     
@@ -47,22 +48,58 @@ class SettingViewController: UIViewController {
         alert.show()
     }
     
+    //MARK: MFMailComposeVCDelegate
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["hippojobtamus@gmail.com"])
+        mailComposerVC.setSubject("[Feedback for Hippo]")
+        mailComposerVC.setMessageBody("Your app is not so bad! I wish there was: ", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "Could Not Send Email", message: "Your device could not send email. Please check email configuration and try again.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        sendMailErrorAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (alert: UIAlertAction) in
+            return
+        }))
+        
+        sendMailErrorAlert.show()
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: IBAction
     
     @IBAction func feedbackClicked(_ sender: AnyObject) {
-        
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
     }
+    
     @IBAction func rateClicked(_ sender: AnyObject) {
-        
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
     }
     @IBAction func helpClicked(_ sender: AnyObject) {
         
     }
 
-    
-    @IBAction func PrivacyPolicy(_ sender: AnyObject) {
-    }
-    
     @IBAction func termsOfService(_ sender: AnyObject) {
+        
     }
     
     

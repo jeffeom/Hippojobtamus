@@ -909,8 +909,7 @@
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTc-6N-rOq">
                                                         <connections>
-                                                            <action selector="PrivacyPolicy:" destination="uWm-3i-vUC" eventType="touchUpInside" id="578-bf-1ad"/>
-                                                            <action selector="feedbackClicked:" destination="uWm-3i-vUC" eventType="touchUpInside" id="cLW-RS-FLu"/>
+                                                            <segue destination="PaR-fW-w0y" kind="show" id="sqc-2X-4as"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -950,7 +949,6 @@
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sb9-kW-tqk">
                                                         <connections>
-                                                            <action selector="rateClicked:" destination="uWm-3i-vUC" eventType="touchUpInside" id="bR0-4T-baK"/>
                                                             <action selector="termsOfService:" destination="uWm-3i-vUC" eventType="touchUpInside" id="DcF-Qs-uoO"/>
                                                         </connections>
                                                     </button>
@@ -1007,6 +1005,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWd-L8-5IT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3812" y="309.89505247376314"/>
+        </scene>
+        <!--Privacy Policy-->
+        <scene sceneID="Fso-pj-UjE">
+            <objects>
+                <viewController id="PaR-fW-w0y" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="40w-1F-vLD"/>
+                        <viewControllerLayoutGuide type="bottom" id="1ej-Wd-5Kz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="41x-iw-t5T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52S-dv-jwI">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">This privacy policy governs your use of the software application Hippojobtamus (“Hippojobtamus,” “we,” “us,” or “our”). Hippojobtamus provides users an intuitive and easy way to find local hiring positions. Simply upload a photo of any ‘Now Hiring’ signs you come across and browse through photos uploaded by other users to find job positions you may have missed in your job search.  1. What information does Hippojobtamus obtain?Hippojobtamus collects the following information from its users.User Provided Information •	Hippojobtamus obtains the information you provide when you download and register the application, such as your first name, last name, password, and e-mail address. Registration with us is mandatory in order to be able to use the basic features of the Application.•	Any user content uploaded to Hippojobtamus such as photos, and job postings.•	We may also use the information you provided us to contact you from time to time to provide you with important information, required notices and marketing promotions.Automatically Collected Information •	Facebook permissionWe may ask for some Facebook permissions allowing it to perform actions with the User's Facebook account and to retrieve information, including Personal Data, from it.For more information about the following permissions, refer to the Facebook permissions documentation and to the Facebook privacy policy.The permissions asked are the following:o	Basic informationBy default, this includes certain User’s Data such as user id, name, picture, gender, and their locale. Certain connections of the User, such as the Friends, are also available. If the User has made more of their Data public, more information will be available.o	About MeProvides access to the 'About Me' section of the profile.o	Contact emailAccess the User's contact email address.Geo-Location Information•	When you visit the mobile application, we may use GPS technology (or other similar technology) to determine your current approxmiate location in order to determine the city you are located within when you upload a posting, and to display relevant postings. We will not collect this information without your permission, nor will we share your current location with other users or partners.•	If you do not want us to use your location for the purposes set forth above, you should turn off the location services for the mobile application located in your account settings or in your mobile phone settings and/or within the mobile application. 2. How does Hippojobtamus use the information it obtains?Some more general uses of the obtained information in addition to the specific uses outlined above include:•	Hippojobtamus will remember your sign-in information so you will not have to enter it every time you visit the application.•	Improving our product and serviceDo third parties see and/or have access to information obtained by the Application?We will share your information with third parties only in the ways that are described in this privacy statement.We may disclose User Provided Information and Automatically Collected Information:•	as required by law, such as to comply with a subpoena, or similar legal process;•	when we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;•	with our trusted services providers who work on our behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.•	if [DEVELOPER COMPANY NAME] is involved in a merger, acquisition, or sale of all or a portion of its assets, you will be notified via email and/or a prominent notice on our Web site of any change in ownership or uses of this information, as well as any choices you may have regarding this information.What are my opt-out rights?You can stop all collection of information by the Application easily by uninstalling the Application. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network. Data Retention Policy, Managing Your InformationWe will retain User Provided Information for as long as you use the Application and for a reasonable time thereafter. We will retain Automatically Collected Information for up to 24 months and thereafter may store it in aggregate. Please note that some or all of the User Provided Information may be required in order for the Application to function properly.3. ChildrenWe do not use the Application to knowingly solicit data from or market to children under the age of 13. If a parent or guardian becomes aware that his or her child has provided us with information without their consent, he or she should contact us at hippojobtamus@gmail.com. We will delete such information from our files within a reasonable time.4. SecurityWe are concerned about safeguarding the confidentiality of your information. We provide physical, electronic, and procedural safeguards to protect information we process and maintain. For example, we limit access to this information to authorized employees and contractors who need to know that information in order to operate, develop or improve our Application. Please be aware that, although we endeavor to provide reasonable security for information we process and maintain, no security system can prevent all potential security breaches.5. ChangesThis Privacy Policy may be updated from time to time for any reason. We will notify you of any changes to our Privacy Policy by posting the new Privacy Policy here and informing you via email. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes. 6. Your ConsentBy using the Application, you are consenting to our processing of your information as set forth in this Privacy Policy now and as amended by us. "Processing,” means using cookies on a computer/hand held device or using or touching information in any way, including, but not limited to, collecting, storing, deleting, using, combining and disclosing information, all of which activities will take place in Canada. If you reside outside Canada your information will be transferred, processed and stored there under Canadian privacy standards.  7. Contact usIf you have any questions regarding privacy while using Hippojobtamus, or have questions about our practices, please contact us via email at hippojobtamus@gmail.com </mutableString>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="52S-dv-jwI" firstAttribute="top" secondItem="40w-1F-vLD" secondAttribute="bottom" id="0G4-VQ-OIT"/>
+                            <constraint firstAttribute="trailing" secondItem="52S-dv-jwI" secondAttribute="trailing" id="4r4-lg-PbG"/>
+                            <constraint firstItem="52S-dv-jwI" firstAttribute="leading" secondItem="41x-iw-t5T" secondAttribute="leading" id="BYF-hI-gjQ"/>
+                            <constraint firstItem="1ej-Wd-5Kz" firstAttribute="top" secondItem="52S-dv-jwI" secondAttribute="bottom" id="fcU-pN-dyz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Privacy Policy" id="hbt-jw-rdy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fsc-tS-TSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4593" y="623"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7jm-JU-gZQ">
