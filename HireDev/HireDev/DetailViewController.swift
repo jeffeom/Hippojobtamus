@@ -30,6 +30,15 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.title = self.detailItem.title
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let nav = self.navigationController?.navigationBar
+        let font = UIFont.boldSystemFont(ofSize: 18)
+        nav?.titleTextAttributes = [NSFontAttributeName: font]
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)]
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

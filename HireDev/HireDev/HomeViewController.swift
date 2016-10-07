@@ -29,7 +29,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var rejectionCounter = 0
     var itemCounter = 0
     
-    var collectionView: UICollectionView?
     var screenSize: CGRect!
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
@@ -56,6 +55,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         indicator.startAnimating()
         
         self.setUpLocationForButton(locationButton: locationButton)
+        
+        if let _ = UserDefaults.standard.string(forKey: "currentLocation"){
         
         ref.child("All").observe(.value, with: { snapshot in
             var latestItems: [JobItem] = []
@@ -127,6 +128,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             self.indicator.stopAnimating()
             self.indicator.hidesWhenStopped = true
         })
+        }else{
+            let alert = UIAlertController(title: "Current Location Needed", message: "Please set your current location", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
+                
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
+                self.navigationController?.pushViewController(vc!, animated: true)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
+                return
+            }))
+            
+            alert.show()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -255,7 +271,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let latestContent = self.latestContents[(indexPath as NSIndexPath).item]
         
-        cell.imageView.image = self.getImageFromString(string: latestContent.photo)
         cell.titleLabel.text = latestContent.title
         cell.locationLabel.text = latestContent.location
         cell.dateLabel.text = latestContent.date
@@ -263,15 +278,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width = UIScreen.main.bounds.width
-//        let height = UIScreen.main.bounds.height
-//        return CGSize(width: (width - 10), height: (height - 10)) // width & height are the same to make a square cell
-//    }
-//    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let kWhateverHeightYouWant = 105
+        return CGSize.init(width:collectionView.bounds.size.width, height:CGFloat(kWhateverHeightYouWant))
+    }
     
-    
-    // MARK: - Navigation
+    //MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let _ = segue.identifier {
@@ -303,6 +317,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             case "othersTable":
                 let controller = segue.destination as! MasterViewController
                 controller.contents = "Others"
+            case "showDetail":
+                let cell = sender as! LatestJobCollectionViewCell
+                if let indexPath = self.latestCollectionView!.indexPath(for: cell) {
+                    let categoryContent = self.latestContents[indexPath.item]
+                    let controller = segue.destination as! DetailViewController
+                    controller.detailItem = categoryContent as JobItem
+                }
+                
             default:
                 NSLog("Wrong Segue")
             }
@@ -325,12 +347,4 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         return image
     }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let kWhateverHeightYouWant = 105
-        return CGSize.init(width:collectionView.bounds.size.width, height:CGFloat(kWhateverHeightYouWant))
-    }
-    
 }

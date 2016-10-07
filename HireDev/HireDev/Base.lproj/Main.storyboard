@@ -77,7 +77,7 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iv0-el-0kr">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feature" translatesAutoresizingMaskIntoConstraints="NO" id="iv0-el-0kr">
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="iv0-el-0kr" secondAttribute="height" multiplier="1:1" id="bpa-b5-CXs"/>
                                                                             </constraints>
@@ -126,6 +126,7 @@
                                                                     <outlet property="imageView" destination="iv0-el-0kr" id="rzB-aP-55T"/>
                                                                     <outlet property="locationLabel" destination="ZTe-6l-gNQ" id="smJ-Gb-ZkQ"/>
                                                                     <outlet property="titleLabel" destination="hcJ-wz-C9Q" id="4cH-xz-50Y"/>
+                                                                    <segue destination="JEX-9P-axG" kind="show" identifier="showDetail" id="hcU-FG-nwL"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
@@ -1882,7 +1883,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2201,7 +2202,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2220,7 +2221,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j0S-kT-hOS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2239,7 +2240,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kIl-xk-SdC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2266,6 +2267,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
         <image name="education" width="231" height="231"/>
         <image name="email logofinal" width="103" height="103"/>
         <image name="facebooklogofinal" width="103" height="103"/>
+        <image name="feature" width="300" height="300"/>
         <image name="greenbackground" width="750" height="1334"/>
         <image name="grocery" width="231" height="231"/>
         <image name="others" width="231" height="231"/>
@@ -2276,6 +2278,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
         <image name="upload_box" width="412" height="377"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="hcU-FG-nwL"/>
         <segue reference="Pn4-LR-lDe"/>
     </inferredMetricsTieBreakers>
 </document>
