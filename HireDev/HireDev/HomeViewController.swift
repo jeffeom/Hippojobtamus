@@ -64,7 +64,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         nav?.tintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)]
         
-        if let font = UIFont(name: "GillSans-UltraBold", size: 34) {
+        if let font = UIFont(name: "GillSans-UltraBold", size: 15) {
             nav?.titleTextAttributes = [NSFontAttributeName: font]
         }
         

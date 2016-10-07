@@ -73,7 +73,7 @@ class MasterViewController: UITableViewController {
                                     
                                     alert.show()
                                 }
-
+                                
                             }else{
                                 newItems.append(jobItem)
                                 
@@ -117,6 +117,11 @@ class MasterViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        let nav = self.navigationController?.navigationBar
+        let font = UIFont.boldSystemFont(ofSize: 20)
+        nav?.titleTextAttributes = [NSFontAttributeName: font]
+        
         
         viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)

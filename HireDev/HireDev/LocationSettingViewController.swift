@@ -59,6 +59,10 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        let nav = self.navigationController?.navigationBar
+        let font = UIFont.boldSystemFont(ofSize: 20)
+        nav?.titleTextAttributes = [NSFontAttributeName: font]
+        
         if newLocationHistory.count == 0{
             if let myLocationHistory = UserDefaults.standard.array(forKey: "locationHistory"){
                 newLocationHistory = myLocationHistory as! [String]
