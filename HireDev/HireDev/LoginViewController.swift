@@ -122,9 +122,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
             self.navigationController?.pushViewController(confirmedViewController!
                 , animated: true)
+            UserDefaults.standard.setValue(10, forKey: "searchDistance")
         }else{
             UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.uid, forKey: "uid")
             UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.email, forKey: "email")
+            UserDefaults.standard.setValue(10, forKey: "searchDistance")
             UserDefaults.standard.synchronize()
             let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
             self.navigationController?.pushViewController(confirmedViewController!
