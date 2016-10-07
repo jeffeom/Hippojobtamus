@@ -60,8 +60,9 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         super.viewWillAppear(animated)
         
         let nav = self.navigationController?.navigationBar
-        let font = UIFont.boldSystemFont(ofSize: 20)
+        let font = UIFont.boldSystemFont(ofSize: 18)
         nav?.titleTextAttributes = [NSFontAttributeName: font]
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)]
         
         if newLocationHistory.count == 0{
             if let myLocationHistory = UserDefaults.standard.array(forKey: "locationHistory"){
@@ -109,7 +110,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         if let cell = tableView.cellForRow(at: indexPath) {
             let selectedCellAddress = cell.textLabel?.text
             UserDefaults.standard.set(selectedCellAddress, forKey: "currentLocation")
-
+            
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
             }
@@ -124,7 +125,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         case 0:
             lookUpAddressView.isHidden = false
             searchDistanceView.isHidden = true
-        
+            
         case 1:
             lookUpAddressView.isHidden = true
             searchDistanceView.isHidden = false
@@ -163,23 +164,23 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         case 2:
             distance = 5
             theCase = 2
-
+            
         case 3:
             distance = 10
             theCase = 3
-
+            
         case 4:
             distance = 20
             theCase = 4
-
+            
         case 5:
             distance = 50
             theCase = 5
-
+            
         default:
             distance = 10
             theCase = 2
-
+            
         }
         UserDefaults.standard.setValue(distance, forKey: "searchDistance")
         UserDefaults.standard.setValue(theCase, forKey: "distanceCase")
@@ -268,7 +269,7 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
         
         if (self.checkForSameData(array: self.newLocationHistory, string: self.newAddress)){
             self.newLocationHistory.append(self.newAddress)
-
+            
         }
         
         self.dismiss(animated: true, completion: {

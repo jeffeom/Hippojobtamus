@@ -31,7 +31,7 @@ class MasterViewController: UITableViewController {
         self.title = contents
         indicator.color = UIColor.gray
         indicator.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
-        indicator.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 10)
+        indicator.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 9)
         self.view.addSubview(indicator)
         indicator.bringSubview(toFront: self.view)
         indicator.startAnimating()
@@ -119,9 +119,9 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(true)
         
         let nav = self.navigationController?.navigationBar
-        let font = UIFont.boldSystemFont(ofSize: 20)
+        let font = UIFont.boldSystemFont(ofSize: 18)
         nav?.titleTextAttributes = [NSFontAttributeName: font]
-        
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)]
         
         viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)

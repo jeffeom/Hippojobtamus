@@ -26,6 +26,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var latestContents = [JobItem]()
     
+    var indicator = UIActivityIndicatorView()
+    
+    
     let ref = FIRDatabase.database().reference(withPath: "job-post")
     
     @IBOutlet weak var locationButton: UIButton!
@@ -35,6 +38,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        indicator.color = UIColor.gray
+        indicator.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
+        indicator.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 10)
+        self.view.addSubview(indicator)
+        indicator.bringSubview(toFront: self.view)
+        indicator.startAnimating()
         
         self.setUpLocationForButton(locationButton: locationButton)
         
@@ -52,6 +62,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
             
             self.latestContents = fiveItems
+            self.indicator.stopAnimating()
+            self.indicator.hidesWhenStopped = true
             self.latestCollectionView.reloadData()
         })
     }
@@ -64,9 +76,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         nav?.tintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)]
         
-        if let font = UIFont(name: "GillSans-UltraBold", size: 15) {
-            nav?.titleTextAttributes = [NSFontAttributeName: font]
-        }
+        nav?.titleTextAttributes = [NSFontAttributeName: UIFont(name: "GillSans-UltraBold", size: 20)!]
         
         self.tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
         self.tabBarController?.tabBar.tintColor = UIColor.white
