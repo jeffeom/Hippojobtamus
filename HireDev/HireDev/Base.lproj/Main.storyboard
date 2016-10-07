@@ -92,7 +92,7 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiring SOON!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcQ-Iy-LDT">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latest Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcQ-Iy-LDT">
                                                                             <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -106,20 +106,44 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E68-9z-KAz" customClass="FontAwesomeView" customModule="FontAwesome_swift">
+                                                                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="E68-9z-KAz" secondAttribute="height" multiplier="1:1" id="DYQ-Ov-5Qh"/>
+                                                                            </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="string" keyPath="iconCode" value="fa-rocket"/>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </view>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFq-4D-hd9" customClass="FontAwesomeView" customModule="FontAwesome_swift">
+                                                                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="FFq-4D-hd9" secondAttribute="height" multiplier="1:1" id="thi-N9-3LQ"/>
+                                                                            </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="string" keyPath="iconCode" value="fa-rocket"/>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </view>
                                                                     </subviews>
                                                                 </view>
                                                                 <constraints>
                                                                     <constraint firstItem="ZTe-6l-gNQ" firstAttribute="bottom" secondItem="8q8-kX-Vld" secondAttribute="bottomMargin" id="4Lb-cF-YSi"/>
-                                                                    <constraint firstItem="XcQ-Iy-LDT" firstAttribute="leading" secondItem="iv0-el-0kr" secondAttribute="trailing" constant="10" id="51h-dt-9g4"/>
                                                                     <constraint firstItem="ZTe-6l-gNQ" firstAttribute="leading" secondItem="iv0-el-0kr" secondAttribute="trailing" constant="10" id="8UO-xe-pgQ"/>
                                                                     <constraint firstItem="hcJ-wz-C9Q" firstAttribute="leading" secondItem="iv0-el-0kr" secondAttribute="trailing" constant="10" id="HG2-Si-xKX"/>
+                                                                    <constraint firstAttribute="topMargin" secondItem="FFq-4D-hd9" secondAttribute="top" id="Hxe-j6-4g7"/>
+                                                                    <constraint firstItem="FFq-4D-hd9" firstAttribute="height" secondItem="XcQ-Iy-LDT" secondAttribute="height" id="IOP-uL-gPW"/>
                                                                     <constraint firstAttribute="bottomMargin" secondItem="iv0-el-0kr" secondAttribute="bottom" id="OgQ-mT-P1L"/>
+                                                                    <constraint firstAttribute="topMargin" secondItem="E68-9z-KAz" secondAttribute="top" id="QZL-h0-mfh"/>
+                                                                    <constraint firstItem="E68-9z-KAz" firstAttribute="height" secondItem="XcQ-Iy-LDT" secondAttribute="height" id="Qw7-ho-kKi"/>
                                                                     <constraint firstItem="iv0-el-0kr" firstAttribute="leading" secondItem="8q8-kX-Vld" secondAttribute="leadingMargin" id="TBf-ZY-vxY"/>
                                                                     <constraint firstItem="XcQ-Iy-LDT" firstAttribute="top" secondItem="8q8-kX-Vld" secondAttribute="topMargin" id="Wuq-mM-YE1"/>
+                                                                    <constraint firstItem="XcQ-Iy-LDT" firstAttribute="leading" secondItem="E68-9z-KAz" secondAttribute="trailing" constant="3" id="Zgm-Cv-W9u"/>
                                                                     <constraint firstAttribute="bottomMargin" secondItem="ZcW-qX-1OA" secondAttribute="bottom" id="eRh-nD-0TP"/>
                                                                     <constraint firstItem="hcJ-wz-C9Q" firstAttribute="top" secondItem="XcQ-Iy-LDT" secondAttribute="bottom" constant="5" id="hIV-aA-h8s"/>
                                                                     <constraint firstAttribute="trailing" secondItem="ZcW-qX-1OA" secondAttribute="trailing" constant="10" id="jHp-8q-K6O"/>
                                                                     <constraint firstItem="iv0-el-0kr" firstAttribute="top" secondItem="8q8-kX-Vld" secondAttribute="topMargin" id="lR6-eE-HR7"/>
+                                                                    <constraint firstItem="E68-9z-KAz" firstAttribute="leading" secondItem="iv0-el-0kr" secondAttribute="trailing" constant="10" id="tSe-dx-B1Y"/>
+                                                                    <constraint firstItem="FFq-4D-hd9" firstAttribute="leading" secondItem="XcQ-Iy-LDT" secondAttribute="trailing" constant="3" id="vZX-Dw-Tvm"/>
                                                                 </constraints>
                                                                 <connections>
                                                                     <outlet property="dateLabel" destination="ZcW-qX-1OA" id="dYo-l1-Zaz"/>
@@ -557,14 +581,14 @@
                                                                         <color key="sectionIndexBackgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <prototypes>
                                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" textLabel="mqA-Tg-5U1" style="IBUITableViewCellStyleDefault" id="mpt-2b-jtc">
-                                                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                                                <rect key="frame" x="0.0" y="28" width="1000" height="44"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mpt-2b-jtc" id="Vic-MX-KRB">
-                                                                                    <frame key="frameInset" width="375" height="43"/>
+                                                                                    <frame key="frameInset" width="1000" height="43.5"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mqA-Tg-5U1">
-                                                                                            <frame key="frameInset" minX="15" width="345" height="43"/>
+                                                                                            <frame key="frameInset" minX="164" width="672" height="43.5"/>
                                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                             <nil key="textColor"/>
@@ -1797,7 +1821,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                 <rect key="frame" x="0.0" y="22" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="375" height="99"/>
+                                    <frame key="frameInset" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2td-M2-BB0">
@@ -1883,7 +1907,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2129,7 +2153,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9lC-aA-fMm" id="o9d-O6-GTP">
-                                                            <frame key="frameInset" width="375" height="43"/>
+                                                            <frame key="frameInset" width="375" height="43.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwS-qi-MN8">
@@ -2202,7 +2226,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2221,7 +2245,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j0S-kT-hOS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2240,7 +2264,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kIl-xk-SdC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -29,7 +29,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     
     let ref = FIRDatabase.database().reference(withPath: "job-post")
     var savedJobs: [JobItem] = []
-    let category: [String] = ["Cafe", "Server", "Tutor", "Sales", "Reception", "Grocery", "Bank", "Others"]
+    let category: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "Education", "Sales", "Receptionist", "Others"]
     var hidden: Bool = true
     var selectedIndexPath: IndexPath = IndexPath()
     var checked: [Bool] = [false, false, false, false, false, false, false, false]

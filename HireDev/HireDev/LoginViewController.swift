@@ -57,12 +57,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
                 self.passwordField.text = ""
             }else{
-                if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
-                    self.verifiedUser()
-                }else{
-                    self.errorLabel.text = "You need to verify your email first"
-                    self.passwordField.text = ""
-                }
+                self.verifiedUser()
+//                if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
+//                    self.verifiedUser()
+//                }else{
+//                    self.errorLabel.text = "You need to verify your email first"
+//                    self.passwordField.text = ""
+//                }
             }
         }
     }
