@@ -23,15 +23,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var bankObjects = [JobItem]()
     var othersObjects = [JobItem]()
     var allItems = [JobItem]()
-    
     var latestContents = [JobItem]()
-    
     var indicator = UIActivityIndicatorView()
-    
     let ref = FIRDatabase.database().reference(withPath: "job-post")
-    
     var rejectionCounter = 0
     var itemCounter = 0
+    
+    //MARK: IBOutlets
     
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var latestCollectionView: UICollectionView!
@@ -84,10 +82,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
                                         return
                                     }))
-                                    
                                     alert.show()
                                 }
-                                
                             }else{
                                 
                                 latestItems.append(jobItem)
@@ -97,14 +93,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                 }
                                 self.latestContents = fiveItems
                                 self.latestCollectionView.reloadData()
-                                
-                                
                             }
                         }else{
                             self.rejectionCounter += 1
                             if self.rejectionCounter == self.itemCounter{
                                 
-                                let alert = UIAlertController(title: "Not Available", message: "Not available in this area", preferredStyle: UIAlertControllerStyle.alert)
+                                let alert = UIAlertController(title: "Not Available", message: "Not available to show featured contents in this area. Please change the location.", preferredStyle: UIAlertControllerStyle.alert)
                                 
                                 alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
                                     
@@ -182,7 +176,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                 self.rejectionCounter += 1
                                 if self.rejectionCounter == self.itemCounter{
                                     
-                                    let alert = UIAlertController(title: "Not Available", message: "Not available in this area", preferredStyle: UIAlertControllerStyle.alert)
+                                    let alert = UIAlertController(title: "Not Available", message: "Not available to show featured contents in this area. Please change the location.", preferredStyle: UIAlertControllerStyle.alert)
                                     
                                     alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
                                         
