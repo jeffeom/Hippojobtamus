@@ -43,6 +43,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.rejectionCounter = 0
+        self.itemCounter = 0
+        
         screenSize = UIScreen.main.bounds
         screenWidth = screenSize.width
         screenHeight = screenSize.height
@@ -147,6 +150,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.rejectionCounter = 0
+        self.itemCounter = 0
         
         if let _ = UserDefaults.standard.string(forKey: "currentLocation"){
             

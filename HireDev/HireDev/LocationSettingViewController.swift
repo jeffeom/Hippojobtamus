@@ -207,6 +207,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
                     fixedArray.append(addressArray[0])
                     fixedArray.append(addressArray[1])
                     self.newAddress = fixedArray.joined(separator: ", ")
+                    self.newAddress = self.newAddress.replacingOccurrences(of: "#", with: " ")
                     self.locationLabel.text = self.newAddress
                     
                     UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
@@ -264,6 +265,7 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
         fixedArray.append(addressArray[0])
         fixedArray.append(addressArray[1])
         self.newAddress = fixedArray.joined(separator: ", ")
+        self.newAddress = self.newAddress.replacingOccurrences(of: "#", with: " ")
         self.locationLabel.text = self.newAddress
         
         UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
