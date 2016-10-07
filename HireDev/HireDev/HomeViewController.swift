@@ -242,11 +242,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         let nav = self.navigationController?.navigationBar
-        nav?.barTintColor = UIColor.init(red: 216.0/255.0, green: 225.0/255.0, blue: 233.0/255.0, alpha: 1.0)
-        nav?.tintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)
-        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)]
+        nav?.barTintColor = UIColor.init(red: 0/255.0, green: 168.0/255.0, blue: 168.0/255.0, alpha: 1.0)
+//        nav?.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Futura-Medium", size: 20)!]
+//        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+//        
+        let attrs = [
+            NSForegroundColorAttributeName: UIColor.white,
+            NSFontAttributeName: UIFont(name: "Futura-MediumItalic", size: 25)!
+        ]
         
-        nav?.titleTextAttributes = [NSFontAttributeName: UIFont(name: "GillSans-UltraBold", size: 20)!]
+        nav?.titleTextAttributes = attrs
+        
         
         self.tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
         self.tabBarController?.tabBar.tintColor = UIColor.white

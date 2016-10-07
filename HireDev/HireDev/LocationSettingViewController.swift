@@ -62,7 +62,8 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         let nav = self.navigationController?.navigationBar
         let font = UIFont.boldSystemFont(ofSize: 18)
         nav?.titleTextAttributes = [NSFontAttributeName: font]
-        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)]
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        nav?.tintColor = UIColor.white
         
         if newLocationHistory.count == 0{
             if let myLocationHistory = UserDefaults.standard.array(forKey: "locationHistory"){

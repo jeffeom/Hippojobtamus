@@ -60,12 +60,12 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         
         let nav = self.navigationController?.navigationBar
-        nav?.barTintColor = UIColor.init(red: 216.0/255.0, green: 225.0/255.0, blue: 233.0/255.0, alpha: 1.0)
-        nav?.tintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)
-        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 1.0)]
+        nav?.barTintColor = UIColor.init(red: 0/255.0, green: 168.0/255.0, blue: 168.0/255.0, alpha: 1.0)
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        nav?.tintColor = UIColor.white
         
         self.setUpLocationForLabel(locationLabel: locationLabel)
     }
