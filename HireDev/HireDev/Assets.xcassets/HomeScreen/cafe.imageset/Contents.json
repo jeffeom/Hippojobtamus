@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "cafe.pdf",
+      "filename" : "CafeWithCircle.pdf",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "cafe-1.pdf",
+      "filename" : "CafeWithCircle-1.pdf",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "cafe-2.pdf",
+      "filename" : "CafeWithCircle-2.pdf",
       "scale" : "3x"
     }
   ],

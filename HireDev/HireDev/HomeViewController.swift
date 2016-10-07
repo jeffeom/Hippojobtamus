@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     //MARK: Properties
     
@@ -29,6 +29,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var rejectionCounter = 0
     var itemCounter = 0
     
+    var collectionView: UICollectionView?
+    var screenSize: CGRect!
+    var screenWidth: CGFloat!
+    var screenHeight: CGFloat!
+    
     //MARK: IBOutlets
     
     @IBOutlet weak var locationButton: UIButton!
@@ -38,6 +43,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        screenSize = UIScreen.main.bounds
+        screenWidth = screenSize.width
+        screenHeight = screenSize.height
         
         indicator.color = UIColor.gray
         indicator.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
@@ -248,11 +257,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         cell.imageView.image = self.getImageFromString(string: latestContent.photo)
         cell.titleLabel.text = latestContent.title
+        cell.locationLabel.text = latestContent.location
         cell.dateLabel.text = latestContent.date
         
         return cell
     }
     
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let width = UIScreen.main.bounds.width
+//        let height = UIScreen.main.bounds.height
+//        return CGSize(width: (width - 10), height: (height - 10)) // width & height are the same to make a square cell
+//    }
+//    
     
     
     // MARK: - Navigation
@@ -263,12 +279,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             case "cafeTable":
                 let controller = segue.destination as! MasterViewController
                 controller.contents = "Cafe"
-            case "serverTable":
+            case "restaurantTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = "Server"
-            case "tutorTable":
+                controller.contents = "Restaurant"
+            case "educationTable":
                 let controller = segue.destination as! MasterViewController
-                controller.contents = "Tutor"
+                controller.contents = "Education"
             case "salesTable":
                 let controller = segue.destination as! MasterViewController
                 controller.contents = "Sales"
@@ -310,5 +326,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return image
     }
     
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let kWhateverHeightYouWant = 105
+        return CGSize.init(width:collectionView.bounds.size.width, height:CGFloat(kWhateverHeightYouWant))
+    }
     
 }

@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "receptionist.pdf",
+      "filename" : "Receptionist.pdf",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "receptionist-1.pdf",
+      "filename" : "Receptionist-1.pdf",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "receptionist-2.pdf",
+      "filename" : "Receptionist-2.pdf",
       "scale" : "3x"
     }
   ],
