@@ -205,7 +205,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 self.savedJobs.append(jobItem)
                 
                 for aCategory in selectedCategory{
-                    let jobItemRef = self.ref.child(aCategory).child((self.titleField.text?.lowercased())!)
+                    let jobItemRef = self.ref.child(aCategory).childByAutoId()
                     jobItemRef.setValue(jobItem.toAnyObject())
                 }
                 
