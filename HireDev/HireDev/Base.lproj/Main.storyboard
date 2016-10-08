@@ -1184,12 +1184,32 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aa-t9-M2f">
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsB-6h-DgS">
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aa-t9-M2f">
+                                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7d-4e-Jzd">
+                                                                <connections>
+                                                                    <action selector="toGoogleMap:" destination="JEX-9P-axG" eventType="touchUpInside" id="Rah-Pd-Cka"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="2aa-t9-M2f" firstAttribute="leading" secondItem="bsB-6h-DgS" secondAttribute="leading" id="3Nm-6B-e0X"/>
+                                                            <constraint firstItem="K7d-4e-Jzd" firstAttribute="top" secondItem="bsB-6h-DgS" secondAttribute="top" id="Lap-4i-3XL"/>
+                                                            <constraint firstItem="2aa-t9-M2f" firstAttribute="top" secondItem="bsB-6h-DgS" secondAttribute="top" id="Pqf-Ua-m1W"/>
+                                                            <constraint firstAttribute="bottom" secondItem="2aa-t9-M2f" secondAttribute="bottom" id="Qeo-a0-Ukg"/>
+                                                            <constraint firstAttribute="trailing" secondItem="2aa-t9-M2f" secondAttribute="trailing" id="QfO-vC-r6k"/>
+                                                            <constraint firstItem="K7d-4e-Jzd" firstAttribute="leading" secondItem="bsB-6h-DgS" secondAttribute="leading" id="ch1-0Q-tvW"/>
+                                                            <constraint firstAttribute="bottom" secondItem="K7d-4e-Jzd" secondAttribute="bottom" id="kKC-jj-BjH"/>
+                                                            <constraint firstAttribute="trailing" secondItem="K7d-4e-Jzd" secondAttribute="trailing" id="xdv-47-dk5"/>
+                                                        </constraints>
+                                                    </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWQ-ML-VWi" customClass="GMSMapView">
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
@@ -1211,15 +1231,13 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="W7l-XU-2co" firstAttribute="height" secondItem="2aa-t9-M2f" secondAttribute="height" id="04c-O6-8ug"/>
-                                                    <constraint firstItem="2aa-t9-M2f" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="3Ee-xi-MPY"/>
                                                     <constraint firstItem="RLt-4e-aKm" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="3u7-aj-EId"/>
                                                     <constraint firstAttribute="bottom" secondItem="PB9-bz-LHQ" secondAttribute="bottom" id="9VG-F9-A1u"/>
                                                     <constraint firstAttribute="trailing" secondItem="PB9-bz-LHQ" secondAttribute="trailing" id="B8n-Rj-oXI"/>
                                                     <constraint firstItem="yNm-A7-kcr" firstAttribute="height" secondItem="9Ny-fg-woM" secondAttribute="height" id="E1P-W4-k1L"/>
+                                                    <constraint firstItem="bsB-6h-DgS" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="MXd-Gx-0mH"/>
                                                     <constraint firstItem="dLv-A6-6FK" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="PVQ-fq-ZXr"/>
                                                     <constraint firstAttribute="trailing" secondItem="RLt-4e-aKm" secondAttribute="trailing" id="QIl-p6-CbQ"/>
-                                                    <constraint firstItem="2aa-t9-M2f" firstAttribute="height" secondItem="yNm-A7-kcr" secondAttribute="height" id="SIi-Am-ELk"/>
                                                     <constraint firstItem="PB9-bz-LHQ" firstAttribute="leading" secondItem="v61-Q1-ToL" secondAttribute="leading" id="Xcx-Qq-7Jf"/>
                                                     <constraint firstItem="RLt-4e-aKm" firstAttribute="leading" secondItem="v61-Q1-ToL" secondAttribute="leading" id="c5Y-Qm-egy"/>
                                                     <constraint firstItem="W7l-XU-2co" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="cHU-Zj-2Rq"/>
@@ -1227,6 +1245,7 @@
                                                     <constraint firstItem="9Ny-fg-woM" firstAttribute="height" secondItem="RLt-4e-aKm" secondAttribute="height" id="dc7-CW-KhS"/>
                                                     <constraint firstItem="9Ny-fg-woM" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="gGt-GW-RAw"/>
                                                     <constraint firstItem="wWQ-ML-VWi" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="jbU-5F-cqE"/>
+                                                    <constraint firstItem="bsB-6h-DgS" firstAttribute="height" secondItem="yNm-A7-kcr" secondAttribute="height" id="uPe-cm-ffc"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>

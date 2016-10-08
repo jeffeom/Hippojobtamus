@@ -22,6 +22,8 @@ class DetailViewController: UIViewController {
     var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", photo: "", addedByUser: "", date: "", location: "")
     
     let screenSize: CGRect = UIScreen.main.bounds
+    var latitude: Double = 0
+    var longitude: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,9 @@ class DetailViewController: UIViewController {
                         marker.title = self.detailItem.title
                         marker.snippet = self.detailItem.location
                         marker.map = self.googleMap
+                        
+                        self.latitude = Double(lat)
+                        self.longitude = Double(long)
                     }
                 }else{
                     NSLog("not yet")
@@ -134,6 +139,16 @@ class DetailViewController: UIViewController {
     
     func tabBarIsVisible() -> Bool {
         return tabBarController!.tabBar.frame.origin.y < view.frame.maxY
+    }
+    @IBAction func toGoogleMap(_ sender: AnyObject) {
+        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
+            if let url = URL(string: "comgooglemaps://?center=\(self.latitude),\(self.longitude)&zoom=14&views=traffic"){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        } else {
+            print("Can't use comgooglemaps://");
+        }
+        
     }
 }
 
