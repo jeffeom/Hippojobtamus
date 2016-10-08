@@ -992,6 +992,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sb9-kW-tqk">
                                                         <connections>
                                                             <action selector="termsOfService:" destination="uWm-3i-vUC" eventType="touchUpInside" id="DcF-Qs-uoO"/>
+                                                            <segue destination="cVQ-ok-qhF" kind="show" id="zLT-mc-YdE"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1063,62 +1064,7 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52S-dv-jwI">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">This privacy policy governs your use of the software application Hippojobtamus (“Hippojobtamus,” “we,” “us,” or “our”). Hippojobtamus provides users an intuitive and easy way to find local hiring positions. Simply upload a photo of any ‘Now Hiring’ signs you come across and browse through photos uploaded by other users to find job positions you may have missed in your job search.  
-1. What information does Hippojobtamus obtain?
-Hippojobtamus collects the following information from its users.
-User Provided Information 
-•	Hippojobtamus obtains the information you provide when you download and register the application, such as your first name, last name, password, and e-mail address. Registration with us is mandatory in order to be able to use the basic features of the Application.
-
-•	Any user content uploaded to Hippojobtamus such as photos, and job postings.
-•	We may also use the information you provided us to contact you from time to time to provide you with important information, required notices and marketing promotions.
-Automatically Collected Information 
-•	Facebook permission
-
-We may ask for some Facebook permissions allowing it to perform actions with the User's Facebook account and to retrieve information, including Personal Data, from it.
-
-For more information about the following permissions, refer to the Facebook permissions documentation and to the Facebook privacy policy.
-
-The permissions asked are the following:
-
-o	Basic information
-By default, this includes certain User’s Data such as user id, name, picture, gender, and their locale. Certain connections of the User, such as the Friends, are also available. If the User has made more of their Data public, more information will be available.
-
-o	About Me
-Provides access to the 'About Me' section of the profile.
-
-o	Contact email
-Access the User's contact email address.
-Geo-Location Information
-•	When you visit the mobile application, we may use GPS technology (or other similar technology) to determine your current approxmiate location in order to determine the city you are located within when you upload a posting, and to display relevant postings. We will not collect this information without your permission, nor will we share your current location with other users or partners.
-•	If you do not want us to use your location for the purposes set forth above, you should turn off the location services for the mobile application located in your account settings or in your mobile phone settings and/or within the mobile application. 
-2. How does Hippojobtamus use the information it obtains?
-Some more general uses of the obtained information in addition to the specific uses outlined above include:
-
-•	Hippojobtamus will remember your sign-in information so you will not have to enter it every time you visit the application.
-•	Improving our product and service
-Do third parties see and/or have access to information obtained by the Application?
-We will share your information with third parties only in the ways that are described in this privacy statement.
-We may disclose User Provided Information and Automatically Collected Information:
-•	as required by law, such as to comply with a subpoena, or similar legal process;
-•	when we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;
-•	with our trusted services providers who work on our behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.
-•	if [DEVELOPER COMPANY NAME] is involved in a merger, acquisition, or sale of all or a portion of its assets, you will be notified via email and/or a prominent notice on our Web site of any change in ownership or uses of this information, as well as any choices you may have regarding this information.
-What are my opt-out rights?
-You can stop all collection of information by the Application easily by uninstalling the Application. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network. 
-Data Retention Policy, Managing Your Information
-We will retain User Provided Information for as long as you use the Application and for a reasonable time thereafter. We will retain Automatically Collected Information for up to 24 months and thereafter may store it in aggregate. Please note that some or all of the User Provided Information may be required in order for the Application to function properly.
-3. Children
-We do not use the Application to knowingly solicit data from or market to children under the age of 13. If a parent or guardian becomes aware that his or her child has provided us with information without their consent, he or she should contact us at hippojobtamus@gmail.com. We will delete such information from our files within a reasonable time.
-4. Security
-We are concerned about safeguarding the confidentiality of your information. We provide physical, electronic, and procedural safeguards to protect information we process and maintain. For example, we limit access to this information to authorized employees and contractors who need to know that information in order to operate, develop or improve our Application. Please be aware that, although we endeavor to provide reasonable security for information we process and maintain, no security system can prevent all potential security breaches.
-5. Changes
-This Privacy Policy may be updated from time to time for any reason. We will notify you of any changes to our Privacy Policy by posting the new Privacy Policy here and informing you via email. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes. 
-6. Your Consent
-By using the Application, you are consenting to our processing of your information as set forth in this Privacy Policy now and as amended by us. "Processing,” means using cookies on a computer/hand held device or using or touching information in any way, including, but not limited to, collecting, storing, deleting, using, combining and disclosing information, all of which activities will take place in Canada. If you reside outside Canada your information will be transferred, processed and stored there under Canadian privacy standards. 
- 
-7. Contact us
-If you have any questions regarding privacy while using Hippojobtamus, or have questions about our practices, please contact us via email at hippojobtamus@gmail.com 
-</string>
+                                <mutableString key="text">This privacy policy governs your use of the software application Hippojobtamus (“Hippojobtamus”), operated by Fourj Studios (“we,” “us,” or “our”). Hippojobtamus provides users an intuitive and easy way to find local hiring positions. Simply upload a photo of any ‘Now Hiring’ signs you come across and browse through photos uploaded by other users to find job positions you may have missed in your job search.  1. What information does Hippojobtamus obtain?Hippojobtamus collects the following information from its users.User Provided Information •	Hippojobtamus obtains the information you provide when you download and register the application, such as your first name, last name, password, and e-mail address. Registration with us is mandatory in order to be able to use the basic features of the Application.•	Any user content uploaded to Hippojobtamus such as photos, and job postings.•	We may also use the information you provided us to contact you from time to time to provide you with important information, required notices and marketing promotions.Automatically Collected Information •	Facebook permissionWe may ask for some Facebook permissions allowing it to perform actions with the User's Facebook account and to retrieve information, including Personal Data, from it.For more information about the following permissions, refer to the Facebook permissions documentation and to the Facebook privacy policy.The permissions asked are the following:o	Basic informationBy default, this includes certain User’s Data such as user id, name, picture, gender, and their locale. Certain connections of the User, such as the Friends, are also available. If the User has made more of their Data public, more information will be available.o	About MeProvides access to the 'About Me' section of the profile.o	Contact emailAccess the User's contact email address.Geo-Location Information•	When you visit the mobile application, we may use GPS technology (or other similar technology) to determine your current approxmiate location in order to determine the city you are located within when you upload a posting, and to display relevant postings. We will not collect this information without your permission, nor will we share your current location with other users or partners.•	If you do not want us to use your location for the purposes set forth above, you should turn off the location services for the mobile application located in your account settings or in your mobile phone settings and/or within the mobile application. 2. How does Hippojobtamus use the information it obtains?Some more general uses of the obtained information in addition to the specific uses outlined above include:•	Hippojobtamus will remember your sign-in information so you will not have to enter it every time you visit the application.•	Improving our product and serviceDo third parties see and/or have access to information obtained by the Application?We will share your information with third parties only in the ways that are described in this privacy statement.We may disclose User Provided Information and Automatically Collected Information:•	as required by law, such as to comply with a subpoena, or similar legal process;•	when we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;•	with our trusted services providers who work on our behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.•	if Fourj Studios is involved in a merger, acquisition, or sale of all or a portion of its assets, you will be notified via email and/or a prominent notice on our Web site of any change in ownership or uses of this information, as well as any choices you may have regarding this information.What are my opt-out rights?You can stop all collection of information by the Application easily by uninstalling the Application. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network. Data Retention Policy, Managing Your InformationWe will retain User Provided Information for as long as you use the Application and for a reasonable time thereafter. We will retain Automatically Collected Information for up to 24 months and thereafter may store it in aggregate. Please note that some or all of the User Provided Information may be required in order for the Application to function properly.3. ChildrenWe do not use the Application to knowingly solicit data from or market to children under the age of 13. If a parent or guardian becomes aware that his or her child has provided us with information without their consent, he or she should contact us at hippojobtamus@gmail.com. We will delete such information from our files within a reasonable time.4. SecurityWe are concerned about safeguarding the confidentiality of your information. We provide physical, electronic, and procedural safeguards to protect information we process and maintain. For example, we limit access to this information to authorized employees and contractors who need to know that information in order to operate, develop or improve our Application. Please be aware that, although we endeavor to provide reasonable security for information we process and maintain, no security system can prevent all potential security breaches.5. ChangesThis Privacy Policy may be updated from time to time for any reason. We will notify you of any changes to our Privacy Policy by posting the new Privacy Policy here and informing you via email. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes. 6. Your ConsentBy using the Application, you are consenting to our processing of your information as set forth in this Privacy Policy now and as amended by us. "Processing,” means using cookies on a computer/hand held device or using or touching information in any way, including, but not limited to, collecting, storing, deleting, using, combining and disclosing information, all of which activities will take place in Canada. If you reside outside Canada your information will be transferred, processed and stored there under Canadian privacy standards. 7. Contact usIf you have any questions regarding privacy while using Hippojobtamus, or have questions about our practices, please contact us via email at hippojobtamus@gmail.com </mutableString>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1136,6 +1082,39 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fsc-tS-TSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4593" y="623"/>
+        </scene>
+        <!--Terms of Service-->
+        <scene sceneID="b8g-pX-OPV">
+            <objects>
+                <viewController id="cVQ-ok-qhF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6I6-YI-XDj"/>
+                        <viewControllerLayoutGuide type="bottom" id="QWL-ba-BQh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mtc-zj-t74">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zJq-jE-rEe">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Last updated: (October 5, 2016) Please read these Terms of Service ("Terms", "Terms and Conditions") carefully before using the Hippojobtamus mobile application (the "Service") operated by Fourj Studios ("us", "we", or "our"). Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service. By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service. General•	Anyone under the age of 13 is not allowed to use this Service. By using this service, you are agreeing that you are fully able to comply with these Terms. We reserve the right to deactivate your account if we learn that you are under 13 years of age.•	You are responsible for keeping your login information secure and for all activities that are carried out under your account. •	You may not use the Service for any malicious, illegal, or unauthorized purpose.•	You may not use the Service to any end that is not in line with the original intent of the Service: to share with other users, local businesses that are, at the time of posting, currently hiring, by uploading a picture of the ‘Now Hiring’ sign or material directly related to the intent of the Service and providing further information related to the posting.•	Fourj Studios may deactivate and delete your account and terminate your use of the service for any reason, without notice and without liability to you. •	Fourj Studios may modify, alter, or terminate the Service at any time, for any reason, with or without notice.Content •	Our Service allows you to post, link, and otherwise make available certain information, text, graphics, videos, or other material ("Content"). You are solely responsible for the Content that you post to the Service.•	You may not post any Content to the Service other than photos of ‘Now Hiring’ signs, interiors of hiring stores or businesses, or other material directly related to the intended use of the Service. This effectively excludes any of the following content:o	Any advertisements or marketing material not related to the intended use of the Serviceo	Any pornographic or sexually suggestive photos or other contento	Any discriminatory or hateful contento	Any infringing, unlawful, or illegal contento	Any downloadable third-party software, including but not limited to viruses, malware, or any forms of codeo	Any and all phone numbers posted with malicious intento	Any links that are not related to the intended use of the Service.•	We may remove any Content that violates these Terms of Service, and delete any account(s) in relation to said Content, at our sole discretion.Links To Other Web Sites •	Our Service may contain links to third­party web sites or services that are not owned or controlled by Fourj Studios. •	Fourj Studios has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that M y Company (change this) shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. Changes •	We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will try to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. Contact Us •	If you have any questions about these Terms, please contact us at hippojobtamus@gmail.com.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zJq-jE-rEe" secondAttribute="trailing" id="CC4-MU-aXv"/>
+                            <constraint firstItem="QWL-ba-BQh" firstAttribute="top" secondItem="zJq-jE-rEe" secondAttribute="bottom" id="WRb-Qg-wfV"/>
+                            <constraint firstItem="zJq-jE-rEe" firstAttribute="top" secondItem="6I6-YI-XDj" secondAttribute="bottom" id="cd7-zg-eJO"/>
+                            <constraint firstItem="zJq-jE-rEe" firstAttribute="leading" secondItem="Mtc-zj-t74" secondAttribute="leading" id="coc-7D-qOp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Terms of Service" id="Hd4-nK-VXK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="86G-3O-0g8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5259" y="627"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7jm-JU-gZQ">

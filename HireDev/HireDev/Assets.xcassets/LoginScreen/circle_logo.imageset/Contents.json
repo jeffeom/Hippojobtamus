@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Logo.pdf",
+      "filename" : "Hippojobtamus Login.pdf",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Logo-1.pdf",
+      "filename" : "Hippojobtamus Login-1.pdf",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Logo-2.pdf",
+      "filename" : "Hippojobtamus Login-2.pdf",
       "scale" : "3x"
     }
   ],
