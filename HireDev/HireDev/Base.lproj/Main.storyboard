@@ -897,6 +897,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-L4-Y7u">
                                                         <connections>
                                                             <action selector="helpClicked:" destination="uWm-3i-vUC" eventType="touchUpInside" id="yut-oO-74d"/>
+                                                            <segue destination="km8-Pq-Idr" kind="show" id="pIf-c0-gz2"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1042,10 +1043,44 @@
             </objects>
             <point key="canvasLocation" x="3812" y="309.89505247376314"/>
         </scene>
+        <!--Help-->
+        <scene sceneID="8VX-Hv-F38">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="km8-Pq-Idr" customClass="HelpViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hfB-3I-m1e"/>
+                        <viewControllerLayoutGuide type="bottom" id="MGC-uC-Sq1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mi5-3l-08s">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UVF-xS-Zou">
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UVF-xS-Zou" firstAttribute="leading" secondItem="mi5-3l-08s" secondAttribute="leading" id="IL7-DC-OHk"/>
+                            <constraint firstItem="UVF-xS-Zou" firstAttribute="top" secondItem="hfB-3I-m1e" secondAttribute="bottom" id="gmM-rr-F4F"/>
+                            <constraint firstAttribute="trailing" secondItem="UVF-xS-Zou" secondAttribute="trailing" id="idi-ll-R7w"/>
+                            <constraint firstItem="MGC-uC-Sq1" firstAttribute="top" secondItem="UVF-xS-Zou" secondAttribute="bottom" id="mvP-Q9-4rp"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Help" id="te4-yx-IIC"/>
+                    <connections>
+                        <outlet property="webView" destination="UVF-xS-Zou" id="0XW-Rm-W3A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sn7-84-dKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3819" y="969"/>
+        </scene>
         <!--Privacy Policy-->
         <scene sceneID="Fso-pj-UjE">
             <objects>
-                <viewController id="PaR-fW-w0y" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="PaR-fW-w0y" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="40w-1F-vLD"/>
                         <viewControllerLayoutGuide type="bottom" id="1ej-Wd-5Kz"/>
@@ -1123,6 +1158,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                             <constraint firstItem="1ej-Wd-5Kz" firstAttribute="top" secondItem="52S-dv-jwI" secondAttribute="bottom" id="fcU-pN-dyz"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Privacy Policy" id="hbt-jw-rdy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fsc-tS-TSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1132,7 +1168,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
         <!--Terms of Service-->
         <scene sceneID="b8g-pX-OPV">
             <objects>
-                <viewController id="cVQ-ok-qhF" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="cVQ-ok-qhF" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6I6-YI-XDj"/>
                         <viewControllerLayoutGuide type="bottom" id="QWL-ba-BQh"/>
@@ -1141,7 +1177,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zJq-jE-rEe">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zJq-jE-rEe">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Last updated: (October 5, 2016) 
 Please read these Terms of Service ("Terms", "Terms and Conditions") carefully before using the Hippojobtamus mobile application (the "Service") operated by Fourj Studios ("us", "we", or "our"). 
@@ -1186,6 +1222,7 @@ Contact Us
                             <constraint firstItem="zJq-jE-rEe" firstAttribute="leading" secondItem="Mtc-zj-t74" secondAttribute="leading" id="coc-7D-qOp"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Terms of Service" id="Hd4-nK-VXK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86G-3O-0g8" userLabel="First Responder" sceneMemberID="firstResponder"/>
