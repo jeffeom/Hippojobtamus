@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
     //MARK: Properties
     
     @IBOutlet weak var imageView: UIImageView!
@@ -18,7 +18,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var commentsLabel: UITextView!
     
     var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", photo: "", addedByUser: "", date: "", location: "")
-
+    
+    let screenSize: CGRect = UIScreen.main.bounds
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,7 @@ class DetailViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         self.title = self.detailItem.title
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +43,7 @@ class DetailViewController: UIViewController {
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         nav?.tintColor = UIColor.white
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -54,7 +57,25 @@ class DetailViewController: UIViewController {
         
         return image
     }
-
-
+    
+    @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
+        
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        let screenWidth = self.screenSize.width
+        let screenHeight = self.screenSize.height
+        newImageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
+        newImageView.backgroundColor = UIColor.black
+        newImageView.contentMode = .scaleToFill
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage(sender:)))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+    }
+    
+    func dismissFullscreenImage(sender: UITapGestureRecognizer) {
+        
+        sender.view?.removeFromSuperview()
+    }
 }
 
