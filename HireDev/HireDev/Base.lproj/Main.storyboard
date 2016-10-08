@@ -44,12 +44,13 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.7618792808" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="mH4-8x-VmQ" firstAttribute="centerY" secondItem="FHw-ty-7SM" secondAttribute="centerY" id="ShI-4W-CeX"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.7618792808" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="3fP-Tv-1sO"/>
                                             <constraint firstItem="FHw-ty-7SM" firstAttribute="centerX" secondItem="6P4-cx-bAA" secondAttribute="centerX" id="Ix4-iA-JX1"/>
@@ -424,7 +425,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cpW-VV-4En" firstAttribute="leading" secondItem="QP1-0U-O4Y" secondAttribute="leading" id="1XF-od-gHt"/>
                             <constraint firstAttribute="trailing" secondItem="cpW-VV-4En" secondAttribute="trailing" id="2Vq-uU-z9t"/>
@@ -463,6 +464,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GA-pF-8VO">
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="jvk-LJ-wbF"/>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NQZ-L3-UhH">
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnP-bY-tqX" userLabel="Header">
@@ -470,7 +472,6 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ezS-dh-cPk">
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rrk-Hp-b7M" customClass="FontAwesomeView" customModule="FontAwesome_swift">
-                                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="rrk-Hp-b7M" secondAttribute="height" multiplier="1:1" id="bWe-jE-ken"/>
@@ -496,7 +497,7 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.7618792808" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="a20-Az-tKJ" secondAttribute="trailing" id="20M-ua-v8j"/>
                                                             <constraint firstItem="a20-Az-tKJ" firstAttribute="leading" secondItem="bnP-bY-tqX" secondAttribute="leading" id="8Zb-gJ-ftR"/>
@@ -509,39 +510,39 @@
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCb-Ey-Ei8" userLabel="Content">
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IvI-ic-Fab">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IvI-ic-Fab">
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nz9-5o-gTy">
-                                                                        <color key="backgroundColor" red="0.9137254901960784" green="0.90980392156862744" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1110873288" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="Ydx-r2-iAd"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                                        <nil key="textColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GWX-GA-nQr">
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffC-Fg-iS7">
-                                                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.76187928078219169" colorSpace="calibratedRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="10" id="kSQ-Nr-7eG"/>
                                                                                 </constraints>
                                                                             </view>
                                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ex - &quot;Blenz Barista - Robson @ Richards&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-25-bZt">
-                                                                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.76187928078219169" colorSpace="calibratedRGB"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                             </textField>
                                                                         </subviews>
+                                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.84819135270000001" colorSpace="calibratedRGB"/>
                                                                     </stackView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRe-Dd-fsN">
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7b-pe-7Gd">
-                                                                                <color key="backgroundColor" red="0.9137254901960784" green="0.90980392156862744" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                                                <nil key="textColor"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qm-K0-svy">
@@ -555,11 +556,11 @@
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="xNP-xI-1mf"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                <nil key="textColor"/>
+                                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1110873288" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstItem="4Qm-K0-svy" firstAttribute="leading" secondItem="cRe-Dd-fsN" secondAttribute="leading" id="1Ec-S2-Yzg"/>
                                                                             <constraint firstAttribute="trailing" secondItem="408-5w-gaw" secondAttribute="trailing" constant="8" id="GMu-wX-Mpb"/>
@@ -574,11 +575,10 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HOy-Ed-gdn">
-                                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="150" id="4y5-L7-Jqb"/>
                                                                         </constraints>
-                                                                        <color key="sectionIndexBackgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <prototypes>
                                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" textLabel="mqA-Tg-5U1" style="IBUITableViewCellStyleDefault" id="mpt-2b-jtc">
                                                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -595,9 +595,7 @@
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                     </subviews>
-                                                                                    <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </tableViewCellContentView>
-                                                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </tableViewCell>
                                                                         </prototypes>
                                                                         <connections>
@@ -606,40 +604,39 @@
                                                                         </connections>
                                                                     </tableView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAW-OF-F0q" userLabel="Comments">
-                                                                        <color key="backgroundColor" red="0.9137254901960784" green="0.90980392156862744" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                                        <nil key="textColor"/>
+                                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1110873288" colorSpace="calibratedRGB"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fth-8I-UdP">
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npl-gw-7lC">
-                                                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.76187928078219169" colorSpace="calibratedRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="10" id="eru-XC-ZPJ"/>
                                                                                 </constraints>
                                                                             </view>
                                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dNk-ge-gEI">
-                                                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.76187928078219169" colorSpace="calibratedRGB"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                             </textView>
                                                                         </subviews>
+                                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.84819135270000001" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="100" id="pyk-Ru-Rds"/>
                                                                         </constraints>
                                                                     </stackView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ob-rf-a7E">
-                                                                        <color key="backgroundColor" red="0.9137254901960784" green="0.90980392156862744" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                                        <nil key="textColor"/>
+                                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1110873288" colorSpace="calibratedRGB"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iv7-sG-ppj">
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload_box" translatesAutoresizingMaskIntoConstraints="NO" id="aVr-9O-4wh">
-                                                                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            </imageView>
+                                                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tap to take a photo" translatesAutoresizingMaskIntoConstraints="NO" id="aVr-9O-4wh"/>
                                                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcB-Fg-Zvt">
                                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                                 <state key="normal" title="Tap here to take a photo"/>
@@ -648,7 +645,6 @@
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="gcB-Fg-Zvt" secondAttribute="bottom" id="5Jk-14-9iW"/>
                                                                             <constraint firstAttribute="trailing" secondItem="gcB-Fg-Zvt" secondAttribute="trailing" id="D5d-Yb-X9J"/>
@@ -657,8 +653,8 @@
                                                                             <constraint firstAttribute="bottom" secondItem="aVr-9O-4wh" secondAttribute="bottom" id="Qqo-H5-cdd"/>
                                                                             <constraint firstItem="aVr-9O-4wh" firstAttribute="leading" secondItem="Iv7-sG-ppj" secondAttribute="leading" id="SXy-nU-8RE"/>
                                                                             <constraint firstAttribute="trailing" secondItem="aVr-9O-4wh" secondAttribute="trailing" id="bFh-K6-gie"/>
-                                                                            <constraint firstItem="gcB-Fg-Zvt" firstAttribute="top" secondItem="Iv7-sG-ppj" secondAttribute="top" constant="20" id="fZY-aP-LwA"/>
-                                                                            <constraint firstItem="aVr-9O-4wh" firstAttribute="top" secondItem="Iv7-sG-ppj" secondAttribute="top" id="u9Y-1Y-98P"/>
+                                                                            <constraint firstItem="gcB-Fg-Zvt" firstAttribute="top" secondItem="Iv7-sG-ppj" secondAttribute="top" constant="50" id="fZY-aP-LwA"/>
+                                                                            <constraint firstItem="aVr-9O-4wh" firstAttribute="top" secondItem="Iv7-sG-ppj" secondAttribute="top" constant="30" id="u9Y-1Y-98P"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
@@ -670,7 +666,6 @@
                                                                 </constraints>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="IvI-ic-Fab" secondAttribute="trailing" id="1Lo-8U-oWS"/>
                                                             <constraint firstItem="IvI-ic-Fab" firstAttribute="leading" secondItem="QCb-Ey-Ei8" secondAttribute="leading" id="7OM-Aj-SSV"/>
@@ -711,9 +706,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="jvk-LJ-wbF" firstAttribute="top" secondItem="cn4-GW-Pgz" secondAttribute="bottom" id="91N-zt-1NM"/>
                             <constraint firstItem="EdS-OP-XBf" firstAttribute="height" secondItem="gu0-ZF-QS3" secondAttribute="height" id="9DU-84-zmy"/>
+                            <constraint firstItem="jvk-LJ-wbF" firstAttribute="leading" secondItem="gu0-ZF-QS3" secondAttribute="leading" id="YVR-LZ-0Wu"/>
+                            <constraint firstItem="q3P-0u-VI1" firstAttribute="top" secondItem="jvk-LJ-wbF" secondAttribute="bottom" id="cKa-Ru-H7c"/>
                             <constraint firstItem="EdS-OP-XBf" firstAttribute="centerX" secondItem="gu0-ZF-QS3" secondAttribute="centerX" id="h9D-wv-aSh"/>
                             <constraint firstItem="EdS-OP-XBf" firstAttribute="centerY" secondItem="gu0-ZF-QS3" secondAttribute="centerY" id="lg1-q0-haM"/>
+                            <constraint firstAttribute="trailing" secondItem="jvk-LJ-wbF" secondAttribute="trailing" id="m1W-Jo-NaP"/>
                             <constraint firstItem="EdS-OP-XBf" firstAttribute="width" secondItem="gu0-ZF-QS3" secondAttribute="width" id="rPf-Wn-1IE"/>
                         </constraints>
                     </view>
@@ -759,18 +758,17 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="w6w-LH-Eeu"/>
                             <stackView opaque="NO" tag="8" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xiE-wA-GWV">
                                 <subviews>
                                     <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgy-cS-2zz" userLabel="Location">
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Location Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSm-ZR-cRB">
-                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uie-rf-KKT" customClass="FontAwesomeView" customModule="FontAwesome_swift">
-                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="tintColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="uie-rf-KKT" secondAttribute="height" multiplier="1:1" id="6EY-Ju-7VA"/>
@@ -786,7 +784,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.39782213184931509" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="rSm-ZR-cRB" firstAttribute="top" secondItem="zgy-cS-2zz" secondAttribute="top" id="0qt-eF-TV4"/>
                                             <constraint firstItem="uie-rf-KKT" firstAttribute="centerY" secondItem="zgy-cS-2zz" secondAttribute="centerY" id="3yl-I8-5eR"/>
@@ -806,13 +804,11 @@
                                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PV6-Y5-8Wz" userLabel="Feedback">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Submit Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xff-1c-b4i">
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWY-ne-3rV" customClass="FontAwesomeView" customModule="FontAwesome_swift">
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="tintColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="DDe-5n-SJ1"/>
@@ -828,7 +824,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.39782213184931509" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="YaL-6f-Vav" secondAttribute="trailing" id="2UI-Tj-gAp"/>
                                                     <constraint firstItem="lWY-ne-3rV" firstAttribute="centerY" secondItem="PV6-Y5-8Wz" secondAttribute="centerY" id="36j-pK-feB"/>
@@ -846,13 +842,11 @@
                                             <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPG-ag-RnF" userLabel="Rate">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Rate Hippo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kI-DP-bEG">
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6WB-EJ-ud3" customClass="FontAwesomeView" customModule="FontAwesome_swift">
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="tintColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="ECQ-sY-XYE"/>
@@ -868,7 +862,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.39782213184931509" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="92t-re-mSq" firstAttribute="leading" secondItem="BPG-ag-RnF" secondAttribute="leading" id="1fE-lI-Ddf"/>
                                                     <constraint firstItem="6WB-EJ-ud3" firstAttribute="centerY" secondItem="BPG-ag-RnF" secondAttribute="centerY" id="6UR-R8-sFh"/>
@@ -886,13 +880,11 @@
                                             <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJN-fm-3fO" userLabel="Help">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5N-Hs-5sr">
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8p-LU-GlC" customClass="FontAwesomeView" customModule="FontAwesome_swift">
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="tintColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="M8p-LU-GlC" secondAttribute="height" multiplier="1:1" id="VuQ-JK-HM3"/>
@@ -908,7 +900,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.39782213184931509" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="M8p-LU-GlC" firstAttribute="centerY" secondItem="KJN-fm-3fO" secondAttribute="centerY" id="8Zj-f9-Agr"/>
                                                     <constraint firstItem="b5N-Hs-5sr" firstAttribute="top" secondItem="KJN-fm-3fO" secondAttribute="top" id="9dL-sp-HVR"/>
@@ -933,13 +925,11 @@
                                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxl-GH-UJD" userLabel="Privacy Policy">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufw-tg-X2q">
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5d-Qk-npa" customClass="FontAwesomeView" customModule="FontAwesome_swift">
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="tintColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="a5d-Qk-npa" secondAttribute="height" multiplier="1:1" id="IfU-cd-HyV"/>
@@ -955,7 +945,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.39782213184931509" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="Ufw-tg-X2q" secondAttribute="bottom" id="3AS-VC-cvv"/>
                                                     <constraint firstAttribute="bottom" secondItem="WTc-6N-rOq" secondAttribute="bottom" id="8HR-Pp-oMt"/>
@@ -973,13 +963,11 @@
                                             <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5T-NO-9Z2" userLabel="Terms of Service">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Terms of Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31C-5V-Cg1">
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rD-KZ-ayh" customClass="FontAwesomeView" customModule="FontAwesome_swift">
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="tintColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="eXP-5o-j3N"/>
@@ -996,7 +984,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.39782213184931509" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="7A3-HB-L6Y"/>
                                                     <constraint firstItem="31C-5V-Cg1" firstAttribute="leading" secondItem="P5T-NO-9Z2" secondAttribute="leading" id="BwH-XV-Aty"/>
@@ -1019,7 +1007,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvx-RL-lMg">
-                                <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.62914704623287676" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="lQL-Xy-gED"/>
                                 </constraints>
@@ -1036,10 +1024,14 @@
                         <constraints>
                             <constraint firstItem="xiE-wA-GWV" firstAttribute="top" secondItem="Clp-PV-grg" secondAttribute="bottom" constant="15" id="Eyn-IA-JJK"/>
                             <constraint firstAttribute="trailing" secondItem="xiE-wA-GWV" secondAttribute="trailing" id="KKh-WD-Eo1"/>
+                            <constraint firstItem="Ebz-HA-nRo" firstAttribute="top" secondItem="w6w-LH-Eeu" secondAttribute="bottom" id="LlD-ip-SAe"/>
                             <constraint firstItem="qvx-RL-lMg" firstAttribute="centerX" secondItem="gcs-gM-c2S" secondAttribute="centerX" id="NMd-tY-dvz"/>
+                            <constraint firstAttribute="trailing" secondItem="w6w-LH-Eeu" secondAttribute="trailing" id="YVA-az-5JA"/>
+                            <constraint firstItem="w6w-LH-Eeu" firstAttribute="top" secondItem="Clp-PV-grg" secondAttribute="bottom" id="YWl-lY-z1F"/>
+                            <constraint firstItem="w6w-LH-Eeu" firstAttribute="leading" secondItem="gcs-gM-c2S" secondAttribute="leading" id="afW-Cb-gTj"/>
                             <constraint firstItem="xiE-wA-GWV" firstAttribute="leading" secondItem="gcs-gM-c2S" secondAttribute="leading" id="gMo-h8-2qQ"/>
                             <constraint firstAttribute="trailing" secondItem="qvx-RL-lMg" secondAttribute="trailing" id="hsi-H7-YRZ"/>
-                            <constraint firstItem="qvx-RL-lMg" firstAttribute="top" secondItem="xiE-wA-GWV" secondAttribute="bottom" constant="15" id="lVK-7s-nlZ"/>
+                            <constraint firstItem="qvx-RL-lMg" firstAttribute="top" secondItem="xiE-wA-GWV" secondAttribute="bottom" constant="30" id="lVK-7s-nlZ"/>
                             <constraint firstItem="qvx-RL-lMg" firstAttribute="leading" secondItem="gcs-gM-c2S" secondAttribute="leading" id="oTb-z7-sHb"/>
                         </constraints>
                     </view>
@@ -1064,7 +1056,61 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52S-dv-jwI">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">This privacy policy governs your use of the software application Hippojobtamus (“Hippojobtamus”), operated by Fourj Studios (“we,” “us,” or “our”). Hippojobtamus provides users an intuitive and easy way to find local hiring positions. Simply upload a photo of any ‘Now Hiring’ signs you come across and browse through photos uploaded by other users to find job positions you may have missed in your job search.  1. What information does Hippojobtamus obtain?Hippojobtamus collects the following information from its users.User Provided Information •	Hippojobtamus obtains the information you provide when you download and register the application, such as your first name, last name, password, and e-mail address. Registration with us is mandatory in order to be able to use the basic features of the Application.•	Any user content uploaded to Hippojobtamus such as photos, and job postings.•	We may also use the information you provided us to contact you from time to time to provide you with important information, required notices and marketing promotions.Automatically Collected Information •	Facebook permissionWe may ask for some Facebook permissions allowing it to perform actions with the User's Facebook account and to retrieve information, including Personal Data, from it.For more information about the following permissions, refer to the Facebook permissions documentation and to the Facebook privacy policy.The permissions asked are the following:o	Basic informationBy default, this includes certain User’s Data such as user id, name, picture, gender, and their locale. Certain connections of the User, such as the Friends, are also available. If the User has made more of their Data public, more information will be available.o	About MeProvides access to the 'About Me' section of the profile.o	Contact emailAccess the User's contact email address.Geo-Location Information•	When you visit the mobile application, we may use GPS technology (or other similar technology) to determine your current approxmiate location in order to determine the city you are located within when you upload a posting, and to display relevant postings. We will not collect this information without your permission, nor will we share your current location with other users or partners.•	If you do not want us to use your location for the purposes set forth above, you should turn off the location services for the mobile application located in your account settings or in your mobile phone settings and/or within the mobile application. 2. How does Hippojobtamus use the information it obtains?Some more general uses of the obtained information in addition to the specific uses outlined above include:•	Hippojobtamus will remember your sign-in information so you will not have to enter it every time you visit the application.•	Improving our product and serviceDo third parties see and/or have access to information obtained by the Application?We will share your information with third parties only in the ways that are described in this privacy statement.We may disclose User Provided Information and Automatically Collected Information:•	as required by law, such as to comply with a subpoena, or similar legal process;•	when we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;•	with our trusted services providers who work on our behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.•	if Fourj Studios is involved in a merger, acquisition, or sale of all or a portion of its assets, you will be notified via email and/or a prominent notice on our Web site of any change in ownership or uses of this information, as well as any choices you may have regarding this information.What are my opt-out rights?You can stop all collection of information by the Application easily by uninstalling the Application. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network. Data Retention Policy, Managing Your InformationWe will retain User Provided Information for as long as you use the Application and for a reasonable time thereafter. We will retain Automatically Collected Information for up to 24 months and thereafter may store it in aggregate. Please note that some or all of the User Provided Information may be required in order for the Application to function properly.3. ChildrenWe do not use the Application to knowingly solicit data from or market to children under the age of 13. If a parent or guardian becomes aware that his or her child has provided us with information without their consent, he or she should contact us at hippojobtamus@gmail.com. We will delete such information from our files within a reasonable time.4. SecurityWe are concerned about safeguarding the confidentiality of your information. We provide physical, electronic, and procedural safeguards to protect information we process and maintain. For example, we limit access to this information to authorized employees and contractors who need to know that information in order to operate, develop or improve our Application. Please be aware that, although we endeavor to provide reasonable security for information we process and maintain, no security system can prevent all potential security breaches.5. ChangesThis Privacy Policy may be updated from time to time for any reason. We will notify you of any changes to our Privacy Policy by posting the new Privacy Policy here and informing you via email. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes. 6. Your ConsentBy using the Application, you are consenting to our processing of your information as set forth in this Privacy Policy now and as amended by us. "Processing,” means using cookies on a computer/hand held device or using or touching information in any way, including, but not limited to, collecting, storing, deleting, using, combining and disclosing information, all of which activities will take place in Canada. If you reside outside Canada your information will be transferred, processed and stored there under Canadian privacy standards. 7. Contact usIf you have any questions regarding privacy while using Hippojobtamus, or have questions about our practices, please contact us via email at hippojobtamus@gmail.com </mutableString>
+                                <string key="text">This privacy policy governs your use of the software application Hippojobtamus (“Hippojobtamus”), operated by Fourj Studios (“we,” “us,” or “our”). Hippojobtamus provides users an intuitive and easy way to find local hiring positions. Simply upload a photo of any ‘Now Hiring’ signs you come across and browse through photos uploaded by other users to find job positions you may have missed in your job search.  
+1. What information does Hippojobtamus obtain?
+Hippojobtamus collects the following information from its users.
+User Provided Information 
+•	Hippojobtamus obtains the information you provide when you download and register the application, such as your first name, last name, password, and e-mail address. Registration with us is mandatory in order to be able to use the basic features of the Application.
+
+•	Any user content uploaded to Hippojobtamus such as photos, and job postings.
+•	We may also use the information you provided us to contact you from time to time to provide you with important information, required notices and marketing promotions.
+Automatically Collected Information 
+•	Facebook permission
+
+We may ask for some Facebook permissions allowing it to perform actions with the User's Facebook account and to retrieve information, including Personal Data, from it.
+
+For more information about the following permissions, refer to the Facebook permissions documentation and to the Facebook privacy policy.
+
+The permissions asked are the following:
+
+o	Basic information
+By default, this includes certain User’s Data such as user id, name, picture, gender, and their locale. Certain connections of the User, such as the Friends, are also available. If the User has made more of their Data public, more information will be available.
+
+o	About Me
+Provides access to the 'About Me' section of the profile.
+
+o	Contact email
+Access the User's contact email address.
+Geo-Location Information
+•	When you visit the mobile application, we may use GPS technology (or other similar technology) to determine your current approxmiate location in order to determine the city you are located within when you upload a posting, and to display relevant postings. We will not collect this information without your permission, nor will we share your current location with other users or partners.
+•	If you do not want us to use your location for the purposes set forth above, you should turn off the location services for the mobile application located in your account settings or in your mobile phone settings and/or within the mobile application. 
+2. How does Hippojobtamus use the information it obtains?
+Some more general uses of the obtained information in addition to the specific uses outlined above include:
+
+•	Hippojobtamus will remember your sign-in information so you will not have to enter it every time you visit the application.
+•	Improving our product and service
+Do third parties see and/or have access to information obtained by the Application?
+We will share your information with third parties only in the ways that are described in this privacy statement.
+We may disclose User Provided Information and Automatically Collected Information:
+•	as required by law, such as to comply with a subpoena, or similar legal process;
+•	when we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;
+•	with our trusted services providers who work on our behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.
+•	if Fourj Studios is involved in a merger, acquisition, or sale of all or a portion of its assets, you will be notified via email and/or a prominent notice on our Web site of any change in ownership or uses of this information, as well as any choices you may have regarding this information.
+What are my opt-out rights?
+You can stop all collection of information by the Application easily by uninstalling the Application. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network. 
+Data Retention Policy, Managing Your Information
+We will retain User Provided Information for as long as you use the Application and for a reasonable time thereafter. We will retain Automatically Collected Information for up to 24 months and thereafter may store it in aggregate. Please note that some or all of the User Provided Information may be required in order for the Application to function properly.
+3. Children
+We do not use the Application to knowingly solicit data from or market to children under the age of 13. If a parent or guardian becomes aware that his or her child has provided us with information without their consent, he or she should contact us at hippojobtamus@gmail.com. We will delete such information from our files within a reasonable time.
+4. Security
+We are concerned about safeguarding the confidentiality of your information. We provide physical, electronic, and procedural safeguards to protect information we process and maintain. For example, we limit access to this information to authorized employees and contractors who need to know that information in order to operate, develop or improve our Application. Please be aware that, although we endeavor to provide reasonable security for information we process and maintain, no security system can prevent all potential security breaches.
+5. Changes
+This Privacy Policy may be updated from time to time for any reason. We will notify you of any changes to our Privacy Policy by posting the new Privacy Policy here and informing you via email. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes. 
+6. Your Consent
+By using the Application, you are consenting to our processing of your information as set forth in this Privacy Policy now and as amended by us. "Processing,” means using cookies on a computer/hand held device or using or touching information in any way, including, but not limited to, collecting, storing, deleting, using, combining and disclosing information, all of which activities will take place in Canada. If you reside outside Canada your information will be transferred, processed and stored there under Canadian privacy standards. 
+7. Contact us
+If you have any questions regarding privacy while using Hippojobtamus, or have questions about our practices, please contact us via email at hippojobtamus@gmail.com 
+</string>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1097,7 +1143,37 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zJq-jE-rEe">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Last updated: (October 5, 2016) Please read these Terms of Service ("Terms", "Terms and Conditions") carefully before using the Hippojobtamus mobile application (the "Service") operated by Fourj Studios ("us", "we", or "our"). Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service. By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service. General•	Anyone under the age of 13 is not allowed to use this Service. By using this service, you are agreeing that you are fully able to comply with these Terms. We reserve the right to deactivate your account if we learn that you are under 13 years of age.•	You are responsible for keeping your login information secure and for all activities that are carried out under your account. •	You may not use the Service for any malicious, illegal, or unauthorized purpose.•	You may not use the Service to any end that is not in line with the original intent of the Service: to share with other users, local businesses that are, at the time of posting, currently hiring, by uploading a picture of the ‘Now Hiring’ sign or material directly related to the intent of the Service and providing further information related to the posting.•	Fourj Studios may deactivate and delete your account and terminate your use of the service for any reason, without notice and without liability to you. •	Fourj Studios may modify, alter, or terminate the Service at any time, for any reason, with or without notice.Content •	Our Service allows you to post, link, and otherwise make available certain information, text, graphics, videos, or other material ("Content"). You are solely responsible for the Content that you post to the Service.•	You may not post any Content to the Service other than photos of ‘Now Hiring’ signs, interiors of hiring stores or businesses, or other material directly related to the intended use of the Service. This effectively excludes any of the following content:o	Any advertisements or marketing material not related to the intended use of the Serviceo	Any pornographic or sexually suggestive photos or other contento	Any discriminatory or hateful contento	Any infringing, unlawful, or illegal contento	Any downloadable third-party software, including but not limited to viruses, malware, or any forms of codeo	Any and all phone numbers posted with malicious intento	Any links that are not related to the intended use of the Service.•	We may remove any Content that violates these Terms of Service, and delete any account(s) in relation to said Content, at our sole discretion.Links To Other Web Sites •	Our Service may contain links to third­party web sites or services that are not owned or controlled by Fourj Studios. •	Fourj Studios has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that M y Company (change this) shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. Changes •	We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will try to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. Contact Us •	If you have any questions about these Terms, please contact us at hippojobtamus@gmail.com.</mutableString>
+                                <string key="text">Last updated: (October 5, 2016) 
+Please read these Terms of Service ("Terms", "Terms and Conditions") carefully before using the Hippojobtamus mobile application (the "Service") operated by Fourj Studios ("us", "we", or "our"). 
+Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service. 
+By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service. 
+General
+•	Anyone under the age of 13 is not allowed to use this Service. By using this service, you are agreeing that you are fully able to comply with these Terms. We reserve the right to deactivate your account if we learn that you are under 13 years of age.
+•	You are responsible for keeping your login information secure and for all activities that are carried out under your account. 
+•	You may not use the Service for any malicious, illegal, or unauthorized purpose.
+•	You may not use the Service to any end that is not in line with the original intent of the Service: to share with other users, local businesses that are, at the time of posting, currently hiring, by uploading a picture of the ‘Now Hiring’ sign or material directly related to the intent of the Service and providing further information related to the posting.
+•	Fourj Studios may deactivate and delete your account and terminate your use of the service for any reason, without notice and without liability to you. 
+•	Fourj Studios may modify, alter, or terminate the Service at any time, for any reason, with or without notice.
+Content 
+•	Our Service allows you to post, link, and otherwise make available certain information, text, graphics, videos, or other material ("Content"). You are solely responsible for the Content that you post to the Service.
+•	You may not post any Content to the Service other than photos of ‘Now Hiring’ signs, interiors of hiring stores or businesses, or other material directly related to the intended use of the Service. This effectively excludes any of the following content:
+o	Any advertisements or marketing material not related to the intended use of the Service
+o	Any pornographic or sexually suggestive photos or other content
+o	Any discriminatory or hateful content
+o	Any infringing, unlawful, or illegal content
+o	Any downloadable third-party software, including but not limited to viruses, malware, or any forms of code
+o	Any and all phone numbers posted with malicious intent
+o	Any links that are not related to the intended use of the Service.
+•	We may remove any Content that violates these Terms of Service, and delete any account(s) in relation to said Content, at our sole discretion.
+Links To Other Web Sites 
+•	Our Service may contain links to third­party web sites or services that are not owned or controlled by Fourj Studios. 
+•	Fourj Studios has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that M y Company (change this) shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. 
+Changes 
+•	We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will try to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. 
+Contact Us 
+•	If you have any questions about these Terms, please contact us at hippojobtamus@gmail.com.
+
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1189,6 +1265,7 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aa-t9-M2f">
                                                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.43035637842465752" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7d-4e-Jzd">
@@ -1247,14 +1324,10 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="of4-P7-Gi4" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" id="5UJ-FY-dbo"/>
                                             <constraint firstItem="v61-Q1-ToL" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" id="Va0-Ap-ZhE"/>
                                             <constraint firstAttribute="height" constant="900" id="bz8-S1-hB0"/>
-                                            <constraint firstAttribute="trailing" secondItem="of4-P7-Gi4" secondAttribute="trailing" id="c6C-G6-1fq"/>
                                             <constraint firstItem="v61-Q1-ToL" firstAttribute="top" secondItem="Dr0-R1-4hB" secondAttribute="top" constant="30" id="d2R-1V-mEQ"/>
-                                            <constraint firstAttribute="bottom" secondItem="of4-P7-Gi4" secondAttribute="bottom" id="k8J-UM-3HO"/>
                                             <constraint firstAttribute="trailing" secondItem="v61-Q1-ToL" secondAttribute="trailing" id="k8l-aI-46D"/>
-                                            <constraint firstItem="of4-P7-Gi4" firstAttribute="top" secondItem="Dr0-R1-4hB" secondAttribute="top" id="vT7-YN-gTA"/>
                                             <constraint firstAttribute="bottom" secondItem="v61-Q1-ToL" secondAttribute="bottom" id="zyY-gp-33O"/>
                                         </constraints>
                                     </view>
@@ -1269,9 +1342,13 @@
                             </scrollView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="of4-P7-Gi4" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" id="62I-Hl-IM4"/>
                             <constraint firstItem="nQ5-En-Ble" firstAttribute="width" secondItem="svH-Pt-448" secondAttribute="width" id="7J8-Yk-vNZ"/>
                             <constraint firstItem="nQ5-En-Ble" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="DiA-hT-RBr"/>
+                            <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="of4-P7-Gi4" secondAttribute="bottom" constant="-13" id="Dxe-zs-rno"/>
                             <constraint firstItem="nQ5-En-Ble" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="Es5-2Q-WWq"/>
+                            <constraint firstAttribute="trailing" secondItem="of4-P7-Gi4" secondAttribute="trailing" id="e9B-5G-TDX"/>
+                            <constraint firstItem="of4-P7-Gi4" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="hbA-Xp-3do"/>
                             <constraint firstItem="nQ5-En-Ble" firstAttribute="height" secondItem="svH-Pt-448" secondAttribute="height" id="jOq-JC-3C9"/>
                         </constraints>
                     </view>
@@ -2291,6 +2368,7 @@
         <image name="All" width="231" height="231"/>
         <image name="Background" width="750" height="1006"/>
         <image name="Sign Up Button" width="584" height="100"/>
+        <image name="Tap to take a photo" width="412" height="377"/>
         <image name="bank" width="231" height="231"/>
         <image name="blankinputbox" width="653" height="102"/>
         <image name="cafe" width="231" height="231"/>
@@ -2311,7 +2389,6 @@
         <image name="retail" width="231" height="231"/>
         <image name="signin" width="320" height="120"/>
         <image name="signin1" width="320" height="120"/>
-        <image name="upload_box" width="412" height="377"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hcU-FG-nwL"/>
