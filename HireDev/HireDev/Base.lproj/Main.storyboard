@@ -648,9 +648,9 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="gcB-Fg-Zvt" secondAttribute="bottom" id="5Jk-14-9iW"/>
                                                                             <constraint firstAttribute="trailing" secondItem="gcB-Fg-Zvt" secondAttribute="trailing" id="D5d-Yb-X9J"/>
-                                                                            <constraint firstAttribute="height" constant="250" id="IQD-NH-oWb"/>
+                                                                            <constraint firstAttribute="height" constant="300" id="IQD-NH-oWb"/>
                                                                             <constraint firstItem="gcB-Fg-Zvt" firstAttribute="leading" secondItem="Iv7-sG-ppj" secondAttribute="leading" id="QS3-S4-hbv"/>
-                                                                            <constraint firstAttribute="bottom" secondItem="aVr-9O-4wh" secondAttribute="bottom" id="Qqo-H5-cdd"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="aVr-9O-4wh" secondAttribute="bottom" constant="30" id="Qqo-H5-cdd"/>
                                                                             <constraint firstItem="aVr-9O-4wh" firstAttribute="leading" secondItem="Iv7-sG-ppj" secondAttribute="leading" id="SXy-nU-8RE"/>
                                                                             <constraint firstAttribute="trailing" secondItem="aVr-9O-4wh" secondAttribute="trailing" id="bFh-K6-gie"/>
                                                                             <constraint firstItem="gcB-Fg-Zvt" firstAttribute="top" secondItem="Iv7-sG-ppj" secondAttribute="top" constant="50" id="fZY-aP-LwA"/>
@@ -2030,7 +2030,7 @@ Contact Us
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2349,7 +2349,7 @@ Contact Us
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2368,7 +2368,7 @@ Contact Us
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j0S-kT-hOS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2387,7 +2387,7 @@ Contact Us
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kIl-xk-SdC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
