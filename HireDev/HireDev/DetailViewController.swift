@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class DetailViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var commentsLabel: UITextView!
+    @IBOutlet weak var googleMap: GMSMapView!
     
     var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", photo: "", addedByUser: "", date: "", location: "")
     
@@ -28,9 +30,32 @@ class DetailViewController: UIViewController {
         self.dateLabel.text = "  " + self.detailItem.date
         self.locationLabel.text = "  " + self.detailItem.location
         self.commentsLabel.text = "  " + self.detailItem.comments
-        
-        // Do any additional setup after loading the view, typically from a nib.
         self.title = self.detailItem.title
+
+        
+        let readableAddress = self.detailItem.location.replacingOccurrences(of: " ", with: "")
+        self.fetchLatLong(address: readableAddress) { (fetchedAddress) in
+            
+            if let lat = fetchedAddress?["lat"], let long = fetchedAddress?["lng"]{
+                if (lat != 0 && long != 0){
+                    DispatchQueue.main.sync{
+                        let camera = GMSCameraPosition.camera(withLatitude: Double(lat), longitude: Double(long), zoom: 15)
+                        self.googleMap.isMyLocationEnabled = true
+                        self.googleMap.camera = camera
+                        
+                        let marker = GMSMarker()
+                        marker.position = CLLocationCoordinate2DMake(Double(lat), Double(long))
+                        marker.title = self.detailItem.title
+                        marker.snippet = self.detailItem.location
+                        marker.map = self.googleMap
+                    }
+                }else{
+                    NSLog("not yet")
+                }
+            }
+        }
+        
+        
         
     }
     
@@ -49,14 +74,7 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: Function
-    
-    func getImageFromString(string: String) -> UIImage {
-        let data: NSData = NSData.init(base64Encoded: string, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
-        let image: UIImage = UIImage.init(data: data as Data)!
-        
-        return image
-    }
+    //MARK: IBAction
     
     @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
         
@@ -75,6 +93,16 @@ class DetailViewController: UIViewController {
         navigationController?.setNavigationBarHidden(navigationController?.isNavigationBarHidden == false, animated: true)
         setTabBarVisible(visible: !tabBarIsVisible(), animated: true, completion: {_ in })
     }
+    
+    //MARK: Function
+    
+    func getImageFromString(string: String) -> UIImage {
+        let data: NSData = NSData.init(base64Encoded: string, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
+        let image: UIImage = UIImage.init(data: data as Data)!
+        
+        return image
+    }
+    
     
     func dismissFullscreenImage(sender: UITapGestureRecognizer) {
         

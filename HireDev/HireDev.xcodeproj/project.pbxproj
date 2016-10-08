@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BD5FCC3BB807DEA5856500A /* Pods_HireDev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */; };
+		4000EE8C1DA8A47300449F0F /* ViewController+getLatLong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000EE8B1DA8A47300449F0F /* ViewController+getLatLong.swift */; };
 		400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400842C51D8D1C9000B30904 /* HomeViewController.swift */; };
 		401BDED31D93BFA500D5A749 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401BDED21D93BFA500D5A749 /* Bolts.framework */; };
 		4032FF811D9D0E7900C91B5E /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032FF801D9D0E7900C91B5E /* JobTableViewCell.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		00353D0515AA1900B3822BA0 /* Pods-HireDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-HireDev/Pods-HireDev.release.xcconfig"; sourceTree = "<group>"; };
 		2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HireDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4000EE8B1DA8A47300449F0F /* ViewController+getLatLong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+getLatLong.swift"; sourceTree = "<group>"; };
 		400842C51D8D1C9000B30904 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		401BDED21D93BFA500D5A749 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
 		4032FF801D9D0E7900C91B5E /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				40DAA3A41D99F040005806BE /* JobItem.swift */,
 				406132021DA250B90025EF0E /* Keys.plist */,
 				40DFE3E71DA482510052E6EF /* ViewController+CheckDistance.swift */,
+				4000EE8B1DA8A47300449F0F /* ViewController+getLatLong.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				40D111491DA0331000AAD34E /* LocationSettingViewController.swift in Sources */,
 				403A169D1D9B8709001FB468 /* ViewController+AlertView.swift in Sources */,
 				406132091DA270F30025EF0E /* ViewController+SetLocation.swift in Sources */,
+				4000EE8C1DA8A47300449F0F /* ViewController+getLatLong.swift in Sources */,
 				4032FF811D9D0E7900C91B5E /* JobTableViewCell.swift in Sources */,
 				40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */,
 				407638A31D82421600C7A892 /* DetailViewController.swift in Sources */,
