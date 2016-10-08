@@ -20,6 +20,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var emailLogo: UIImageView!
     @IBOutlet weak var fbLogo: UIImageView!
+    @IBOutlet weak var signInLogo: UIImageView!
     
     //MARK: UIViewController
     
@@ -108,11 +109,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: Button Images
     
     @IBAction func fbTouchDown(_ sender: AnyObject) {
-        fbLogo.highlightedImage = UIImage.init(named: "facebooklogopressed")
+        fbLogo.highlightedImage = UIImage.init(named: "fbutton1")
         fbLogo.isHighlighted = true
     }
     @IBAction func emailTouchDown(_ sender: AnyObject) {
-        emailLogo.highlightedImage = UIImage.init(named: "emaillogopressed")
+        emailLogo.highlightedImage = UIImage.init(named: "ebutton1")
         emailLogo.isHighlighted = true
     }
     
