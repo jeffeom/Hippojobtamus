@@ -12,6 +12,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import FBSDKShareKit
 import GooglePlaces
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,9 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             keys = NSDictionary(contentsOfFile: path)
         }
         if let dict = keys {
-            let API = dict["googleAPI"] as? String
+            let gpAPI = dict["googleAPI"] as? String
+            let ggAPI = dict["googleGeocode"] as? String
             
-            GMSPlacesClient.provideAPIKey(API!)
+            GMSPlacesClient.provideAPIKey(gpAPI!)
+            GMSServices.provideAPIKey(ggAPI!)
         }
         
         

@@ -26,12 +26,12 @@ class MasterViewController: UITableViewController {
     //MARK: UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         self.title = contents
         indicator.color = UIColor.gray
         indicator.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
-        indicator.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 10)
+        indicator.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 9)
         self.view.addSubview(indicator)
         indicator.bringSubview(toFront: self.view)
         indicator.startAnimating()
@@ -56,6 +56,24 @@ class MasterViewController: UITableViewController {
                         if let aDistance = fetchedData?.first{
                             if aDistance > Float(readableDistanceRequest){
                                 self.rejectionCounter += 1
+                                if self.rejectionCounter == self.itemCounter{
+                                    let serachDistance = UserDefaults.standard.integer(forKey: "searchDistance")
+                                    
+                                    let alert = UIAlertController(title: "No jobs found", message: "Could not find any jobs within \(serachDistance) Km. Please increase the Search Distance", preferredStyle: UIAlertControllerStyle.alert)
+                                    
+                                    alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
+                                        
+                                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
+                                        self.navigationController?.pushViewController(vc!, animated: true)
+                                    }))
+                                    
+                                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
+                                        return
+                                    }))
+                                    
+                                    alert.show()
+                                }
+                                
                             }else{
                                 newItems.append(jobItem)
                                 
@@ -64,33 +82,30 @@ class MasterViewController: UITableViewController {
                                 self.categoryContents = newItems
                                 self.tableView.reloadData()
                                 
-
+                                
                             }
                         }else{
                             self.rejectionCounter += 1
+                            if self.rejectionCounter == self.itemCounter{
+                                
+                                let alert = UIAlertController(title: "Not Available", message: "Not available in this area", preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
+                                    
+                                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
+                                    self.navigationController?.pushViewController(vc!, animated: true)
+                                }))
+                                
+                                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
+                                    return
+                                }))
+                                
+                                alert.show()
+                            }
                         }
-                    }
-                    
-                    if self.rejectionCounter == self.itemCounter{
-                        let serachDistance = UserDefaults.standard.integer(forKey: "searchDistance")
-                        
-                        let alert = UIAlertController(title: "No jobs found", message: "Could not find any jobs within \(serachDistance) Km. Please increase the Search Distance", preferredStyle: UIAlertControllerStyle.alert)
-                        
-                        alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
-                            
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
-                            self.navigationController?.pushViewController(vc!, animated: true)
-                        }))
-                        
-                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
-                            return
-                        }))
-                        
-                        alert.show()
                     }
                 }
             }
-            
             
             self.indicator.stopAnimating()
             self.indicator.hidesWhenStopped = true
@@ -102,6 +117,14 @@ class MasterViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        let nav = self.navigationController?.navigationBar
+        let font = UIFont.boldSystemFont(ofSize: 18)
+        nav?.titleTextAttributes = [NSFontAttributeName: font]
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        nav?.tintColor = UIColor.white
+        
+        viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     

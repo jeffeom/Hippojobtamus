@@ -29,7 +29,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     
     let ref = FIRDatabase.database().reference(withPath: "job-post")
     var savedJobs: [JobItem] = []
-    let category: [String] = ["Cafe", "Server", "Tutor", "Sales", "Reception", "Grocery", "Bank", "Others"]
+    let category: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "Education", "Sales", "Receptionist", "Others"]
     var hidden: Bool = true
     var selectedIndexPath: IndexPath = IndexPath()
     var checked: [Bool] = [false, false, false, false, false, false, false, false]
@@ -60,7 +60,12 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
+        
+        let nav = self.navigationController?.navigationBar
+        nav?.barTintColor = UIColor.init(red: 0/255.0, green: 168.0/255.0, blue: 168.0/255.0, alpha: 1.0)
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        nav?.tintColor = UIColor.white
         
         self.setUpLocationForLabel(locationLabel: locationLabel)
     }
@@ -200,7 +205,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 self.savedJobs.append(jobItem)
                 
                 for aCategory in selectedCategory{
-                    let jobItemRef = self.ref.child(aCategory).child((self.titleField.text?.lowercased())!)
+                    let jobItemRef = self.ref.child(aCategory).childByAutoId()
                     jobItemRef.setValue(jobItem.toAnyObject())
                 }
                 
@@ -243,7 +248,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         titleField.text = ""
         commentsField.text = ""
         placeholderLabel.isHidden = !commentsField.text.isEmpty
-        photoView.image = UIImage.init(named: "upload_box")
+        photoView.image = UIImage.init(named: "Tap to take a photo")
         checked = [false, false, false, false, false, false, false, false]
         photoButton.setTitle("Tap here to take a photo", for: .normal)
         imageString = ""

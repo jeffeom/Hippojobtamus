@@ -59,6 +59,12 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        let nav = self.navigationController?.navigationBar
+        let font = UIFont.boldSystemFont(ofSize: 18)
+        nav?.titleTextAttributes = [NSFontAttributeName: font]
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        nav?.tintColor = UIColor.white
+        
         if newLocationHistory.count == 0{
             if let myLocationHistory = UserDefaults.standard.array(forKey: "locationHistory"){
                 newLocationHistory = myLocationHistory as! [String]
@@ -81,6 +87,12 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        
+    }
+    
     //MARK: UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -99,7 +111,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         if let cell = tableView.cellForRow(at: indexPath) {
             let selectedCellAddress = cell.textLabel?.text
             UserDefaults.standard.set(selectedCellAddress, forKey: "currentLocation")
-
+            
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
             }
@@ -114,7 +126,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         case 0:
             lookUpAddressView.isHidden = false
             searchDistanceView.isHidden = true
-        
+            
         case 1:
             lookUpAddressView.isHidden = true
             searchDistanceView.isHidden = false
@@ -146,32 +158,31 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         let number = sliderDistance.value
         
         switch number {
-        case 0:
-            distance = 1
-            theCase = 0
-            
         case 1:
-            distance = 5
+            distance = 1
             theCase = 1
-
+            
         case 2:
+            distance = 5
+            theCase = 2
+            
+        case 3:
+            distance = 10
+            theCase = 3
+            
+        case 4:
+            distance = 20
+            theCase = 4
+            
+        case 5:
+            distance = 50
+            theCase = 5
+            
+        default:
             distance = 10
             theCase = 2
-
-        case 3:
-            distance = 20
-            theCase = 3
-
-        case 4:
-            distance = 50
-            theCase = 4
-
-        default:
-            distance = 20
-            theCase = 3
-
+            
         }
-        
         UserDefaults.standard.setValue(distance, forKey: "searchDistance")
         UserDefaults.standard.setValue(theCase, forKey: "distanceCase")
     }
@@ -196,6 +207,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
                     fixedArray.append(addressArray[0])
                     fixedArray.append(addressArray[1])
                     self.newAddress = fixedArray.joined(separator: ", ")
+                    self.newAddress = self.newAddress.replacingOccurrences(of: "#", with: " ")
                     self.locationLabel.text = self.newAddress
                     
                     UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
@@ -253,13 +265,14 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
         fixedArray.append(addressArray[0])
         fixedArray.append(addressArray[1])
         self.newAddress = fixedArray.joined(separator: ", ")
+        self.newAddress = self.newAddress.replacingOccurrences(of: "#", with: " ")
         self.locationLabel.text = self.newAddress
         
         UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
         
         if (self.checkForSameData(array: self.newLocationHistory, string: self.newAddress)){
             self.newLocationHistory.append(self.newAddress)
-
+            
         }
         
         self.dismiss(animated: true, completion: {

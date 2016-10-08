@@ -20,6 +20,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var emailLogo: UIImageView!
     @IBOutlet weak var fbLogo: UIImageView!
+    @IBOutlet weak var signInLogo: UIImageView!
     
     //MARK: UIViewController
     
@@ -57,12 +58,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
                 self.passwordField.text = ""
             }else{
-                if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
-                    self.verifiedUser()
-                }else{
-                    self.errorLabel.text = "You need to verify your email first"
-                    self.passwordField.text = ""
-                }
+                self.verifiedUser()
+//                if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
+//                    self.verifiedUser()
+//                }else{
+//                    self.errorLabel.text = "You need to verify your email first"
+//                    self.passwordField.text = ""
+//                }
             }
         }
     }
@@ -107,11 +109,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: Button Images
     
     @IBAction func fbTouchDown(_ sender: AnyObject) {
-        fbLogo.highlightedImage = UIImage.init(named: "facebooklogopressed")
+        fbLogo.highlightedImage = UIImage.init(named: "fbutton1")
         fbLogo.isHighlighted = true
     }
     @IBAction func emailTouchDown(_ sender: AnyObject) {
-        emailLogo.highlightedImage = UIImage.init(named: "emaillogopressed")
+        emailLogo.highlightedImage = UIImage.init(named: "ebutton1")
         emailLogo.isHighlighted = true
     }
     
@@ -122,9 +124,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
             self.navigationController?.pushViewController(confirmedViewController!
                 , animated: true)
+            UserDefaults.standard.setValue(10, forKey: "searchDistance")
         }else{
             UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.uid, forKey: "uid")
             UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.email, forKey: "email")
+            UserDefaults.standard.setValue(10, forKey: "searchDistance")
             UserDefaults.standard.synchronize()
             let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
             self.navigationController?.pushViewController(confirmedViewController!
