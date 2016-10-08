@@ -99,6 +99,17 @@ class DetailViewController: UIViewController {
         setTabBarVisible(visible: !tabBarIsVisible(), animated: true, completion: {_ in })
     }
     
+    @IBAction func toGoogleMap(_ sender: AnyObject) {
+        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
+            if let url = URL(string: "comgooglemaps://?center=\(self.latitude),\(self.longitude)&zoom=14&views=traffic"){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        } else {
+            print("Can't use comgooglemaps://");
+        }
+        
+    }
+    
     //MARK: Function
     
     func getImageFromString(string: String) -> UIImage {
@@ -116,19 +127,15 @@ class DetailViewController: UIViewController {
         setTabBarVisible(visible: !tabBarIsVisible(), animated: true, completion: {_ in })
     }
     
-    // pass a param to describe the state change, an animated flag and a completion block matching UIView animations completion
     func setTabBarVisible(visible: Bool, animated: Bool, completion:@escaping (Bool)->Void) {
         
-        // bail if the current state matches the desired state
         if (tabBarIsVisible() == visible) {
             return completion(true)
         }
         
-        // get a frame calculation ready
         let height = tabBarController!.tabBar.frame.size.height
         let offsetY = (visible ? -height : height)
         
-        // zero duration means no animation
         let duration = (animated ? 0.3 : 0.0)
         
         UIView.animate(withDuration: duration, animations: {
@@ -139,16 +146,6 @@ class DetailViewController: UIViewController {
     
     func tabBarIsVisible() -> Bool {
         return tabBarController!.tabBar.frame.origin.y < view.frame.maxY
-    }
-    @IBAction func toGoogleMap(_ sender: AnyObject) {
-        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
-            if let url = URL(string: "comgooglemaps://?center=\(self.latitude),\(self.longitude)&zoom=14&views=traffic"){
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-        } else {
-            print("Can't use comgooglemaps://");
-        }
-        
     }
 }
 
