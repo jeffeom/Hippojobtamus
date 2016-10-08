@@ -23,7 +23,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="TLq-ec-IZS" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="NpM-Xb-aPl"/>
-                            <constraint firstItem="TLq-ec-IZS" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="dTH-Zg-a4v"/>
+                            <constraint firstItem="TLq-ec-IZS" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="fyo-3P-M6v"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="TLq-ec-IZS" secondAttribute="bottom" id="vlo-AO-ivh"/>
                             <constraint firstAttribute="trailing" secondItem="TLq-ec-IZS" secondAttribute="trailing" id="zjm-mD-eWE"/>
                         </constraints>
