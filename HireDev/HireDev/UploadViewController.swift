@@ -248,7 +248,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         titleField.text = ""
         commentsField.text = ""
         placeholderLabel.isHidden = !commentsField.text.isEmpty
-        photoView.image = UIImage.init(named: "upload_box")
+        photoView.image = UIImage.init(named: "Tap to take a photo")
         checked = [false, false, false, false, false, false, false, false]
         photoButton.setTitle("Tap here to take a photo", for: .normal)
         imageString = ""
