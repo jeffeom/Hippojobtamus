@@ -57,14 +57,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if let _ = error{
                 self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
                 self.passwordField.text = ""
+                self.signInLogo.isHighlighted = false
             }else{
                 self.verifiedUser()
-//                if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
-//                    self.verifiedUser()
-//                }else{
-//                    self.errorLabel.text = "You need to verify your email first"
-//                    self.passwordField.text = ""
-//                }
+                //                if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
+                //                    self.verifiedUser()
+                //                }else{
+                //                    self.errorLabel.text = "You need to verify your email first"
+                //                    self.passwordField.text = ""
+                //                }
             }
         }
     }
@@ -76,10 +77,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         login.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
             if (error != nil){
                 self.errorLabel.text = "Facebook Process Error"
+                self.fbLogo.isHighlighted = false
             }else if (result?.isCancelled)!{
                 self.errorLabel.text = "Facebook Canceled"
+                self.fbLogo.isHighlighted = false
             }else {
                 self.errorLabel.text = "Logged In"
+                self.fbLogo.isHighlighted = false
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                     if let _ = error{
@@ -116,6 +120,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailLogo.highlightedImage = UIImage.init(named: "ebutton1")
         emailLogo.isHighlighted = true
     }
+    @IBAction func signinTouchDown(_ sender: AnyObject) {
+        signInLogo.highlightedImage = UIImage.init(named: "signin1")
+        signInLogo.isHighlighted = true
+    }
     
     //MARK: Navigate if Verified
     
@@ -142,7 +150,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
             if self.view.frame.origin.y == 0 {
-                    self.view.frame.origin.y -= keyboardSize.height / 2.5
+                self.view.frame.origin.y -= keyboardSize.height / 2.5
             }
         }
     }

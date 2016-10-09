@@ -15,7 +15,7 @@
 		4032FF811D9D0E7900C91B5E /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032FF801D9D0E7900C91B5E /* JobTableViewCell.swift */; };
 		403A169D1D9B8709001FB468 /* ViewController+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */; };
 		403A169F1D9B8939001FB468 /* UIAlertController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */; };
-		40426E9E1D9504AD005D704E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40426E9D1D9504AD005D704E /* GoogleService-Info.plist */; };
+		404B3ED41DAA854300415DF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */; };
 		406132031DA250B90025EF0E /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 406132021DA250B90025EF0E /* Keys.plist */; };
 		406132051DA259820025EF0E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 406132041DA259820025EF0E /* MapKit.framework */; };
 		406132071DA25F7C0025EF0E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 406132061DA25F7C0025EF0E /* CoreLocation.framework */; };
@@ -51,7 +51,7 @@
 		4032FF801D9D0E7900C91B5E /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+AlertView.swift"; sourceTree = "<group>"; };
 		403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Present.swift"; sourceTree = "<group>"; };
-		40426E9D1D9504AD005D704E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/HIPPO/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		406132021DA250B90025EF0E /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		406132041DA259820025EF0E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		406132061DA25F7C0025EF0E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -166,8 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				4076389E1D82421600C7A892 /* AppDelegate.swift */,
+				404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */,
 				407638AC1D82421600C7A892 /* Info.plist */,
-				40426E9D1D9504AD005D704E /* GoogleService-Info.plist */,
 				4032FF801D9D0E7900C91B5E /* JobTableViewCell.swift */,
 				4072DAF71DA6436B000D2B97 /* LatestJobCollectionViewCell.swift */,
 				40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */,
@@ -241,7 +241,7 @@
 				TargetAttributes = {
 					4076389A1D82421600C7A892 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = RJSTWC7526;
+						DevelopmentTeam = U43R3UYB5A;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -276,7 +276,7 @@
 			files = (
 				406132031DA250B90025EF0E /* Keys.plist in Resources */,
 				407638AB1D82421600C7A892 /* LaunchScreen.storyboard in Resources */,
-				40426E9E1D9504AD005D704E /* GoogleService-Info.plist in Resources */,
+				404B3ED41DAA854300415DF8 /* GoogleService-Info.plist in Resources */,
 				407638A81D82421600C7A892 /* Assets.xcassets in Resources */,
 				407638A61D82421600C7A892 /* Main.storyboard in Resources */,
 			);
@@ -482,7 +482,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = RJSTWC7526;
+				DEVELOPMENT_TEAM = U43R3UYB5A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
@@ -497,7 +497,7 @@
 				);
 				INFOPLIST_FILE = HireDev/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jeffeom.HireDev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourj.Hippojobtamus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -514,7 +514,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = RJSTWC7526;
+				DEVELOPMENT_TEAM = U43R3UYB5A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
@@ -529,7 +529,7 @@
 				);
 				INFOPLIST_FILE = HireDev/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jeffeom.HireDev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourj.Hippojobtamus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;

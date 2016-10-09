@@ -2,26 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>fbapi</string>
-		<string>googlechromes</string>
-		<string>comgooglemaps</string>
-		<string>fb-messenger-api</string>
-		<string>fbauth2</string>
-		<string>fbshareextension</string>
-	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Please allow our app to use your location</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please allow our app to use your location</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Hippo</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -51,8 +35,30 @@
 	<string>181991205560261</string>
 	<key>FacebookDisplayName</key>
 	<string>HippoDev</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow our app to use your camera.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Please allow our app to use your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please allow our app to use your location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please allow our app to use your photo library.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -82,9 +88,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>Please allow our app to use your camera.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Please allow our app to use your photo library.</string>
 </dict>
 </plist>
