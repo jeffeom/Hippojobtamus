@@ -1,4 +1,4 @@
-# HIPPO
+# HIPPO - Hippojobtamus
 
 ## ABOUT US
 
@@ -15,11 +15,17 @@ There are countless part-time jobs out there but it seems so hard to find one wh
 
 ## Contacts
 
-Our website: http://sanghyunju.wixsite.com/hippojobtamus
+Our website: **[Hippojobtamus Website][1]**
+
 Our Email: hippojobtamus@gmail.com
 
-Please leave us some feedbacks.
+
+Please leave us any feedbacks.
+
+---
 
 Thanks a lot for having interests in our app,
 
 *FourJ Studio*
+
+[1]: http://sanghyunju.wixsite.com/hippojobtamus
