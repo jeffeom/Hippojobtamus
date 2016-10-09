@@ -1053,10 +1053,18 @@
                                     <action selector="logOutClicked:" destination="uWm-3i-vUC" eventType="touchUpInside" id="ITV-Ke-Vuh"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUY-Dj-k2s" customClass="GADBannerView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fKC-fM-SuP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.9137254901960784" green="0.90980392156862744" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="UUY-Dj-k2s" firstAttribute="centerX" secondItem="gcs-gM-c2S" secondAttribute="centerX" id="4IE-Fg-aaI"/>
                             <constraint firstItem="xiE-wA-GWV" firstAttribute="top" secondItem="Clp-PV-grg" secondAttribute="bottom" constant="15" id="Eyn-IA-JJK"/>
+                            <constraint firstItem="Ebz-HA-nRo" firstAttribute="top" secondItem="UUY-Dj-k2s" secondAttribute="bottom" id="Iim-nT-uUb"/>
                             <constraint firstAttribute="trailing" secondItem="xiE-wA-GWV" secondAttribute="trailing" id="KKh-WD-Eo1"/>
                             <constraint firstItem="Ebz-HA-nRo" firstAttribute="top" secondItem="w6w-LH-Eeu" secondAttribute="bottom" id="LlD-ip-SAe"/>
                             <constraint firstItem="qvx-RL-lMg" firstAttribute="centerX" secondItem="gcs-gM-c2S" secondAttribute="centerX" id="NMd-tY-dvz"/>
@@ -1065,12 +1073,16 @@
                             <constraint firstItem="w6w-LH-Eeu" firstAttribute="leading" secondItem="gcs-gM-c2S" secondAttribute="leading" id="afW-Cb-gTj"/>
                             <constraint firstItem="xiE-wA-GWV" firstAttribute="leading" secondItem="gcs-gM-c2S" secondAttribute="leading" id="gMo-h8-2qQ"/>
                             <constraint firstAttribute="trailing" secondItem="qvx-RL-lMg" secondAttribute="trailing" id="hsi-H7-YRZ"/>
+                            <constraint firstItem="UUY-Dj-k2s" firstAttribute="width" secondItem="gcs-gM-c2S" secondAttribute="width" id="jHC-lN-IFs"/>
                             <constraint firstItem="qvx-RL-lMg" firstAttribute="top" secondItem="xiE-wA-GWV" secondAttribute="bottom" constant="30" id="lVK-7s-nlZ"/>
                             <constraint firstItem="qvx-RL-lMg" firstAttribute="leading" secondItem="gcs-gM-c2S" secondAttribute="leading" id="oTb-z7-sHb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="J1k-7k-60q"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="bannerView" destination="UUY-Dj-k2s" id="1qX-Ac-nbM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GWd-L8-5IT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2081,7 +2093,7 @@ Contact Us
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2324,10 +2336,10 @@ Contact Us
                                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" id="9lC-aA-fMm">
-                                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9lC-aA-fMm" id="o9d-O6-GTP">
-                                                            <frame key="frameInset" width="414" height="43.666666666666664"/>
+                                                            <frame key="frameInset" width="375" height="43.666666666666664"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwS-qi-MN8">
@@ -2400,7 +2412,7 @@ Contact Us
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2419,7 +2431,7 @@ Contact Us
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j0S-kT-hOS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2438,7 +2450,7 @@ Contact Us
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kIl-xk-SdC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

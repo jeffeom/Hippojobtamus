@@ -45,10 +45,20 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
-        bannerView.adUnitID = "ca-app-pub-1814582751658755/7148024220"
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        var keys: NSDictionary?
+        
+        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
+        if let dict = keys {
+            let gaAPI = dict["googleBanner"] as? String
+            
+            
+            print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
+            bannerView.adUnitID = gaAPI!
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
         
         self.myTableView.isHidden = hidden
         
