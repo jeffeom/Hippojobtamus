@@ -16,10 +16,10 @@ import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Firbase
         FIRApp.configure()
@@ -37,11 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let dict = keys {
             let gpAPI = dict["googleAPI"] as? String
             let ggAPI = dict["googleGeocode"] as? String
+            let gaAPI = dict["googleAds"] as? String
             
             GMSPlacesClient.provideAPIKey(gpAPI!)
             GMSServices.provideAPIKey(ggAPI!)
+            GADMobileAds.configure(withApplicationID: gaAPI!)
         }
-        
         
         return true
     }
@@ -54,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         FBSDKAppEvents.activateApp()
     }
-
-
+    
+    
 }
 

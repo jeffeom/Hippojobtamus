@@ -8,14 +8,30 @@
 
 import UIKit
 import MessageUI
+import GoogleMobileAds
 
 class SettingViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
+    @IBOutlet weak var bannerView: GADBannerView!
     //MARK: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var keys: NSDictionary?
+        
+        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
+        if let dict = keys {
+            let gaAPI = dict["googleBanner"] as? String
+            
+            
+            print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
+            bannerView.adUnitID = gaAPI!
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

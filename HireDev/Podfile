@@ -9,9 +9,13 @@ target 'HireDev' do
   pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Core'
+  pod 'Firebase/AdMob'
   pod 'FontAwesome.swift', :git => 'https://github.com/thii/FontAwesome.swift'
   pod ‘GooglePlaces’
   pod ‘GooglePlacePicker’
   pod ‘GoogleMaps’
+  pod 'Firebase/Core'
+  pod 'Firebase/AdMob'
 
 end

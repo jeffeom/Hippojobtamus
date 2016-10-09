@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import GoogleMobileAds
 
 class DetailViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var commentsLabel: UITextView!
     @IBOutlet weak var googleMap: GMSMapView!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", photo: "", addedByUser: "", date: "", location: "")
     
@@ -34,6 +36,20 @@ class DetailViewController: UIViewController {
         self.commentsLabel.text = "  " + self.detailItem.comments
         self.title = self.detailItem.title
 
+        var keys: NSDictionary?
+        
+        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
+        if let dict = keys {
+            let gaAPI = dict["googleBanner"] as? String
+            
+            
+            print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
+            bannerView.adUnitID = gaAPI!
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
         
         let readableAddress = self.detailItem.location.replacingOccurrences(of: " ", with: "")
         self.fetchLatLong(address: readableAddress) { (fetchedAddress) in

@@ -24,6 +24,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     @IBOutlet weak var seeMore: UILabel!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     // MARK: Properties
     
@@ -43,6 +44,21 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var keys: NSDictionary?
+        
+        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
+        if let dict = keys {
+            let gaAPI = dict["googleBanner"] as? String
+            
+            
+            print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
+            bannerView.adUnitID = gaAPI!
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+        }
         
         self.myTableView.isHidden = hidden
         

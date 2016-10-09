@@ -17,7 +17,7 @@ class HelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = NSURL (string: "http://sanghyunju.wixsite.com/hippo");
+        let url = NSURL (string: "http://sanghyunju.wixsite.com/hippojobtamus");
         let requestObj = NSURLRequest(url: url! as URL);
         webView.loadRequest(requestObj as URLRequest);
 
