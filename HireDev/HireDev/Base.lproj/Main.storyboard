@@ -673,14 +673,19 @@
                                                             <constraint firstItem="IvI-ic-Fab" firstAttribute="top" secondItem="QCb-Ey-Ei8" secondAttribute="top" id="OeH-Qb-YKR"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ke8-eV-Xsq" customClass="GADBannerView">
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="TdE-mu-5WG"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="bnP-bY-tqX" firstAttribute="top" secondItem="NQZ-L3-UhH" secondAttribute="top" id="EOx-5L-9zu"/>
                                                     <constraint firstItem="QCb-Ey-Ei8" firstAttribute="leading" secondItem="NQZ-L3-UhH" secondAttribute="leading" id="FWG-hz-ZJT"/>
                                                     <constraint firstAttribute="trailing" secondItem="bnP-bY-tqX" secondAttribute="trailing" id="Wk8-Tm-Yo3"/>
-                                                    <constraint firstAttribute="bottom" secondItem="QCb-Ey-Ei8" secondAttribute="bottom" id="aUe-kk-FmJ"/>
                                                     <constraint firstItem="QCb-Ey-Ei8" firstAttribute="top" secondItem="bnP-bY-tqX" secondAttribute="bottom" id="ahY-ay-IxE"/>
                                                     <constraint firstItem="bnP-bY-tqX" firstAttribute="leading" secondItem="NQZ-L3-UhH" secondAttribute="leading" id="d3g-ek-12A"/>
+                                                    <constraint firstItem="Ke8-eV-Xsq" firstAttribute="centerX" secondItem="NQZ-L3-UhH" secondAttribute="centerX" id="lwG-ma-PRk"/>
                                                     <constraint firstAttribute="trailing" secondItem="QCb-Ey-Ei8" secondAttribute="trailing" id="yrP-dR-0gv"/>
                                                 </constraints>
                                             </stackView>
@@ -732,6 +737,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="bannerView" destination="Ke8-eV-Xsq" id="iRc-ci-lNV"/>
                         <outlet property="commentsField" destination="dNk-ge-gEI" id="UNK-FI-Wpn"/>
                         <outlet property="doneButton" destination="Pjk-gw-DfR" id="n2Q-gB-E5J"/>
                         <outlet property="locationLabel" destination="l3G-6o-Srd" id="FHg-G8-5vG"/>
@@ -2030,7 +2036,7 @@ Contact Us
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2349,7 +2355,7 @@ Contact Us
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2368,7 +2374,7 @@ Contact Us
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j0S-kT-hOS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2387,7 +2393,7 @@ Contact Us
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kIl-xk-SdC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
