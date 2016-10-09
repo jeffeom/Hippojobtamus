@@ -37,6 +37,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var latestCollectionView: UICollectionView!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     //MARK: UIViewController
     
@@ -57,34 +58,66 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         indicator.bringSubview(toFront: self.view)
         indicator.startAnimating()
         
+        print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
+        bannerView.adUnitID = "ca-app-pub-1814582751658755/7148024220"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        
         self.setUpLocationForButton(locationButton: locationButton)
         
         if let _ = UserDefaults.standard.string(forKey: "currentLocation"){
-        
-        ref.child("All").observe(.value, with: { snapshot in
-            var latestItems: [JobItem] = []
-            var fiveItems: [JobItem] = []
             
-            for item in snapshot.children {
-                let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
-                self.itemCounter += 1
+            ref.child("All").observe(.value, with: { snapshot in
+                var latestItems: [JobItem] = []
+                var fiveItems: [JobItem] = []
                 
-                let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation")?.replacingOccurrences(of: " ", with: ""))!
-                let readableDestination: String = jobItem.location.replacingOccurrences(of: " ", with: "")
-                
-                self.checkDistance(origin: readableOrigin, destination: readableDestination) { (fetchedData) in
-                    DispatchQueue.main.async {
-                        
-                        let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
-                        let readableDistanceRequest = userDistanceRequest * 1000
-                        
-                        if let aDistance = fetchedData?.first{
-                            if aDistance > Float(readableDistanceRequest){
+                for item in snapshot.children {
+                    let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
+                    self.itemCounter += 1
+                    
+                    let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation")?.replacingOccurrences(of: " ", with: ""))!
+                    let readableDestination: String = jobItem.location.replacingOccurrences(of: " ", with: "")
+                    
+                    self.checkDistance(origin: readableOrigin, destination: readableDestination) { (fetchedData) in
+                        DispatchQueue.main.async {
+                            
+                            let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
+                            let readableDistanceRequest = userDistanceRequest * 1000
+                            
+                            if let aDistance = fetchedData?.first{
+                                if aDistance > Float(readableDistanceRequest){
+                                    self.rejectionCounter += 1
+                                    if self.rejectionCounter == self.itemCounter{
+                                        let serachDistance = UserDefaults.standard.integer(forKey: "searchDistance")
+                                        
+                                        let alert = UIAlertController(title: "No jobs found", message: "Could not find any jobs within \(serachDistance) Km. Please increase the Search Distance", preferredStyle: UIAlertControllerStyle.alert)
+                                        
+                                        alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
+                                            
+                                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
+                                            self.navigationController?.pushViewController(vc!, animated: true)
+                                        }))
+                                        
+                                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
+                                            return
+                                        }))
+                                        alert.show()
+                                    }
+                                }else{
+                                    
+                                    latestItems.append(jobItem)
+                                    
+                                    if latestItems.count < 5 {
+                                        fiveItems.append(jobItem)
+                                    }
+                                    self.latestContents = fiveItems
+                                    self.latestCollectionView.reloadData()
+                                }
+                            }else{
                                 self.rejectionCounter += 1
                                 if self.rejectionCounter == self.itemCounter{
-                                    let serachDistance = UserDefaults.standard.integer(forKey: "searchDistance")
                                     
-                                    let alert = UIAlertController(title: "No jobs found", message: "Could not find any jobs within \(serachDistance) Km. Please increase the Search Distance", preferredStyle: UIAlertControllerStyle.alert)
+                                    let alert = UIAlertController(title: "Not Available", message: "Not available to show featured contents in this area. Please change the location.", preferredStyle: UIAlertControllerStyle.alert)
                                     
                                     alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
                                         
@@ -97,40 +130,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                     }))
                                     alert.show()
                                 }
-                            }else{
-                                
-                                latestItems.append(jobItem)
-                                
-                                if latestItems.count < 5 {
-                                    fiveItems.append(jobItem)
-                                }
-                                self.latestContents = fiveItems
-                                self.latestCollectionView.reloadData()
-                            }
-                        }else{
-                            self.rejectionCounter += 1
-                            if self.rejectionCounter == self.itemCounter{
-                                
-                                let alert = UIAlertController(title: "Not Available", message: "Not available to show featured contents in this area. Please change the location.", preferredStyle: UIAlertControllerStyle.alert)
-                                
-                                alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
-                                    
-                                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
-                                    self.navigationController?.pushViewController(vc!, animated: true)
-                                }))
-                                
-                                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
-                                    return
-                                }))
-                                alert.show()
                             }
                         }
                     }
                 }
-            }
-            self.indicator.stopAnimating()
-            self.indicator.hidesWhenStopped = true
-        })
+                self.indicator.stopAnimating()
+                self.indicator.hidesWhenStopped = true
+            })
         }else{
             let alert = UIAlertController(title: "Current Location Needed", message: "Please set your current location", preferredStyle: UIAlertControllerStyle.alert)
             
@@ -249,9 +255,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let nav = self.navigationController?.navigationBar
         nav?.barTintColor = UIColor.init(red: 0/255.0, green: 168.0/255.0, blue: 168.0/255.0, alpha: 1.0)
-//        nav?.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Futura-Medium", size: 20)!]
-//        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-//        
+        //        nav?.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Futura-Medium", size: 20)!]
+        //        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        //
         let attrs = [
             NSForegroundColorAttributeName: UIColor.white,
             NSFontAttributeName: UIFont(name: "Futura-MediumItalic", size: 25)!
