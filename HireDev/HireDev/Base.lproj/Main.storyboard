@@ -1374,10 +1374,27 @@ Contact Us
                                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oy9-OF-35U">
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o8G-Yu-iHS" customClass="GADBannerView">
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="K91-Gz-hxa"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="o8G-Yu-iHS" firstAttribute="leading" secondItem="oy9-OF-35U" secondAttribute="leading" id="P27-ur-iaq"/>
+                                                            <constraint firstAttribute="height" constant="60" id="XJp-WV-Uhd"/>
+                                                            <constraint firstAttribute="bottom" secondItem="o8G-Yu-iHS" secondAttribute="bottom" id="wa4-jW-vu5"/>
+                                                            <constraint firstAttribute="trailing" secondItem="o8G-Yu-iHS" secondAttribute="trailing" id="zN7-M3-fhC"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="PB9-bz-LHQ" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="3UI-Rc-GMV"/>
                                                     <constraint firstItem="RLt-4e-aKm" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="3u7-aj-EId"/>
+                                                    <constraint firstItem="oy9-OF-35U" firstAttribute="width" secondItem="v61-Q1-ToL" secondAttribute="width" id="8Vz-qZ-u3o"/>
                                                     <constraint firstItem="yNm-A7-kcr" firstAttribute="height" secondItem="9Ny-fg-woM" secondAttribute="height" id="E1P-W4-k1L"/>
                                                     <constraint firstItem="dLv-A6-6FK" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="PVQ-fq-ZXr"/>
                                                     <constraint firstAttribute="trailing" secondItem="RLt-4e-aKm" secondAttribute="trailing" id="QIl-p6-CbQ"/>
@@ -1398,7 +1415,7 @@ Contact Us
                                             <constraint firstAttribute="height" constant="900" id="bz8-S1-hB0"/>
                                             <constraint firstItem="v61-Q1-ToL" firstAttribute="top" secondItem="Dr0-R1-4hB" secondAttribute="top" constant="30" id="d2R-1V-mEQ"/>
                                             <constraint firstAttribute="trailing" secondItem="v61-Q1-ToL" secondAttribute="trailing" id="k8l-aI-46D"/>
-                                            <constraint firstAttribute="bottom" secondItem="v61-Q1-ToL" secondAttribute="bottom" id="zyY-gp-33O"/>
+                                            <constraint firstAttribute="bottom" secondItem="v61-Q1-ToL" secondAttribute="bottom" id="qgh-VS-NBT"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1427,6 +1444,7 @@ Contact Us
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="bannerView" destination="o8G-Yu-iHS" id="6BO-At-emo"/>
                         <outlet property="commentsLabel" destination="PB9-bz-LHQ" id="jtK-bX-Hkg"/>
                         <outlet property="dateLabel" destination="9Ny-fg-woM" id="xj2-71-ZMc"/>
                         <outlet property="googleMap" destination="wWQ-ML-VWi" id="shF-2i-iTf"/>
@@ -1441,7 +1459,7 @@ Contact Us
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1109.5999999999999" y="-463.26836581709148"/>
+            <point key="canvasLocation" x="883" y="-505"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="2D0-J1-ojX">
@@ -2063,7 +2081,7 @@ Contact Us
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2382,7 +2400,7 @@ Contact Us
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2401,7 +2419,7 @@ Contact Us
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j0S-kT-hOS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2420,7 +2438,7 @@ Contact Us
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kIl-xk-SdC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
