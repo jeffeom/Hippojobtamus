@@ -27,6 +27,8 @@ There are countless part-time jobs out there but it seems so hard to find one wh
 
 Our website: **[Hippojobtamus Website][1]**
 
+Our facebook page: **[Hippojobtamus Facebook][2]**
+
 Our Email: hippojobtamus@gmail.com
 
 
@@ -39,3 +41,4 @@ Thanks a lot for having interests in our app,
 *FourJ Studio*
 
 [1]: http://sanghyunju.wixsite.com/hippojobtamus
+[2]: https://www.facebook.com/Hippojobtamus
