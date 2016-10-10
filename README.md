@@ -13,6 +13,16 @@ There are countless part-time jobs out there but it seems so hard to find one wh
 
 * Cute ICONS: We bet you haven't seen anything cuter than our hippo icons. Each hippo represents the specific type of profession. Now tap any icon and explore what new part-time positions the friendly hippos have found for you.
 
+## FEATURES TO BE ADDED
+
+  1. Mark favorites
+  1. Mark Likes
+  1. Put deadlines for posts
+  1. App tour for new comers
+  1. Push notification for favourite category
+  1. Comments function
+  1. Better user interface for user privacy
+
 ## Contacts
 
 Our website: **[Hippojobtamus Website][1]**
