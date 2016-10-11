@@ -1,4 +1,7 @@
-# HIPPO - Hippojobtamus
+<h1 align = "center">Hippojobtamus: Part Time Job Search</h1>
+<p align="center">
+  <img src="./Screenshots/icon1024x1024.png" width="300">
+</p>
 
 ## ABOUT US
 
@@ -35,10 +38,15 @@ Please leave us any feedbacks.
 
 ## Screen Shots
 
-<img src="./Screenshots/1_5.5.png" width="200">
-<img src="./Screenshots/2_5.5.png" width="200">
-<img src="./Screenshots/3.png" width="200">
-<img src="./Screenshots/4_5.5.png" width="200">
+<div align="center">
+
+<img src="./Screenshots/1_5.5.png" width="200" hspace="2">
+<img src="./Screenshots/2_5.5.png" width="200" hspace="2">
+<img src="./Screenshots/3.png" width="200" hspace="2">
+<img src="./Screenshots/4_5.5.png" width="200" hspace="2">
+  
+</div>
+
 
 ---
 
