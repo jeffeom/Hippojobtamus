@@ -59,13 +59,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.passwordField.text = ""
                 self.signInLogo.isHighlighted = false
             }else{
-                self.verifiedUser()
-                //                if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
-                //                    self.verifiedUser()
-                //                }else{
-                //                    self.errorLabel.text = "You need to verify your email first"
-                //                    self.passwordField.text = ""
-                //                }
+                //                self.verifiedUser()
+                if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
+                    self.verifiedUser()
+                }else{
+                    self.errorLabel.text = "You need to verify your email first"
+                    self.passwordField.text = ""
+                    self.signInLogo.isHighlighted = false
+                }
             }
         }
     }

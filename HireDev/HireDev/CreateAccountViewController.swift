@@ -41,10 +41,15 @@ class CreateAccountViewController: UIViewController {
             if let _ = error {
                 self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
             }else{
-                FIRAuth.auth()?.currentUser?.sendEmailVerification()
-                if let navController = self.navigationController{
-                    navController.popViewController(animated: true)
-                }
+                FIRAuth.auth()?.currentUser?.sendEmailVerification(completion: { (error) in
+                    if let _ = error {
+                        NSLog("\(error?.localizedDescription)")
+                    }else{
+                        if let navController = self.navigationController{
+                            navController.popViewController(animated: true)
+                        }
+                    }
+                })
             }
         })
     }
