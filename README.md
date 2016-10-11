@@ -2,7 +2,6 @@
 
 ## ABOUT US
 
-
 There are countless part-time jobs out there but it seems so hard to find one when I need it. And there is no such platform just for part-time jobs yet. That's why we have created Hippo - the perfect platform for all part-time job seekers. Think about it. Wouldn't it be great to be able to see all hiring posts in one place instead of walking here and there
 
 ## WHY USE HIPPO
@@ -33,6 +32,13 @@ Our Email: hippojobtamus@gmail.com
 
 
 Please leave us any feedbacks.
+
+## Screen Shots
+
+<img src="./Screenshots/1_5.5.png" width="200">
+<img src="./Screenshots/2_5.5.png" width="200">
+<img src="./Screenshots/3.png" width="200">
+<img src="./Screenshots/4_5.5.png" width="200">
 
 ---
 
