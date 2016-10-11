@@ -101,7 +101,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                     if self.rejectionCounter == self.itemCounter{
                                         let serachDistance = UserDefaults.standard.integer(forKey: "searchDistance")
                                         
-                                        let alert = UIAlertController(title: "No jobs found", message: "Could not find any jobs within \(serachDistance) Km. Please increase the Search Distance", preferredStyle: UIAlertControllerStyle.alert)
+                                        let alert = UIAlertController(title: "No jobs found", message: "Could not find any jobs within \(serachDistance) Km. Please increase the Search Distance Or upload a first post in your area", preferredStyle: UIAlertControllerStyle.alert)
                                         
                                         alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
                                             
@@ -109,9 +109,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                             self.navigationController?.pushViewController(vc!, animated: true)
                                         }))
                                         
+                                        alert.addAction(UIAlertAction(title: "Upload", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
+                                            
+                                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "uploadVC")
+                                            self.tabBarController?.selectedViewController = vc
+                                        }))
+                                        
                                         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
                                             return
                                         }))
+                                        
                                         alert.show()
                                     }
                                 }else{
@@ -196,12 +203,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                     if self.rejectionCounter == self.itemCounter{
                                         let serachDistance = UserDefaults.standard.integer(forKey: "searchDistance")
                                         
-                                        let alert = UIAlertController(title: "No jobs found", message: "Could not find any jobs within \(serachDistance) Km. Please increase the Search Distance", preferredStyle: UIAlertControllerStyle.alert)
+                                        let alert = UIAlertController(title: "No jobs found", message: "Could not find any jobs within \(serachDistance) Km. Please increase the Search Distance Or upload a first post in your area", preferredStyle: UIAlertControllerStyle.alert)
                                         
                                         alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
                                             
                                             let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
                                             self.navigationController?.pushViewController(vc!, animated: true)
+                                        }))
+                                        
+                                        alert.addAction(UIAlertAction(title: "Upload", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
+                                            
+                                            let vc = self.tabBarController?.viewControllers?[1]
+                                            self.tabBarController?.selectedViewController = vc
                                         }))
                                         
                                         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in

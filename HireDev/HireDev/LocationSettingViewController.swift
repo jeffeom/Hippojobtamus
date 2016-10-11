@@ -263,7 +263,9 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
         
         addressArray = (place.formattedAddress?.components(separatedBy: ", "))!
         fixedArray.append(addressArray[0])
-        fixedArray.append(addressArray[1])
+        if addressArray.count > 1{
+            fixedArray.append(addressArray[1])
+        }
         self.newAddress = fixedArray.joined(separator: ", ")
         self.newAddress = self.newAddress.replacingOccurrences(of: "#", with: " ")
         self.locationLabel.text = self.newAddress
