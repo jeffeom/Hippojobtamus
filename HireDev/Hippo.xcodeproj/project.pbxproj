@@ -165,19 +165,19 @@
 		407638B31D82441400C7A892 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4076389E1D82421600C7A892 /* AppDelegate.swift */,
 				404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */,
 				407638AC1D82421600C7A892 /* Info.plist */,
+				406132021DA250B90025EF0E /* Keys.plist */,
+				4076389E1D82421600C7A892 /* AppDelegate.swift */,
+				40DAA3A41D99F040005806BE /* JobItem.swift */,
 				4032FF801D9D0E7900C91B5E /* JobTableViewCell.swift */,
 				4072DAF71DA6436B000D2B97 /* LatestJobCollectionViewCell.swift */,
 				40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */,
-				403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */,
-				403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */,
 				406132081DA270F30025EF0E /* ViewController+SetLocation.swift */,
-				40DAA3A41D99F040005806BE /* JobItem.swift */,
-				406132021DA250B90025EF0E /* Keys.plist */,
 				40DFE3E71DA482510052E6EF /* ViewController+CheckDistance.swift */,
 				4000EE8B1DA8A47300449F0F /* ViewController+getLatLong.swift */,
+				403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */,
+				403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
