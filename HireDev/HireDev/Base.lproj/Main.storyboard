@@ -12,7 +12,7 @@
         <!--HomeVC-->
         <scene sceneID="wYI-VP-gih">
             <objects>
-                <viewController storyboardIdentifier="homeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tVi-V6-S3K" userLabel="HomeVC" customClass="HomeViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tVi-V6-S3K" userLabel="HomeVC" customClass="HomeViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z4O-Sv-EmA"/>
                         <viewControllerLayoutGuide type="bottom" id="qwM-WM-thc"/>
@@ -78,7 +78,7 @@
                                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                         </collectionViewFlowLayout>
                                                                         <cells>
-                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" reuseIdentifier="collectionCell" id="8q8-kX-Vld" customClass="LatestJobCollectionViewCell" customModule="HireDev" customModuleProvider="target">
+                                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" reuseIdentifier="collectionCell" id="8q8-kX-Vld" customClass="LatestJobCollectionViewCell" customModule="Hippo" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="5" width="375" height="110"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -478,7 +478,7 @@
         <!--Post a Job-->
         <scene sceneID="rBL-fu-s4j">
             <objects>
-                <viewController id="hk3-8V-q4W" customClass="UploadViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hk3-8V-q4W" customClass="UploadViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cn4-GW-Pgz"/>
                         <viewControllerLayoutGuide type="bottom" id="q3P-0u-VI1"/>
@@ -578,7 +578,7 @@
                                                                                     <action selector="showTableView:" destination="hk3-8V-q4W" eventType="touchUpInside" id="83O-Wo-cVc"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tab to see more" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="408-5w-gaw">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to see more" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="408-5w-gaw">
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="xNP-xI-1mf"/>
                                                                                 </constraints>
@@ -611,11 +611,11 @@
                                                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mpt-2b-jtc" id="Vic-MX-KRB">
-                                                                                    <frame key="frameInset" width="375" height="43.5"/>
+                                                                                    <frame key="frameInset" width="375" height="43"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mqA-Tg-5U1">
-                                                                                            <frame key="frameInset" minX="15" width="345" height="43.5"/>
+                                                                                            <frame key="frameInset" minX="15" width="345" height="43"/>
                                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                             <nil key="textColor"/>
@@ -782,7 +782,7 @@
         <!--Settings-->
         <scene sceneID="qHZ-ov-KC6">
             <objects>
-                <viewController id="uWm-3i-vUC" customClass="SettingViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uWm-3i-vUC" customClass="SettingViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Clp-PV-grg"/>
                         <viewControllerLayoutGuide type="bottom" id="Ebz-HA-nRo"/>
@@ -1091,7 +1091,7 @@
         <!--Help-->
         <scene sceneID="8VX-Hv-F38">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="km8-Pq-Idr" customClass="HelpViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="km8-Pq-Idr" customClass="HelpViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hfB-3I-m1e"/>
                         <viewControllerLayoutGuide type="bottom" id="MGC-uC-Sq1"/>
@@ -1277,7 +1277,7 @@ Contact Us
         <!--Tab Bar Controller-->
         <scene sceneID="7jm-JU-gZQ">
             <objects>
-                <tabBarController storyboardIdentifier="verifiedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KGD-UQ-gOr" customClass="TabBarController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="verifiedVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KGD-UQ-gOr" customClass="TabBarController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="nr3-Vp-MaG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1296,7 +1296,7 @@ Contact Us
         <!--Detail-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController title="Detail" id="JEX-9P-axG" customClass="DetailViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Detail" id="JEX-9P-axG" customClass="DetailViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
@@ -1476,7 +1476,7 @@ Contact Us
         <!--Login View Controller-->
         <scene sceneID="2D0-J1-ojX">
             <objects>
-                <viewController id="YyV-rH-eLv" customClass="LoginViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YyV-rH-eLv" customClass="LoginViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rQz-nY-1Nh"/>
                         <viewControllerLayoutGuide type="bottom" id="cgl-rD-y6z"/>
@@ -1716,7 +1716,7 @@ Contact Us
         <!--Create Account View Controller-->
         <scene sceneID="1uL-Rj-LfE">
             <objects>
-                <viewController id="5DT-rZ-78J" customClass="CreateAccountViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5DT-rZ-78J" customClass="CreateAccountViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5GW-LP-Brx"/>
                         <viewControllerLayoutGuide type="bottom" id="qkX-kL-L4G"/>
@@ -1759,7 +1759,7 @@ Contact Us
                                                     <constraint firstAttribute="height" constant="50" id="A9I-gk-SL7"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -1785,7 +1785,7 @@ Contact Us
                                                     <constraint firstAttribute="height" constant="50" id="ylk-aX-oIh"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -2000,17 +2000,17 @@ Contact Us
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController storyboardIdentifier="masterVC" title="Master" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="masterVC" title="Master" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="WCw-Qf-5nD" customClass="JobTableViewCell" customModule="HireDev" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="WCw-Qf-5nD" customClass="JobTableViewCell" customModule="Hippo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="375" height="99.5"/>
+                                    <frame key="frameInset" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2td-M2-BB0">
@@ -2096,7 +2096,7 @@ Contact Us
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2112,7 +2112,7 @@ Contact Us
         <!--Location Settings-->
         <scene sceneID="GJd-an-dVH">
             <objects>
-                <viewController storyboardIdentifier="locationSetting" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TYv-8r-NNs" customClass="LocationSettingViewController" customModule="HireDev" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="locationSetting" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TYv-8r-NNs" customClass="LocationSettingViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JPI-s6-aA8"/>
                         <viewControllerLayoutGuide type="bottom" id="5xm-hA-eOs"/>
@@ -2342,7 +2342,7 @@ Contact Us
                                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9lC-aA-fMm" id="o9d-O6-GTP">
-                                                            <frame key="frameInset" width="375" height="43.5"/>
+                                                            <frame key="frameInset" width="375" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwS-qi-MN8">
@@ -2415,7 +2415,7 @@ Contact Us
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2434,7 +2434,7 @@ Contact Us
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="j0S-kT-hOS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

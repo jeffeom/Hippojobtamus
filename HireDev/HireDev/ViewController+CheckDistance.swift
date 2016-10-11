@@ -20,7 +20,10 @@ extension UIViewController{
         if let dict = keys {
             let api = dict["googleDistance"] as? String
             
-            let requestURL: NSURL = NSURL(string: "https://maps.googleapis.com/maps/api/distancematrix/json?origins=\(origin)&destinations=\(destination)&key=\(api!)")!
+            let url : String = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=\(origin)&destinations=\(destination)&key=\(api!)"
+            let urlStr: String = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            
+            let requestURL: NSURL = NSURL(string: urlStr)!
             
             let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
             let session = URLSession.shared

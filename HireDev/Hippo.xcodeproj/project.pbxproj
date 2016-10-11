@@ -57,7 +57,7 @@
 		406132061DA25F7C0025EF0E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		406132081DA270F30025EF0E /* ViewController+SetLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+SetLocation.swift"; sourceTree = "<group>"; };
 		4072DAF71DA6436B000D2B97 /* LatestJobCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestJobCollectionViewCell.swift; sourceTree = "<group>"; };
-		4076389B1D82421600C7A892 /* HireDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HireDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4076389B1D82421600C7A892 /* Hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4076389E1D82421600C7A892 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		407638A01D82421600C7A892 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		407638A21D82421600C7A892 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 		4076389C1D82421600C7A892 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4076389B1D82421600C7A892 /* HireDev.app */,
+				4076389B1D82421600C7A892 /* Hippo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,19 +165,19 @@
 		407638B31D82441400C7A892 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4076389E1D82421600C7A892 /* AppDelegate.swift */,
 				404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */,
 				407638AC1D82421600C7A892 /* Info.plist */,
+				406132021DA250B90025EF0E /* Keys.plist */,
+				4076389E1D82421600C7A892 /* AppDelegate.swift */,
+				40DAA3A41D99F040005806BE /* JobItem.swift */,
 				4032FF801D9D0E7900C91B5E /* JobTableViewCell.swift */,
 				4072DAF71DA6436B000D2B97 /* LatestJobCollectionViewCell.swift */,
 				40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */,
-				403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */,
-				403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */,
 				406132081DA270F30025EF0E /* ViewController+SetLocation.swift */,
-				40DAA3A41D99F040005806BE /* JobItem.swift */,
-				406132021DA250B90025EF0E /* Keys.plist */,
 				40DFE3E71DA482510052E6EF /* ViewController+CheckDistance.swift */,
 				4000EE8B1DA8A47300449F0F /* ViewController+getLatLong.swift */,
+				403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */,
+				403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -209,9 +209,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4076389A1D82421600C7A892 /* HireDev */ = {
+		4076389A1D82421600C7A892 /* Hippo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 407638AF1D82421600C7A892 /* Build configuration list for PBXNativeTarget "HireDev" */;
+			buildConfigurationList = 407638AF1D82421600C7A892 /* Build configuration list for PBXNativeTarget "Hippo" */;
 			buildPhases = (
 				CAC464DB354EC8BB1720E2DE /* [CP] Check Pods Manifest.lock */,
 				407638971D82421600C7A892 /* Sources */,
@@ -224,9 +224,9 @@
 			);
 			dependencies = (
 			);
-			name = HireDev;
+			name = Hippo;
 			productName = HireDev;
-			productReference = 4076389B1D82421600C7A892 /* HireDev.app */;
+			productReference = 4076389B1D82421600C7A892 /* Hippo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -251,7 +251,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 407638961D82421600C7A892 /* Build configuration list for PBXProject "HireDev" */;
+			buildConfigurationList = 407638961D82421600C7A892 /* Build configuration list for PBXProject "Hippo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -264,7 +264,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4076389A1D82421600C7A892 /* HireDev */,
+				4076389A1D82421600C7A892 /* Hippo */,
 			);
 		};
 /* End PBXProject section */
@@ -495,12 +495,18 @@
 					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
 					"~/Documents/FacebookSDK",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"DISABLE_PUSH_NOTIFICATIONS=1",
+				);
 				INFOPLIST_FILE = HireDev/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fourj.Hippojobtamus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -533,13 +539,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		407638961D82421600C7A892 /* Build configuration list for PBXProject "HireDev" */ = {
+		407638961D82421600C7A892 /* Build configuration list for PBXProject "Hippo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				407638AD1D82421600C7A892 /* Debug */,
@@ -548,7 +555,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		407638AF1D82421600C7A892 /* Build configuration list for PBXNativeTarget "HireDev" */ = {
+		407638AF1D82421600C7A892 /* Build configuration list for PBXNativeTarget "Hippo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				407638B01D82421600C7A892 /* Debug */,
