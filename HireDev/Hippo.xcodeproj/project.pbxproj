@@ -227,6 +227,7 @@
 				407638991D82421600C7A892 /* Resources */,
 				BC13D5A55D1ADF6BC40E4FD0 /* [CP] Embed Pods Frameworks */,
 				6F643E4AC487EDA3B9AEC533 /* [CP] Copy Pods Resources */,
+				407216721DAE27E2002AA8C9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -293,6 +294,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		407216721DAE27E2002AA8C9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Replace this path with the path to the key you just downloaded\nJSON_FILE=~/Documents/HireDev/HireDev/HippoDev-90e8e3cb3f4d.json\n\n# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:98067420424:ios:a0494ed79b10a535\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym";
+		};
 		6F643E4AC487EDA3B9AEC533 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
