@@ -13,6 +13,7 @@ import GoogleMobileAds
 class SettingViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var versionLabel: UILabel!
     //MARK: UIViewController
     
     override func viewDidLoad() {
@@ -31,6 +32,16 @@ class SettingViewController: UIViewController, MFMailComposeViewControllerDelega
             bannerView.adUnitID = gaAPI!
             bannerView.rootViewController = self
             bannerView.load(GADRequest())
+        }
+        
+        if let path = Bundle.main.path(forResource: "Info", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
+        if let dict = keys {
+            if let version = dict["CFBundleVersion"] as? String{
+                self.versionLabel.text = "V" + version
+            }
+            
         }
     }
     
@@ -110,12 +121,13 @@ class SettingViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     @IBAction func rateClicked(_ sender: AnyObject) {
-        let mailComposeViewController = configuredMailComposeViewController()
-        if MFMailComposeViewController.canSendMail() {
-            self.present(mailComposeViewController, animated: true, completion: nil)
-        } else {
-            self.showSendMailErrorAlert()
+        if (UIApplication.shared.canOpenURL(NSURL(string:"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(1163603705)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")! as URL)){
+            if let url = URL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(1163603705)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         }
+        
+
     }
     @IBAction func helpClicked(_ sender: AnyObject) {
         
