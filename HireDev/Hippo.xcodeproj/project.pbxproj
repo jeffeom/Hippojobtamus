@@ -39,10 +39,12 @@
 		40DFE3E81DA482510052E6EF /* ViewController+CheckDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DFE3E71DA482510052E6EF /* ViewController+CheckDistance.swift */; };
 		40F301601D9680880035D47A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F3015F1D9680880035D47A /* SettingViewController.swift */; };
 		40F301621D9680DC0035D47A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F301611D9680DC0035D47A /* TabBarController.swift */; };
+		AFEEF427FECBC299635785EC /* Pods_Hippo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3714C3A65BE303ECB9D871 /* Pods_Hippo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00353D0515AA1900B3822BA0 /* Pods-HireDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireDev.release.xcconfig"; path = "Pods/Target Support Files/Pods-HireDev/Pods-HireDev.release.xcconfig"; sourceTree = "<group>"; };
+		2161F14618E59B597AEF5B44 /* Pods-Hippo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hippo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hippo/Pods-Hippo.release.xcconfig"; sourceTree = "<group>"; };
 		2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HireDev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4000EE8B1DA8A47300449F0F /* ViewController+getLatLong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+getLatLong.swift"; sourceTree = "<group>"; };
 		4000EE8D1DA8EEA800449F0F /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +80,9 @@
 		40DFE3E71DA482510052E6EF /* ViewController+CheckDistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+CheckDistance.swift"; sourceTree = "<group>"; };
 		40F3015F1D9680880035D47A /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		40F301611D9680DC0035D47A /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4F3714C3A65BE303ECB9D871 /* Pods_Hippo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hippo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81280D31713E265017FB9967 /* Pods-HireDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HireDev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HireDev/Pods-HireDev.debug.xcconfig"; sourceTree = "<group>"; };
+		D43E720EEBF172CD16BF7372 /* Pods-Hippo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hippo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hippo/Pods-Hippo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 				1BD5FCC3BB807DEA5856500A /* Pods_HireDev.framework in Frameworks */,
 				40D0F0811D864CA90076891D /* FBSDKCoreKit.framework in Frameworks */,
 				40D0F0821D864CA90076891D /* FBSDKLoginKit.framework in Frameworks */,
+				AFEEF427FECBC299635785EC /* Pods_Hippo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +114,7 @@
 				40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */,
 				40D0F0801D864CA90076891D /* FBSDKShareKit.framework */,
 				2AE4E92740AE426B13F0F8B9 /* Pods_HireDev.framework */,
+				4F3714C3A65BE303ECB9D871 /* Pods_Hippo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,6 +124,8 @@
 			children = (
 				81280D31713E265017FB9967 /* Pods-HireDev.debug.xcconfig */,
 				00353D0515AA1900B3822BA0 /* Pods-HireDev.release.xcconfig */,
+				D43E720EEBF172CD16BF7372 /* Pods-Hippo.debug.xcconfig */,
+				2161F14618E59B597AEF5B44 /* Pods-Hippo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -219,6 +227,7 @@
 				407638991D82421600C7A892 /* Resources */,
 				BC13D5A55D1ADF6BC40E4FD0 /* [CP] Embed Pods Frameworks */,
 				6F643E4AC487EDA3B9AEC533 /* [CP] Copy Pods Resources */,
+				407216721DAE27E2002AA8C9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -285,6 +294,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		407216721DAE27E2002AA8C9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Replace this path with the path to the key you just downloaded\nJSON_FILE=~/Documents/HireDev/HireDev/HippoDev-90e8e3cb3f4d.json\n\n# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:98067420424:ios:a0494ed79b10a535\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym";
+		};
 		6F643E4AC487EDA3B9AEC533 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,7 +319,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HireDev/Pods-HireDev-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hippo/Pods-Hippo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BC13D5A55D1ADF6BC40E4FD0 /* [CP] Embed Pods Frameworks */ = {
@@ -312,7 +334,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HireDev/Pods-HireDev-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hippo/Pods-Hippo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CAC464DB354EC8BB1720E2DE /* [CP] Check Pods Manifest.lock */ = {
@@ -474,7 +496,7 @@
 		};
 		407638B01D82421600C7A892 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 81280D31713E265017FB9967 /* Pods-HireDev.debug.xcconfig */;
+			baseConfigurationReference = D43E720EEBF172CD16BF7372 /* Pods-Hippo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -512,7 +534,7 @@
 		};
 		407638B11D82421600C7A892 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00353D0515AA1900B3822BA0 /* Pods-HireDev.release.xcconfig */;
+			baseConfigurationReference = 2161F14618E59B597AEF5B44 /* Pods-Hippo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
