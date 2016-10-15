@@ -17,13 +17,44 @@ There are countless part-time jobs out there but it seems so hard to find one wh
 
 ## FEATURES TO BE ADDED
 
-  1. Mark favorites
-  1. Mark Likes
-  1. Put deadlines for posts
-  1. App tour for new comers
-  1. Push notification for favourite category
-  1. Comments function
-  1. Better user interface for user privacy
+###Login
+  - [ ] Press enter to Log in
+
+###Sign up
+  - [ ] Employer sign-up ?
+
+###Home
+  - [ ] Latest post hippo to new hippo
+  - [ ] Loop around the featured
+
+###Post
+  - [ ] Upload photo from Library
+  - [ ] New post for employers
+  - [ ] Upload at least 3 photos
+  - [ ] Employers Contact
+
+###TableView
+- [ ] Able to delete what they posted
+- [ ] Mark favorites
+- [ ] Put deadlines for posts
+- [ ] Employer look different from other cells
+- [ ] filter for employers only
+
+###Detail View
+- [ ] Comments function
+- [ ] Employers Contact
+- [ ] Share the post in Facebook
+- [ ] Job is taken Button
+- [ ] image zoom-in feature
+
+###Profile
+- [ ] Able to See their own posts
+
+###Overall
+- [ ] Create Profile Page
+- [ ] App tour for new-comers
+- [ ] Push notification for favourite category within 24hrs
+- [ ] Better user interface for user privacy (camera, location)
 
 ## Contacts
 
