@@ -482,7 +482,7 @@
                         <viewControllerLayoutGuide type="top" id="cn4-GW-Pgz"/>
                         <viewControllerLayoutGuide type="bottom" id="q3P-0u-VI1"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="gu0-ZF-QS3">
+                    <view key="view" contentMode="scaleToFill" id="gu0-ZF-QS3">
                         <rect key="frame" x="0.0" y="64" width="375" height="887"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -610,11 +610,11 @@
                                                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mpt-2b-jtc" id="Vic-MX-KRB">
-                                                                                    <frame key="frameInset" width="375" height="43.5"/>
+                                                                                    <frame key="frameInset" width="375" height="43"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mqA-Tg-5U1">
-                                                                                            <frame key="frameInset" minX="15" width="345" height="43.5"/>
+                                                                                            <frame key="frameInset" minX="15" width="345" height="43"/>
                                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                             <nil key="textColor"/>
@@ -1350,7 +1350,7 @@ Contact Us
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="svH-Pt-448">
+                    <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
                         <rect key="frame" x="0.0" y="64" width="375" height="887"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1756,6 +1756,7 @@ Contact Us
                         <outlet property="errorLabel" destination="Dpa-ae-zHH" id="lkV-HW-QXy"/>
                         <outlet property="fbLogo" destination="tSl-1m-9Zp" id="kxw-Kw-bPG"/>
                         <outlet property="passwordField" destination="9XJ-Ny-dg1" id="mci-hl-wBn"/>
+                        <outlet property="signInButton" destination="xa1-wd-bPC" id="W74-T2-zPd"/>
                         <outlet property="signInLogo" destination="bxe-AA-5RN" id="Xi0-c8-Wkq"/>
                     </connections>
                 </viewController>
@@ -2060,7 +2061,7 @@ Contact Us
                                 <rect key="frame" x="0.0" y="22" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <frame key="frameInset" width="375" height="99.5"/>
+                                    <frame key="frameInset" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2td-M2-BB0">
@@ -2147,7 +2148,7 @@ Contact Us
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2168,7 +2169,7 @@ Contact Us
                         <viewControllerLayoutGuide type="top" id="JPI-s6-aA8"/>
                         <viewControllerLayoutGuide type="bottom" id="5xm-hA-eOs"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="Ifh-co-jbb">
+                    <view key="view" contentMode="scaleToFill" id="Ifh-co-jbb">
                         <rect key="frame" x="0.0" y="64" width="375" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -2393,7 +2394,7 @@ Contact Us
                                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9lC-aA-fMm" id="o9d-O6-GTP">
-                                                            <frame key="frameInset" width="375" height="43.5"/>
+                                                            <frame key="frameInset" width="375" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwS-qi-MN8">
@@ -2487,7 +2488,7 @@ Contact Us
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2507,7 +2508,7 @@ Contact Us
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

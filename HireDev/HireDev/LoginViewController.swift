@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailLogo: UIImageView!
     @IBOutlet weak var fbLogo: UIImageView!
     @IBOutlet weak var signInLogo: UIImageView!
+    @IBOutlet weak var signInButton: UIButton!
     
     //MARK: UIViewController
     
@@ -170,6 +171,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             passwordField.becomeFirstResponder()
         } else if (textField == passwordField) {
             textField.resignFirstResponder()
+            self.signInButton.sendActions(for: .touchUpInside)
         }
         return false
     }

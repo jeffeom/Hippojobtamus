@@ -22,6 +22,7 @@ class MasterViewController: UITableViewController {
     let ref = FIRDatabase.database().reference(withPath: "job-post")
     var rejectionCounter = 0
     var itemCounter = 0
+    var readableOrigin: String = ""
     
     //MARK: UITableView
     override func viewDidLoad() {
@@ -43,10 +44,27 @@ class MasterViewController: UITableViewController {
                 
                 let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
                 
-                let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation")?.replacingOccurrences(of: " ", with: ""))!
+                if let theLocation = UserDefaults.standard.string(forKey: "currentLocation")?.replacingOccurrences(of: " ", with: ""){
+                    self.readableOrigin = theLocation
+                }else{
+                    let alert = UIAlertController(title: "Current Location Needed", message: "Please set your current location", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
+                        
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
+                        self.navigationController?.pushViewController(vc!, animated: true)
+                    }))
+                    
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
+                        return
+                    }))
+                    
+                    alert.show()
+                }
+                
                 let readableDestination: String = jobItem.location.replacingOccurrences(of: " ", with: "")
                 
-                self.checkDistance(origin: readableOrigin, destination: readableDestination) { (fetchedData) in
+                self.checkDistance(origin: self.readableOrigin, destination: readableDestination) { (fetchedData) in
                     DispatchQueue.main.async {
                         
                         let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
