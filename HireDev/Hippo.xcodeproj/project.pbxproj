@@ -297,7 +297,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Replace this path with the path to the key you just downloaded\nJSON_FILE=~/Documents/HireDev/HireDev/HippoDev-90e8e3cb3f4d.json\n\n# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:98067420424:ios:a0494ed79b10a535\n\ndefaults write com.google.SymbolUpload version -integer 1   # creates file if it does not exist\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"$HOME/Library/Preferences/com.google.SymbolUpload.plist\"\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym";
+			shellScript = "${PODS_ROOT}/Fabric/run f320732fb948c3d3bd644b9129a2b78b235f1976 9165100b3502113a1ac97fc1e1ec2afe2cd264b398d42647a7df0703fbcba29f";
 		};
 		4370F8AD35C3AC172B454F16 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -495,6 +495,7 @@
 				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = U43R3UYB5A;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -533,6 +534,7 @@
 				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = U43R3UYB5A;
 				FRAMEWORK_SEARCH_PATHS = (
