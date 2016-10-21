@@ -126,9 +126,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                     if latestItems.count > 2 {
                                         
                                         let firstItem =  latestItems[0]
-                                        let lastItem = latestItems.last
-                                        
-                                        latestItems.insert(lastItem!, at: 0)
+
                                         latestItems.append(firstItem)
                                     }
                                     
@@ -233,9 +231,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                     if latestItems.count > 2 {
                                         
                                         let firstItem =  latestItems[0]
-                                        let lastItem = latestItems.last
-                                        
-                                        latestItems.insert(lastItem!, at: 0)
+
                                         latestItems.append(firstItem)
                                     }
                                     
@@ -340,11 +336,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let contentOffsetScrolledRight: Float = Float(self.latestCollectionView.frame.size.width) * Float(self.latestContents.count - 1)
         
         if Float(scrollView.contentOffset.x) == contentOffsetScrolledRight{
-            let newIndexPath: NSIndexPath = NSIndexPath.init(item: 1, section: 0)
+            let newIndexPath: NSIndexPath = NSIndexPath.init(item: 0, section: 0)
             
             self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
         }else if scrollView.contentOffset.x == 0 {
-            let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 2), section: 0)
+            let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 1), section: 0)
             
             self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
         }
