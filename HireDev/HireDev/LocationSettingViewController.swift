@@ -201,25 +201,8 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
             if let placeLikelihoods = placeLikelihoods {
                 let likelihood = placeLikelihoods.likelihoods.first?.place
                 if let place = likelihood{
-                    var addressArray: [String] = []
-                    var fixedArray: [String] = []
-                    
-                    addressArray = (place.formattedAddress?.components(separatedBy: ", "))!
-                    fixedArray.append(addressArray[0])
-                    if addressArray.count > 1{
-                        fixedArray.append(addressArray[1])
-                    }
-                    self.newAddress = addressArray.joined(separator: ", ")
-                    self.newAddress = self.newAddress.replacingOccurrences(of: "#", with: " ")
-                    self.locationLabel.text = fixedArray.joined(separator: ", ")
-                    
-                    UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
-                    UserDefaults.standard.set(fixedArray.joined(separator: ", "), forKey: "fixedLocation")
-                    UserDefaults.standard.setValue(10, forKey: "searchDistance")
-                    
-                    if (self.checkForSameData(array: self.newLocationHistory, string: self.newAddress)){
-                        self.newLocationHistory.append(fixedArray.joined(separator: ", "))
-                    }
+                    self.setLocationValues(place: place)
+
                     self.tableView.reloadData()
                 }
             }
@@ -263,26 +246,7 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         
-        var addressArray: [String] = []
-        var fixedArray: [String] = []
-        
-        addressArray = (place.formattedAddress?.components(separatedBy: ", "))!
-        fixedArray.append(addressArray[0])
-        if addressArray.count > 1{
-            fixedArray.append(addressArray[1])
-        }
-        self.newAddress = addressArray.joined(separator: ", ")
-        self.newAddress = self.newAddress.replacingOccurrences(of: "#", with: " ")
-        self.locationLabel.text = fixedArray.joined(separator: ", ")
-        
-        UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
-        UserDefaults.standard.set(fixedArray.joined(separator: ", "), forKey: "fixedLocation")
-        UserDefaults.standard.setValue(10, forKey: "searchDistance")
-        
-        if (self.checkForSameData(array: self.newLocationHistory, string: self.newAddress)){
-            self.newLocationHistory.append(fixedArray.joined(separator: ", "))
-            
-        }
+        self.setLocationValues(place: place)
         
         self.dismiss(animated: true, completion: {
             self.locationView.isHidden = false
@@ -309,4 +273,28 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
+    func setLocationValues(place: GMSPlace) {
+        
+        var addressArray: [String] = []
+        var fixedArray: [String] = []
+        
+        addressArray = (place.formattedAddress?.components(separatedBy: ", "))!
+        fixedArray.append(addressArray[0])
+        if addressArray.count > 1{
+            fixedArray.append(addressArray[1])
+        }
+        
+        self.newAddress = addressArray.joined(separator: ", ")
+        self.newAddress = self.newAddress.replacingOccurrences(of: "#", with: " ")
+        self.locationLabel.text = fixedArray.joined(separator: ", ")
+        
+        UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
+        UserDefaults.standard.set(fixedArray.joined(separator: ", "), forKey: "fixedLocation")
+        UserDefaults.standard.setValue(10, forKey: "searchDistance")
+        
+        if (self.checkForSameData(array: self.newLocationHistory, string: fixedArray.joined(separator: ", "))){
+            self.newLocationHistory.append(fixedArray.joined(separator: ", "))
+            
+        }
+    }
 }
