@@ -181,7 +181,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
             
         default:
             distance = 10
-            theCase = 2
+            theCase = 3
             
         }
         UserDefaults.standard.setValue(distance, forKey: "searchDistance")
@@ -215,6 +215,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
                     
                     UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
                     UserDefaults.standard.set(fixedArray.joined(separator: ", "), forKey: "fixedLocation")
+                    UserDefaults.standard.setValue(10, forKey: "searchDistance")
                     
                     if (self.checkForSameData(array: self.newLocationHistory, string: self.newAddress)){
                         self.newLocationHistory.append(fixedArray.joined(separator: ", "))
@@ -276,6 +277,7 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
         
         UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
         UserDefaults.standard.set(fixedArray.joined(separator: ", "), forKey: "fixedLocation")
+        UserDefaults.standard.setValue(10, forKey: "searchDistance")
         
         if (self.checkForSameData(array: self.newLocationHistory, string: self.newAddress)){
             self.newLocationHistory.append(fixedArray.joined(separator: ", "))
