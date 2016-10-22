@@ -18,14 +18,14 @@ There are countless part-time jobs out there but it seems so hard to find one wh
 ## FEATURES TO BE ADDED
 
 ###Login
-  - [ ] Press enter to Log in
+- [x] Press enter to Log in
 
 ###Sign up
   - [ ] Employer sign-up ?
 
 ###Home
-  - [ ] Latest post hippo to new hippo
-  - [ ] Loop around the featured
+- [x] Latest post hippo to new hippo
+- [x] Loop around the featured
 
 ###Post
   - [ ] Upload photo from Library
@@ -34,23 +34,24 @@ There are countless part-time jobs out there but it seems so hard to find one wh
   - [ ] Employers Contact
 
 ###TableView
-- [ ] Able to delete what they posted
-- [ ] Mark favorites
-- [ ] Put deadlines for posts
-- [ ] Employer look different from other cells
-- [ ] filter for employers only
+  - [ ] Able to delete what they posted
+  - [ ] Mark favorites
+  - [ ] Put deadlines for posts
+  - [ ] Employer look different from other cells ?
+  - [ ] filter for employers only ?
 
 ###Detail View
-- [ ] Comments function
-- [ ] Employers Contact
-- [ ] Share the post in Facebook
-- [ ] Job is taken Button
-- [ ] image zoom-in feature
+  - [ ] Comments function
+  - [ ] Employers Contact ?
+  - [ ] Share the post in Facebook
+  - [ ] Job is taken Button
+  - [ ] image zoom-in feature
 
 ###Profile
 - [ ] Able to See their own posts
 
 ###Overall
+- [x] Address needs to be more specific (surrey USA issue)
 - [ ] Create Profile Page
 - [ ] App tour for new-comers
 - [ ] Push notification for favourite category within 24hrs
