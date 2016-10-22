@@ -13,6 +13,8 @@ import FBSDKLoginKit
 import FBSDKShareKit
 import GooglePlaces
 import GoogleMaps
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,6 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             GMSServices.provideAPIKey(ggAPI!)
             GADMobileAds.configure(withApplicationID: gaAPI!)
         }
+        
+        // Fabric - Crashlytics
+        
+        Fabric.sharedSDK().debug = true
+        Fabric.with([Crashlytics.self])
         
         return true
     }

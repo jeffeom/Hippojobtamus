@@ -145,6 +145,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
             imageString = imageData.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
             self.photoButton.setTitle("Tap again to retake", for: .normal)
             
+            // Saves to Library
             if (newMedia == true) {
                 UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
             }
@@ -188,22 +189,47 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     
     
     @IBAction func takePhoto(_ sender: AnyObject) {
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+        
+        let alert = UIAlertController(title: "Photo", message: "Please choose to take a photo or to use a photo from your photo library", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Camera", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
             
-            let imagePicker = UIImagePickerController()
+            // Camera
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+                
+                let imagePicker = UIImagePickerController()
+                
+                imagePicker.delegate = self
+                imagePicker.sourceType = .camera;
+                imagePicker.mediaTypes = [kUTTypeImage as String]
+                imagePicker.allowsEditing = false
+                imagePicker.modalPresentationStyle = .popover
+                self.present(imagePicker, animated: true, completion: nil)
+                self.newMedia = true
+            }else{
+                let alert = UIAlertController(title: "Error", message: "I am sorry, but your phone seems to have a problem with the Camera", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
             
-            imagePicker.delegate = self
-            imagePicker.sourceType = .camera;
-            imagePicker.mediaTypes = [kUTTypeImage as String]
-            imagePicker.allowsEditing = false
-            imagePicker.modalPresentationStyle = .popover
-            self.present(imagePicker, animated: true, completion: nil)
-            newMedia = true
-        }else{
-            let alert = UIAlertController(title: "Error", message: "I am sorry, but your phone seems to have a problem with the Camera", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+            // Library
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+                imagePicker.allowsEditing = true
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
+            return
+        }))
+        
+        alert.show()
     }
     
     @IBAction func submitButton(_ sender: AnyObject) {
@@ -270,7 +296,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         imageString = ""
         myTableView.reloadData()
     }
-
+    
     @IBAction func resetButton(_ sender: AnyObject) {
         reset()
     }
