@@ -77,6 +77,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.setUpLocationForButton(locationButton: locationButton)
         
         self.fetchDataFromDB()
+        
+        self.startTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -301,7 +303,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 }
                 self.indicator.stopAnimating()
                 self.indicator.hidesWhenStopped = true
-                self.startTimer()
             })
         }else{
             let alert = UIAlertController(title: "Current Location Needed", message: "Please set your current location", preferredStyle: UIAlertControllerStyle.alert)
