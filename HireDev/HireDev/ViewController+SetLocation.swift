@@ -10,9 +10,9 @@ import UIKit
 
 extension UIViewController{
     func setUpLocationForButton(locationButton: UIButton) {
-        if let _ = UserDefaults.standard.string(forKey: "currentLocation"){
+        if let _ = UserDefaults.standard.string(forKey: "fixedLocation"){
             
-            locationButton.setTitle(UserDefaults.standard.string(forKey: "currentLocation"), for: .normal)
+            locationButton.setTitle(UserDefaults.standard.string(forKey: "fixedLocation"), for: .normal)
         }else{
             
             locationButton.setTitle("Please press to setup an address", for: .normal)
@@ -21,9 +21,9 @@ extension UIViewController{
     }
     
     func setUpLocationForLabel(locationLabel: UILabel) {
-        if let _ = UserDefaults.standard.string(forKey: "currentLocation"){
+        if let _ = UserDefaults.standard.string(forKey: "fixedLocation"){
         
-            locationLabel.text = UserDefaults.standard.string(forKey: "currentLocation")
+            locationLabel.text = UserDefaults.standard.string(forKey: "fixedLocation")
             
         }else{
             

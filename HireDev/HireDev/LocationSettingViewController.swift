@@ -111,6 +111,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         if let cell = tableView.cellForRow(at: indexPath) {
             let selectedCellAddress = cell.textLabel?.text
             UserDefaults.standard.set(selectedCellAddress, forKey: "currentLocation")
+            UserDefaults.standard.set(selectedCellAddress, forKey: "fixedLocation")
             
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
@@ -208,14 +209,15 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
                     if addressArray.count > 1{
                         fixedArray.append(addressArray[1])
                     }
-                    self.newAddress = fixedArray.joined(separator: ", ")
+                    self.newAddress = addressArray.joined(separator: ", ")
                     self.newAddress = self.newAddress.replacingOccurrences(of: "#", with: " ")
-                    self.locationLabel.text = self.newAddress
+                    self.locationLabel.text = fixedArray.joined(separator: ", ")
                     
                     UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
+                    UserDefaults.standard.set(fixedArray.joined(separator: ", "), forKey: "fixedLocation")
                     
                     if (self.checkForSameData(array: self.newLocationHistory, string: self.newAddress)){
-                        self.newLocationHistory.append(self.newAddress)
+                        self.newLocationHistory.append(fixedArray.joined(separator: ", "))
                     }
                     self.tableView.reloadData()
                 }
@@ -268,14 +270,15 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
         if addressArray.count > 1{
             fixedArray.append(addressArray[1])
         }
-        self.newAddress = fixedArray.joined(separator: ", ")
+        self.newAddress = addressArray.joined(separator: ", ")
         self.newAddress = self.newAddress.replacingOccurrences(of: "#", with: " ")
-        self.locationLabel.text = self.newAddress
+        self.locationLabel.text = fixedArray.joined(separator: ", ")
         
         UserDefaults.standard.set(self.newAddress, forKey: "currentLocation")
+        UserDefaults.standard.set(fixedArray.joined(separator: ", "), forKey: "fixedLocation")
         
         if (self.checkForSameData(array: self.newLocationHistory, string: self.newAddress)){
-            self.newLocationHistory.append(self.newAddress)
+            self.newLocationHistory.append(fixedArray.joined(separator: ", "))
             
         }
         

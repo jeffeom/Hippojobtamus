@@ -85,8 +85,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
                     self.itemCounter += 1
                     
-                    let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation")?.replacingOccurrences(of: " ", with: ""))!
-                    let readableDestination: String = jobItem.location.replacingOccurrences(of: " ", with: "")
+                    let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!
+                    let readableDestination: String = jobItem.location
                     
                     self.checkDistance(origin: readableOrigin, destination: readableDestination) { (fetchedData) in
                         DispatchQueue.main.async {
@@ -181,6 +181,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.rejectionCounter = 0
         self.itemCounter = 0
         
+        self.setUpLocationForButton(locationButton: locationButton)
+        
         if let _ = UserDefaults.standard.string(forKey: "currentLocation"){
             
             ref.child("All").observe(.value, with: { snapshot in
@@ -190,8 +192,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
                     self.itemCounter += 1
                     
-                    let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation")?.replacingOccurrences(of: " ", with: ""))!
-                    let readableDestination: String = jobItem.location.replacingOccurrences(of: " ", with: "")
+                    let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!
+                    let readableDestination: String = jobItem.location
                     
                     self.checkDistance(origin: readableOrigin, destination: readableDestination) { (fetchedData) in
                         DispatchQueue.main.async {
