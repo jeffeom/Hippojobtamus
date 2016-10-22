@@ -126,7 +126,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                     if latestItems.count > 2 {
                                         
                                         let firstItem =  latestItems[0]
-
+                                        
                                         latestItems.append(firstItem)
                                     }
                                     
@@ -156,6 +156,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 }
                 self.indicator.stopAnimating()
                 self.indicator.hidesWhenStopped = true
+                self.startTimer()
             })
         }else{
             let alert = UIAlertController(title: "Current Location Needed", message: "Please set your current location", preferredStyle: UIAlertControllerStyle.alert)
@@ -231,7 +232,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                     if latestItems.count > 2 {
                                         
                                         let firstItem =  latestItems[0]
-
+                                        
                                         latestItems.append(firstItem)
                                     }
                                     
@@ -263,7 +264,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 self.indicator.stopAnimating()
                 self.indicator.hidesWhenStopped = true
-                
+                self.startTimer()
             })
         }else{
             let alert = UIAlertController(title: "Current Location Needed", message: "Please set your current location", preferredStyle: UIAlertControllerStyle.alert)
@@ -346,6 +347,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        let contentOffsetScrolledRight: Float = Float(self.latestCollectionView.frame.size.width) * Float(self.latestContents.count - 1)
+        
+        if Float(scrollView.contentOffset.x) == contentOffsetScrolledRight{
+            let newIndexPath: NSIndexPath = NSIndexPath.init(item: 0, section: 0)
+            
+            self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+        }else if scrollView.contentOffset.x == 0 {
+            let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 1), section: 0)
+            
+            self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+        }
+    }
+    
     //MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -407,5 +422,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let image: UIImage = UIImage.init(data: data as Data)!
         
         return image
+    }
+    
+    func scrollToNextCell(){
+        
+        let collectionView = latestCollectionView
+        
+        //get cell size
+        let cellSize = CGSize.init(width: self.view.frame.width, height: self.view.frame.height)
+        
+        //get current content Offset of the Collection view
+        let contentOffset = collectionView?.contentOffset
+        
+        //scroll to next cell
+        collectionView?.scrollRectToVisible(CGRect.init(x: (contentOffset?.x)! + cellSize.width, y: (contentOffset?.y)!, width: cellSize.width, height: cellSize.height), animated: true)
+    }
+    
+    func startTimer() {
+        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(HomeViewController.scrollToNextCell), userInfo: nil, repeats: true)
     }
 }
