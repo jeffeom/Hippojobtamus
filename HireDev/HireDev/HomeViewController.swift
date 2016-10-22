@@ -280,7 +280,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                 }else{
                                     latestItems.append(jobItem)
                                     
-                                    if latestItems.count > 2 {
+                                    if latestItems.count == snapshot.children.allObjects.count - 1{
                                         
                                         let firstItem =  latestItems[0]
                                         
