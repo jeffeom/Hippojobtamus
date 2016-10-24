@@ -112,7 +112,6 @@ class DetailViewController: UIViewController {
         self.view.addSubview(newImageView)
         
         navigationController?.setNavigationBarHidden(navigationController?.isNavigationBarHidden == false, animated: true)
-        setTabBarVisible(visible: !tabBarIsVisible(), animated: true, completion: {_ in })
     }
     
     @IBAction func toGoogleMap(_ sender: AnyObject) {
@@ -140,28 +139,6 @@ class DetailViewController: UIViewController {
         
         sender.view?.removeFromSuperview()
         navigationController?.setNavigationBarHidden(navigationController?.isNavigationBarHidden == false, animated: true)
-        setTabBarVisible(visible: !tabBarIsVisible(), animated: true, completion: {_ in })
-    }
-    
-    func setTabBarVisible(visible: Bool, animated: Bool, completion:@escaping (Bool)->Void) {
-        
-        if (tabBarIsVisible() == visible) {
-            return completion(true)
-        }
-        
-        let height = tabBarController!.tabBar.frame.size.height
-        let offsetY = (visible ? -height : height)
-        
-        let duration = (animated ? 0.3 : 0.0)
-        
-        UIView.animate(withDuration: duration, animations: {
-            let frame = self.tabBarController!.tabBar.frame
-            self.tabBarController!.tabBar.frame = frame.offsetBy(dx: 0, dy: offsetY);
-            }, completion:completion)
-    }
-    
-    func tabBarIsVisible() -> Bool {
-        return tabBarController!.tabBar.frame.origin.y < view.frame.maxY
     }
 }
 
