@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import GoogleMobileAds
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     //MARK: Properties
     
@@ -26,6 +26,7 @@ class DetailViewController: UIViewController {
     let screenSize: CGRect = UIScreen.main.bounds
     var latitude: Double = 0
     var longitude: Double = 0
+    var newImageView = UIImageView.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class DetailViewController: UIViewController {
         self.locationLabel.text = "  " + self.detailItem.location
         self.commentsLabel.text = "  " + self.detailItem.comments
         self.title = self.detailItem.title
-
+        
         var keys: NSDictionary?
         
         if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
@@ -75,9 +76,6 @@ class DetailViewController: UIViewController {
                 }
             }
         }
-        
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,19 +97,40 @@ class DetailViewController: UIViewController {
     
     @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
         
+        let vWidth = self.view.frame.width
+        let vHeight = self.view.frame.height + (self.navigationController?.navigationBar.frame.height)! + (self.tabBarController?.tabBar.frame.height)!
+        
+        let scrollImg: UIScrollView = UIScrollView()
+        scrollImg.isUserInteractionEnabled = true
+        scrollImg.delegate = self
+        scrollImg.frame = CGRect.init(x: 0, y: 0, width: vWidth, height: vHeight)
+        scrollImg.backgroundColor = UIColor.black
+        scrollImg.alwaysBounceVertical = false
+        scrollImg.alwaysBounceHorizontal = false
+        scrollImg.showsVerticalScrollIndicator = true
+        scrollImg.flashScrollIndicators()
+        scrollImg.minimumZoomScale = 1.0
+        scrollImg.maximumZoomScale = 10.0
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage(sender:)))
+        scrollImg.addGestureRecognizer(tap)
+        self.view.addSubview(scrollImg)
+        
         let imageView = sender.view as! UIImageView
-        let newImageView = UIImageView(image: imageView.image)
+        newImageView = UIImageView(image: imageView.image)
         let screenWidth = self.screenSize.width
         let screenHeight = self.screenSize.height
         newImageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         newImageView.backgroundColor = UIColor.black
         newImageView.contentMode = .scaleToFill
         newImageView.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage(sender:)))
-        newImageView.addGestureRecognizer(tap)
-        self.view.addSubview(newImageView)
+        scrollImg.addSubview(newImageView)
         
         navigationController?.setNavigationBarHidden(navigationController?.isNavigationBarHidden == false, animated: true)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.newImageView
     }
     
     @IBAction func toGoogleMap(_ sender: AnyObject) {
@@ -139,6 +158,7 @@ class DetailViewController: UIViewController {
         
         sender.view?.removeFromSuperview()
         navigationController?.setNavigationBarHidden(navigationController?.isNavigationBarHidden == false, animated: true)
+        self.tabBarController?.tabBar.isHidden = false
     }
 }
 
