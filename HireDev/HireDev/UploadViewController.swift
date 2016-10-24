@@ -243,11 +243,12 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
             
             self.present(alert, animated: true) {
                 let currentDate = self.getCurrentDate()
+                let timeStamp = self.getTimeStamp()
                 let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString, addedByUser: (UserDefaults.standard.object(forKey: "email") as? String)!, date: currentDate, location: self.locationLabel.text!)
                 self.savedJobs.append(jobItem)
                 
                 for aCategory in selectedCategory{
-                    let jobItemRef = self.ref.child(aCategory).childByAutoId()
+                    let jobItemRef = self.ref.child(aCategory).child("\(timeStamp)"+"\(self.titleField.text!)")
                     jobItemRef.setValue(jobItem.toAnyObject())
                 }
                 
@@ -320,4 +321,12 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         return dateString
     }
     
+    func getTimeStamp() -> String{
+        let date = NSDate()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HHmmss"
+        let dateString = dateFormatter.string(from: date as Date)
+        
+        return dateString
+    }
 }
