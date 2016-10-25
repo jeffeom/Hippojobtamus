@@ -111,14 +111,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                 userRef.setValue(aUser.toAnyObject())
                             }
                         })
-                        
-                        UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.uid, forKey: "uid")
-                        UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.email, forKey: "email")
-                        UserDefaults.standard.synchronize()
-                        
-                        let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
-                        self.navigationController?.pushViewController(confirmedViewController!
-                            , animated: true)
+                        self.verifiedUser()
                     }
                 }
             }
