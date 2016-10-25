@@ -12,8 +12,14 @@ import Firebase
 
 class CreateAccountViewController: UIViewController {
     
+    //MARK: Properties
+    
+    let ref = FIRDatabase.database().reference(withPath: "users")
+    
     //MARK: IBOutlets
     
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
@@ -37,21 +43,31 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func signUpClicked(_ sender: AnyObject) {
-        FIRAuth.auth()?.createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
-            if let _ = error {
-                self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
-            }else{
-                FIRAuth.auth()?.currentUser?.sendEmailVerification(completion: { (error) in
-                    if let _ = error {
-                        NSLog("\(error?.localizedDescription)")
-                    }else{
-                        if let navController = self.navigationController{
-                            navController.popViewController(animated: true)
-                        }
+        if let _ = self.firstName.text, let _ = self.lastName.text{
+            FIRAuth.auth()?.createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
+                if let _ = error {
+                    self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
+                }else{
+                    FIRAuth.auth()?.currentUser?.sendEmailVerification()
+                    
+                    let aUser = User(uid: "", firstName: self.firstName.text!, lastName: self.lastName.text!, email: self.email.text!, emailVerify: false, currentLocation: [0.0], searchDistance: 10.0, searchHistory: [""], uploadedPosts: [""], favoredPosts: [""])
+                    
+                    let userRef = self.ref.child(self.email.text!.replacingOccurrences(of: ".", with: ""))
+                    userRef.setValue(aUser.toAnyObject())
+                    
+                    if let navController = self.navigationController{
+                        navController.popViewController(animated: true)
+                        self.showAlert(text: "Please check your email", title: "Email verification Sent", fn: { 
+                            return
+                        })
                     }
-                })
-            }
-        })
+                }
+            })
+        }else{
+            self.showAlert(text: "You left one of the fields empty", title: "Please Try Again", fn: {
+                return
+            })
+        }
     }
     
     //MARK: Keyboard functions

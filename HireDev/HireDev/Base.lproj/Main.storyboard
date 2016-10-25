@@ -2041,6 +2041,8 @@ Contact Us
                         <outlet property="confirmPassword" destination="8wf-oW-fmy" id="tcq-jN-Bsv"/>
                         <outlet property="email" destination="BO2-Lg-0r4" id="tKR-Pu-9UN"/>
                         <outlet property="errorLabel" destination="yhe-et-T23" id="J39-Um-76d"/>
+                        <outlet property="firstName" destination="mV7-kW-R2O" id="Jm5-Bs-f2Q"/>
+                        <outlet property="lastName" destination="LiA-8L-rQw" id="Hef-jR-lNI"/>
                         <outlet property="password" destination="0BD-RI-RQT" id="LpU-Vc-zOo"/>
                     </connections>
                 </viewController>
@@ -2488,7 +2490,7 @@ Contact Us
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

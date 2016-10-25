@@ -13,6 +13,11 @@ import FontAwesome_swift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    //MARK: Properties
+    
+    let ref = FIRDatabase.database().reference(withPath: "users")
+    var emailVerification: Bool = false
+    
     //MARK: IBOutlets
     
     @IBOutlet weak var emailField: UITextField!
@@ -60,8 +65,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.passwordField.text = ""
                 self.signInLogo.isHighlighted = false
             }else{
-                //                self.verifiedUser()
                 if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
+                    let userRef = self.ref.child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
+                    userRef.child("emailVerify").setValue(true)
+                    
                     self.verifiedUser()
                 }else{
                     self.errorLabel.text = "You need to verify your email first"
@@ -84,14 +91,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.errorLabel.text = "Facebook Canceled"
                 self.fbLogo.isHighlighted = false
             }else {
-                self.errorLabel.text = "Logged In"
-                self.fbLogo.isHighlighted = false
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                     if let _ = error{
                         self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
                     }else{
-                        self.verifiedUser()
+                        
+                        self.ref.observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+                            
+                            if !snapshot.hasChild((user?.email?.replacingOccurrences(of: ".", with: ""))!){
+                                let fullName: [String] = (user?.displayName!.components(separatedBy: " "))!
+                                
+                                let firstName = fullName[0]
+                                let lastName = fullName[1]
+                                
+                                let aUser = User(uid: (user?.uid)!, firstName: firstName, lastName: lastName, email: FIRAuth.auth()!.currentUser!.email!, emailVerify: true, currentLocation: [0.0], searchDistance: 10.0, searchHistory: [""], uploadedPosts: [""], favoredPosts: [""])
+                                
+                                let userRef = self.ref.child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
+                                userRef.setValue(aUser.toAnyObject())
+                            }
+                        })
+                        
+                        UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.uid, forKey: "uid")
+                        UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.email, forKey: "email")
+                        UserDefaults.standard.synchronize()
+                        
+                        let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
+                        self.navigationController?.pushViewController(confirmedViewController!
+                            , animated: true)
                     }
                 }
             }
