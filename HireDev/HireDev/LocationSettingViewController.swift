@@ -46,6 +46,40 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
             }
         }
         
+        let theCase = UserDefaults.standard.integer(forKey: "distanceCase")
+        var theDistance = UserDefaults.standard.integer(forKey: "searchDistance")
+        
+        if theCase != 0{
+            sliderDistance.value = Float(theCase)
+            
+            let number = sliderDistance.value
+            
+            switch number {
+            case 1:
+                theDistance = 1
+                
+            case 2:
+                theDistance = 5
+                
+            case 3:
+                theDistance = 10
+                
+            case 4:
+                theDistance = 20
+                
+            case 5:
+                theDistance = 50
+                
+            default:
+                theDistance = 10
+            }
+            
+            UserDefaults.standard.set(theDistance, forKey: "searchDistance")
+        }else{
+            sliderDistance.value = 3
+            UserDefaults.standard.set(10, forKey: "searchDistance")
+        }
+        
         placesClient = GMSPlacesClient.shared()
         locationView.isHidden = true
         
@@ -71,8 +105,41 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
             }
         }
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        let theCase = UserDefaults.standard.integer(forKey: "distanceCase")
+        var theDistance = UserDefaults.standard.integer(forKey: "searchDistance")
         
+        if theCase != 0{
+            sliderDistance.value = Float(theCase)
+            
+            let number = sliderDistance.value
+            
+            switch number {
+            case 1:
+                theDistance = 1
+                
+            case 2:
+                theDistance = 5
+                
+            case 3:
+                theDistance = 10
+                
+            case 4:
+                theDistance = 20
+                
+            case 5:
+                theDistance = 50
+                
+            default:
+                theDistance = 10
+            }
+            
+            UserDefaults.standard.set(theDistance, forKey: "searchDistance")
+        }else{
+            sliderDistance.value = 3
+            UserDefaults.standard.set(10, forKey: "searchDistance")
+        }
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -132,17 +199,10 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
             lookUpAddressView.isHidden = true
             searchDistanceView.isHidden = false
             
-            let theCase = UserDefaults.standard.integer(forKey: "distanceCase")
-            
-            if theCase != 0{
-                sliderDistance.value = Float(theCase)
-            }else{
-                sliderDistance.value = 3
-            }
-            
         default:
             lookUpAddressView.isHidden = false
             searchDistanceView.isHidden = true
+            
         }
         
     }
@@ -182,8 +242,8 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         default:
             distance = 10
             theCase = 3
-            
         }
+        
         UserDefaults.standard.setValue(distance, forKey: "searchDistance")
         UserDefaults.standard.setValue(theCase, forKey: "distanceCase")
     }
@@ -202,6 +262,10 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
                 let likelihood = placeLikelihoods.likelihoods.first?.place
                 if let place = likelihood{
                     self.setLocationValues(place: place)
+                    UserDefaults.standard.setValue(10, forKey: "searchDistance")
+                    UserDefaults.standard.setValue(3, forKey: "distanceCase")
+                    
+                    self.sliderDistance.value = 3
 
                     self.tableView.reloadData()
                 }
@@ -249,6 +313,11 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
         self.setLocationValues(place: place)
         
         self.dismiss(animated: true, completion: {
+            UserDefaults.standard.setValue(10, forKey: "searchDistance")
+            UserDefaults.standard.setValue(3, forKey: "distanceCase")
+            
+            self.sliderDistance.value = 3
+            
             self.locationView.isHidden = false
             self.tableView.reloadData()
         })
