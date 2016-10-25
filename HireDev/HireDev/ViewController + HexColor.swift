@@ -1,5 +1,5 @@
 //
-//  UIColor + HexColor.swift
+//  ViewController + HexColor.swift
 //  Hippo
 //
 //  Created by Jeff Eom on 2016-10-24.
