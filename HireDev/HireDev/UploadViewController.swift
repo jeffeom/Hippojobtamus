@@ -107,6 +107,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         let cell: UITableViewCell = self.myTableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         
         cell.textLabel?.text = category[indexPath.row]
+        cell.textLabel?.textColor = UIColor.white
         
         if !checked[indexPath.row] {
             cell.accessoryType = .none
@@ -126,6 +127,11 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 checked[indexPath.row] = true
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.tintColor = UIColor.white
+        cell.backgroundColor = UIColor.clear
     }
     
     //MARK: Photo

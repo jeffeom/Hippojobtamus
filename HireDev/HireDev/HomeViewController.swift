@@ -45,7 +45,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.itemCounter = 0
         
         container.backgroundColor = self.hexStringToUIColor(hex: "444444", alpha: 0.5)
-        container.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 11)
+        container.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.midY / 6)
         container.layer.cornerRadius = 10
         self.latestCollectionView.addSubview(container)
         container.bringSubview(toFront: self.latestCollectionView)
