@@ -23,17 +23,23 @@ class MasterViewController: UITableViewController {
     var rejectionCounter = 0
     var itemCounter = 0
     var readableOrigin: String = ""
+    let container: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 70))
     
     //MARK: UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = contents
-        indicator.color = UIColor.gray
-        indicator.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
-        indicator.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 9)
-        self.view.addSubview(indicator)
-        indicator.bringSubview(toFront: self.view)
+        container.backgroundColor = self.hexStringToUIColor(hex: "444444", alpha: 0.5)
+        container.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 13)
+        container.layer.cornerRadius = 10
+        self.view.addSubview(container)
+        container.bringSubview(toFront: self.view)
+        
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        indicator.frame = CGRect.init(x: 11.5, y: 11.5, width: 50, height: 50)
+        container.addSubview(indicator)
+        indicator.bringSubview(toFront: container)
         indicator.startAnimating()
         
         self.fetchDataFromDB()
@@ -193,6 +199,7 @@ class MasterViewController: UITableViewController {
             
             self.indicator.stopAnimating()
             self.indicator.hidesWhenStopped = true
+            self.container.isHidden = true
             
         })
     }

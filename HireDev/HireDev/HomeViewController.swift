@@ -28,10 +28,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let ref = FIRDatabase.database().reference(withPath: "job-post")
     var rejectionCounter = 0
     var itemCounter = 0
-    
-    var screenSize: CGRect!
-    var screenWidth: CGFloat!
-    var screenHeight: CGFloat!
+    let container: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 70))
     
     //MARK: IBOutlets
     
@@ -47,15 +44,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.rejectionCounter = 0
         self.itemCounter = 0
         
-        screenSize = UIScreen.main.bounds
-        screenWidth = screenSize.width
-        screenHeight = screenSize.height
+        container.backgroundColor = self.hexStringToUIColor(hex: "444444", alpha: 0.5)
+        container.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.midY / 6)
+        container.layer.cornerRadius = 10
+        self.latestCollectionView.addSubview(container)
+        container.bringSubview(toFront: self.latestCollectionView)
         
-        indicator.color = UIColor.gray
-        indicator.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
-        indicator.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 10)
-        self.view.addSubview(indicator)
-        indicator.bringSubview(toFront: self.view)
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        indicator.frame = CGRect.init(x: 11.5, y: 11.5, width: 50, height: 50)
+        container.addSubview(indicator)
+        indicator.bringSubview(toFront: container)
         indicator.startAnimating()
         
         var keys: NSDictionary?
@@ -302,6 +300,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 }
                 self.indicator.stopAnimating()
                 self.indicator.hidesWhenStopped = true
+                self.container.isHidden = true
             })
         }else{
             let alert = UIAlertController(title: "Current Location Needed", message: "Please set your current location", preferredStyle: UIAlertControllerStyle.alert)
