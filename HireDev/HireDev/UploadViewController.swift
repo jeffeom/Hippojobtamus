@@ -28,7 +28,8 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     
     // MARK: Properties
     
-    let ref = FIRDatabase.database().reference(withPath: "job-post")
+    let jobref = FIRDatabase.database().reference(withPath: "job-post")
+    let userRef = FIRDatabase.database().reference(withPath: "users")
     var savedJobs: [JobItem] = []
     let category: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "Education", "Sales", "Receptionist", "Others"]
     var hidden: Bool = true
@@ -254,8 +255,32 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 self.savedJobs.append(jobItem)
                 
                 for aCategory in selectedCategory{
-                    let jobItemRef = self.ref.child(aCategory).child("\(timeStamp)"+"\(self.titleField.text!)")
+                    let jobId = "\(timeStamp)"+"\(self.titleField.text!)"
+                    
+                    let jobItemRef = self.jobref.child(aCategory).child(jobId)
                     jobItemRef.setValue(jobItem.toAnyObject())
+                    
+                    let userRef = self.userRef.child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
+                    
+                    userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                        
+                        if let postSnapshot = snapshot.childSnapshot(forPath: "uploadedPosts").value {
+                             var uploadedPosts: [String] = postSnapshot as! [String]
+                            
+                            if uploadedPosts[0] == "" {
+                                uploadedPosts[0] = jobId
+                                userRef.updateChildValues([
+                                    "uploadedPosts": uploadedPosts
+                                    ])
+                            }else{
+                                uploadedPosts.append(jobId)
+                                userRef.updateChildValues([
+                                    "uploadedPosts": uploadedPosts
+                                    ])
+                            }
+                            
+                        }
+                    })
                 }
                 
                 self.reset()
