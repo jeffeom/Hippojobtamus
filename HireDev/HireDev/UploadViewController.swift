@@ -264,7 +264,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                     userRef.observeSingleEvent(of: .value, with: { (snapshot) in
                         
                         if let postSnapshot = snapshot.childSnapshot(forPath: "uploadedPosts").value {
-                             var uploadedPosts: [String] = postSnapshot as! [String]
+                            var uploadedPosts: [String] = postSnapshot as! [String]
                             
                             if uploadedPosts[0] == "" {
                                 uploadedPosts[0] = jobId

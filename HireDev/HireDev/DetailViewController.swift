@@ -136,7 +136,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func toGoogleMap(_ sender: AnyObject) {
         if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
             if let url = URL(string: "comgooglemaps://?center=\(self.latitude),\(self.longitude)&zoom=14&views=traffic"){
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    if UIApplication.shared.canOpenURL(url){
+                        UIApplication.shared.openURL(url)
+                    }
+                }
             }
         } else {
             print("Can't use comgooglemaps://");
