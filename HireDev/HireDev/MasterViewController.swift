@@ -56,7 +56,6 @@ class MasterViewController: UITableViewController {
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         nav?.tintColor = UIColor.white
         
-        viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
