@@ -121,7 +121,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let screenHeight = self.screenSize.height
         newImageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         newImageView.backgroundColor = UIColor.black
-        newImageView.contentMode = .scaleToFill
+        newImageView.contentMode = .scaleAspectFit
         newImageView.isUserInteractionEnabled = true
         scrollImg.addSubview(newImageView)
         
