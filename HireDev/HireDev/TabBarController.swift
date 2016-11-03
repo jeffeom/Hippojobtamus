@@ -15,9 +15,9 @@ class TabBarController: UITabBarController {
         
         // Do any additional setup after loading the view.
         
-        let homeTabImage = UIImage.fontAwesomeIconWithName(.Home, textColor: UIColor.black, size: CGSize.init(width: 35, height: 35))
-        let addTabImage = UIImage.fontAwesomeIconWithName(.PlusCircle, textColor: UIColor.black, size: CGSize.init(width: 35, height: 35))
-        let settingTabImage = UIImage.fontAwesomeIconWithName(.Cog, textColor: UIColor.black, size: CGSize.init(width: 35, height: 35))
+        let homeTabImage = UIImage.fontAwesomeIcon(.home, textColor: UIColor.black, size: CGSize.init(width: 35, height: 35))
+        let addTabImage = UIImage.fontAwesomeIcon(.plusCircle, textColor: UIColor.black, size: CGSize.init(width: 35, height: 35))
+        let settingTabImage = UIImage.fontAwesomeIcon(.cog, textColor: UIColor.black, size: CGSize.init(width: 35, height: 35))
         
         self.viewControllers?[0].tabBarItem = UITabBarItem(title: "Home", image: homeTabImage, selectedImage: homeTabImage)
         self.viewControllers?[1].tabBarItem = UITabBarItem(title: "Upload", image: addTabImage, selectedImage: addTabImage)

@@ -36,7 +36,6 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     var selectedIndexPath: IndexPath = IndexPath()
     var checked: [Bool] = [false, false, false, false, false, false, false, false]
     var newMedia: Bool?
-    let heartShape: String = String.fontAwesomeIconWithName(FontAwesome.Heart)
     var imageData: NSData = NSData()
     var imageString: String = ""
     var placeholderLabel : UILabel!
