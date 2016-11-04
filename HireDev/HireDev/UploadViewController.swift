@@ -354,7 +354,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     func getTimeStamp() -> String{
         let date = NSDate()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HHmmss"
+        dateFormatter.dateFormat = "MMddHHmm"
         let dateString = dateFormatter.string(from: date as Date)
         
         return dateString
