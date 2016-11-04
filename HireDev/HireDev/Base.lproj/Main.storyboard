@@ -331,7 +331,7 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="124"/>
                                                                                                 <subviews>
                                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank" translatesAutoresizingMaskIntoConstraints="NO" id="PfG-TY-1Ed">
-                                                                                                        <rect key="frame" x="5" y="5" width="113.5" height="114"/>
+                                                                                                        <rect key="frame" x="5" y="5" width="113" height="114"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="PfG-TY-1Ed" secondAttribute="height" multiplier="1:1" id="Xb7-Wf-Qao"/>
                                                                                                         </constraints>
@@ -358,7 +358,7 @@
                                                                                                 <rect key="frame" x="125" y="0.0" width="125" height="124"/>
                                                                                                 <subviews>
                                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="All" translatesAutoresizingMaskIntoConstraints="NO" id="SWQ-v8-DEi">
-                                                                                                        <rect key="frame" x="5" y="5" width="113.5" height="114"/>
+                                                                                                        <rect key="frame" x="5" y="5" width="113" height="114"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="SWQ-v8-DEi" secondAttribute="height" multiplier="1:1" id="85M-Ln-sYh"/>
                                                                                                         </constraints>
@@ -385,7 +385,7 @@
                                                                                                 <rect key="frame" x="250" y="0.0" width="125" height="124"/>
                                                                                                 <subviews>
                                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="education" translatesAutoresizingMaskIntoConstraints="NO" id="IAr-Dv-ZGX">
-                                                                                                        <rect key="frame" x="5" y="5" width="113.5" height="114"/>
+                                                                                                        <rect key="frame" x="5" y="5" width="113" height="114"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="IAr-Dv-ZGX" secondAttribute="height" multiplier="1:1" id="tm1-FM-78D"/>
                                                                                                         </constraints>
@@ -2368,7 +2368,7 @@ Contact Us
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyk-Yx-db4" customClass="FontAwesomeView" customModule="FontAwesome_swift">
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyk-Yx-db4" customClass="FontAwesomeView" customModule="FontAwesome_swift">
                                             <rect key="frame" x="332" y="31.5" width="35" height="35"/>
                                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -2858,7 +2858,7 @@ Contact Us
         <image name="signin1" width="320" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hcU-FG-nwL"/>
+        <segue reference="3g5-t3-D5n"/>
         <segue reference="gBk-xW-bh4"/>
     </inferredMetricsTieBreakers>
 </document>
