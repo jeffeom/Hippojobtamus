@@ -143,10 +143,10 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         self.dismiss(animated: true, completion: nil)
         
         if mediaType.isEqual(kUTTypeImage as String) {
-            let image = info[UIImagePickerControllerOriginalImage]
-                as! UIImage
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             
             photoView.image = image
+            photoView.contentMode = .scaleAspectFit
             imageData = UIImageJPEGRepresentation(image, 0.1)! as NSData
             imageString = imageData.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
             self.photoButton.setTitle("Tap again to retake", for: .normal)
@@ -206,7 +206,8 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 let imagePicker = UIImagePickerController()
                 
                 imagePicker.delegate = self
-                imagePicker.sourceType = .camera;
+                imagePicker.sourceType = .camera
+                imagePicker.cameraCaptureMode = .photo
                 imagePicker.mediaTypes = [kUTTypeImage as String]
                 imagePicker.allowsEditing = false
                 imagePicker.modalPresentationStyle = .popover
@@ -226,7 +227,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 let imagePicker = UIImagePickerController()
                 imagePicker.delegate = self
                 imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
-                imagePicker.allowsEditing = true
+                imagePicker.allowsEditing = false
                 self.present(imagePicker, animated: true, completion: nil)
             }
         }))
