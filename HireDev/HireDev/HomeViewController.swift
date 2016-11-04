@@ -134,7 +134,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let kWhateverHeightYouWant = 105
+        let kWhateverHeightYouWant = 140
         return CGSize.init(width:collectionView.bounds.size.width, height:CGFloat(kWhateverHeightYouWant))
     }
     
