@@ -20,6 +20,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var commentsLabel: UITextView!
     @IBOutlet weak var googleMap: GMSMapView!
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var descriptionSV: UIStackView!
     
     var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", photo: "", addedByUser: "", date: "", location: "")
     
@@ -34,8 +35,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         self.imageView.image = self.getImageFromString(string: (self.detailItem.photo))
         self.dateLabel.text = "  " + self.detailItem.date
         self.locationLabel.text = "  " + self.detailItem.location
-        self.commentsLabel.text = "  " + self.detailItem.comments
+        self.commentsLabel.text = self.detailItem.comments
         self.title = self.detailItem.title
+        
+        if self.detailItem.comments == ""{
+            self.descriptionSV.isHidden = true
+        }
         
         var keys: NSDictionary?
         
