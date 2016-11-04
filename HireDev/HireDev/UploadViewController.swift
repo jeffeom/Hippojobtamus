@@ -28,14 +28,14 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     
     // MARK: Properties
     
-    let ref = FIRDatabase.database().reference(withPath: "job-post")
+    let jobref = FIRDatabase.database().reference(withPath: "job-post")
+    let userRef = FIRDatabase.database().reference(withPath: "users")
     var savedJobs: [JobItem] = []
     let category: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "Education", "Sales", "Receptionist", "Others"]
     var hidden: Bool = true
     var selectedIndexPath: IndexPath = IndexPath()
     var checked: [Bool] = [false, false, false, false, false, false, false, false]
     var newMedia: Bool?
-    let heartShape: String = String.fontAwesomeIconWithName(FontAwesome.Heart)
     var imageData: NSData = NSData()
     var imageString: String = ""
     var placeholderLabel : UILabel!
@@ -143,10 +143,10 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         self.dismiss(animated: true, completion: nil)
         
         if mediaType.isEqual(kUTTypeImage as String) {
-            let image = info[UIImagePickerControllerOriginalImage]
-                as! UIImage
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             
             photoView.image = image
+            photoView.contentMode = .scaleAspectFit
             imageData = UIImageJPEGRepresentation(image, 0.1)! as NSData
             imageString = imageData.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
             self.photoButton.setTitle("Tap again to retake", for: .normal)
@@ -206,7 +206,8 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 let imagePicker = UIImagePickerController()
                 
                 imagePicker.delegate = self
-                imagePicker.sourceType = .camera;
+                imagePicker.sourceType = .camera
+                imagePicker.cameraCaptureMode = .photo
                 imagePicker.mediaTypes = [kUTTypeImage as String]
                 imagePicker.allowsEditing = false
                 imagePicker.modalPresentationStyle = .popover
@@ -226,7 +227,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 let imagePicker = UIImagePickerController()
                 imagePicker.delegate = self
                 imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
-                imagePicker.allowsEditing = true
+                imagePicker.allowsEditing = false
                 self.present(imagePicker, animated: true, completion: nil)
             }
         }))
@@ -254,8 +255,32 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                 self.savedJobs.append(jobItem)
                 
                 for aCategory in selectedCategory{
-                    let jobItemRef = self.ref.child(aCategory).child("\(timeStamp)"+"\(self.titleField.text!)")
+                    let jobId = "\(timeStamp)"+"\(self.titleField.text!)"
+                    
+                    let jobItemRef = self.jobref.child(aCategory).child(jobId)
                     jobItemRef.setValue(jobItem.toAnyObject())
+                    
+                    let userRef = self.userRef.child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
+                    
+                    userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                        
+                        if let postSnapshot = snapshot.childSnapshot(forPath: "uploadedPosts").value {
+                            var uploadedPosts: [String] = postSnapshot as! [String]
+                            
+                            if uploadedPosts[0] == "" {
+                                uploadedPosts[0] = jobId
+                                userRef.updateChildValues([
+                                    "uploadedPosts": uploadedPosts
+                                    ])
+                            }else{
+                                uploadedPosts.append(jobId)
+                                userRef.updateChildValues([
+                                    "uploadedPosts": uploadedPosts
+                                    ])
+                            }
+                            
+                        }
+                    })
                 }
                 
                 self.reset()
@@ -330,7 +355,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     func getTimeStamp() -> String{
         let date = NSDate()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HHmmss"
+        dateFormatter.dateFormat = "MMddHHmm"
         let dateString = dateFormatter.string(from: date as Date)
         
         return dateString

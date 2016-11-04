@@ -121,7 +121,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         let screenHeight = self.screenSize.height
         newImageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
         newImageView.backgroundColor = UIColor.black
-        newImageView.contentMode = .scaleToFill
+        newImageView.contentMode = .scaleAspectFit
         newImageView.isUserInteractionEnabled = true
         scrollImg.addSubview(newImageView)
         
@@ -136,7 +136,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func toGoogleMap(_ sender: AnyObject) {
         if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
             if let url = URL(string: "comgooglemaps://?center=\(self.latitude),\(self.longitude)&zoom=14&views=traffic"){
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    if UIApplication.shared.canOpenURL(url){
+                        UIApplication.shared.openURL(url)
+                    }
+                }
             }
         } else {
             print("Can't use comgooglemaps://");
@@ -148,9 +154,35 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     func getImageFromString(string: String) -> UIImage {
         let data: NSData = NSData.init(base64Encoded: string, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
-        let image: UIImage = UIImage.init(data: data as Data)!
+        var image: UIImage = UIImage.init(data: data as Data)!
+        
+        image = self.setProfileImage(imageToResize: image, onImageView: self.imageView)
         
         return image
+    }
+    
+    func setProfileImage(imageToResize: UIImage, onImageView: UIImageView) -> UIImage
+    {
+        let width = imageToResize.size.width
+        let height = imageToResize.size.height
+        
+        var scaleFactor: CGFloat
+        
+        if(width > height)
+        {
+            scaleFactor = onImageView.frame.size.height / height;
+        }
+        else
+        {
+            scaleFactor = onImageView.frame.size.width / width;
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize.init(width: width * scaleFactor, height: height * scaleFactor), false, 0.0)
+        imageToResize.draw(in: CGRect.init(x: 0, y: 0, width: width * scaleFactor, height: height * scaleFactor))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return resizedImage!
     }
     
     

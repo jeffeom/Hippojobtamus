@@ -142,11 +142,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let contentOffsetScrolledRight: Float = Float(self.latestCollectionView.frame.size.width) * Float(self.latestContents.count - 1)
         
         if Float(scrollView.contentOffset.x) == contentOffsetScrolledRight{
-            let newIndexPath: NSIndexPath = NSIndexPath.init(item: 0, section: 0)
+            let newIndexPath: NSIndexPath = NSIndexPath.init(item: 1, section: 0)
             
             self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
         }else if scrollView.contentOffset.x == 0 {
-            let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 1), section: 0)
+            let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 2), section: 0)
             
             self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
         }
@@ -156,11 +156,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let contentOffsetScrolledRight: Float = Float(self.latestCollectionView.frame.size.width) * Float(self.latestContents.count - 1)
         
         if Float(scrollView.contentOffset.x) == contentOffsetScrolledRight{
-            let newIndexPath: NSIndexPath = NSIndexPath.init(item: 0, section: 0)
+            let newIndexPath: NSIndexPath = NSIndexPath.init(item: 1, section: 0)
             
             self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
         }else if scrollView.contentOffset.x == 0 {
-            let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 1), section: 0)
+            let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 2), section: 0)
             
             self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
         }
@@ -251,6 +251,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let _ = UserDefaults.standard.string(forKey: "currentLocation"){
             
             ref.child("All").observe(.value, with: { snapshot in
+
                 var latestItems: [JobItem] = []
                 
                 for item in snapshot.children {
@@ -277,11 +278,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                 }else{
                                     latestItems.append(jobItem)
                                     
-                                    if latestItems.count == snapshot.children.allObjects.count - 1{
+                                    if latestItems.count == snapshot.children.allObjects.count - self.rejectionCounter{
                                         
-                                        let firstItem =  latestItems[0]
+                                        let firstItem =  latestItems.first
+                                        let lastItem = latestItems.last
                                         
-                                        latestItems.append(firstItem)
+                                        latestItems.append(firstItem!)
+                                        latestItems.insert(lastItem!, at: 0)
+                                        
+                                        self.itemCounter = 0
+                                        self.rejectionCounter = 0
                                     }
                                     
                                     self.latestContents = latestItems
@@ -347,7 +353,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         alert.addAction(UIAlertAction(title: "Upload", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
             
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "uploadVC")
+            let vc = self.tabBarController?.viewControllers?[1]
             self.tabBarController?.selectedViewController = vc
         }))
         

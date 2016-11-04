@@ -123,7 +123,13 @@ class SettingViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBAction func rateClicked(_ sender: AnyObject) {
         if (UIApplication.shared.canOpenURL(NSURL(string:"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(1163603705)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")! as URL)){
             if let url = URL(string: "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(1163603705)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"){
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    if UIApplication.shared.canOpenURL(url){
+                        UIApplication.shared.openURL(url)
+                    }
+                }
             }
         }
         
