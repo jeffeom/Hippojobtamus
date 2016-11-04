@@ -45,9 +45,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let _ = UserDefaults.standard.object(forKey: "uid"){
-            self.verifiedUser()
-        }else {
+        
+        if let email = UserDefaults.standard.object(forKey: "email"){
+            self.checkIfUserExists(email: email as! String)
+        }else{
             self.navigationController?.setNavigationBarHidden(true, animated: true)
             self.emailLogo?.isHighlighted = false
             self.fbLogo?.isHighlighted = false
@@ -162,6 +163,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.navigationController?.pushViewController(confirmedViewController!
                 , animated: true)
         }
+    }
+    
+    func checkIfUserExists(email: String) {
+        let userRef = FIRDatabase.database().reference(withPath: "users")
+        let userId = email.replacingOccurrences(of: ".", with: "")
+        
+        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.hasChild(userId){
+                self.verifiedUser()
+            }else{
+                return
+            }
+        })
     }
     
     
