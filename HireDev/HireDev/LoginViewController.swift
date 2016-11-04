@@ -67,8 +67,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.signInLogo.isHighlighted = false
             }else{
                 if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
-                    let userRef = self.ref.child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
-                    userRef.child("emailVerify").setValue(true)
+                    
+                    let userRef = FIRDatabase.database().reference(withPath: "users")
+                    let userId = FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "")
+                    
+                    userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                        if snapshot.hasChild(userId!){
+                            
+                            let userRef = self.ref.child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
+                            userRef.child("emailVerify").setValue(true)
+                            
+                            self.verifiedUser()
+                        }else{
+                            let aUser = User(uid: (user?.uid)!, firstName: "", lastName: "", email: FIRAuth.auth()!.currentUser!.email!, emailVerify: true, currentLocation: [0.0], searchDistance: 10.0, searchHistory: [""], uploadedPosts: [""], favoredPosts: [""])
+                            
+                            let userRef = self.ref.child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
+                            userRef.setValue(aUser.toAnyObject())
+                            return
+                        }
+                    })
                     
                     self.verifiedUser()
                 }else{
@@ -151,12 +168,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: Navigate if Verified
     
     func verifiedUser() {
-        if let _ = UserDefaults.standard.object(forKey: "uid"){
+        if let _ = UserDefaults.standard.object(forKey: "email"){
             let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
             self.navigationController?.pushViewController(confirmedViewController!
                 , animated: true)
         }else{
-            UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.uid, forKey: "uid")
             UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.email, forKey: "email")
             UserDefaults.standard.synchronize()
             let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
