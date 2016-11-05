@@ -9,6 +9,7 @@
 import UIKit
 import MessageUI
 import GoogleMobileAds
+import FBSDKLoginKit
 
 class SettingViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
@@ -70,6 +71,8 @@ class SettingViewController: UIViewController, MFMailComposeViewControllerDelega
             
             let appDomain = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: appDomain)
+            
+            FBSDKAccessToken.setCurrent(nil)
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "loginVC")
             self.present(vc!, animated: true)
