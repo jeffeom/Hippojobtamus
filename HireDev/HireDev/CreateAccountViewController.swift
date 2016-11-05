@@ -43,7 +43,7 @@ class CreateAccountViewController: UIViewController {
     }
     
     @IBAction func signUpClicked(_ sender: AnyObject) {
-        if let _ = self.firstName.text, let _ = self.lastName.text{
+        if let _ = self.firstName.text, let _ = self.lastName.text, let _ = self.email.text{
             FIRAuth.auth()?.createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
                 if let _ = error {
                     self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
