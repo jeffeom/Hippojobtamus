@@ -234,23 +234,23 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHi-qp-q8k" userLabel="CategoryView">
                                                                         <rect key="frame" x="0.0" y="140" width="375" height="375"/>
                                                                         <subviews>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="NIZ-Oy-8yP" userLabel="Category">
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="NIZ-Oy-8yP" userLabel="Category">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                                                                                 <subviews>
-                                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="age-cY-Gf0" userLabel="Row1">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="123.5"/>
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="age-cY-Gf0" userLabel="Row1">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
                                                                                         <subviews>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9s-9P-YvM" userLabel="1">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="123.5"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="124.5"/>
                                                                                                 <subviews>
                                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cafe" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-gh-KzC">
-                                                                                                        <rect key="frame" x="5" y="5" width="113.5" height="113.5"/>
+                                                                                                        <rect key="frame" x="5" y="5" width="114.5" height="114.5"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="HYE-gh-KzC" secondAttribute="height" multiplier="1:1" id="rIg-Gy-7d3"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9U-SO-kW9">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="123.5"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="124.5"/>
                                                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                                         <connections>
                                                                                                             <segue destination="7bK-jq-Zjz" kind="show" identifier="cafeTable" id="FWl-Q7-rsD"/>
@@ -269,16 +269,16 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P67-s5-0Zt" userLabel="2">
-                                                                                                <rect key="frame" x="125" y="0.0" width="125" height="123.5"/>
+                                                                                                <rect key="frame" x="125.5" y="0.0" width="124.5" height="124.5"/>
                                                                                                 <subviews>
                                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="restaurant" translatesAutoresizingMaskIntoConstraints="NO" id="Mfd-M9-PZZ">
-                                                                                                        <rect key="frame" x="5" y="5" width="113.5" height="113.5"/>
+                                                                                                        <rect key="frame" x="5" y="5" width="114.5" height="114.5"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="Mfd-M9-PZZ" secondAttribute="height" multiplier="1:1" id="lXw-mu-LdP"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hg8-zN-btq">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="123.5"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="124.5"/>
                                                                                                         <connections>
                                                                                                             <segue destination="7bK-jq-Zjz" kind="show" identifier="restaurantTable" id="yIS-q8-wov"/>
                                                                                                         </connections>
@@ -296,16 +296,16 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="903-vc-sUs" userLabel="3">
-                                                                                                <rect key="frame" x="250" y="0.0" width="125" height="123.5"/>
+                                                                                                <rect key="frame" x="251" y="0.0" width="124" height="124.5"/>
                                                                                                 <subviews>
                                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grocery" translatesAutoresizingMaskIntoConstraints="NO" id="tdv-8q-bqC">
-                                                                                                        <rect key="frame" x="5" y="5" width="113.5" height="113.5"/>
+                                                                                                        <rect key="frame" x="5" y="5" width="114.5" height="114.5"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="tdv-8q-bqC" secondAttribute="height" multiplier="1:1" id="Irb-HW-3nO"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chA-lC-tZC">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="123.5"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="124.5"/>
                                                                                                         <connections>
                                                                                                             <segue destination="7bK-jq-Zjz" kind="show" identifier="groceryTable" id="pLT-7N-mi9"/>
                                                                                                         </connections>
@@ -324,20 +324,20 @@
                                                                                             </view>
                                                                                         </subviews>
                                                                                     </stackView>
-                                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="m7l-Wr-uvW" userLabel="Row2">
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="m7l-Wr-uvW" userLabel="Row2">
                                                                                         <rect key="frame" x="0.0" y="125.5" width="375" height="124"/>
                                                                                         <subviews>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEC-9z-nQp" userLabel="4">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="124"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="124"/>
                                                                                                 <subviews>
                                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank" translatesAutoresizingMaskIntoConstraints="NO" id="PfG-TY-1Ed">
-                                                                                                        <rect key="frame" x="5" y="5" width="113" height="114"/>
+                                                                                                        <rect key="frame" x="5" y="5" width="114.5" height="114"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="PfG-TY-1Ed" secondAttribute="height" multiplier="1:1" id="Xb7-Wf-Qao"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGq-1m-pfM">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="124"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="124"/>
                                                                                                         <connections>
                                                                                                             <segue destination="7bK-jq-Zjz" kind="show" identifier="bankTable" id="Muf-rF-zLt"/>
                                                                                                         </connections>
@@ -355,16 +355,16 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kpe-1h-oHI" userLabel="5">
-                                                                                                <rect key="frame" x="125" y="0.0" width="125" height="124"/>
+                                                                                                <rect key="frame" x="126" y="0.0" width="123.5" height="124"/>
                                                                                                 <subviews>
                                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="All" translatesAutoresizingMaskIntoConstraints="NO" id="SWQ-v8-DEi">
-                                                                                                        <rect key="frame" x="5" y="5" width="113" height="114"/>
+                                                                                                        <rect key="frame" x="5" y="5" width="113.5" height="114"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="SWQ-v8-DEi" secondAttribute="height" multiplier="1:1" id="85M-Ln-sYh"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ogg-fp-szp">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="124"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="123.5" height="124"/>
                                                                                                         <connections>
                                                                                                             <segue destination="7bK-jq-Zjz" kind="show" identifier="allTable" id="mDS-08-51z"/>
                                                                                                         </connections>
@@ -382,16 +382,16 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B43-ne-lNK" userLabel="6">
-                                                                                                <rect key="frame" x="250" y="0.0" width="125" height="124"/>
+                                                                                                <rect key="frame" x="251" y="0.0" width="124" height="124"/>
                                                                                                 <subviews>
                                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="education" translatesAutoresizingMaskIntoConstraints="NO" id="IAr-Dv-ZGX">
-                                                                                                        <rect key="frame" x="5" y="5" width="113" height="114"/>
+                                                                                                        <rect key="frame" x="5" y="5" width="114" height="114"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="IAr-Dv-ZGX" secondAttribute="height" multiplier="1:1" id="tm1-FM-78D"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q47-Ut-XK4">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="124"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="124"/>
                                                                                                         <connections>
                                                                                                             <segue destination="7bK-jq-Zjz" kind="show" identifier="educationTable" id="gBk-xW-bh4"/>
                                                                                                         </connections>
@@ -411,20 +411,20 @@
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     </stackView>
-                                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="qoG-by-C4v" userLabel="Row3">
-                                                                                        <rect key="frame" x="0.0" y="251.5" width="375" height="123.5"/>
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="qoG-by-C4v" userLabel="Row3">
+                                                                                        <rect key="frame" x="0.0" y="250.5" width="375" height="124.5"/>
                                                                                         <subviews>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZ2-TB-6Hk" userLabel="7">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="123.5"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="124.5"/>
                                                                                                 <subviews>
                                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retail" translatesAutoresizingMaskIntoConstraints="NO" id="Lp1-Z4-Zop">
-                                                                                                        <rect key="frame" x="5" y="5" width="113.5" height="113.5"/>
+                                                                                                        <rect key="frame" x="5" y="5" width="114.5" height="114.5"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="Lp1-Z4-Zop" secondAttribute="height" multiplier="1:1" id="mRi-6z-pXT"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tY7-Nk-ppu">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="123.5"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="124.5"/>
                                                                                                         <connections>
                                                                                                             <segue destination="7bK-jq-Zjz" kind="show" identifier="salesTable" id="zh7-fb-ggf"/>
                                                                                                         </connections>
@@ -442,16 +442,16 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dl2-sX-aks" userLabel="8">
-                                                                                                <rect key="frame" x="125" y="0.0" width="125" height="123.5"/>
+                                                                                                <rect key="frame" x="125.5" y="0.0" width="124.5" height="124.5"/>
                                                                                                 <subviews>
                                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="receptionist" translatesAutoresizingMaskIntoConstraints="NO" id="EmT-fU-me1">
-                                                                                                        <rect key="frame" x="5" y="5" width="113.5" height="113.5"/>
+                                                                                                        <rect key="frame" x="5" y="5" width="114.5" height="114.5"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="EmT-fU-me1" secondAttribute="height" multiplier="1:1" id="eFQ-Fg-PGc"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7E7-vf-jka">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="123.5"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="124.5" height="124.5"/>
                                                                                                         <connections>
                                                                                                             <segue destination="7bK-jq-Zjz" kind="show" identifier="receptionTable" id="EnS-p7-7jN"/>
                                                                                                         </connections>
@@ -469,16 +469,16 @@
                                                                                                 </constraints>
                                                                                             </view>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zu9-z2-GrG" userLabel="9">
-                                                                                                <rect key="frame" x="250" y="0.0" width="125" height="123.5"/>
+                                                                                                <rect key="frame" x="251" y="0.0" width="124" height="124.5"/>
                                                                                                 <subviews>
                                                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="others" translatesAutoresizingMaskIntoConstraints="NO" id="PQ1-Nz-TA0">
-                                                                                                        <rect key="frame" x="5" y="5" width="113.5" height="113.5"/>
+                                                                                                        <rect key="frame" x="5" y="5" width="114.5" height="114.5"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="PQ1-Nz-TA0" secondAttribute="height" multiplier="1:1" id="fyD-q2-4uZ"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cin-5D-B13">
-                                                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="123.5"/>
+                                                                                                        <rect key="frame" x="0.0" y="0.0" width="124" height="124.5"/>
                                                                                                         <connections>
                                                                                                             <segue destination="7bK-jq-Zjz" kind="show" identifier="othersTable" id="Pn4-LR-lDe"/>
                                                                                                         </connections>
@@ -2858,7 +2858,7 @@ Contact Us
         <image name="signin1" width="320" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3g5-t3-D5n"/>
+        <segue reference="hcU-FG-nwL"/>
         <segue reference="gBk-xW-bh4"/>
     </inferredMetricsTieBreakers>
 </document>
