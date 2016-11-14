@@ -91,10 +91,19 @@ class MasterViewController: UITableViewController {
         
         if (categoryContents.count != 0) {
             let categoryContents = self.categoryContents[(indexPath as NSIndexPath).row]
-            cell.titleLabel!.text = categoryContents.title
-            cell.commentsLabel.text = categoryContents.date
-            cell.myImageView.image = self.getImageFromString(string: categoryContents.photo)
-            cell.locationLabel.text = categoryContents.location
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+                let data: NSData = NSData.init(base64Encoded: categoryContents.photo, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
+                let image: UIImage = UIImage.init(data: data as Data)!
+                
+                DispatchQueue.main.async {
+                    cell.myImageView.image = image
+                    cell.titleLabel!.text = categoryContents.title
+                    cell.commentsLabel.text = categoryContents.date
+                    cell.locationLabel.text = categoryContents.location
+                }
+            }
+            
         }
         
         return cell

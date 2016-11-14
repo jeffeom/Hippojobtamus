@@ -90,13 +90,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         self.setUpLocationForButton(locationButton: locationButton)
         
-//        fetchDataFromDB()
-        
         let nav = self.navigationController?.navigationBar
         nav?.barTintColor = UIColor.init(red: 0/255.0, green: 168.0/255.0, blue: 168.0/255.0, alpha: 1.0)
-        //        nav?.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Futura-Medium", size: 20)!]
-        //        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        //
         let attrs = [
             NSForegroundColorAttributeName: UIColor.white,
             NSFontAttributeName: UIFont(name: "Futura-MediumItalic", size: 25)!
@@ -207,11 +202,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if (latestContents.count != 0) {
             let categoryContents = self.latestContents[(indexPath as NSIndexPath).row]
-            cell.titleLabel!.text = categoryContents.title
-            cell.myImageView.image = self.getImageFromString(string: categoryContents.photo)
-            cell.locationLabel.text = categoryContents.location
+            
+            DispatchQueue.global(qos: .userInitiated).async {
+                let data: NSData = NSData.init(base64Encoded: categoryContents.photo, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
+                let image: UIImage = UIImage.init(data: data as Data)!
+                
+                DispatchQueue.main.async {
+                    cell.myImageView.image = image
+                    cell.titleLabel!.text = categoryContents.title
+                    cell.locationLabel.text = categoryContents.location
+                    cell.setNeedsLayout() //invalidate current layout
+                    cell.layoutIfNeeded() //update immediately
+                }
+            }
         }
-        
         return cell
     }
     
@@ -225,34 +229,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let _ = segue.identifier {
             switch segue.identifier! as String {
-                
-//            case "cafeTable":
-//                let controller = segue.destination as! MasterViewController
-//                controller.contents = "Cafe"
-//            case "restaurantTable":
-//                let controller = segue.destination as! MasterViewController
-//                controller.contents = "Restaurant"
-//            case "educationTable":
-//                let controller = segue.destination as! MasterViewController
-//                controller.contents = "Education"
-//            case "salesTable":
-//                let controller = segue.destination as! MasterViewController
-//                controller.contents = "Sales"
-//            case "allTable":
-//                let controller = segue.destination as! MasterViewController
-//                controller.contents = "All"
-//            case "receptionTable":
-//                let controller = segue.destination as! MasterViewController
-//                controller.contents = "Reception"
-//            case "groceryTable":
-//                let controller = segue.destination as! MasterViewController
-//                controller.contents = "Grocery"
-//            case "bankTable":
-//                let controller = segue.destination as! MasterViewController
-//                controller.contents = "Bank"
-//            case "othersTable":
-//                let controller = segue.destination as! MasterViewController
-//                controller.contents = "Others"
 
             case "showDetail":
                 let cell = sender as! LatestJobCollectionViewCell
@@ -268,7 +244,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     let controller = segue.destination as! MasterViewController
                     controller.contents = categoryContent
                 }
-                
+            case "showDetail2":
+                let cell = sender as! SuggestTableViewCell
+                if let indexPath = self.myTableView!.indexPath(for: cell) {
+                    let categoryContent = self.latestContents[indexPath.item]
+                    let controller = segue.destination as! DetailViewController
+                    controller.detailItem = categoryContent as JobItem
+                }
+            
             default:
                 NSLog("Wrong Segue")
             }
@@ -284,13 +267,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     //MARK: Function
-    
-    func getImageFromString(string: String) -> UIImage {
-        let data: NSData = NSData.init(base64Encoded: string, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
-        let image: UIImage = UIImage.init(data: data as Data)!
-        
-        return image
-    }
     
     func scrollToNextCell(){
         
@@ -312,12 +288,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func fetchDataFromDB() {
         if let _ = UserDefaults.standard.string(forKey: "currentLocation"){
-            
-            ref.child("All").observe(.value, with: { snapshot in
-
+            NSLog("right before start of fetching data")
+            ref.child("All").observeSingleEvent(of: .value, with: { snapshot in
+                NSLog("start fetching data")
                 var latestItems: [JobItem] = []
                 
                 for item in snapshot.children {
+                    NSLog("looping...")
                     let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
                     self.itemCounter += 1
                     
@@ -371,6 +348,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.indicator.stopAnimating()
                 self.indicator.hidesWhenStopped = true
                 self.container.isHidden = true
+                NSLog("Ended fetching data")
             })
         }else{
             let alert = UIAlertController(title: "Current Location Needed", message: "Please set your current location", preferredStyle: UIAlertControllerStyle.alert)
