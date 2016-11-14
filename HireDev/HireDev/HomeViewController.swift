@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
     
@@ -29,12 +29,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var rejectionCounter = 0
     var itemCounter = 0
     let container: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 70))
+    let categoryString: [String] = ["cafe", "restaurant", "grocery", "bank", "All", "education", "retail", "receptionist", "others"]
+    let categoryContents: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "All", "Education", "Sales", "Reception", "Others"]
     
     //MARK: IBOutlets
     
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var latestCollectionView: UICollectionView!
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
+    @IBOutlet weak var myTableView: UITableView!
     
     //MARK: UIViewController
     
@@ -86,7 +90,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         self.setUpLocationForButton(locationButton: locationButton)
         
-        fetchDataFromDB()
+//        fetchDataFromDB()
         
         let nav = self.navigationController?.navigationBar
         nav?.barTintColor = UIColor.init(red: 0/255.0, green: 168.0/255.0, blue: 168.0/255.0, alpha: 1.0)
@@ -116,54 +120,104 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //MARK: CollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        return latestContents.count
+        
+        if collectionView == latestCollectionView{
+            return latestContents.count
+        }else{
+            return categoryString.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! LatestJobCollectionViewCell
         
-        let latestContent = self.latestContents[(indexPath as NSIndexPath).item]
-        
-        cell.titleLabel.text = latestContent.title
-        cell.locationLabel.text = latestContent.location
-        cell.dateLabel.text = latestContent.date
-        
-        return cell
+        if collectionView == latestCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! LatestJobCollectionViewCell
+            
+            let latestContent = self.latestContents[(indexPath as NSIndexPath).item]
+            
+            cell.titleLabel.text = latestContent.title
+            cell.locationLabel.text = latestContent.location
+            cell.dateLabel.text = latestContent.date
+            
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCollectionViewCell
+            
+            cell.categoryImage.image = UIImage.init(named: categoryString[indexPath.row])
+            
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let kWhateverHeightYouWant = 140
-        return CGSize.init(width:collectionView.bounds.size.width, height:CGFloat(kWhateverHeightYouWant))
+        
+        if collectionView == latestCollectionView{
+            let kWhateverHeightYouWant = 140
+            return CGSize.init(width:collectionView.bounds.size.width, height:CGFloat(kWhateverHeightYouWant))
+        }else{
+            let kWhateverHeightYouWant = 100
+            return CGSize.init(width:collectionView.bounds.size.width / 4, height:CGFloat(kWhateverHeightYouWant))
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let contentOffsetScrolledRight: Float = Float(self.latestCollectionView.frame.size.width) * Float(self.latestContents.count - 1)
         
-        if Float(scrollView.contentOffset.x) == contentOffsetScrolledRight{
-            let newIndexPath: NSIndexPath = NSIndexPath.init(item: 1, section: 0)
+        if scrollView == latestCollectionView{
+            let contentOffsetScrolledRight: Float = Float(self.latestCollectionView.frame.size.width) * Float(self.latestContents.count - 1)
             
-            self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
-        }else if scrollView.contentOffset.x == 0 {
-            let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 2), section: 0)
-            
-            self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+            if Float(scrollView.contentOffset.x) == contentOffsetScrolledRight{
+                let newIndexPath: NSIndexPath = NSIndexPath.init(item: 1, section: 0)
+                
+                self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+            }else if scrollView.contentOffset.x == 0 {
+                let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 2), section: 0)
+                
+                self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+            }
         }
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        let contentOffsetScrolledRight: Float = Float(self.latestCollectionView.frame.size.width) * Float(self.latestContents.count - 1)
         
-        if Float(scrollView.contentOffset.x) == contentOffsetScrolledRight{
-            let newIndexPath: NSIndexPath = NSIndexPath.init(item: 1, section: 0)
+        if scrollView == latestCollectionView{
+            let contentOffsetScrolledRight: Float = Float(self.latestCollectionView.frame.size.width) * Float(self.latestContents.count - 1)
             
-            self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
-        }else if scrollView.contentOffset.x == 0 {
-            let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 2), section: 0)
-            
-            self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+            if Float(scrollView.contentOffset.x) == contentOffsetScrolledRight{
+                let newIndexPath: NSIndexPath = NSIndexPath.init(item: 1, section: 0)
+                
+                self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+            }else if scrollView.contentOffset.x == 0 {
+                let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 2), section: 0)
+                
+                self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+            }
         }
+    }
+    
+    //MARK: TableView
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return latestContents.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "suggestCell", for: indexPath) as! SuggestTableViewCell
+        
+        if (latestContents.count != 0) {
+            let categoryContents = self.latestContents[(indexPath as NSIndexPath).row]
+            cell.titleLabel!.text = categoryContents.title
+            cell.myImageView.image = self.getImageFromString(string: categoryContents.photo)
+            cell.locationLabel.text = categoryContents.location
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.tintColor = UIColor.white
+        cell.backgroundColor = UIColor.clear
     }
     
     //MARK: Segue
@@ -171,39 +225,48 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let _ = segue.identifier {
             switch segue.identifier! as String {
-            case "cafeTable":
-                let controller = segue.destination as! MasterViewController
-                controller.contents = "Cafe"
-            case "restaurantTable":
-                let controller = segue.destination as! MasterViewController
-                controller.contents = "Restaurant"
-            case "educationTable":
-                let controller = segue.destination as! MasterViewController
-                controller.contents = "Education"
-            case "salesTable":
-                let controller = segue.destination as! MasterViewController
-                controller.contents = "Sales"
-            case "allTable":
-                let controller = segue.destination as! MasterViewController
-                controller.contents = "All"
-            case "receptionTable":
-                let controller = segue.destination as! MasterViewController
-                controller.contents = "Reception"
-            case "groceryTable":
-                let controller = segue.destination as! MasterViewController
-                controller.contents = "Grocery"
-            case "bankTable":
-                let controller = segue.destination as! MasterViewController
-                controller.contents = "Bank"
-            case "othersTable":
-                let controller = segue.destination as! MasterViewController
-                controller.contents = "Others"
+                
+//            case "cafeTable":
+//                let controller = segue.destination as! MasterViewController
+//                controller.contents = "Cafe"
+//            case "restaurantTable":
+//                let controller = segue.destination as! MasterViewController
+//                controller.contents = "Restaurant"
+//            case "educationTable":
+//                let controller = segue.destination as! MasterViewController
+//                controller.contents = "Education"
+//            case "salesTable":
+//                let controller = segue.destination as! MasterViewController
+//                controller.contents = "Sales"
+//            case "allTable":
+//                let controller = segue.destination as! MasterViewController
+//                controller.contents = "All"
+//            case "receptionTable":
+//                let controller = segue.destination as! MasterViewController
+//                controller.contents = "Reception"
+//            case "groceryTable":
+//                let controller = segue.destination as! MasterViewController
+//                controller.contents = "Grocery"
+//            case "bankTable":
+//                let controller = segue.destination as! MasterViewController
+//                controller.contents = "Bank"
+//            case "othersTable":
+//                let controller = segue.destination as! MasterViewController
+//                controller.contents = "Others"
+
             case "showDetail":
                 let cell = sender as! LatestJobCollectionViewCell
                 if let indexPath = self.latestCollectionView!.indexPath(for: cell) {
                     let categoryContent = self.latestContents[indexPath.item]
                     let controller = segue.destination as! DetailViewController
                     controller.detailItem = categoryContent as JobItem
+                }
+            case "categoryShow":
+                let cell = sender as! CategoryCollectionViewCell
+                if let indexPath = self.categoryCollectionView!.indexPath(for: cell) {
+                    let categoryContent = self.categoryContents[indexPath.item]
+                    let controller = segue.destination as! MasterViewController
+                    controller.contents = categoryContent
                 }
                 
             default:
@@ -292,6 +355,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                     
                                     self.latestContents = latestItems
                                     self.latestCollectionView.reloadData()
+                                    self.myTableView.reloadData()
                                 }
                             }else{
                                 self.rejectionCounter += 1
