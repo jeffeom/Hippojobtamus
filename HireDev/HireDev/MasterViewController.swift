@@ -11,7 +11,6 @@ import Firebase
 import FontAwesome_swift
 
 class MasterViewController: UITableViewController {
-    
     var detailViewController: DetailViewController? = nil
     
     //MARK: Properties

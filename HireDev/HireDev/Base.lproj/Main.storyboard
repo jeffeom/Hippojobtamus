@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1844,7 +1845,7 @@ Contact Us
         <!--Location Settings-->
         <scene sceneID="GJd-an-dVH">
             <objects>
-                <viewController storyboardIdentifier="locationSetting" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TYv-8r-NNs" customClass="LocationSettingViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="locationSetting" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TYv-8r-NNs" customClass="LocationSettingsViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JPI-s6-aA8"/>
                         <viewControllerLayoutGuide type="bottom" id="5xm-hA-eOs"/>
@@ -1976,7 +1977,7 @@ Contact Us
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                                                 <state key="normal" title="Use Current Location"/>
                                                                 <connections>
-                                                                    <action selector="currentLocation:" destination="TYv-8r-NNs" eventType="touchUpInside" id="w69-ZR-vWo"/>
+                                                                    <action selector="fetchCurrentLocation:" destination="TYv-8r-NNs" eventType="touchUpInside" id="vea-dX-odV"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -1998,7 +1999,7 @@ Contact Us
                                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                                                 <state key="normal" title="Search for a Place"/>
                                                                 <connections>
-                                                                    <action selector="searchButton:" destination="TYv-8r-NNs" eventType="touchUpInside" id="n11-PG-NcN"/>
+                                                                    <action selector="searchForAPlace:" destination="TYv-8r-NNs" eventType="touchUpInside" id="M0m-Ws-Uva"/>
                                                                 </connections>
                                                             </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lys-Zt-lxH" customClass="FontAwesomeView" customModule="FontAwesome_swift">
@@ -2049,13 +2050,6 @@ Contact Us
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="powerGoogle" translatesAutoresizingMaskIntoConstraints="NO" id="OBm-uL-gPM">
-                                                                <rect key="frame" x="221.5" y="36" width="112.5" height="13"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" secondItem="OBm-uL-gPM" secondAttribute="height" multiplier="26:3" id="Pq7-mc-eKp"/>
-                                                                    <constraint firstAttribute="height" constant="13" id="yUJ-5g-gh5"/>
-                                                                </constraints>
-                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
@@ -2063,8 +2057,6 @@ Contact Us
                                                             <constraint firstItem="fk9-YY-gxQ" firstAttribute="trailing" secondItem="5GT-lo-mU0" secondAttribute="leading" constant="-10" id="Di8-7L-QCq"/>
                                                             <constraint firstItem="5GT-lo-mU0" firstAttribute="centerY" secondItem="oHB-jy-Bf8" secondAttribute="centerY" id="Qit-Iy-qTu"/>
                                                             <constraint firstItem="5GT-lo-mU0" firstAttribute="centerX" secondItem="oHB-jy-Bf8" secondAttribute="centerX" constant="1" id="h19-79-1So"/>
-                                                            <constraint firstAttribute="bottom" secondItem="OBm-uL-gPM" secondAttribute="bottom" constant="1" id="iLi-8U-MOW"/>
-                                                            <constraint firstAttribute="trailing" secondItem="OBm-uL-gPM" secondAttribute="trailing" constant="1" id="jWF-2m-LJY"/>
                                                             <constraint firstItem="fk9-YY-gxQ" firstAttribute="centerY" secondItem="oHB-jy-Bf8" secondAttribute="centerY" id="tx9-dn-22v"/>
                                                         </constraints>
                                                     </view>
@@ -2170,6 +2162,73 @@ Contact Us
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ehr-OQ-rNc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6903.1999999999998" y="26.986506746626688"/>
+        </scene>
+        <!--Search for a Place-->
+        <scene sceneID="Ey5-si-8Ww">
+            <objects>
+                <viewController storyboardIdentifier="searchVC" title="Search for a Place" useStoryboardIdentifierAsRestorationIdentifier="YES" id="p4P-Sn-gQc" customClass="SearchBarViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9T4-H6-fyR"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eu0-Kb-vCC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zZt-Ic-ajw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Qfj-7N-4Sv">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="4r1-yB-9ky"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dwv-xh-sUr">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchResultCell" textLabel="1dy-vC-yVQ" style="IBUITableViewCellStyleDefault" id="0oo-M4-ag6">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0oo-M4-ag6" id="nYg-uy-oe5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1dy-vC-yVQ">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="p4P-Sn-gQc" id="1d4-7j-pN3"/>
+                                    <outlet property="delegate" destination="p4P-Sn-gQc" id="Z0S-AR-nIT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qfj-7N-4Sv" firstAttribute="leading" secondItem="zZt-Ic-ajw" secondAttribute="leading" id="Klf-yY-rnk"/>
+                            <constraint firstItem="dwv-xh-sUr" firstAttribute="leading" secondItem="zZt-Ic-ajw" secondAttribute="leading" id="QcY-UE-XPJ"/>
+                            <constraint firstItem="Eu0-Kb-vCC" firstAttribute="top" secondItem="dwv-xh-sUr" secondAttribute="bottom" id="QrQ-ml-MCu"/>
+                            <constraint firstAttribute="trailing" secondItem="dwv-xh-sUr" secondAttribute="trailing" id="bu2-nZ-n9e"/>
+                            <constraint firstItem="Qfj-7N-4Sv" firstAttribute="top" secondItem="9T4-H6-fyR" secondAttribute="bottom" id="h32-Ge-uL8"/>
+                            <constraint firstItem="dwv-xh-sUr" firstAttribute="top" secondItem="Qfj-7N-4Sv" secondAttribute="bottom" id="pew-eB-Pay"/>
+                            <constraint firstAttribute="trailing" secondItem="Qfj-7N-4Sv" secondAttribute="trailing" id="y7v-L3-mfz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="Qfj-7N-4Sv" id="d4Q-4i-SIF"/>
+                        <outlet property="tableView" destination="dwv-xh-sUr" id="s3p-4E-LTv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vfX-Ao-7ah" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7617" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sBi-4Y-EBq">
@@ -2646,6 +2705,7 @@ Contact Us
                 <tabBarController storyboardIdentifier="verifiedVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="het-wQ-3Ib" customClass="TabBarController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="OaE-HZ-59V">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -2730,7 +2790,6 @@ Contact Us
         <image name="fbutton1" width="320" height="120"/>
         <image name="feature" width="300" height="300"/>
         <image name="greenbackground" width="750" height="1334"/>
-        <image name="powerGoogle" width="144" height="18"/>
         <image name="signin" width="320" height="120"/>
         <image name="signin1" width="320" height="120"/>
     </resources>

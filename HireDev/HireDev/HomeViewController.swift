@@ -29,6 +29,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var rejectionCounter = 0
     var itemCounter = 0
     let container: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 70))
+    var loadingView: UIView?
     let categoryString: [String] = ["cafe", "restaurant", "grocery", "bank", "All", "education", "retail", "receptionist", "others"]
     let categoryContents: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "All", "Education", "Sales", "Reception", "Others"]
     
@@ -45,21 +46,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.rejectionCounter = 0
-        self.itemCounter = 0
-        
-        container.backgroundColor = self.hexStringToUIColor(hex: "444444", alpha: 0.5)
-        container.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.midY / 6)
-        container.layer.cornerRadius = 10
-        self.latestCollectionView.addSubview(container)
-        container.bringSubview(toFront: self.latestCollectionView)
-        
-        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        indicator.frame = CGRect.init(x: 11.5, y: 11.5, width: 50, height: 50)
-        container.addSubview(indicator)
-        indicator.bringSubview(toFront: container)
-        indicator.startAnimating()
-        
         var keys: NSDictionary?
         
         if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
@@ -73,20 +59,34 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             bannerView.rootViewController = self
             bannerView.load(GADRequest())
         }
-        
-        
-        self.setUpLocationForButton(locationButton: locationButton)
-        
-        self.fetchDataFromDB()
-        
+
         self.startTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.container.isHidden = false
+        self.indicator.isHidden = false
+        
         self.rejectionCounter = 0
         self.itemCounter = 0
+        
+        loadingView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        loadingView?.backgroundColor = UIColor.white
+        self.view.addSubview(loadingView!)
+        
+        container.backgroundColor = self.hexStringToUIColor(hex: "444444", alpha: 0.5)
+        container.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.midY / 6)
+        container.layer.cornerRadius = 10
+        self.latestCollectionView.addSubview(container)
+        container.bringSubview(toFront: self.latestCollectionView)
+        
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        indicator.frame = CGRect.init(x: 11.5, y: 11.5, width: 50, height: 50)
+        container.addSubview(indicator)
+        indicator.bringSubview(toFront: container)
+        indicator.startAnimating()
         
         self.setUpLocationForButton(locationButton: locationButton)
         
@@ -102,8 +102,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         self.tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
         self.tabBarController?.tabBar.tintColor = UIColor.white
-        self.setUpLocationForButton(locationButton: locationButton)
         
+        self.fetchDataFromDB()
+        ///////////////////////protocol this 
     }
     
     override func didReceiveMemoryWarning() {
@@ -348,6 +349,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.indicator.stopAnimating()
                 self.indicator.hidesWhenStopped = true
                 self.container.isHidden = true
+                self.loadingView?.removeFromSuperview()
                 NSLog("Ended fetching data")
             })
         }else{

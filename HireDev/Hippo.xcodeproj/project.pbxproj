@@ -16,6 +16,7 @@
 		403A169D1D9B8709001FB468 /* ViewController+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */; };
 		403A169F1D9B8939001FB468 /* UIAlertController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */; };
 		404B3ED41DAA854300415DF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */; };
+		405C1DB61DE00FCC0040A2F8 /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405C1DB51DE00FCC0040A2F8 /* SearchBarViewController.swift */; };
 		406132031DA250B90025EF0E /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 406132021DA250B90025EF0E /* Keys.plist */; };
 		406132051DA259820025EF0E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 406132041DA259820025EF0E /* MapKit.framework */; };
 		406132071DA25F7C0025EF0E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 406132061DA25F7C0025EF0E /* CoreLocation.framework */; };
@@ -39,6 +40,7 @@
 		40D111491DA0331000AAD34E /* LocationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D111481DA0331000AAD34E /* LocationSettingViewController.swift */; };
 		40DAA3A51D99F040005806BE /* JobItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA3A41D99F040005806BE /* JobItem.swift */; };
 		40DFE3E81DA482510052E6EF /* ViewController+CheckDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DFE3E71DA482510052E6EF /* ViewController+CheckDistance.swift */; };
+		40ECDAAA1DDFF5EA00DD77BD /* LocationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ECDAA91DDFF5EA00DD77BD /* LocationSettingsViewController.swift */; };
 		40F28D5B1DD99B8D00676EAD /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F28D5A1DD99B8D00676EAD /* CategoryCollectionViewCell.swift */; };
 		40F28D5D1DD9B40E00676EAD /* SuggestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F28D5C1DD9B40E00676EAD /* SuggestTableViewCell.swift */; };
 		40F301601D9680880035D47A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F3015F1D9680880035D47A /* SettingViewController.swift */; };
@@ -55,6 +57,7 @@
 		403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+AlertView.swift"; sourceTree = "<group>"; };
 		403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Present.swift"; sourceTree = "<group>"; };
 		404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		405C1DB51DE00FCC0040A2F8 /* SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		406132021DA250B90025EF0E /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		406132041DA259820025EF0E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		406132061DA25F7C0025EF0E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -81,6 +84,7 @@
 		40D111481DA0331000AAD34E /* LocationSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSettingViewController.swift; sourceTree = "<group>"; };
 		40DAA3A41D99F040005806BE /* JobItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobItem.swift; sourceTree = "<group>"; };
 		40DFE3E71DA482510052E6EF /* ViewController+CheckDistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+CheckDistance.swift"; sourceTree = "<group>"; };
+		40ECDAA91DDFF5EA00DD77BD /* LocationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSettingsViewController.swift; sourceTree = "<group>"; };
 		40F28D5A1DD99B8D00676EAD /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		40F28D5C1DD9B40E00676EAD /* SuggestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestTableViewCell.swift; sourceTree = "<group>"; };
 		40F3015F1D9680880035D47A /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				40F3015F1D9680880035D47A /* SettingViewController.swift */,
 				40D111481DA0331000AAD34E /* LocationSettingViewController.swift */,
 				4000EE8D1DA8EEA800449F0F /* HelpViewController.swift */,
+				40ECDAA91DDFF5EA00DD77BD /* LocationSettingsViewController.swift */,
+				405C1DB51DE00FCC0040A2F8 /* SearchBarViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 				4072DAF81DA6436B000D2B97 /* LatestJobCollectionViewCell.swift in Sources */,
 				407638BA1D8245C100C7A892 /* LoginViewController.swift in Sources */,
 				40D111491DA0331000AAD34E /* LocationSettingViewController.swift in Sources */,
+				405C1DB61DE00FCC0040A2F8 /* SearchBarViewController.swift in Sources */,
 				403A169D1D9B8709001FB468 /* ViewController+AlertView.swift in Sources */,
 				406132091DA270F30025EF0E /* ViewController+SetLocation.swift in Sources */,
 				4000EE8C1DA8A47300449F0F /* ViewController+getLatLong.swift in Sources */,
@@ -374,6 +381,7 @@
 				40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */,
 				407638A31D82421600C7A892 /* DetailViewController.swift in Sources */,
 				407638A11D82421600C7A892 /* MasterViewController.swift in Sources */,
+				40ECDAAA1DDFF5EA00DD77BD /* LocationSettingsViewController.swift in Sources */,
 				40F301601D9680880035D47A /* SettingViewController.swift in Sources */,
 				403A169F1D9B8939001FB468 /* UIAlertController+Present.swift in Sources */,
 				409B00831D9509D700E5174E /* UploadViewController.swift in Sources */,
@@ -532,7 +540,9 @@
 					"DISABLE_PUSH_NOTIFICATIONS=1",
 				);
 				INFOPLIST_FILE = HireDev/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fourj.Hippojobtamus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -566,7 +576,9 @@
 					"~/Documents/FacebookSDK",
 				);
 				INFOPLIST_FILE = HireDev/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fourj.Hippojobtamus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
