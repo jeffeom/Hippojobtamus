@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import MapKit
 
 class LocationSettingsViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, SearchBarViewControllerDelegate {
 
@@ -158,7 +157,7 @@ class LocationSettingsViewController: UIViewController, CLLocationManagerDelegat
                 let placeArray = placemarks! as [CLPlacemark]
                 var placeMark: CLPlacemark!
                 placeMark = placeArray[0]
-                let fetchedLocationString: [String] = [placeMark.name!, placeMark.locality! + " " + placeMark.administrativeArea!, placeMark.country!]
+                let fetchedLocationString: [String] = [placeMark.name!, placeMark.locality!]
                 
                 
                 self.locationLabel.text = fetchedLocationString.joined(separator: ", ")
