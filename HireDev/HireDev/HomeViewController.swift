@@ -103,8 +103,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
         self.tabBarController?.tabBar.tintColor = UIColor.white
         
-        self.fetchDataFromDB()
-        ///////////////////////protocol this
+        self.listDataWithinRange()
+        ///////////////////////protocol this????????
     }
     
     override func didReceiveMemoryWarning() {
@@ -287,122 +287,69 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(HomeViewController.scrollToNextCell), userInfo: nil, repeats: true)
     }
     
-    func fetchDataFromDB() {
-        
+    func fetchDataFromDB(completionHandler: @escaping (_ array: [JobItem]?) -> Void) {
+        NSLog("Started fetching data from DB")
         ref.child("All").observeSingleEvent(of: .value, with: { snapshot in
             
-            var latestItems: [JobItem] = []
+            var jobItems: [JobItem] = []
             
             for item in snapshot.children{
                 let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
                 
-                NSLog("\(jobItem.location)")
-                
-                let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!
-                let readableDestination: String = jobItem.location
-                
-                self.checkDistance(origin: readableOrigin, destination: readableDestination, completionHandler: {(distance, error) in
-                
-                    let distanceMeters = distance
-                    let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance") * 1000
-                    
-                    NSLog("\(jobItem.title): \(distanceMeters!) `` \(userDistanceRequest)" )
-                    
-                    latestItems.append(jobItem)
-                    NSLog("\(latestItems)")
-                    self.indicator.stopAnimating()
-                    self.indicator.hidesWhenStopped = true
-                    self.container.isHidden = true
-                    self.loadingView?.removeFromSuperview()
-                    NSLog("Ended fetching data")
-                })
-            }            
+                jobItems.append(jobItem)
+            }
+            
+            if jobItems.count != 0{
+                completionHandler(jobItems)
+                NSLog("Ended fetching data from DB with \(jobItems.count) datas")
+            }
         }){ error in
             NSLog(error.localizedDescription)
         }
     }
     
-    
-    
-    //
-    //
-    //
-    //        if let _ = UserDefaults.standard.string(forKey: "currentLocation"){
-    //            NSLog("right before start of fetching data")
-    //
-    //            ref.child("All").observeSingleEvent(of: .value, with: { snapshot in
-    //                NSLog("start fetching data")
-    //                var latestItems: [JobItem] = []
-    //
-    //                for item in snapshot.children {
-    //                    NSLog("looping...")
-    //                    let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
-    //                    self.itemCounter += 1
-    //
-    //                    let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!
-    //                    let readableDestination: String = jobItem.location
-    //
-    //                    let distanceMeters = self.checkDistance(origin: readableOrigin, destination: readableDestination)
-    //                    let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance") * 1000
-    //
-    //                    if distanceMeters != 0 {
-    //                        if distanceMeters > Double(userDistanceRequest){
-    //                            self.rejectionCounter += 1
-    //                            if self.rejectionCounter == self.itemCounter{
-    //
-    //                                self.showNoJobsFound()
-    //
-    //                            }else{
-    //                                latestItems.append(jobItem)
-    //
-    //                                if latestItems.count == snapshot.children.allObjects.count - self.rejectionCounter{
-    //
-    //                                    let firstItem =  latestItems.first
-    //                                    let lastItem = latestItems.last
-    //
-    //                                    latestItems.append(firstItem!)
-    //                                    latestItems.insert(lastItem!, at: 0)
-    //
-    //                                    self.itemCounter = 0
-    //                                    self.rejectionCounter = 0
-    //                                }
-    //
-    //                                self.latestContents = latestItems
-    //                                self.latestCollectionView.reloadData()
-    //                                self.myTableView.reloadData()
-    //                            }
-    //                        }
-    //                    }else{
-    //                        self.rejectionCounter += 1
-    //                        if self.rejectionCounter == self.itemCounter{
-    //
-    //                            self.showNotAvailable()
-    //
-    //                        }
-    //                    }
-    //                }
-    //                self.indicator.stopAnimating()
-    //                self.indicator.hidesWhenStopped = true
-    //                self.container.isHidden = true
-    //                self.loadingView?.removeFromSuperview()
-    //                NSLog("Ended fetching data")
-    //            })
-    //        }else{
-    //            let alert = UIAlertController(title: "Current Location Needed", message: "Please set your current location", preferredStyle: UIAlertControllerStyle.alert)
-    //
-    //            alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
-    //
-    //                let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
-    //                self.navigationController?.pushViewController(vc!, animated: true)
-    //            }))
-    //
-    //            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
-    //                return
-    //            }))
-    //
-    //            alert.show()
-    //        }
-    //    }
+    func listDataWithinRange(){
+        var sortedData: [JobItem] = []
+        let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!
+        let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance") * 1000
+        var rejectCount = 0
+        var successCount = 0
+        
+        self.fetchDataFromDB(completionHandler: { jobItemList in
+            NSLog("Start Listing data")
+            if let _ = jobItemList{
+                for jobItem in jobItemList!{
+                    let readableDestination: String = jobItem.location
+                    
+                    self.checkDistance(origin: readableOrigin, destination: readableDestination, completionHandler: { (distanceMeter, error) in
+                        if let _ = error{
+                            NSLog((error?.localizedDescription)!)
+                        }else{
+                            if Float(distanceMeter!) > Float(userDistanceRequest){
+                                rejectCount += 1
+                            }else{
+                                sortedData.append(jobItem)
+                                successCount += 1
+                            }
+                        }
+                    })
+                }
+                
+                self.latestContents = sortedData
+                self.latestCollectionView.reloadData()
+                self.myTableView.reloadData()
+                
+                self.indicator.stopAnimating()
+                self.indicator.hidesWhenStopped = true
+                self.container.isHidden = true
+                self.loadingView?.removeFromSuperview()
+                NSLog("Ended Listing data with rejec: \(rejectCount) success: \(successCount)")
+                
+            }else{
+                self.showNotAvailable()
+            }
+        })
+    }
     
     func showNotAvailable() {
         let alert = UIAlertController(title: "Not Available", message: "Not available to show featured contents in this area. Please change the location.", preferredStyle: UIAlertControllerStyle.alert)
