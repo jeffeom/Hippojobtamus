@@ -103,7 +103,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
         self.tabBarController?.tabBar.tintColor = UIColor.white
         
-        self.listDataWithinRange()
+        self.listDataWithinRange(completionHandler: { (done, sortedData) in
+            
+            if true{
+                
+                self.latestContents = sortedData!
+                self.latestCollectionView.reloadData()
+                self.myTableView.reloadData()
+                
+                self.indicator.stopAnimating()
+                self.indicator.hidesWhenStopped = true
+                self.container.isHidden = true
+                self.loadingView?.removeFromSuperview()
+                NSLog("Ended Listing data")
+                
+            }
+            
+        })
         ///////////////////////protocol this????????
     }
     
@@ -302,13 +318,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if jobItems.count != 0{
                 completionHandler(jobItems)
                 NSLog("Ended fetching data from DB with \(jobItems.count) datas")
+            }else{
+                
             }
         }){ error in
             NSLog(error.localizedDescription)
         }
     }
     
-    func listDataWithinRange(){
+    func listDataWithinRange(completionHandler: @escaping (_ done: Bool?, _ sortedData: [JobItem]?) -> Void){
         var sortedData: [JobItem] = []
         let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!
         let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance") * 1000
@@ -334,17 +352,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                         }
                     })
                 }
-                
-                self.latestContents = sortedData
-                self.latestCollectionView.reloadData()
-                self.myTableView.reloadData()
-                
-                self.indicator.stopAnimating()
-                self.indicator.hidesWhenStopped = true
-                self.container.isHidden = true
-                self.loadingView?.removeFromSuperview()
-                NSLog("Ended Listing data with rejec: \(rejectCount) success: \(successCount)")
-                
+                if successCount > 0{
+                    completionHandler(true, sortedData)
+                }else{
+                    
+                }
             }else{
                 self.showNotAvailable()
             }
