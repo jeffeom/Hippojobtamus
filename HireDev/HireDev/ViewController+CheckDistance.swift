@@ -14,48 +14,60 @@ extension UIViewController{
     func fetchCLLocation(address: String, completionHandler: @escaping (_ location: CLLocation?, _ errorString: String?) -> Void){
         
         let geocoder: CLGeocoder = CLGeocoder()
-        var setLocation: CLLocation = CLLocation()
+        var aLocation = CLLocation()
+        let myGroup = DispatchGroup()
         
+        myGroup.enter()
         geocoder.geocodeAddressString(address, completionHandler: {(placemarks: [CLPlacemark]?, error: Error?) -> Void in
             if let _ = error{
                 NSLog((error?.localizedDescription)!)
                 completionHandler(nil, error?.localizedDescription)
             }else{
                 if let location = placemarks?[0].location{
+                    aLocation = location
                     NSLog("address: \(address), latitude \(location.coordinate.latitude)")
-                    setLocation = location
-                    completionHandler(setLocation, nil)
+                    myGroup.leave()
                 }else{
-                    completionHandler(setLocation, "no placemark found")
+                    completionHandler(nil, "no placemark found")
                 }
             }
-            NSLog("fetchcllocation")
         })
+        
+        myGroup.notify(queue: .main){
+            completionHandler(aLocation, nil)
+            NSLog("fetchcllocation")
+        }
     }
     
     func checkDistance(origin: String, destination: String, completionHandler: @escaping ((_ distance: CLLocationDistance?, _ errorString: String?) -> Void)){
-        
-        var originLoc: CLLocation = CLLocation()
-        var destLoc: CLLocation = CLLocation()
-        var distanceMeters: CLLocationDistance = CLLocationDistance()
+        var theDistance: CLLocationDistance?
+        var theOrigin: CLLocation?
+        var theDest: CLLocation?
         
         self.fetchCLLocation(address: origin, completionHandler: { (originLocation, originError) in
-            self.fetchCLLocation(address: destination, completionHandler: { (destLocation, destError) in
-                
-                if (originError != nil){
-                    completionHandler(nil, originError)
-                }else if (destError != nil){
-                    completionHandler(nil, destError)
-                }else{
-                    originLoc = originLocation!
-                    destLoc = destLocation!
-                    
-                    distanceMeters = originLoc.distance(from: destLoc)
-                    NSLog("\(origin), \(destination): checkdistance got \(distanceMeters)")
-                    completionHandler(distanceMeters, nil)
-                }
-            })
+            if (originError == nil){
+                theOrigin = originLocation
+                NSLog("done 1")
+            }else{
+                NSLog(originError!)
+            }
         })
+        
+        self.fetchCLLocation(address: destination, completionHandler: { (destLocation, destError) in
+            if (destError == nil){
+                theDest = destLocation
+                NSLog("done 2")
+                if let theOrigin = theOrigin, let theDest = theDest{
+                    let distanceMeters = theOrigin.distance(from: theDest)
+                    theDistance = distanceMeters
+                    completionHandler(theDistance, nil)
+                    NSLog("done 3 \(theDistance! * 0.001)KM")
+                }
+            }else{
+                NSLog(destError!)
+            }
+        })
+        
     }
 }
 

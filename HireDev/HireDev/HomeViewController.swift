@@ -62,10 +62,25 @@
             }
             
             self.startTimer()
+            
+            self.setUpLocationForButton(locationButton: locationButton)
         }
         
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
+
+            let nav = self.navigationController?.navigationBar
+            nav?.barTintColor = UIColor.init(red: 0/255.0, green: 168.0/255.0, blue: 168.0/255.0, alpha: 1.0)
+            let attrs = [
+                NSForegroundColorAttributeName: UIColor.white,
+                NSFontAttributeName: UIFont(name: "Futura-MediumItalic", size: 25)!
+            ]
+            
+            nav?.titleTextAttributes = attrs
+            
+            self.tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
+            self.tabBarController?.tabBar.tintColor = UIColor.white
+            
             
             self.container.isHidden = false
             self.indicator.isHidden = false
@@ -88,28 +103,17 @@
             container.addSubview(indicator)
             indicator.bringSubview(toFront: container)
             indicator.startAnimating()
-            
-            self.setUpLocationForButton(locationButton: locationButton)
-            
-            let nav = self.navigationController?.navigationBar
-            nav?.barTintColor = UIColor.init(red: 0/255.0, green: 168.0/255.0, blue: 168.0/255.0, alpha: 1.0)
-            let attrs = [
-                NSForegroundColorAttributeName: UIColor.white,
-                NSFontAttributeName: UIFont(name: "Futura-MediumItalic", size: 25)!
-            ]
-            
-            nav?.titleTextAttributes = attrs
-            
-            
-            self.tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
-            self.tabBarController?.tabBar.tintColor = UIColor.white
+        }
+        
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
             
             self.fetchDataFromDB(){ jobData in
                 self.listDataWithinRange(data: jobData) { sortedData, error in
-                    if error == nil{
+                    if (error != nil){
                         NSLog("\(error)")
                     }else{
-                        if sortedData != nil {
+                        if sortedData?.count != 0 {
                             self.latestContents = sortedData!
                             self.latestCollectionView.reloadData()
                             self.myTableView.reloadData()
@@ -130,6 +134,7 @@
                 }
             }
             ///////////////////////protocol this????????
+            
         }
         
         override func didReceiveMemoryWarning() {
@@ -353,6 +358,15 @@
                             }else{
                                 successCount += 1
                                 sortedData.append(aJob)
+                                self.latestContents = sortedData
+                                self.latestCollectionView.reloadData()
+                                self.myTableView.reloadData()
+                                
+                                self.indicator.stopAnimating()
+                                self.indicator.hidesWhenStopped = true
+                                self.container.isHidden = true
+                                self.loadingView?.removeFromSuperview()
+                                NSLog("Ended Listing data")
                             }
                         }else{
                             completionHandler(nil, "distanceMeter found nil")

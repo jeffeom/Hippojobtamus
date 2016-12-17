@@ -785,7 +785,7 @@
                         <viewControllerLayoutGuide type="top" id="40w-1F-vLD"/>
                         <viewControllerLayoutGuide type="bottom" id="1ej-Wd-5Kz"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="41x-iw-t5T">
+                    <view key="view" contentMode="scaleToFill" id="41x-iw-t5T">
                         <rect key="frame" x="0.0" y="64" width="375" height="687"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
