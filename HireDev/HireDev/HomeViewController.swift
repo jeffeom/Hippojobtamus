@@ -29,14 +29,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var rejectionCounter = 0
     var itemCounter = 0
     let container: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 70))
+    let categoryString: [String] = ["cafe", "restaurant", "grocery", "bank", "All", "education", "retail", "receptionist", "others"]
+    let categoryContents: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "All", "Education", "Sales", "Reception", "Others"]
     
     //MARK: IBOutlets
     
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var latestCollectionView: UICollectionView!
     @IBOutlet weak var bannerView: GADBannerView!
-    
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
     //MARK: UIViewController
+    @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,9 +93,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let nav = self.navigationController?.navigationBar
         nav?.barTintColor = UIColor.init(red: 0/255.0, green: 168.0/255.0, blue: 168.0/255.0, alpha: 1.0)
-        //        nav?.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Futura-Medium", size: 20)!]
-        //        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        //
+        
         let attrs = [
             NSForegroundColorAttributeName: UIColor.white,
             NSFontAttributeName: UIFont(name: "Futura-MediumItalic", size: 25)!
