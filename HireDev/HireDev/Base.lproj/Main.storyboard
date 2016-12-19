@@ -253,8 +253,9 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDC-Uq-4da" userLabel="Category">
                                                                         <rect key="frame" x="0.0" y="170" width="375" height="100"/>
                                                                         <subviews>
-                                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EG2-m8-hZt">
+                                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="jobCategory" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EG2-m8-hZt">
                                                                                 <rect key="frame" x="-0.5" y="0.0" width="375" height="100"/>
+                                                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.53491545380000005" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DzT-ZM-2vk">
                                                                                     <size key="itemSize" width="100" height="100"/>
                                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -262,7 +263,7 @@
                                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                                 </collectionViewFlowLayout>
                                                                                 <cells>
-                                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vJt-ZD-YMC">
+                                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vJt-ZD-YMC" customClass="CategoryCollectionViewCell" customModule="Hippo" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -280,11 +281,13 @@
                                                                                             <constraint firstItem="TE7-sJ-Nwl" firstAttribute="centerX" secondItem="vJt-ZD-YMC" secondAttribute="centerX" id="o7P-fI-qZh"/>
                                                                                             <constraint firstItem="TE7-sJ-Nwl" firstAttribute="width" secondItem="vJt-ZD-YMC" secondAttribute="width" id="xAJ-iG-EPT"/>
                                                                                         </constraints>
+                                                                                        <connections>
+                                                                                            <outlet property="categoryImage" destination="TE7-sJ-Nwl" id="66R-RG-KeA"/>
+                                                                                        </connections>
                                                                                     </collectionViewCell>
                                                                                 </cells>
                                                                             </collectionView>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.53491545380000005" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstItem="EG2-m8-hZt" firstAttribute="centerY" secondItem="fDC-Uq-4da" secondAttribute="centerY" id="2pR-0m-DeX"/>
                                                                             <constraint firstAttribute="height" constant="100" id="Err-qO-UdR"/>
@@ -318,7 +321,7 @@
                                                                                 <rect key="frame" x="-0.5" y="0.0" width="375" height="250"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <prototypes>
-                                                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="Jmv-gl-JOK">
+                                                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="suggestCell" rowHeight="100" id="Jmv-gl-JOK" customClass="SuggestTableViewCell" customModule="Hippo" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jmv-gl-JOK" id="mMb-mH-kWl">
@@ -368,6 +371,11 @@
                                                                                                 <constraint firstItem="jlN-fK-4IU" firstAttribute="top" secondItem="mMb-mH-kWl" secondAttribute="topMargin" id="yNk-8K-PSK"/>
                                                                                             </constraints>
                                                                                         </tableViewCellContentView>
+                                                                                        <connections>
+                                                                                            <outlet property="locationLabel" destination="RjS-mI-E1t" id="bZQ-i6-LWv"/>
+                                                                                            <outlet property="myImageView" destination="vHD-4r-waa" id="9M8-ST-5E0"/>
+                                                                                            <outlet property="titleLabel" destination="jlN-fK-4IU" id="RzC-0S-UMf"/>
+                                                                                        </connections>
                                                                                     </tableViewCell>
                                                                                 </prototypes>
                                                                             </tableView>
