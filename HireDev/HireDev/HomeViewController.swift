@@ -340,6 +340,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                     
                                     self.latestContents = latestItems
                                     self.latestCollectionView.reloadData()
+                                    self.myTableView.reloadData()
                                 }
                             }else{
                                 self.rejectionCounter += 1

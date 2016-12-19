@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -80,7 +79,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lub-0f-4KO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
                                                                 <subviews>
-                                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FFJ-hU-wYe">
+                                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="latestJob" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FFJ-hU-wYe">
                                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                                                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.53491545376712324" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
@@ -263,7 +262,7 @@
                                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                                 </collectionViewFlowLayout>
                                                                                 <cells>
-                                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vJt-ZD-YMC" customClass="CategoryCollectionViewCell" customModule="Hippo" customModuleProvider="target">
+                                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="vJt-ZD-YMC" customClass="CategoryCollectionViewCell" customModule="Hippo" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -283,9 +282,14 @@
                                                                                         </constraints>
                                                                                         <connections>
                                                                                             <outlet property="categoryImage" destination="TE7-sJ-Nwl" id="66R-RG-KeA"/>
+                                                                                            <segue destination="7bK-jq-Zjz" kind="show" identifier="categoryShow" id="53k-1m-4LM"/>
                                                                                         </connections>
                                                                                     </collectionViewCell>
                                                                                 </cells>
+                                                                                <connections>
+                                                                                    <outlet property="dataSource" destination="tVi-V6-S3K" id="6Bz-yu-Ioi"/>
+                                                                                    <outlet property="delegate" destination="tVi-V6-S3K" id="15D-sx-xKe"/>
+                                                                                </connections>
                                                                             </collectionView>
                                                                         </subviews>
                                                                         <constraints>
@@ -321,7 +325,7 @@
                                                                                 <rect key="frame" x="-0.5" y="0.0" width="375" height="250"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <prototypes>
-                                                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="suggestCell" rowHeight="100" id="Jmv-gl-JOK" customClass="SuggestTableViewCell" customModule="Hippo" customModuleProvider="target">
+                                                                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="suggestCell" rowHeight="100" id="Jmv-gl-JOK" customClass="SuggestTableViewCell" customModule="Hippo" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jmv-gl-JOK" id="mMb-mH-kWl">
@@ -343,7 +347,6 @@
                                                                                                 </label>
                                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ar-mB-VLL" customClass="FontAwesomeView" customModule="FontAwesome_swift">
                                                                                                     <rect key="frame" x="106" y="76.5" width="15" height="15"/>
-                                                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                                     <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                     <constraints>
                                                                                                         <constraint firstAttribute="width" secondItem="4Ar-mB-VLL" secondAttribute="height" multiplier="1:1" id="L90-yv-akr"/>
@@ -375,9 +378,14 @@
                                                                                             <outlet property="locationLabel" destination="RjS-mI-E1t" id="bZQ-i6-LWv"/>
                                                                                             <outlet property="myImageView" destination="vHD-4r-waa" id="9M8-ST-5E0"/>
                                                                                             <outlet property="titleLabel" destination="jlN-fK-4IU" id="RzC-0S-UMf"/>
+                                                                                            <segue destination="JEX-9P-axG" kind="show" identifier="showDetail2" id="2Q4-Xb-CIc"/>
                                                                                         </connections>
                                                                                     </tableViewCell>
                                                                                 </prototypes>
+                                                                                <connections>
+                                                                                    <outlet property="dataSource" destination="tVi-V6-S3K" id="Bww-64-82I"/>
+                                                                                    <outlet property="delegate" destination="tVi-V6-S3K" id="VBL-c8-stS"/>
+                                                                                </connections>
                                                                             </tableView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.53491545380000005" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2185,7 +2193,7 @@ Contact Us
             <objects>
                 <tableViewController storyboardIdentifier="masterVC" title="Master" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MasterViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -2733,6 +2741,6 @@ Contact Us
         <image name="signin1" width="320" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hcU-FG-nwL"/>
+        <segue reference="2Q4-Xb-CIc"/>
     </inferredMetricsTieBreakers>
 </document>
