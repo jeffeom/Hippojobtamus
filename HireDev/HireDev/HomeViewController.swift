@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource{
     
     //MARK: Properties
     
@@ -31,6 +31,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let container: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 70))
     let categoryString: [String] = ["cafe", "restaurant", "grocery", "bank", "All", "education", "retail", "receptionist", "others"]
     let categoryContents: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "All", "Education", "Sales", "Reception", "Others"]
+    var loadingView: UIView = UIView()
     
     //MARK: IBOutlets
     
@@ -74,10 +75,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             bannerView.load(GADRequest())
         }
         
-        
         self.setUpLocationForButton(locationButton: locationButton)
-        
-        self.fetchDataFromDB()
         
         self.startTimer()
     }
@@ -89,6 +87,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.itemCounter = 0
         
         self.setUpLocationForButton(locationButton: locationButton)
+        
+        loadingView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        loadingView.backgroundColor = UIColor.yellow
+        
+        self.view.addSubview(loadingView)
         
         fetchDataFromDB()
         
@@ -356,6 +359,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.indicator.stopAnimating()
                 self.indicator.hidesWhenStopped = true
                 self.container.isHidden = true
+                for v in self.view.subviews{
+                    if v == self.loadingView{
+                        v.removeFromSuperview()
+                    }
+                }
             })
         }else{
             let alert = UIAlertController(title: "Current Location Needed", message: "Please set your current location", preferredStyle: UIAlertControllerStyle.alert)

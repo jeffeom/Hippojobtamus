@@ -8,6 +8,7 @@
 
 import UIKit
 import GooglePlaces
+import Firebase
 
 class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,6 +19,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     var newAddress: String = ""
     var newLocationHistory: [String] = []
     let locationManager = CLLocationManager()
+    let userRef: FIRDatabaseReference = FIRDatabase.database().reference(withPath: "users").child((UserDefaults.standard.string(forKey: "email")?.replacingOccurrences(of: ".", with: ""))!)
     
     //MARK: IBOutlets
     
@@ -34,6 +36,16 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+
+            self.newLocationHistory = snapshot.childSnapshot(forPath: "searchHistory").value! as! [String]
+            self.tableView.reloadData()
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            self.newLocationHistory = [""]
+        }
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -179,6 +191,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
             let selectedCellAddress = cell.textLabel?.text
             UserDefaults.standard.set(selectedCellAddress, forKey: "currentLocation")
             UserDefaults.standard.set(selectedCellAddress, forKey: "fixedLocation")
+            self.userRef.child("currentLocation").setValue(selectedCellAddress)
             
             if let navController = self.navigationController {
                 navController.popViewController(animated: true)
@@ -246,6 +259,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         
         UserDefaults.standard.setValue(distance, forKey: "searchDistance")
         UserDefaults.standard.setValue(theCase, forKey: "distanceCase")
+        self.userRef.child("searchDistance").setValue(distance)
     }
     
     
@@ -264,6 +278,8 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
                     self.setLocationValues(place: place)
                     UserDefaults.standard.setValue(10, forKey: "searchDistance")
                     UserDefaults.standard.setValue(3, forKey: "distanceCase")
+                    self.userRef.child("searchDistance").setValue(10)
+                    self.userRef.child("currentLocation").setValue(place.formattedAddress)
                     
                     self.sliderDistance.value = 3
 
@@ -361,9 +377,12 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
         UserDefaults.standard.set(fixedArray.joined(separator: ", "), forKey: "fixedLocation")
         UserDefaults.standard.setValue(10, forKey: "searchDistance")
         
+        self.userRef.child("currentLocation").setValue(fixedArray.joined(separator: ", "))
+        self.userRef.child("searchDistance").setValue(10)
+        
         if (self.checkForSameData(array: self.newLocationHistory, string: fixedArray.joined(separator: ", "))){
             self.newLocationHistory.append(fixedArray.joined(separator: ", "))
-            
+            self.userRef.child("searchHistory").setValue(self.newLocationHistory)
         }
     }
 }
