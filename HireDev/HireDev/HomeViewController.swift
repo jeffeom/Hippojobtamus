@@ -155,11 +155,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == latestCollectionView{
-            let kWhateverHeightYouWant = 140
-            return CGSize.init(width:collectionView.bounds.size.width, height:CGFloat(kWhateverHeightYouWant))
+            let cellHeight = 100
+            return CGSize.init(width:collectionView.bounds.size.width, height:CGFloat(cellHeight))
         }else{
-            let kWhateverHeightYouWant = 100
-            return CGSize.init(width:collectionView.bounds.size.width / 4, height:CGFloat(kWhateverHeightYouWant))
+            let cellHeight = 100
+            return CGSize.init(width:collectionView.bounds.size.width / 4, height:CGFloat(cellHeight))
         }
     }
     
