@@ -32,6 +32,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let categoryString: [String] = ["cafe", "restaurant", "grocery", "bank", "All", "education", "retail", "receptionist", "others"]
     let categoryContents: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "All", "Education", "Sales", "Reception", "Others"]
     var loadingView: UIView = UIView()
+    let optionsString: [String] = ["Recently Posted", "Expire Soon", "Job Map"]
     
     //MARK: IBOutlets
     
@@ -49,8 +50,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.rejectionCounter = 0
         self.itemCounter = 0
         
-        container.backgroundColor = self.hexStringToUIColor(hex: "444444", alpha: 0.5)
-        container.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.midY / 6)
+        container.backgroundColor = self.hexStringToUIColor(hex: "444444", alpha: 1)
+        container.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.midY / 8)
         container.layer.cornerRadius = 10
         self.latestCollectionView.addSubview(container)
         container.bringSubview(toFront: self.latestCollectionView)
@@ -60,6 +61,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         container.addSubview(indicator)
         indicator.bringSubview(toFront: container)
         indicator.startAnimating()
+        
+        fetchDataFromDB()
         
         var keys: NSDictionary?
         
@@ -83,20 +86,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.rejectionCounter = 0
-        self.itemCounter = 0
-        
         self.setUpLocationForButton(locationButton: locationButton)
         
-        loadingView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        loadingView.backgroundColor = UIColor.yellow
-        
-        self.view.addSubview(loadingView)
-        
-        fetchDataFromDB()
-        
         let nav = self.navigationController?.navigationBar
-        nav?.barTintColor = UIColor.init(red: 0/255.0, green: 168.0/255.0, blue: 168.0/255.0, alpha: 1.0)
+        nav?.barTintColor = UIColor.init(red: 255.0/255.0, green: 121.0/255.0, blue: 121.0/255.0, alpha: 1.0)
         
         let attrs = [
             NSForegroundColorAttributeName: UIColor.white,
@@ -104,7 +97,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         ]
         
         nav?.titleTextAttributes = attrs
-        
         
         self.tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
         self.tabBarController?.tabBar.tintColor = UIColor.white
@@ -155,7 +147,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == latestCollectionView{
-            let cellHeight = 100
+            let cellHeight = 150
             return CGSize.init(width:collectionView.bounds.size.width, height:CGFloat(cellHeight))
         }else{
             let cellHeight = 100
@@ -200,34 +192,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //MARK: TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return latestContents.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "suggestCell", for: indexPath) as! SuggestTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "optionCell", for: indexPath)
         
-        if (latestContents.count != 0) {
-            let categoryContents = self.latestContents[(indexPath as NSIndexPath).row]
-            
-            DispatchQueue.global(qos: .userInteractive).async {
-                let data: NSData = NSData.init(base64Encoded: categoryContents.photo, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
-                let image: UIImage = UIImage.init(data: data as Data)!
-                
-                DispatchQueue.main.async {
-                    cell.myImageView.image = image
-                    cell.titleLabel!.text = categoryContents.title
-                    cell.locationLabel.text = categoryContents.location
-                    cell.setNeedsLayout() //invalidate current layout
-                    cell.layoutIfNeeded() //update immediately
-                }
-            }
-        }
+        cell.textLabel?.text = self.optionsString[indexPath.row]
+        
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.tintColor = UIColor.white
-        cell.backgroundColor = UIColor.clear
     }
     
     //MARK: Segue
@@ -251,8 +224,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     controller.contents = categoryContent
                 }
             case "showDetail2":
-                let cell = sender as! SuggestTableViewCell
-                if let indexPath = self.myTableView!.indexPath(for: cell) {
+                let cell = sender
+                if let indexPath = self.myTableView!.indexPath(for: cell as! UITableViewCell) {
                     let categoryContent = self.latestContents[indexPath.item]
                     let controller = segue.destination as! DetailViewController
                     controller.detailItem = categoryContent as JobItem
@@ -285,7 +258,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let collectionView = latestCollectionView
         
         //get cell size
-        let cellSize = CGSize.init(width: self.view.frame.width, height: self.view.frame.height)
+        let cellSize = CGSize.init(width: self.view.frame.width - 20, height: self.view.frame.height)
         
         //get current content Offset of the Collection view
         let contentOffset = collectionView?.contentOffset
