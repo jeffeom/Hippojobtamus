@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController{
-    func checkDistance(origin: String, destination: String, completion: @escaping (_ fetchedData: [Float]?) -> ()){
+    func checkDistance(_ origin: String, destination: String, completion: @escaping (_ fetchedData: [Float]?) -> ()){
         var measuredDistances: [Float] = []
         
         var keys: NSDictionary?
@@ -23,7 +23,7 @@ extension UIViewController{
             let url : String = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=\(origin)&destinations=\(destination)&key=\(api!)"
             let urlStr: String = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             
-            let requestURL: NSURL = NSURL(string: urlStr)!
+            let requestURL: URL = URL(string: urlStr)!
             
             let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
             let session = URLSession.shared

@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController{
-    func fetchLatLong(address: String, completion: @escaping (_ fetchedData: [String: Float]?) -> ()){
+    func fetchLatLong(_ address: String, completion: @escaping (_ fetchedData: [String: Float]?) -> ()){
         
         var latLong: [String: Float] = [:]
         
@@ -25,7 +25,7 @@ extension UIViewController{
             
             let urlStr: String = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             
-            if let aURL = (NSURL(string: urlStr)){
+            if let aURL = (URL(string: urlStr)){
                 let requestURL = aURL
                 let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
                 let session = URLSession.shared

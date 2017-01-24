@@ -36,7 +36,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     var selectedIndexPath: IndexPath = IndexPath()
     var checked: [Bool] = [false, false, false, false, false, false, false, false]
     var newMedia: Bool?
-    var imageData: NSData = NSData()
+    var imageData: Data = Data()
     var imageString: String = ""
     var placeholderLabel : UILabel!
     
@@ -72,7 +72,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         placeholderLabel.textColor = UIColor(white: 0, alpha: 0.25)
         placeholderLabel.isHidden = !commentsField.text.isEmpty
         
-        self.setUpLocationForLabel(locationLabel: locationLabel)
+        self.setUpLocationForLabel(locationLabel)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,7 +83,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         nav?.tintColor = UIColor.white
         
-        self.setUpLocationForLabel(locationLabel: locationLabel)
+        self.setUpLocationForLabel(locationLabel)
     }
     
     override func didReceiveMemoryWarning() {
@@ -147,25 +147,25 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
             
             photoView.image = image
             photoView.contentMode = .scaleAspectFit
-            imageData = UIImageJPEGRepresentation(image, 0.1)! as NSData
-            imageString = imageData.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
+            imageData = UIImageJPEGRepresentation(image, 0.1)! as Data
+            imageString = imageData.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
             self.photoButton.setTitle("Tap again to retake", for: .normal)
             
             // Saves to Library
             if (newMedia == true) {
-                UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
+                UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
             }
         }
     }
     
-    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {
+    func image(_ image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo:UnsafeRawPointer) {
         
         if let _ = error {
-            showAlert(text: "Failed to save image", title: "Save Failed", fn: {
+            showAlert("Failed to save image", title: "Save Failed", fn: {
                 return
             })
         }else{
-            showAlert(text: "Your photo is saved successfully", title: "Saved to Device", fn: {
+            showAlert("Your photo is saved successfully", title: "Saved to Device", fn: {
                 self.photoButton.setTitle("Tap again to retake", for: .normal)
                 return
             })
@@ -240,7 +240,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     }
     
     @IBAction func submitButton(_ sender: AnyObject) {
-        let selectedCategory: [String] = chosenCategory(array: checked)
+        let selectedCategory: [String] = chosenCategory(checked)
         
         if (check() && selectedCategory.count != 1 && (UserDefaults.standard.string(forKey: "currentLocation") != nil)){
             self.loadViewIfNeeded()
@@ -294,7 +294,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     
     // MARK: Function
     
-    func chosenCategory (array: [Bool]) -> [String] {
+    func chosenCategory (_ array: [Bool]) -> [String] {
         var chosenCategory: [String] = Array()
         for (pos, aCheck) in array.enumerated(){
             if aCheck == true{
@@ -344,7 +344,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     // MARK: dateToString
     
     func getCurrentDate() -> String {
-        let date = NSDate()
+        let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: date as Date)
@@ -353,7 +353,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     }
     
     func getTimeStamp() -> String{
-        let date = NSDate()
+        let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMddHHmm"
         let dateString = dateFormatter.string(from: date as Date)

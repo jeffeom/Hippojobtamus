@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController{
-    func hexStringToUIColor (hex:String, alpha:Float) -> UIColor {
+    func hexStringToUIColor (_ hex:String, alpha:Float) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
         if (cString.hasPrefix("#")) {

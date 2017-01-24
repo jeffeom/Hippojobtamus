@@ -255,7 +255,7 @@
 					4076389A1D82421600C7A892 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = U43R3UYB5A;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;

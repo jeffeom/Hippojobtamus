@@ -57,14 +57,14 @@ class CreateAccountViewController: UIViewController {
                     
                     if let navController = self.navigationController{
                         navController.popViewController(animated: true)
-                        self.showAlert(text: "Please check your email", title: "Email verification Sent", fn: { 
+                        self.showAlert("Please check your email", title: "Email verification Sent", fn: { 
                             return
                         })
                     }
                 }
             })
         }else{
-            self.showAlert(text: "You left one of the fields empty", title: "Please Try Again", fn: {
+            self.showAlert("You left one of the fields empty", title: "Please Try Again", fn: {
                 return
             })
         }

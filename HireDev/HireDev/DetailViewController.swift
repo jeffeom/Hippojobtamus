@@ -32,7 +32,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.imageView.image = self.getImageFromString(string: (self.detailItem.photo))
+        self.imageView.image = self.getImageFromString((self.detailItem.photo))
         self.dateLabel.text = "  " + self.detailItem.date
         self.locationLabel.text = "  " + self.detailItem.location
         self.commentsLabel.text = self.detailItem.comments
@@ -58,7 +58,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
         
         let readableAddress = self.detailItem.location.replacingOccurrences(of: " ", with: "")
-        self.fetchLatLong(address: readableAddress) { (fetchedAddress) in
+        self.fetchLatLong(readableAddress) { (fetchedAddress) in
             
             if let lat = fetchedAddress?["lat"], let long = fetchedAddress?["lng"]{
                 if (lat != 0 && long != 0){
@@ -116,7 +116,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         scrollImg.flashScrollIndicators()
         scrollImg.minimumZoomScale = 1.0
         scrollImg.maximumZoomScale = 10.0
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage(sender:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage(_:)))
         scrollImg.addGestureRecognizer(tap)
         self.view.addSubview(scrollImg)
         
@@ -139,7 +139,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func toGoogleMap(_ sender: AnyObject) {
-        if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")! as URL)) {
             if let url = URL(string: "comgooglemaps://?center=\(self.latitude),\(self.longitude)&zoom=14&views=traffic"){
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -157,16 +157,16 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     //MARK: Function
     
-    func getImageFromString(string: String) -> UIImage {
-        let data: NSData = NSData.init(base64Encoded: string, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
+    func getImageFromString(_ string: String) -> UIImage {
+        let data: Data = Data.init(base64Encoded: string, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!
         var image: UIImage = UIImage.init(data: data as Data)!
         
-        image = self.setProfileImage(imageToResize: image, onImageView: self.imageView)
+        image = self.setProfileImage(image, onImageView: self.imageView)
         
         return image
     }
     
-    func setProfileImage(imageToResize: UIImage, onImageView: UIImageView) -> UIImage
+    func setProfileImage(_ imageToResize: UIImage, onImageView: UIImageView) -> UIImage
     {
         let width = imageToResize.size.width
         let height = imageToResize.size.height
@@ -191,7 +191,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
-    func dismissFullscreenImage(sender: UITapGestureRecognizer) {
+    func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
         
         sender.view?.removeFromSuperview()
         navigationController?.setNavigationBarHidden(navigationController?.isNavigationBarHidden == false, animated: true)

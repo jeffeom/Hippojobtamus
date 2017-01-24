@@ -30,7 +30,7 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = contents
-        container.backgroundColor = self.hexStringToUIColor(hex: "444444", alpha: 0.5)
+        container.backgroundColor = self.hexStringToUIColor("444444", alpha: 0.5)
         container.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 13)
         container.layer.cornerRadius = 10
         self.view.addSubview(container)
@@ -93,15 +93,15 @@ class MasterViewController: UITableViewController {
             let categoryContents = self.categoryContents[(indexPath as NSIndexPath).row]
             cell.titleLabel!.text = categoryContents.title
             cell.commentsLabel.text = categoryContents.date
-            cell.myImageView.image = self.getImageFromString(string: categoryContents.photo)
+            cell.myImageView.image = self.getImageFromString(categoryContents.photo)
             cell.locationLabel.text = categoryContents.location
         }
         
         return cell
     }
     
-    func getImageFromString(string: String) -> UIImage {
-        let data: NSData = NSData.init(base64Encoded: string, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
+    func getImageFromString(_ string: String) -> UIImage {
+        let data: Data = Data.init(base64Encoded: string, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!
         let image: UIImage = UIImage.init(data: data as Data)!
         
         return image
@@ -136,7 +136,7 @@ class MasterViewController: UITableViewController {
                 
                 let readableDestination: String = jobItem.location
                 
-                self.checkDistance(origin: self.readableOrigin, destination: readableDestination) { (fetchedData) in
+                self.checkDistance(self.readableOrigin, destination: readableDestination) { (fetchedData) in
                     DispatchQueue.main.async {
                         
                         let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")

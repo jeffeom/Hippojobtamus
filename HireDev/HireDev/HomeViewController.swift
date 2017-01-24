@@ -50,7 +50,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.rejectionCounter = 0
         self.itemCounter = 0
         
-        container.backgroundColor = self.hexStringToUIColor(hex: "444444", alpha: 1)
+        container.backgroundColor = self.hexStringToUIColor("444444", alpha: 1)
         container.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.midY / 8)
         container.layer.cornerRadius = 10
         self.latestCollectionView.addSubview(container)
@@ -78,7 +78,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             bannerView.load(GADRequest())
         }
         
-        self.setUpLocationForButton(locationButton: locationButton)
+        self.setUpLocationForButton(locationButton)
         
         self.startTimer()
     }
@@ -86,7 +86,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.setUpLocationForButton(locationButton: locationButton)
+        self.setUpLocationForButton(locationButton)
         
         let nav = self.navigationController?.navigationBar
         nav?.barTintColor = UIColor.init(red: 255.0/255.0, green: 121.0/255.0, blue: 121.0/255.0, alpha: 1.0)
@@ -100,7 +100,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         self.tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
         self.tabBarController?.tabBar.tintColor = UIColor.white
-        self.setUpLocationForButton(locationButton: locationButton)
+        self.setUpLocationForButton(locationButton)
         
     }
     
@@ -161,11 +161,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let contentOffsetScrolledRight: Float = Float(self.latestCollectionView.frame.size.width) * Float(self.latestContents.count - 1)
             
             if Float(scrollView.contentOffset.x) == contentOffsetScrolledRight{
-                let newIndexPath: NSIndexPath = NSIndexPath.init(item: 1, section: 0)
+                let newIndexPath: IndexPath = IndexPath.init(item: 1, section: 0)
                 
                 self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
             }else if scrollView.contentOffset.x == 0 {
-                let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 2), section: 0)
+                let newIndexPath: IndexPath = IndexPath.init(item: (self.latestContents.count - 2), section: 0)
                 
                 self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
             }
@@ -178,11 +178,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let contentOffsetScrolledRight: Float = Float(self.latestCollectionView.frame.size.width) * Float(self.latestContents.count - 1)
             
             if Float(scrollView.contentOffset.x) == contentOffsetScrolledRight{
-                let newIndexPath: NSIndexPath = NSIndexPath.init(item: 1, section: 0)
+                let newIndexPath: IndexPath = IndexPath.init(item: 1, section: 0)
                 
                 self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
             }else if scrollView.contentOffset.x == 0 {
-                let newIndexPath: NSIndexPath = NSIndexPath.init(item: (self.latestContents.count - 2), section: 0)
+                let newIndexPath: IndexPath = IndexPath.init(item: (self.latestContents.count - 2), section: 0)
                 
                 self.latestCollectionView.scrollToItem(at: newIndexPath as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
             }
@@ -246,8 +246,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //MARK: Function
     
-    func getImageFromString(string: String) -> UIImage {
-        let data: NSData = NSData.init(base64Encoded: string, options: NSData.Base64DecodingOptions.ignoreUnknownCharacters)!
+    func getImageFromString(_ string: String) -> UIImage {
+        let data: Data = Data.init(base64Encoded: string, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!
         let image: UIImage = UIImage.init(data: data as Data)!
         
         return image
@@ -285,7 +285,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!
                     let readableDestination: String = jobItem.location
                     
-                    self.checkDistance(origin: readableOrigin, destination: readableDestination) { (fetchedData) in
+                    self.checkDistance(readableOrigin, destination: readableDestination) { (fetchedData) in
                         DispatchQueue.main.async {
                             
                             let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")

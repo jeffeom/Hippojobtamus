@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController{
-    func showAlert(text : NSString, title : NSString, fn:@escaping ()->Void){
+    func showAlert(_ text : NSString, title : NSString, fn:@escaping ()->Void){
         let alert = UIAlertController(title: title as String, message: text as String, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in fn()}))
         alert.show()

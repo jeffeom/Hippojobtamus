@@ -275,7 +275,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
             if let placeLikelihoods = placeLikelihoods {
                 let likelihood = placeLikelihoods.likelihoods.first?.place
                 if let place = likelihood{
-                    self.setLocationValues(place: place)
+                    self.setLocationValues(place)
                     UserDefaults.standard.setValue(10, forKey: "searchDistance")
                     UserDefaults.standard.setValue(3, forKey: "distanceCase")
                     self.userRef.child("searchDistance").setValue(10)
@@ -297,7 +297,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     
     //MARK: Function
     
-    func checkForSameData(array: [String], string: String) -> Bool{
+    func checkForSameData(_ array: [String], string: String) -> Bool{
         var boolValue: Bool = false
         
         if newLocationHistory.count == 0{
@@ -326,7 +326,7 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         
-        self.setLocationValues(place: place)
+        self.setLocationValues(place)
         
         self.dismiss(animated: true, completion: {
             UserDefaults.standard.setValue(10, forKey: "searchDistance")
@@ -358,7 +358,7 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
-    func setLocationValues(place: GMSPlace) {
+    func setLocationValues(_ place: GMSPlace) {
         
         var addressArray: [String] = []
         var fixedArray: [String] = []
@@ -380,7 +380,7 @@ extension LocationSettingViewController: GMSAutocompleteViewControllerDelegate {
         self.userRef.child("currentLocation").setValue(fixedArray.joined(separator: ", "))
         self.userRef.child("searchDistance").setValue(10)
         
-        if (self.checkForSameData(array: self.newLocationHistory, string: fixedArray.joined(separator: ", "))){
+        if (self.checkForSameData(self.newLocationHistory, string: fixedArray.joined(separator: ", "))){
             self.newLocationHistory.append(fixedArray.joined(separator: ", "))
             self.userRef.child("searchHistory").setValue(self.newLocationHistory)
         }

@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController{
-    func setUpLocationForButton(locationButton: UIButton) {
+    func setUpLocationForButton(_ locationButton: UIButton) {
         if let _ = UserDefaults.standard.string(forKey: "fixedLocation"){
             
             locationButton.setTitle(UserDefaults.standard.string(forKey: "fixedLocation"), for: .normal)
@@ -20,7 +20,7 @@ extension UIViewController{
         }
     }
     
-    func setUpLocationForLabel(locationLabel: UILabel) {
+    func setUpLocationForLabel(_ locationLabel: UILabel) {
         if let _ = UserDefaults.standard.string(forKey: "fixedLocation"){
         
             locationLabel.text = UserDefaults.standard.string(forKey: "fixedLocation")
