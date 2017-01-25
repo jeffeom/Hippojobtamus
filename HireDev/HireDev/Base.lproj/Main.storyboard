@@ -972,7 +972,7 @@
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTc-6N-rOq">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                                                                 <connections>
-                                                                                    <segue destination="PaR-fW-w0y" kind="show" id="sqc-2X-4as"/>
+                                                                                    <segue destination="pwR-T0-taJ" kind="show" id="Uva-NB-Sea"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -1184,19 +1184,83 @@
             </objects>
             <point key="canvasLocation" x="3812" y="1089"/>
         </scene>
-        <!--Privacy Policy-->
-        <scene sceneID="Fso-pj-UjE">
+        <!--Terms of Service-->
+        <scene sceneID="b8g-pX-OPV">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="PaR-fW-w0y" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="cVQ-ok-qhF" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="40w-1F-vLD"/>
-                        <viewControllerLayoutGuide type="bottom" id="1ej-Wd-5Kz"/>
+                        <viewControllerLayoutGuide type="top" id="6I6-YI-XDj"/>
+                        <viewControllerLayoutGuide type="bottom" id="QWL-ba-BQh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="41x-iw-t5T">
-                        <rect key="frame" x="0.0" y="64" width="375" height="687"/>
+                    <view key="view" contentMode="scaleToFill" id="Mtc-zj-t74">
+                        <rect key="frame" x="0.0" y="64" width="375" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52S-dv-jwI">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zJq-jE-rEe">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="687"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Last updated: (October 5, 2016) 
+Please read these Terms of Service ("Terms", "Terms and Conditions") carefully before using the Hippojobtamus mobile application (the "Service") operated by Fourj Studios ("us", "we", or "our"). 
+Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service. 
+By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service. 
+General
+•	Anyone under the age of 13 is not allowed to use this Service. By using this service, you are agreeing that you are fully able to comply with these Terms. We reserve the right to deactivate your account if we learn that you are under 13 years of age.
+•	You are responsible for keeping your login information secure and for all activities that are carried out under your account. 
+•	You may not use the Service for any malicious, illegal, or unauthorized purpose.
+•	You may not use the Service to any end that is not in line with the original intent of the Service: to share with other users, local businesses that are, at the time of posting, currently hiring, by uploading a picture of the ‘Now Hiring’ sign or material directly related to the intent of the Service and providing further information related to the posting.
+•	Fourj Studios may deactivate and delete your account and terminate your use of the service for any reason, without notice and without liability to you. 
+•	Fourj Studios may modify, alter, or terminate the Service at any time, for any reason, with or without notice.
+Content 
+•	Our Service allows you to post, link, and otherwise make available certain information, text, graphics, videos, or other material ("Content"). You are solely responsible for the Content that you post to the Service.
+•	You may not post any Content to the Service other than photos of ‘Now Hiring’ signs, interiors of hiring stores or businesses, or other material directly related to the intended use of the Service. This effectively excludes any of the following content:
+o	Any advertisements or marketing material not related to the intended use of the Service
+o	Any pornographic or sexually suggestive photos or other content
+o	Any discriminatory or hateful content
+o	Any infringing, unlawful, or illegal content
+o	Any downloadable third-party software, including but not limited to viruses, malware, or any forms of code
+o	Any and all phone numbers posted with malicious intent
+o	Any links that are not related to the intended use of the Service.
+•	We may remove any Content that violates these Terms of Service, and delete any account(s) in relation to said Content, at our sole discretion.
+Links To Other Web Sites 
+•	Our Service may contain links to third­party web sites or services that are not owned or controlled by Fourj Studios. 
+•	Fourj Studios has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that M y Company (change this) shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. 
+Changes 
+•	We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will try to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. 
+Contact Us 
+•	If you have any questions about these Terms, please contact us at hippojobtamus@gmail.com.
+
+</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zJq-jE-rEe" secondAttribute="trailing" id="CC4-MU-aXv"/>
+                            <constraint firstItem="QWL-ba-BQh" firstAttribute="top" secondItem="zJq-jE-rEe" secondAttribute="bottom" id="WRb-Qg-wfV"/>
+                            <constraint firstItem="zJq-jE-rEe" firstAttribute="top" secondItem="6I6-YI-XDj" secondAttribute="bottom" id="cd7-zg-eJO"/>
+                            <constraint firstItem="zJq-jE-rEe" firstAttribute="leading" secondItem="Mtc-zj-t74" secondAttribute="leading" id="coc-7D-qOp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Terms of Service" id="Hd4-nK-VXK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="86G-3O-0g8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5259" y="627"/>
+        </scene>
+        <!--Privacy Policy-->
+        <scene sceneID="Agb-iN-xZj">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="pwR-T0-taJ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vm2-Bd-sUu"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jus-nq-ZD3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZGX-Dt-Df9">
+                        <rect key="frame" x="0.0" y="64" width="375" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRf-Mm-4Ve">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="687"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">This privacy policy governs your use of the software application Hippojobtamus (“Hippojobtamus”), operated by Fourj Studios (“we,” “us,” or “our”). Hippojobtamus provides users an intuitive and easy way to find local hiring positions. Simply upload a photo of any ‘Now Hiring’ signs you come across and browse through photos uploaded by other users to find job positions you may have missed in your job search.  
@@ -1260,83 +1324,17 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="52S-dv-jwI" firstAttribute="top" secondItem="40w-1F-vLD" secondAttribute="bottom" id="0G4-VQ-OIT"/>
-                            <constraint firstAttribute="trailing" secondItem="52S-dv-jwI" secondAttribute="trailing" id="F5J-Tp-aoV"/>
-                            <constraint firstItem="52S-dv-jwI" firstAttribute="leading" secondItem="41x-iw-t5T" secondAttribute="leading" id="IWy-XP-eIj"/>
-                            <constraint firstItem="1ej-Wd-5Kz" firstAttribute="top" secondItem="52S-dv-jwI" secondAttribute="bottom" id="fcU-pN-dyz"/>
+                            <constraint firstAttribute="trailing" secondItem="bRf-Mm-4Ve" secondAttribute="trailing" id="DE5-k3-IEd"/>
+                            <constraint firstItem="Jus-nq-ZD3" firstAttribute="top" secondItem="bRf-Mm-4Ve" secondAttribute="bottom" id="G4L-0Y-HYT"/>
+                            <constraint firstItem="bRf-Mm-4Ve" firstAttribute="top" secondItem="vm2-Bd-sUu" secondAttribute="bottom" id="nzn-5m-DoR"/>
+                            <constraint firstItem="bRf-Mm-4Ve" firstAttribute="leading" secondItem="ZGX-Dt-Df9" secondAttribute="leading" id="uJv-Ha-tDG"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Privacy Policy" id="hbt-jw-rdy"/>
+                    <navigationItem key="navigationItem" title="Privacy Policy" id="APq-Vr-RWg"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fsc-tS-TSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7hJ-FQ-d8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4593" y="623"/>
-        </scene>
-        <!--Terms of Service-->
-        <scene sceneID="b8g-pX-OPV">
-            <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="cVQ-ok-qhF" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6I6-YI-XDj"/>
-                        <viewControllerLayoutGuide type="bottom" id="QWL-ba-BQh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Mtc-zj-t74">
-                        <rect key="frame" x="0.0" y="64" width="375" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zJq-jE-rEe">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="687"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Last updated: (October 5, 2016) 
-Please read these Terms of Service ("Terms", "Terms and Conditions") carefully before using the Hippojobtamus mobile application (the "Service") operated by Fourj Studios ("us", "we", or "our"). 
-Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service. 
-By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service. 
-General
-•	Anyone under the age of 13 is not allowed to use this Service. By using this service, you are agreeing that you are fully able to comply with these Terms. We reserve the right to deactivate your account if we learn that you are under 13 years of age.
-•	You are responsible for keeping your login information secure and for all activities that are carried out under your account. 
-•	You may not use the Service for any malicious, illegal, or unauthorized purpose.
-•	You may not use the Service to any end that is not in line with the original intent of the Service: to share with other users, local businesses that are, at the time of posting, currently hiring, by uploading a picture of the ‘Now Hiring’ sign or material directly related to the intent of the Service and providing further information related to the posting.
-•	Fourj Studios may deactivate and delete your account and terminate your use of the service for any reason, without notice and without liability to you. 
-•	Fourj Studios may modify, alter, or terminate the Service at any time, for any reason, with or without notice.
-Content 
-•	Our Service allows you to post, link, and otherwise make available certain information, text, graphics, videos, or other material ("Content"). You are solely responsible for the Content that you post to the Service.
-•	You may not post any Content to the Service other than photos of ‘Now Hiring’ signs, interiors of hiring stores or businesses, or other material directly related to the intended use of the Service. This effectively excludes any of the following content:
-o	Any advertisements or marketing material not related to the intended use of the Service
-o	Any pornographic or sexually suggestive photos or other content
-o	Any discriminatory or hateful content
-o	Any infringing, unlawful, or illegal content
-o	Any downloadable third-party software, including but not limited to viruses, malware, or any forms of code
-o	Any and all phone numbers posted with malicious intent
-o	Any links that are not related to the intended use of the Service.
-•	We may remove any Content that violates these Terms of Service, and delete any account(s) in relation to said Content, at our sole discretion.
-Links To Other Web Sites 
-•	Our Service may contain links to third­party web sites or services that are not owned or controlled by Fourj Studios. 
-•	Fourj Studios has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that M y Company (change this) shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. 
-Changes 
-•	We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will try to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion. 
-Contact Us 
-•	If you have any questions about these Terms, please contact us at hippojobtamus@gmail.com.
-
-</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="zJq-jE-rEe" secondAttribute="trailing" id="CC4-MU-aXv"/>
-                            <constraint firstItem="QWL-ba-BQh" firstAttribute="top" secondItem="zJq-jE-rEe" secondAttribute="bottom" id="WRb-Qg-wfV"/>
-                            <constraint firstItem="zJq-jE-rEe" firstAttribute="top" secondItem="6I6-YI-XDj" secondAttribute="bottom" id="cd7-zg-eJO"/>
-                            <constraint firstItem="zJq-jE-rEe" firstAttribute="leading" secondItem="Mtc-zj-t74" secondAttribute="leading" id="coc-7D-qOp"/>
-                        </constraints>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Terms of Service" id="Hd4-nK-VXK"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="86G-3O-0g8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5259" y="627"/>
+            <point key="canvasLocation" x="4593" y="627"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7jm-JU-gZQ">
@@ -2676,7 +2674,7 @@ Contact Us
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JbH-Ag-4Kv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1647" y="310"/>
+            <point key="canvasLocation" x="1510" y="310"/>
         </scene>
     </scenes>
     <resources>
