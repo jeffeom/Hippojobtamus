@@ -40,7 +40,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var latestCollectionView: UICollectionView!
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
-    @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var optionTableView: UITableView!
     
     //MARK: UIViewController
     
@@ -216,6 +216,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     let controller = segue.destination as! DetailViewController
                     controller.detailItem = categoryContent as JobItem
                 }
+                
             case "categoryShow":
                 let cell = sender as! CategoryCollectionViewCell
                 if let indexPath = self.categoryCollectionView!.indexPath(for: cell) {
@@ -223,12 +224,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     let controller = segue.destination as! MasterViewController
                     controller.contents = categoryContent
                 }
-            case "showDetail2":
-                let cell = sender
-                if let indexPath = self.myTableView!.indexPath(for: cell as! UITableViewCell) {
-                    let categoryContent = self.latestContents[indexPath.item]
-                    let controller = segue.destination as! DetailViewController
-                    controller.detailItem = categoryContent as JobItem
+                
+            case "optionShow":
+                let cell = sender as! UITableViewCell
+                if let indexPath = self.optionTableView!.indexPath(for: cell){
+                    let optionContent = self.optionsString[indexPath.row]
+                    let controller = segue.destination as! MasterViewController
+                    controller.contents = optionContent
                 }
                 
             default:
@@ -316,7 +318,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                     
                                     self.latestContents = latestItems
                                     self.latestCollectionView.reloadData()
-                                    self.myTableView.reloadData()
+                                    self.optionTableView.reloadData()
                                 }
                             }else{
                                 self.rejectionCounter += 1
