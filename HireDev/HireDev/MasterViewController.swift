@@ -108,6 +108,15 @@ class MasterViewController: UITableViewController {
     }
     
     func fetchDataFromDB() {
+        
+        if contents == "Recently Posted"{
+            contents = "All"
+        }else if contents == "Expire Soon"{
+            contents = "All"
+        }else if contents == "Job Map"{
+            contents = "All"
+        }
+        
         self.ref.child(contents).observe(.value, with: { (snapshot) in
             var newItems: [JobItem] = []
             
