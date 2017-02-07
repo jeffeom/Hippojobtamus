@@ -32,7 +32,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let categoryString: [String] = ["cafe", "restaurant", "grocery", "bank", "All", "education", "retail", "receptionist", "others"]
     let categoryContents: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "All", "Education", "Sales", "Reception", "Others"]
     var loadingView: UIView = UIView()
-    let optionsString: [String] = ["Recently Posted", "Expire Soon", "Job Map"]
+    let optionsString: [String] = ["Recently Posted", "Expire Soon", "Posts You Might Like", "Job Map"]
     
     //MARK: IBOutlets
     
@@ -102,6 +102,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.tabBarController?.tabBar.tintColor = UIColor.white
         self.setUpLocationForButton(locationButton)
         
+        fetchDataFromDB()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -151,7 +153,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return CGSize.init(width:collectionView.bounds.size.width, height:CGFloat(cellHeight))
         }else{
             let cellHeight = 100
-            return CGSize.init(width:collectionView.bounds.size.width / 4, height:CGFloat(cellHeight))
+            return CGSize.init(width:CGFloat(cellHeight), height:CGFloat(cellHeight))
         }
     }
     
@@ -192,7 +194,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //MARK: TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -304,6 +306,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                 }else{
                                     latestItems.append(jobItem)
                                     
+                                    latestItems = latestItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
+                                    
                                     if latestItems.count == snapshot.children.allObjects.count - self.rejectionCounter{
                                         
                                         let firstItem =  latestItems.first
@@ -316,9 +320,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                         self.rejectionCounter = 0
                                     }
                                     
+                                    
                                     self.latestContents = latestItems
                                     self.latestCollectionView.reloadData()
-                                    self.optionTableView.reloadData()
+//                                    self.optionTableView.reloadData()
                                 }
                             }else{
                                 self.rejectionCounter += 1
