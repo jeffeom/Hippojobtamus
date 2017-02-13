@@ -113,6 +113,8 @@ class MasterViewController: UITableViewController {
             contents = "All"
         }else if contents == "Expire Soon"{
             contents = "All"
+        }else if contents == "Posts You Might Like"{
+            contents = "All"
         }else if contents == "Job Map"{
             contents = "All"
         }
