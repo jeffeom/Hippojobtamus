@@ -22,6 +22,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var descriptionSV: UIStackView!
     
+    @IBOutlet weak var photosView: UIView!
+    @IBOutlet weak var overView: UIView!
+    @IBOutlet weak var mapView: UIView!
+    
+    
     var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", photo: "", addedByUser: "", date: "", location: "")
     
     let screenSize: CGRect = UIScreen.main.bounds
@@ -104,7 +109,16 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         let selectedIndex = sender.selectedIndex
         
-        NSLog("herro! \(selectedIndex) was clicked")
+        switch selectedIndex {
+        case 0:
+            NSLog("Photo")
+        case 1:
+            NSLog("Overview")
+        case 2:
+            NSLog("Map")
+        default:
+            NSLog("Photo")
+        }
         
     }
     

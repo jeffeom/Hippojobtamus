@@ -114,7 +114,7 @@
                                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                                             <subviews>
                                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TE7-sJ-Nwl">
-                                                                                                    <rect key="frame" x="-1" y="0.0" width="101" height="100"/>
+                                                                                                    <rect key="frame" x="-0.5" y="0.0" width="100" height="100"/>
                                                                                                 </imageView>
                                                                                             </subviews>
                                                                                         </view>
@@ -1361,11 +1361,11 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="64" width="375" height="887"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQ5-En-Ble">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="887"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dr0-R1-4hB">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
@@ -1380,11 +1380,11 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                     <action selector="optionValueChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="tyJ-Q3-pY6"/>
                                                 </connections>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="v61-Q1-ToL">
-                                                <rect key="frame" x="0.0" y="70" width="375" height="830"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nb1-Cf-1hf" userLabel="photosView">
+                                                <rect key="frame" x="20" y="70" width="335" height="300"/>
                                                 <subviews>
                                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dLv-A6-6FK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="300"/>
                                                         <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="300" id="qqT-hD-dZW"/>
@@ -1393,43 +1393,99 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                             <outletCollection property="gestureRecognizers" destination="RFp-db-E8l" appends="YES" id="cWq-EQ-ZhR"/>
                                                         </connections>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLt-4e-aKm">
-                                                        <rect key="frame" x="0.0" y="305" width="375" height="40"/>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="dLv-A6-6FK" firstAttribute="leading" secondItem="nb1-Cf-1hf" secondAttribute="leading" id="0nd-J5-AVx"/>
+                                                    <constraint firstItem="dLv-A6-6FK" firstAttribute="top" secondItem="nb1-Cf-1hf" secondAttribute="top" id="2xY-Eh-m68"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dLv-A6-6FK" secondAttribute="trailing" id="I0E-Kc-9Ic"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dLv-A6-6FK" secondAttribute="bottom" id="kVB-2A-1OS"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U77-Cc-rCr" userLabel="overView">
+                                                <rect key="frame" x="20" y="70" width="335" height="228"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Lmv-NZ-Dzg">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="228"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaa-PZ-q0h">
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="40" id="3e3-Wq-Vnc"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFa-39-I7P">
+                                                                <rect key="frame" x="0.0" y="45" width="335" height="40"/>
+                                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.68720569350000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hxt-js-aDo">
+                                                                <rect key="frame" x="0.0" y="90" width="335" height="73"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBx-hY-ntg" userLabel="Comments">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="18"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vIK-ps-hPV">
+                                                                        <rect key="frame" x="0.0" y="23" width="335" height="50"/>
+                                                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.68720569350000005" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                    </textView>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wao-k3-Iov">
+                                                                <rect key="frame" x="0.0" y="168" width="335" height="60"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="60" id="C3b-KM-fez"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="TBN-id-kxa"/>
+                                                            <constraint firstItem="jFa-39-I7P" firstAttribute="height" secondItem="jaa-PZ-q0h" secondAttribute="height" id="0oK-y3-O4E"/>
+                                                            <constraint firstItem="Wao-k3-Iov" firstAttribute="width" secondItem="Lmv-NZ-Dzg" secondAttribute="width" id="4gK-bK-FtF"/>
+                                                            <constraint firstItem="jaa-PZ-q0h" firstAttribute="centerX" secondItem="Lmv-NZ-Dzg" secondAttribute="centerX" id="60d-pn-txf"/>
+                                                            <constraint firstItem="jFa-39-I7P" firstAttribute="centerX" secondItem="Lmv-NZ-Dzg" secondAttribute="centerX" id="Fc8-mU-WQx"/>
+                                                            <constraint firstItem="jaa-PZ-q0h" firstAttribute="leading" secondItem="Lmv-NZ-Dzg" secondAttribute="leading" id="m8B-mC-VPO"/>
+                                                            <constraint firstAttribute="trailing" secondItem="jaa-PZ-q0h" secondAttribute="trailing" id="oi4-iP-ggc"/>
+                                                            <constraint firstItem="hxt-js-aDo" firstAttribute="centerX" secondItem="Lmv-NZ-Dzg" secondAttribute="centerX" id="u3D-sX-Tsc"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ny-fg-woM">
-                                                        <rect key="frame" x="0.0" y="350" width="375" height="40"/>
-                                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.68720569349315064" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNm-A7-kcr">
-                                                        <rect key="frame" x="0.0" y="395" width="375" height="40"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jFV-HP-HdH">
-                                                        <rect key="frame" x="0.0" y="440" width="375" height="240"/>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="Lmv-NZ-Dzg" firstAttribute="leading" secondItem="U77-Cc-rCr" secondAttribute="leading" id="BIM-GE-XKD"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Lmv-NZ-Dzg" secondAttribute="trailing" id="D9L-AD-4qa"/>
+                                                    <constraint firstItem="Lmv-NZ-Dzg" firstAttribute="top" secondItem="U77-Cc-rCr" secondAttribute="top" id="TP6-4a-4Fs"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Lmv-NZ-Dzg" secondAttribute="bottom" id="nwr-rb-kVo"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwD-tK-QXd" userLabel="mapView">
+                                                <rect key="frame" x="20" y="70" width="335" height="255"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jFV-HP-HdH" userLabel="mapView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="255"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsB-6h-DgS">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aa-t9-M2f">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.43035637842465752" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7d-4e-Jzd">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
                                                                         <connections>
                                                                             <action selector="toGoogleMap:" destination="JEX-9P-axG" eventType="touchUpInside" id="Rah-Pd-Cka"/>
                                                                         </connections>
@@ -1438,6 +1494,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.68720569349315064" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstItem="2aa-t9-M2f" firstAttribute="leading" secondItem="bsB-6h-DgS" secondAttribute="leading" id="3Nm-6B-e0X"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="L6P-To-Xr2"/>
                                                                     <constraint firstItem="K7d-4e-Jzd" firstAttribute="top" secondItem="bsB-6h-DgS" secondAttribute="top" id="Lap-4i-3XL"/>
                                                                     <constraint firstItem="2aa-t9-M2f" firstAttribute="top" secondItem="bsB-6h-DgS" secondAttribute="top" id="Pqf-Ua-m1W"/>
                                                                     <constraint firstAttribute="bottom" secondItem="2aa-t9-M2f" secondAttribute="bottom" id="Qeo-a0-Ukg"/>
@@ -1448,65 +1505,38 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWQ-ML-VWi" customClass="GMSMapView">
-                                                                <rect key="frame" x="0.0" y="40" width="375" height="200"/>
+                                                                <rect key="frame" x="0.0" y="55" width="335" height="200"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="200" id="4bW-32-JYs"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3SX-VU-l6N">
-                                                        <rect key="frame" x="0.0" y="685" width="375" height="80"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-XU-2co" userLabel="Comments">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PB9-bz-LHQ">
-                                                                <rect key="frame" x="0.0" y="45" width="375" height="35"/>
-                                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.68720569349315064" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                            </textView>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oy9-OF-35U">
-                                                        <rect key="frame" x="0.0" y="770" width="375" height="60"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="60" id="XJp-WV-Uhd"/>
-                                                        </constraints>
-                                                    </view>
                                                 </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="RLt-4e-aKm" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="3u7-aj-EId"/>
-                                                    <constraint firstItem="oy9-OF-35U" firstAttribute="width" secondItem="v61-Q1-ToL" secondAttribute="width" id="8Vz-qZ-u3o"/>
-                                                    <constraint firstItem="yNm-A7-kcr" firstAttribute="height" secondItem="9Ny-fg-woM" secondAttribute="height" id="E1P-W4-k1L"/>
-                                                    <constraint firstItem="dLv-A6-6FK" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="PVQ-fq-ZXr"/>
-                                                    <constraint firstAttribute="trailing" secondItem="RLt-4e-aKm" secondAttribute="trailing" id="QIl-p6-CbQ"/>
-                                                    <constraint firstItem="3SX-VU-l6N" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="QzT-Vp-1QC"/>
-                                                    <constraint firstItem="W7l-XU-2co" firstAttribute="height" secondItem="yNm-A7-kcr" secondAttribute="height" id="VSh-er-LRc"/>
-                                                    <constraint firstItem="RLt-4e-aKm" firstAttribute="leading" secondItem="v61-Q1-ToL" secondAttribute="leading" id="c5Y-Qm-egy"/>
-                                                    <constraint firstItem="yNm-A7-kcr" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="cZQ-eh-SGl"/>
-                                                    <constraint firstItem="9Ny-fg-woM" firstAttribute="height" secondItem="RLt-4e-aKm" secondAttribute="height" id="dc7-CW-KhS"/>
-                                                    <constraint firstItem="9Ny-fg-woM" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="gGt-GW-RAw"/>
-                                                    <constraint firstItem="jFV-HP-HdH" firstAttribute="centerX" secondItem="v61-Q1-ToL" secondAttribute="centerX" id="hep-AZ-BMq"/>
-                                                    <constraint firstItem="bsB-6h-DgS" firstAttribute="height" secondItem="yNm-A7-kcr" secondAttribute="height" id="ttP-93-gq8"/>
+                                                    <constraint firstItem="jFV-HP-HdH" firstAttribute="leading" secondItem="qwD-tK-QXd" secondAttribute="leading" id="Eh6-tv-Ubm"/>
+                                                    <constraint firstAttribute="bottom" secondItem="jFV-HP-HdH" secondAttribute="bottom" id="OcJ-L9-hA8"/>
+                                                    <constraint firstItem="jFV-HP-HdH" firstAttribute="top" secondItem="qwD-tK-QXd" secondAttribute="top" id="ghi-Vh-InN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="jFV-HP-HdH" secondAttribute="trailing" id="w3O-4p-7f1"/>
                                                 </constraints>
-                                            </stackView>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="5eV-mn-nM2" secondAttribute="trailing" id="4OL-rY-MNh"/>
-                                            <constraint firstItem="v61-Q1-ToL" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" id="Va0-Ap-ZhE"/>
+                                            <constraint firstAttribute="trailing" secondItem="nb1-Cf-1hf" secondAttribute="trailing" constant="20" id="A4v-gu-BBC"/>
+                                            <constraint firstItem="nb1-Cf-1hf" firstAttribute="top" secondItem="5eV-mn-nM2" secondAttribute="bottom" constant="10" id="Aae-j0-HvO"/>
+                                            <constraint firstItem="nb1-Cf-1hf" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" constant="20" id="EiI-Uq-Wk3"/>
+                                            <constraint firstAttribute="trailing" secondItem="U77-Cc-rCr" secondAttribute="trailing" constant="20" id="NFE-eT-lGS"/>
                                             <constraint firstItem="5eV-mn-nM2" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" id="WWx-Pu-PAI"/>
+                                            <constraint firstItem="U77-Cc-rCr" firstAttribute="top" secondItem="5eV-mn-nM2" secondAttribute="bottom" constant="10" id="ZrG-ux-zuU"/>
+                                            <constraint firstItem="qwD-tK-QXd" firstAttribute="top" secondItem="5eV-mn-nM2" secondAttribute="bottom" constant="10" id="bEd-Ul-cE6"/>
                                             <constraint firstAttribute="height" constant="900" id="bz8-S1-hB0"/>
                                             <constraint firstItem="5eV-mn-nM2" firstAttribute="top" secondItem="Dr0-R1-4hB" secondAttribute="top" constant="10" id="cNh-lo-YUj"/>
-                                            <constraint firstItem="v61-Q1-ToL" firstAttribute="top" secondItem="Dr0-R1-4hB" secondAttribute="top" constant="70" id="d2R-1V-mEQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="v61-Q1-ToL" secondAttribute="trailing" id="k8l-aI-46D"/>
-                                            <constraint firstAttribute="bottom" secondItem="v61-Q1-ToL" secondAttribute="bottom" id="qgh-VS-NBT"/>
+                                            <constraint firstAttribute="trailing" secondItem="qwD-tK-QXd" secondAttribute="trailing" constant="20" id="lTd-QV-cWa"/>
+                                            <constraint firstItem="qwD-tK-QXd" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" constant="20" id="qJA-li-aYi"/>
+                                            <constraint firstItem="U77-Cc-rCr" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" constant="20" id="x5j-xV-PeG"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1519,7 +1549,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o8G-Yu-iHS" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="837" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="504" width="375" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="K91-Gz-hxa"/>
                                 </constraints>
@@ -1540,16 +1570,17 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="bannerView" destination="o8G-Yu-iHS" id="6BO-At-emo"/>
-                        <outlet property="commentsLabel" destination="PB9-bz-LHQ" id="jtK-bX-Hkg"/>
-                        <outlet property="dateLabel" destination="9Ny-fg-woM" id="xj2-71-ZMc"/>
-                        <outlet property="descriptionSV" destination="3SX-VU-l6N" id="Dh7-1D-rad"/>
+                        <outlet property="commentsLabel" destination="vIK-ps-hPV" id="NaM-aU-Ifw"/>
+                        <outlet property="dateLabel" destination="jaa-PZ-q0h" id="BQu-Be-mYX"/>
+                        <outlet property="descriptionSV" destination="hxt-js-aDo" id="hz3-RK-vyf"/>
                         <outlet property="googleMap" destination="wWQ-ML-VWi" id="shF-2i-iTf"/>
                         <outlet property="imageView" destination="dLv-A6-6FK" id="kXp-PW-GXh"/>
                         <outlet property="locationLabel" destination="2aa-t9-M2f" id="tXr-yb-vWf"/>
+                        <outlet property="mapView" destination="qwD-tK-QXd" id="Si4-Ed-YQa"/>
+                        <outlet property="overView" destination="U77-Cc-rCr" id="NfC-2D-dz7"/>
+                        <outlet property="photosView" destination="nb1-Cf-1hf" id="oFg-tz-4ZI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
@@ -1559,7 +1590,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="883" y="-505"/>
+            <point key="canvasLocation" x="881" y="-613"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="aHh-HI-XWa">
@@ -2306,7 +2337,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2654,7 +2685,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2674,7 +2705,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2694,7 +2725,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
