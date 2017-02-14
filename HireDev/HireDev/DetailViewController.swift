@@ -100,6 +100,15 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     //MARK: IBAction
     
+    @IBAction func optionValueChanged(_ sender: SegmentedControl) {
+        
+        let selectedIndex = sender.selectedIndex
+        
+        NSLog("herro! \(selectedIndex) was clicked")
+        
+    }
+    
+    
     @IBAction func tapImage(_ sender: UITapGestureRecognizer) {
         
         let vWidth = self.view.frame.width
