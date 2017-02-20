@@ -17,6 +17,8 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var locationLabel2: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var commentsLabel: UITextView!
     @IBOutlet weak var googleMap: GMSMapView!
     @IBOutlet weak var bannerView: GADBannerView!
@@ -38,10 +40,25 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         self.imageView.image = self.getImageFromString((self.detailItem.photo))
+        self.imageView.contentMode = .scaleAspectFill
+        self.imageView.layer.cornerRadius = 20
+        self.imageView.clipsToBounds = true
+        self.imageView.layer.masksToBounds = true
+        
+        self.titleLabel.text = detailItem.title
         self.dateLabel.text = "  " + self.detailItem.date
         self.locationLabel.text = "  " + self.detailItem.location
+        self.locationLabel2.text = "  " + self.detailItem.location
         self.commentsLabel.text = self.detailItem.comments
         self.title = self.detailItem.title
+        
+        self.photosView.layer.cornerRadius = 20
+        self.overView.layer.cornerRadius = 20
+        self.mapView.layer.cornerRadius = 20
+        
+        photosView.isHidden = false
+        overView.isHidden = true
+        mapView.isHidden = true
         
         if self.detailItem.comments == ""{
             self.descriptionSV.isHidden = true
@@ -112,12 +129,24 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         switch selectedIndex {
         case 0:
             NSLog("Photo")
+            photosView.isHidden = false
+            overView.isHidden = true
+            mapView.isHidden = true
         case 1:
             NSLog("Overview")
+            photosView.isHidden = true
+            overView.isHidden = false
+            mapView.isHidden = true
         case 2:
             NSLog("Map")
+            photosView.isHidden = true
+            overView.isHidden = true
+            mapView.isHidden = false
         default:
             NSLog("Photo")
+            photosView.isHidden = false
+            overView.isHidden = true
+            mapView.isHidden = true
         }
         
     }
