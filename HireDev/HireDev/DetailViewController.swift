@@ -23,14 +23,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var googleMap: GMSMapView!
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var descriptionSV: UIStackView!
-    
     @IBOutlet weak var photosView: UIView!
     @IBOutlet weak var overView: UIView!
     @IBOutlet weak var mapView: UIView!
     
-    
     var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", photo: "", addedByUser: "", date: "", location: "")
-    
     let screenSize: CGRect = UIScreen.main.bounds
     var latitude: Double = 0
     var longitude: Double = 0
