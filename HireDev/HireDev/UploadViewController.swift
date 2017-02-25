@@ -79,7 +79,8 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         super.viewWillAppear(animated)
         
         let nav = self.navigationController?.navigationBar
-        nav?.barTintColor = UIColor.init(red: 0/255.0, green: 168.0/255.0, blue: 168.0/255.0, alpha: 1.0)
+        nav?.barTintColor = UIColor.init(red: 255.0/255.0, green: 121.0/255.0, blue: 121.0/255.0, alpha: 1.0)
+        nav?.isTranslucent = false
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         nav?.tintColor = UIColor.white
         
@@ -107,7 +108,6 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         let cell: UITableViewCell = self.myTableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
         
         cell.textLabel?.text = category[indexPath.row]
-        cell.textLabel?.textColor = UIColor.white
         
         if !checked[indexPath.row] {
             cell.accessoryType = .none
@@ -130,7 +130,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.tintColor = UIColor.white
+        cell.tintColor = UIColor.blue
         cell.backgroundColor = UIColor.clear
     }
     
