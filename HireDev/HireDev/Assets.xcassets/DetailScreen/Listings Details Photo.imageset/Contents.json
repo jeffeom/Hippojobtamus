@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Listings Details Photo.pdf",
+      "filename" : "Listings Details Bkgd.pdf",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Listings Details Photo-1.pdf",
+      "filename" : "Listings Details Bkgd-1.pdf",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Listings Details Photo-2.pdf",
+      "filename" : "Listings Details Bkgd-2.pdf",
       "scale" : "3x"
     }
   ],

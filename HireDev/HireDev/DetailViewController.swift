@@ -54,7 +54,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         self.locationLabel.text = "  " + self.detailItem.location
         self.locationLabel2.text = "     " + self.detailItem.location
         self.commentsLabel.text = "    " + self.detailItem.comments
-        self.title = self.detailItem.title
+        self.title = ""
         
         self.photosView.layer.cornerRadius = 20
         self.overView.layer.cornerRadius = 20
