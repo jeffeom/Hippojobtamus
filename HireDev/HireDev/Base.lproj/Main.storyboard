@@ -115,7 +115,7 @@
                                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                                             <subviews>
                                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TE7-sJ-Nwl">
-                                                                                                    <rect key="frame" x="-1" y="0.0" width="101" height="100"/>
+                                                                                                    <rect key="frame" x="-0.5" y="0.0" width="100" height="100"/>
                                                                                                 </imageView>
                                                                                             </subviews>
                                                                                         </view>
@@ -605,7 +605,7 @@
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iv7-sG-ppj">
                                                                         <rect key="frame" x="0.0" y="450" width="375" height="300"/>
                                                                         <subviews>
-                                                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tap to take a photo" translatesAutoresizingMaskIntoConstraints="NO" id="aVr-9O-4wh">
+                                                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload_box" translatesAutoresizingMaskIntoConstraints="NO" id="aVr-9O-4wh">
                                                                                 <rect key="frame" x="0.0" y="30" width="375" height="240"/>
                                                                             </imageView>
                                                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcB-Fg-Zvt">
@@ -2465,7 +2465,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2813,7 +2813,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2833,7 +2833,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2853,7 +2853,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2870,7 +2870,6 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
     <resources>
         <image name="Listings Details Photo" width="750" height="1334"/>
         <image name="Sign Up Button" width="584" height="100"/>
-        <image name="Tap to take a photo" width="412" height="377"/>
         <image name="blankinputbox" width="653" height="102"/>
         <image name="cancelbutton" width="584" height="100"/>
         <image name="circle_logo" width="419" height="286"/>
@@ -2883,6 +2882,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
         <image name="powerGoogle" width="144" height="18"/>
         <image name="signin" width="320" height="120"/>
         <image name="signin1" width="320" height="120"/>
+        <image name="upload_box" width="231" height="213"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hcU-FG-nwL"/>
