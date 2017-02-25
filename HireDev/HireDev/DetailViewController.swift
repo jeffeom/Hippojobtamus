@@ -19,6 +19,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var locationLabel2: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel2: UILabel!
     @IBOutlet weak var commentsLabel: UITextView!
     @IBOutlet weak var googleMap: GMSMapView!
     @IBOutlet weak var bannerView: GADBannerView!
@@ -26,6 +27,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var photosView: UIView!
     @IBOutlet weak var overView: UIView!
     @IBOutlet weak var mapView: UIView!
+    @IBOutlet weak var segmentedControl: SegmentedControl!
     
     var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", photo: "", addedByUser: "", date: "", location: "")
     let screenSize: CGRect = UIScreen.main.bounds
@@ -36,17 +38,22 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(gesture:)))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
         self.imageView.image = self.getImageFromString((self.detailItem.photo))
-        self.imageView.contentMode = .scaleAspectFill
-        self.imageView.layer.cornerRadius = 20
-        self.imageView.clipsToBounds = true
-        self.imageView.layer.masksToBounds = true
         
         self.titleLabel.text = detailItem.title
-        self.dateLabel.text = "  " + self.detailItem.date
+        self.titleLabel2.text = detailItem.title
+        self.dateLabel.text = "     " + self.detailItem.date
         self.locationLabel.text = "  " + self.detailItem.location
-        self.locationLabel2.text = "  " + self.detailItem.location
-        self.commentsLabel.text = self.detailItem.comments
+        self.locationLabel2.text = "     " + self.detailItem.location
+        self.commentsLabel.text = "    " + self.detailItem.comments
         self.title = self.detailItem.title
         
         self.photosView.layer.cornerRadius = 20
@@ -140,10 +147,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             overView.isHidden = true
             mapView.isHidden = false
         default:
-            NSLog("Photo")
-            photosView.isHidden = false
-            overView.isHidden = true
-            mapView.isHidden = true
+            break
         }
         
     }
@@ -202,6 +206,101 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             print("Can't use comgooglemaps://");
         }
         
+    }
+    
+    //MARK: SwipeGesture
+    
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer{
+            
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                // back
+                
+                let animation = CATransition.init()
+                animation.duration = 0.5
+                animation.type = kCATransitionPush
+                animation.subtype = kCATransitionFromLeft
+                animation.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseOut)
+                
+                switch segmentedControl.selectedIndex {
+                case 0:
+                    
+                    NSLog("Map")
+                    photosView.isHidden = true
+                    overView.isHidden = true
+                    mapView.isHidden = false
+                    segmentedControl.selectedIndex = 2
+                    
+                    mapView.layer.add(animation, forKey: "showSecondView")
+
+                case 1:
+                    NSLog("Photo")
+                    photosView.isHidden = false
+                    overView.isHidden = true
+                    mapView.isHidden = true
+                    segmentedControl.selectedIndex = 0
+                    
+                    photosView.layer.add(animation, forKey: "showSecondView")
+
+                case 2:
+                    NSLog("Overview")
+                    photosView.isHidden = true
+                    overView.isHidden = false
+                    mapView.isHidden = true
+                    segmentedControl.selectedIndex = 1
+                    
+                    overView.layer.add(animation, forKey: "showSecondView")
+                    
+                default:
+                    break
+                }
+                
+            case UISwipeGestureRecognizerDirection.left:
+                // next
+                
+                let animation = CATransition.init()
+                animation.duration = 0.5
+                animation.type = kCATransitionPush
+                animation.subtype = kCATransitionFromRight
+                animation.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseOut)
+                
+                switch segmentedControl.selectedIndex {
+                case 0:
+                    NSLog("Overview")
+                    photosView.isHidden = true
+                    overView.isHidden = false
+                    mapView.isHidden = true
+                    segmentedControl.selectedIndex = 1
+                    
+                    overView.layer.add(animation, forKey: "showSecondView")
+                    
+                case 1:
+                    NSLog("Map")
+                    photosView.isHidden = true
+                    overView.isHidden = true
+                    mapView.isHidden = false
+                    segmentedControl.selectedIndex = 2
+                    
+                    mapView.layer.add(animation, forKey: "showSecondView")
+                    
+                case 2:
+                    NSLog("Photo")
+                    photosView.isHidden = false
+                    overView.isHidden = true
+                    mapView.isHidden = true
+                    segmentedControl.selectedIndex = 0
+                    
+                    photosView.layer.add(animation, forKey: "showSecondView")
+                
+                default:
+                    break
+                }
+            default:
+                break
+            }
+        }
     }
     
     //MARK: Function

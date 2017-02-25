@@ -103,7 +103,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.tabBarController?.tabBar.tintColor = UIColor.white
         self.setUpLocationForButton(locationButton)
         
-        fetchDataFromDB()
+//        fetchDataFromDB()
     }
     
     override func didReceiveMemoryWarning() {
