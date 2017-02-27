@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  TableViewController.swift
 //  HireDev
 //
 //  Created by Jeff Eom on 2016-09-08.
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FontAwesome_swift
 
-class MasterViewController: UITableViewController {
+class TableViewController: UITableViewController {
     
     var detailViewController: DetailViewController? = nil
     

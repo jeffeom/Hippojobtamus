@@ -53,7 +53,6 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         if let dict = keys {
             let gaAPI = dict["googleBanner"] as? String
             
-            
             print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
             bannerView.adUnitID = gaAPI!
             bannerView.rootViewController = self

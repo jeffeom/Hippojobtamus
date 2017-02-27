@@ -223,7 +223,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 let cell = sender as! CategoryCollectionViewCell
                 if let indexPath = self.categoryCollectionView!.indexPath(for: cell) {
                     let categoryContent = self.categoryContents[indexPath.item]
-                    let controller = segue.destination as! MasterViewController
+                    let controller = segue.destination as! TableViewController
                     controller.contents = categoryContent
                 }
                 
@@ -231,7 +231,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 let cell = sender as! UITableViewCell
                 if let indexPath = self.optionTableView!.indexPath(for: cell){
                     let optionContent = self.optionsString[indexPath.row]
-                    let controller = segue.destination as! MasterViewController
+                    let controller = segue.destination as! TableViewController
                     controller.contents = optionContent
                 }
                 
