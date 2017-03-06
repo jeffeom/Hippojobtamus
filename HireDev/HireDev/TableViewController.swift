@@ -19,7 +19,10 @@ class TableViewController: UITableViewController {
     var contents = ""
     var categoryContents = [JobItem]()
     var indicator = UIActivityIndicatorView()
-    let ref = FIRDatabase.database().reference(withPath: "job-post")
+    let jobPostRef = FIRDatabase.database().reference(withPath: "job-post")
+    let myPostRef = FIRDatabase.database().reference(withPath: "users").child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
+    var newItems: [JobItem] = []
+    var postNames: [String] = []
     var rejectionCounter = 0
     var itemCounter = 0
     var readableOrigin: String = ""
@@ -42,7 +45,17 @@ class TableViewController: UITableViewController {
         indicator.bringSubview(toFront: container)
         indicator.startAnimating()
         
-        self.fetchDataFromDB()
+        if contents == "myPosts"{
+            self.fetchPersonalDB(personalRef: myPostRef, completion: {_ in
+                for aPost in self.postNames{
+                    self.fetchPersonalDBUsingNames(name: aPost, completion: {_ in
+                        NSLog("all done")
+                    })
+                }
+            })
+        }else{
+            self.fetchDataFromDB()
+        }
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -119,7 +132,7 @@ class TableViewController: UITableViewController {
             contents = "All"
         }
         
-        self.ref.child(contents).observe(.value, with: { (snapshot) in
+        self.jobPostRef.child(contents).observe(.value, with: { (snapshot) in
             var newItems: [JobItem] = []
             
             for item in snapshot.children {
@@ -211,6 +224,45 @@ class TableViewController: UITableViewController {
             self.indicator.hidesWhenStopped = true
             self.container.isHidden = true
             
+        })
+    }
+    
+    func fetchPersonalDB(personalRef: FIRDatabaseReference, completion:@escaping ((_ finished:Bool) -> Void)) {
+        
+        personalRef.child("uploadedPosts").observe(.value, with: {(snapshot1) in
+            
+            let snapshotValue = snapshot1.value as! [String]
+            
+            if snapshotValue.count != 0{
+                
+                for aPost in snapshotValue {
+                    self.postNames.append(aPost)
+                    completion(true)
+                }
+            }
+            
+        })
+        
+    }
+    
+    func fetchPersonalDBUsingNames(name: String, completion: @escaping ((_ finished: Bool) -> Void)) {
+        
+        self.jobPostRef.child("All").child(name).observe(.value, with: {(snapshot2) in
+
+            let snapshotValue = snapshot2.value as! [String: AnyObject]
+            
+            let myJob: JobItem = JobItem.init(title: snapshotValue["title"] as! String, category: snapshotValue["category"] as! [String], comments: snapshotValue["comments"] as! String, photo: snapshotValue["photo"] as! String, addedByUser: snapshotValue["addedByUser"] as! String, date: snapshotValue["date"] as! String, location: snapshotValue["location"] as! String)
+            
+                let jobItem = myJob
+                self.newItems.append(jobItem)
+                
+                self.categoryContents = self.newItems
+                self.tableView.reloadData()
+                completion(true)
+            
+            self.indicator.stopAnimating()
+            self.indicator.hidesWhenStopped = true
+            self.container.isHidden = true
         })
     }
 }

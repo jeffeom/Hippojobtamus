@@ -10,7 +10,7 @@ import UIKit
 import GoogleMobileAds
 
 class ProfileSettingViewController: UIViewController {
-
+    
     @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewDidLoad() {
@@ -31,10 +31,10 @@ class ProfileSettingViewController: UIViewController {
             bannerView.rootViewController = self
             bannerView.load(GADRequest())
         }
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -43,8 +43,10 @@ class ProfileSettingViewController: UIViewController {
     //MARK: IBOutlet
     
     @IBAction func myPosts(_ sender: Any) {
-        let myPosts = ProfileSettingViewController(nibName: "ProfileSettings", bundle: nil)
-        self.navigationController?.pushViewController(myPosts, animated: true)
+        let myStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "tableVC") as! TableViewController
+        vc.contents = "myPosts"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func myRewards(_ sender: Any) {

@@ -115,7 +115,7 @@
                                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                                             <subviews>
                                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TE7-sJ-Nwl">
-                                                                                                    <rect key="frame" x="-0.5" y="0.0" width="100" height="100"/>
+                                                                                                    <rect key="frame" x="-1" y="0.0" width="101" height="100"/>
                                                                                                 </imageView>
                                                                                             </subviews>
                                                                                         </view>
@@ -1382,7 +1382,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="svH-Pt-448">
+                    <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1441,7 +1441,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mng-qJ-osJ" userLabel="space">
-                                                                        <rect key="frame" x="37.5" y="319.5" width="240.5" height="10"/>
+                                                                        <rect key="frame" x="37" y="319.5" width="241" height="10"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="10" id="ws0-A6-QWw"/>
@@ -2377,7 +2377,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController storyboardIdentifier="masterVC" title="Master" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="TableViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="tableVC" title="Master" useStoryboardIdentifierAsRestorationIdentifier="YES" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="TableViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2855,7 +2855,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2927,7 +2927,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
         <image name="upload_box" width="231" height="213"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hcU-FG-nwL"/>
+        <segue reference="3g5-t3-D5n"/>
         <segue reference="gt5-9K-Ggq"/>
     </inferredMetricsTieBreakers>
 </document>

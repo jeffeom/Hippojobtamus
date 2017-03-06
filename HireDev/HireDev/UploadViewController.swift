@@ -173,7 +173,6 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
     
     //MARK: Action Button
     
-    
     @IBAction func showTableView(_ sender: AnyObject) {
         if hidden == true{
             UIView.animate(withDuration: 0.2) {
@@ -270,18 +269,16 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
                                 uploadedPosts[0] = jobId
                                 userRef.updateChildValues([
                                     "uploadedPosts": uploadedPosts
-                                    ])
+                                ])
                             }else{
                                 uploadedPosts.append(jobId)
                                 userRef.updateChildValues([
                                     "uploadedPosts": uploadedPosts
-                                    ])
+                                ])
                             }
-                            
                         }
                     })
                 }
-                
                 self.reset()
             }
         }else{
@@ -337,8 +334,6 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
         self.navigationController?.pushViewController(locationSettingController!
             , animated: true)
     }
-    
-    
     
     // MARK: dateToString
     
