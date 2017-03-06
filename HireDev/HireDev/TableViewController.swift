@@ -240,30 +240,31 @@ class TableViewController: UITableViewController {
                     completion(true)
                 }
             }
-            
         })
-        
     }
     
     func fetchPersonalDBUsingNames(name: String, completion: @escaping ((_ finished: Bool) -> Void)) {
         
-        self.jobPostRef.child("All").child(name).observe(.value, with: {(snapshot2) in
-
-            let snapshotValue = snapshot2.value as! [String: AnyObject]
+        if name != ""{
             
-            let myJob: JobItem = JobItem.init(title: snapshotValue["title"] as! String, category: snapshotValue["category"] as! [String], comments: snapshotValue["comments"] as! String, photo: snapshotValue["photo"] as! String, addedByUser: snapshotValue["addedByUser"] as! String, date: snapshotValue["date"] as! String, location: snapshotValue["location"] as! String)
-            
+            self.jobPostRef.child("All").child(name).observe(.value, with: {(snapshot2) in
+                
+                let snapshotValue = snapshot2.value as! [String: AnyObject]
+                
+                let myJob: JobItem = JobItem.init(title: snapshotValue["title"] as! String, category: snapshotValue["category"] as! [String], comments: snapshotValue["comments"] as! String, photo: snapshotValue["photo"] as! String, addedByUser: snapshotValue["addedByUser"] as! String, date: snapshotValue["date"] as! String, location: snapshotValue["location"] as! String)
+                
                 let jobItem = myJob
                 self.newItems.append(jobItem)
                 
                 self.categoryContents = self.newItems
                 self.tableView.reloadData()
                 completion(true)
-            
-            self.indicator.stopAnimating()
-            self.indicator.hidesWhenStopped = true
-            self.container.isHidden = true
-        })
+                
+            })
+        }
+        self.indicator.stopAnimating()
+        self.indicator.hidesWhenStopped = true
+        self.container.isHidden = true
     }
 }
 
