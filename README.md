@@ -28,7 +28,7 @@ There are countless part-time jobs out there but it seems so hard to find one wh
 - [x] Loop around the featured
 
 ###Post
-  - [ ] Upload photo from Library
+  - [x] Upload photo from Library
   - [ ] New post for employers
   - [ ] Upload at least 3 photos
   - [ ] Employers Contact
@@ -45,14 +45,14 @@ There are countless part-time jobs out there but it seems so hard to find one wh
   - [ ] Employers Contact ?
   - [ ] Share the post in Facebook
   - [ ] Job is taken Button
-  - [ ] image zoom-in feature
+  - [x] image zoom-in feature
 
 ###Profile
-- [ ] Able to See their own posts
+- [x] Able to See their own posts
 
 ###Overall
 - [x] Address needs to be more specific (surrey USA issue)
-- [ ] Create Profile Page
+- [x] Create Profile Page
 - [ ] App tour for new-comers
 - [ ] Push notification for favourite category within 24hrs
 - [ ] Better user interface for user privacy (camera, location)
