@@ -3,6 +3,8 @@
   <img src="./Screenshots/icon1024x1024.png" width="300">
 </p>
 
+Link to Download: **[Hippojobtamus Appstore][3]**
+
 ## ABOUT US
 
 There are countless part-time jobs out there but it seems so hard to find one when I need it. And there is no such platform just for part-time jobs yet. That's why we have created Hippo - the perfect platform for all part-time job seekers. Think about it. Wouldn't it be great to be able to see all hiring posts in one place instead of walking here and there
@@ -28,7 +30,7 @@ There are countless part-time jobs out there but it seems so hard to find one wh
 - [x] Loop around the featured
 
 ###Post
-  - [ ] Upload photo from Library
+  - [x] Upload photo from Library
   - [ ] New post for employers
   - [ ] Upload at least 3 photos
   - [ ] Employers Contact
@@ -45,19 +47,21 @@ There are countless part-time jobs out there but it seems so hard to find one wh
   - [ ] Employers Contact ?
   - [ ] Share the post in Facebook
   - [ ] Job is taken Button
-  - [ ] image zoom-in feature
+  - [x] image zoom-in feature
 
 ###Profile
-- [ ] Able to See their own posts
+- [x] Able to See their own posts
 
 ###Overall
 - [x] Address needs to be more specific (surrey USA issue)
-- [ ] Create Profile Page
+- [x] Create Profile Page
 - [ ] App tour for new-comers
 - [ ] Push notification for favourite category within 24hrs
 - [ ] Better user interface for user privacy (camera, location)
 
 ## Contacts
+
+Link to Download: **[Hippojobtamus Appstore][3]**
 
 Our website: **[Hippojobtamus Website][1]**
 
@@ -88,3 +92,4 @@ Thanks a lot for having interests in our app,
 
 [1]: http://sanghyunju.wixsite.com/hippojobtamus
 [2]: https://www.facebook.com/Hippojobtamus
+[3]: https://itunes.apple.com/ca/app/hippo-perfect-platform-for/id1163603705?mt=8
