@@ -27,8 +27,7 @@ class SettingViewController: UIViewController, MFMailComposeViewControllerDelega
         }
         if let dict = keys {
             let gaAPI = dict["googleBanner"] as? String
-            
-            
+                        
             print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
             bannerView.adUnitID = gaAPI!
             bannerView.rootViewController = self
@@ -50,7 +49,8 @@ class SettingViewController: UIViewController, MFMailComposeViewControllerDelega
         super.viewWillAppear(animated)
         
         let nav = self.navigationController?.navigationBar
-        nav?.barTintColor = UIColor.init(red: 0/255.0, green: 168.0/255.0, blue: 168.0/255.0, alpha: 1.0)
+        nav?.barTintColor = UIColor.init(red: 255.0/255.0, green: 121.0/255.0, blue: 121.0/255.0, alpha: 1.0)
+        nav?.isTranslucent = false
         nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         nav?.tintColor = UIColor.white
     }
@@ -146,5 +146,8 @@ class SettingViewController: UIViewController, MFMailComposeViewControllerDelega
         
     }
     
-    
+    @IBAction func profileSettingClicked(_ sender: Any) {
+        let profileVC = ProfileSettingViewController(nibName: "ProfileSettings", bundle: nil)
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
 }

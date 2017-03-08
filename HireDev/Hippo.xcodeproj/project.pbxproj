@@ -16,6 +16,7 @@
 		403A169D1D9B8709001FB468 /* ViewController+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */; };
 		403A169F1D9B8939001FB468 /* UIAlertController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */; };
 		404B3ED41DAA854300415DF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */; };
+		404EEBDE1E529BE20015040E /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EEBDD1E529BE20015040E /* SegmentedControl.swift */; };
 		405AE7301E0791B30026A33E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AE72F1E0791B30026A33E /* CategoryCollectionViewCell.swift */; };
 		405AE7321E0791F70026A33E /* SuggestedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AE7311E0791F70026A33E /* SuggestedTableViewCell.swift */; };
 		406132031DA250B90025EF0E /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 406132021DA250B90025EF0E /* Keys.plist */; };
@@ -24,13 +25,15 @@
 		406132091DA270F30025EF0E /* ViewController+SetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406132081DA270F30025EF0E /* ViewController+SetLocation.swift */; };
 		4072DAF81DA6436B000D2B97 /* LatestJobCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072DAF71DA6436B000D2B97 /* LatestJobCollectionViewCell.swift */; };
 		4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076389E1D82421600C7A892 /* AppDelegate.swift */; };
-		407638A11D82421600C7A892 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A01D82421600C7A892 /* MasterViewController.swift */; };
+		407638A11D82421600C7A892 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A01D82421600C7A892 /* TableViewController.swift */; };
 		407638A31D82421600C7A892 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A21D82421600C7A892 /* DetailViewController.swift */; };
 		407638A61D82421600C7A892 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407638A41D82421600C7A892 /* Main.storyboard */; };
 		407638A81D82421600C7A892 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407638A71D82421600C7A892 /* Assets.xcassets */; };
 		407638AB1D82421600C7A892 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407638A91D82421600C7A892 /* LaunchScreen.storyboard */; };
 		407638BA1D8245C100C7A892 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638B91D8245C100C7A892 /* LoginViewController.swift */; };
 		407638BC1D82958900C7A892 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638BB1D82958900C7A892 /* CreateAccountViewController.swift */; };
+		407CAB371E63A4EC002F6FED /* ProfileSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407CAB361E63A4EC002F6FED /* ProfileSettings.xib */; };
+		407CAB391E63A6E0002F6FED /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CAB381E63A6E0002F6FED /* ProfileSettingViewController.swift */; };
 		409B00831D9509D700E5174E /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B00821D9509D700E5174E /* UploadViewController.swift */; };
 		40B4C4791DBEF0FB00C1C606 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4C4781DBEF0FB00C1C606 /* User.swift */; };
 		40B4C47B1DBF013E00C1C606 /* ViewController + HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */; };
@@ -55,6 +58,7 @@
 		403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+AlertView.swift"; sourceTree = "<group>"; };
 		403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Present.swift"; sourceTree = "<group>"; };
 		404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		404EEBDD1E529BE20015040E /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		405AE72F1E0791B30026A33E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		405AE7311E0791F70026A33E /* SuggestedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestedTableViewCell.swift; sourceTree = "<group>"; };
 		406132021DA250B90025EF0E /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
@@ -64,7 +68,7 @@
 		4072DAF71DA6436B000D2B97 /* LatestJobCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestJobCollectionViewCell.swift; sourceTree = "<group>"; };
 		4076389B1D82421600C7A892 /* Hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4076389E1D82421600C7A892 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		407638A01D82421600C7A892 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		407638A01D82421600C7A892 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		407638A21D82421600C7A892 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		407638A51D82421600C7A892 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		407638A71D82421600C7A892 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		407638AC1D82421600C7A892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		407638B91D8245C100C7A892 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		407638BB1D82958900C7A892 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		407CAB361E63A4EC002F6FED /* ProfileSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileSettings.xib; sourceTree = "<group>"; };
+		407CAB381E63A6E0002F6FED /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		409B00821D9509D700E5174E /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		40B4C4781DBEF0FB00C1C606 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController + HexColor.swift"; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 				407638A41D82421600C7A892 /* Main.storyboard */,
 				407638A91D82421600C7A892 /* LaunchScreen.storyboard */,
 				407638A71D82421600C7A892 /* Assets.xcassets */,
+				407CAB361E63A4EC002F6FED /* ProfileSettings.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -181,6 +188,7 @@
 				40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */,
 				405AE72F1E0791B30026A33E /* CategoryCollectionViewCell.swift */,
 				405AE7311E0791F70026A33E /* SuggestedTableViewCell.swift */,
+				404EEBDD1E529BE20015040E /* SegmentedControl.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -196,7 +204,7 @@
 		407638B61D82441E00C7A892 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				407638A01D82421600C7A892 /* MasterViewController.swift */,
+				407638A01D82421600C7A892 /* TableViewController.swift */,
 				407638A21D82421600C7A892 /* DetailViewController.swift */,
 				407638B91D8245C100C7A892 /* LoginViewController.swift */,
 				407638BB1D82958900C7A892 /* CreateAccountViewController.swift */,
@@ -205,6 +213,7 @@
 				40F3015F1D9680880035D47A /* SettingViewController.swift */,
 				40D111481DA0331000AAD34E /* LocationSettingViewController.swift */,
 				4000EE8D1DA8EEA800449F0F /* HelpViewController.swift */,
+				407CAB381E63A6E0002F6FED /* ProfileSettingViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -257,6 +266,9 @@
 						DevelopmentTeam = U43R3UYB5A;
 						LastSwiftMigration = 0820;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -288,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				406132031DA250B90025EF0E /* Keys.plist in Resources */,
+				407CAB371E63A4EC002F6FED /* ProfileSettings.xib in Resources */,
 				407638AB1D82421600C7A892 /* LaunchScreen.storyboard in Resources */,
 				404B3ED41DAA854300415DF8 /* GoogleService-Info.plist in Resources */,
 				407638A81D82421600C7A892 /* Assets.xcassets in Resources */,
@@ -373,7 +386,7 @@
 				4032FF811D9D0E7900C91B5E /* JobTableViewCell.swift in Sources */,
 				40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */,
 				407638A31D82421600C7A892 /* DetailViewController.swift in Sources */,
-				407638A11D82421600C7A892 /* MasterViewController.swift in Sources */,
+				407638A11D82421600C7A892 /* TableViewController.swift in Sources */,
 				40F301601D9680880035D47A /* SettingViewController.swift in Sources */,
 				403A169F1D9B8939001FB468 /* UIAlertController+Present.swift in Sources */,
 				405AE7321E0791F70026A33E /* SuggestedTableViewCell.swift in Sources */,
@@ -382,10 +395,12 @@
 				40DFE3E81DA482510052E6EF /* ViewController+CheckDistance.swift in Sources */,
 				405AE7301E0791B30026A33E /* CategoryCollectionViewCell.swift in Sources */,
 				400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */,
+				407CAB391E63A6E0002F6FED /* ProfileSettingViewController.swift in Sources */,
 				40B4C47B1DBF013E00C1C606 /* ViewController + HexColor.swift in Sources */,
 				40DAA3A51D99F040005806BE /* JobItem.swift in Sources */,
 				4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */,
 				4000EE8E1DA8EEA800449F0F /* HelpViewController.swift in Sources */,
+				404EEBDE1E529BE20015040E /* SegmentedControl.swift in Sources */,
 				40B4C4791DBEF0FB00C1C606 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

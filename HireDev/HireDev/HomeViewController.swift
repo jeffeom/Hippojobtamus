@@ -33,6 +33,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let categoryContents: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "All", "Education", "Sales", "Reception", "Others"]
     var loadingView: UIView = UIView()
     let optionsString: [String] = ["Recently Posted", "Expire Soon", "Posts You Might Like", "Job Map"]
+    var onceOnly = false
     
     //MARK: IBOutlets
     
@@ -102,8 +103,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.tabBarController?.tabBar.tintColor = UIColor.white
         self.setUpLocationForButton(locationButton)
         
-        fetchDataFromDB()
-        
+//        fetchDataFromDB()
     }
     
     override func didReceiveMemoryWarning() {
@@ -223,7 +223,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 let cell = sender as! CategoryCollectionViewCell
                 if let indexPath = self.categoryCollectionView!.indexPath(for: cell) {
                     let categoryContent = self.categoryContents[indexPath.item]
-                    let controller = segue.destination as! MasterViewController
+                    let controller = segue.destination as! TableViewController
                     controller.contents = categoryContent
                 }
                 
@@ -231,7 +231,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 let cell = sender as! UITableViewCell
                 if let indexPath = self.optionTableView!.indexPath(for: cell){
                     let optionContent = self.optionsString[indexPath.row]
-                    let controller = segue.destination as! MasterViewController
+                    let controller = segue.destination as! TableViewController
                     controller.contents = optionContent
                 }
                 
@@ -279,7 +279,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let _ = UserDefaults.standard.string(forKey: "currentLocation"){
             
             ref.child("All").observe(.value, with: { snapshot in
-
+                
                 var latestItems: [JobItem] = []
                 
                 for item in snapshot.children {
@@ -318,12 +318,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                         
                                         self.itemCounter = 0
                                         self.rejectionCounter = 0
+                                        
+                                        let indexToScrollTo = IndexPath.init(item: 1, section: 0)
+                                        self.latestCollectionView.scrollToItem(at: indexToScrollTo as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+                                        self.onceOnly = true
+                                        
                                     }
-                                    
                                     
                                     self.latestContents = latestItems
                                     self.latestCollectionView.reloadData()
-//                                    self.optionTableView.reloadData()
                                 }
                             }else{
                                 self.rejectionCounter += 1

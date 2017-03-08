@@ -213,9 +213,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
             searchDistanceView.isHidden = false
             
         default:
-            lookUpAddressView.isHidden = false
-            searchDistanceView.isHidden = true
-            
+            break
         }
         
     }
@@ -226,12 +224,10 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
         let roundedValue = round(sender.value / step) * step
         sender.setValue(roundedValue, animated: true)
         
-        var distance: Int
-        var theCase: Int
+        var distance: Int?
+        var theCase: Int?
         
-        let number = sliderDistance.value
-        
-        switch number {
+        switch sliderDistance.value {
         case 1:
             distance = 1
             theCase = 1
@@ -253,8 +249,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
             theCase = 5
             
         default:
-            distance = 10
-            theCase = 3
+            break
         }
         
         UserDefaults.standard.setValue(distance, forKey: "searchDistance")
