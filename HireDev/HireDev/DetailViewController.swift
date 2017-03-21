@@ -343,7 +343,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         sender.view?.removeFromSuperview()
         navigationController?.setNavigationBarHidden(navigationController?.isNavigationBarHidden == false, animated: true)
-        self.tabBarController?.tabBar.isHidden = false
     }
 }
 
