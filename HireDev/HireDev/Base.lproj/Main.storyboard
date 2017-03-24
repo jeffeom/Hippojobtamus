@@ -1393,7 +1393,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dr0-R1-4hB">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1711"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1636"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eV-mn-nM2" customClass="SegmentedControl" customModule="Hippo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -1406,7 +1406,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                 </connections>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DD0-iv-9dS">
-                                                <rect key="frame" x="30" y="50" width="315" height="1501"/>
+                                                <rect key="frame" x="30" y="50" width="315" height="1426"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nb1-Cf-1hf" userLabel="photosView">
                                                         <rect key="frame" x="0.0" y="0.0" width="315" height="564.5"/>
@@ -1628,22 +1628,22 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                         </constraints>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwD-tK-QXd" userLabel="mapView">
-                                                        <rect key="frame" x="0.0" y="1086.5" width="315" height="414.5"/>
+                                                        <rect key="frame" x="0.0" y="1086.5" width="315" height="339.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jFV-HP-HdH" userLabel="mapView">
-                                                                <rect key="frame" x="0.0" y="0.0" width="315" height="415"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="315" height="340"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsB-6h-DgS">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
+                                                                        <rect key="frame" x="27.5" y="0.0" width="260" height="40"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aa-t9-M2f">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="260" height="40"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7d-4e-Jzd">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="260" height="40"/>
                                                                                 <connections>
                                                                                     <action selector="toGoogleMap:" destination="JEX-9P-axG" eventType="touchUpInside" id="Rah-Pd-Cka"/>
                                                                                 </connections>
@@ -1662,12 +1662,18 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWQ-ML-VWi" customClass="GMSMapView">
-                                                                        <rect key="frame" x="0.0" y="115" width="315" height="300"/>
+                                                                        <rect key="frame" x="0.0" y="40" width="315" height="300"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="300" id="4bW-32-JYs"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="wWQ-ML-VWi" firstAttribute="top" secondItem="bsB-6h-DgS" secondAttribute="bottom" id="27B-mJ-MZB"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="wWQ-ML-VWi" secondAttribute="bottom" id="5Dq-Pg-RZF"/>
+                                                                    <constraint firstItem="wWQ-ML-VWi" firstAttribute="leading" secondItem="jFV-HP-HdH" secondAttribute="leading" id="Ebg-6U-P8N"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="wWQ-ML-VWi" secondAttribute="trailing" id="o2h-4F-xdJ"/>
+                                                                </constraints>
                                                             </stackView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1692,7 +1698,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNd-Py-20F" userLabel="Favorite">
-                                                <rect key="frame" x="0.0" y="1551" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="1476" width="375" height="100"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V4q-b8-P83" customClass="FontAwesomeView" customModule="FontAwesome_swift">
                                                         <rect key="frame" x="162" y="25" width="50" height="50"/>
@@ -1713,7 +1719,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nlm-Md-M5F" userLabel="SpaceForAds">
-                                                <rect key="frame" x="0.0" y="1651" width="375" height="60"/>
+                                                <rect key="frame" x="0.0" y="1576" width="375" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="md3-3D-CjV"/>
                                                 </constraints>
@@ -1725,13 +1731,13 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                             <constraint firstAttribute="trailing" secondItem="DNd-Py-20F" secondAttribute="trailing" id="6GZ-uB-2cP"/>
                                             <constraint firstAttribute="trailing" secondItem="DD0-iv-9dS" secondAttribute="trailing" constant="30" id="BvZ-yc-V3B"/>
                                             <constraint firstItem="nlm-Md-M5F" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" id="P7E-kq-4Jv"/>
+                                            <constraint firstItem="DNd-Py-20F" firstAttribute="top" secondItem="DD0-iv-9dS" secondAttribute="bottom" id="Te0-vg-jK3"/>
                                             <constraint firstAttribute="bottom" secondItem="nlm-Md-M5F" secondAttribute="bottom" id="UXI-CA-AfI"/>
                                             <constraint firstItem="5eV-mn-nM2" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" id="eFB-Es-6e1"/>
                                             <constraint firstItem="5eV-mn-nM2" firstAttribute="top" secondItem="Dr0-R1-4hB" secondAttribute="top" id="fcD-hh-U4D"/>
                                             <constraint firstItem="DD0-iv-9dS" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" constant="30" id="iID-m3-XGl"/>
                                             <constraint firstAttribute="trailing" secondItem="5eV-mn-nM2" secondAttribute="trailing" id="iXy-8H-oKB"/>
                                             <constraint firstItem="DNd-Py-20F" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" id="mrN-8r-E7d"/>
-                                            <constraint firstAttribute="height" constant="1711" id="o4E-Br-gak"/>
                                             <constraint firstItem="DD0-iv-9dS" firstAttribute="top" secondItem="5eV-mn-nM2" secondAttribute="bottom" id="y1r-SR-4m3"/>
                                         </constraints>
                                     </view>
@@ -1757,6 +1763,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                             <constraint firstAttribute="trailing" secondItem="Ab4-53-WzA" secondAttribute="trailing" id="BWt-Ew-SmO"/>
                             <constraint firstItem="nQ5-En-Ble" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="DiA-hT-RBr"/>
                             <constraint firstItem="nQ5-En-Ble" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="Es5-2Q-WWq"/>
+                            <constraint firstItem="o8G-Yu-iHS" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="Mbd-hz-tDh"/>
                             <constraint firstAttribute="trailing" secondItem="o8G-Yu-iHS" secondAttribute="trailing" id="V5C-wD-Li8"/>
                             <constraint firstItem="Ab4-53-WzA" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="ZEx-38-wlu"/>
                             <constraint firstItem="o8G-Yu-iHS" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="ZUQ-YW-uXD"/>

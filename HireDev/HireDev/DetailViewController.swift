@@ -76,9 +76,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         if let dict = keys {
             let gaAPI = dict["googleBanner"] as? String
             
-            
             print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
-            bannerView.adUnitID = gaAPI!
+            //            bannerView.adUnitID = gaAPI!
+            bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // TEST
             bannerView.rootViewController = self
             bannerView.load(GADRequest())
         }
