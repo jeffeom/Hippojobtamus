@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import GoogleMobileAds
+import Firebase
 
 class DetailViewController: UIViewController, UIScrollViewDelegate {
     
@@ -34,6 +35,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     var latitude: Double = 0
     var longitude: Double = 0
     var newImageView = UIImageView.init()
+    var jobTitle: String?
+    var jobRef: String?
+    let userRef: FIRDatabaseReference = FIRDatabase.database().reference(withPath: "users").child((UserDefaults.standard.string(forKey: "email")?.replacingOccurrences(of: ".", with: ""))!)
+    var favoredPosts: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +52,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         self.view.addGestureRecognizer(swipeLeft)
         
         self.imageView.image = self.getImageFromString((self.detailItem.photo))
-        
+    
         self.titleLabel.text = detailItem.title
         self.titleLabel2.text = detailItem.title
         self.dateLabel.text = "     " + self.detailItem.date
@@ -55,6 +60,9 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         self.locationLabel2.text = "     " + self.detailItem.location
         self.commentsLabel.text = "    " + self.detailItem.comments
         self.title = ""
+    
+        jobTitle = detailItem.title
+        jobRef = detailItem.ref?.description()
         
         self.photosView.layer.cornerRadius = 20
         self.overView.layer.cornerRadius = 20
@@ -63,6 +71,17 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         photosView.isHidden = false
         overView.isHidden = true
         mapView.isHidden = true
+        
+        self.userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.childSnapshot(forPath: "favoredPosts").exists(){
+                self.favoredPosts = snapshot.childSnapshot(forPath: "favoredPosts").value! as! [String]
+            }else{
+                self.favoredPosts = [""]
+                self.userRef.child("favoredPosts").setValue(self.favoredPosts)
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
         if self.detailItem.comments == ""{
             self.descriptionSV.isHidden = true
@@ -207,7 +226,20 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
         
     }
-    
+
+    @IBAction func favoriteMark(_ sender: Any) {
+        NSLog("favorite clicked, \(jobTitle), \(jobRef)")
+        
+        if self.checkForSameData(favoredPosts, string: jobRef!){
+            // if no samedata
+            self.favorite()
+            
+        }else{
+            // if there are samedata
+            self.unfavorite()
+        }
+        
+    }
     //MARK: SwipeGesture
     
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
@@ -344,5 +376,54 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         sender.view?.removeFromSuperview()
         navigationController?.setNavigationBarHidden(navigationController?.isNavigationBarHidden == false, animated: true)
     }
+    
+    func checkForSameData(_ array: [String], string: String) -> Bool{
+        var boolValue: Bool = false
+        var count: Int = 0
+        
+        if favoredPosts.count == 0{
+            self.favoredPosts[0] = string
+            self.userRef.child("favoredPosts").setValue(self.favoredPosts)
+            boolValue = true
+        }else if (favoredPosts.count == 1 && favoredPosts[0] == ""){
+        
+            self.favoredPosts[0] = string
+            self.userRef.child("favoredPosts").setValue(self.favoredPosts)
+            boolValue = true
+            
+        }else{
+            for aSub in array{
+                if string == aSub{
+                    boolValue = false
+                    
+                    if favoredPosts.count == 1{
+                        favoredPosts[0] = ""
+                    }else{
+                        favoredPosts.remove(at: count)
+                    }
+                    
+                }else{
+                    boolValue = true
+                    favoredPosts.append(string)
+                }
+                count += count
+            }
+        }
+        
+        return boolValue
+    }
+    
+    
+    func favorite(){
+        self.showAlert("Successfully favored the post!", title: "Favorited", fn: {
+            self.userRef.child("favoredPosts").setValue(self.favoredPosts)
+        })
+    }
+    
+    func unfavorite(){
+        self.showAlert("Successfully unfavored the post!", title: "Unfavorited", fn: {
+            self.userRef.child("favoredPosts").setValue(self.favoredPosts)
+        })
+    }
+    
 }
-

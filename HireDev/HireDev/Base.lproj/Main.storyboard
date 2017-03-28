@@ -1392,24 +1392,24 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQ5-En-Ble">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eV-mn-nM2" customClass="SegmentedControl" customModule="Hippo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="UQa-7V-rDG"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="optionValueChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="tyJ-Q3-pY6"/>
+                                        </connections>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dr0-R1-4hB">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1636"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="1487"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5eV-mn-nM2" customClass="SegmentedControl" customModule="Hippo" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="UQa-7V-rDG"/>
-                                                </constraints>
-                                                <connections>
-                                                    <action selector="optionValueChanged:" destination="JEX-9P-axG" eventType="valueChanged" id="tyJ-Q3-pY6"/>
-                                                </connections>
-                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DD0-iv-9dS">
-                                                <rect key="frame" x="30" y="50" width="315" height="1426"/>
+                                                <rect key="frame" x="30" y="0.0" width="315" height="1427"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nb1-Cf-1hf" userLabel="photosView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="564.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="565"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fti-od-E2q">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="565"/>
@@ -1487,7 +1487,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                         </constraints>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U77-Cc-rCr" userLabel="overView">
-                                                        <rect key="frame" x="0.0" y="564.5" width="315" height="522"/>
+                                                        <rect key="frame" x="0.0" y="565" width="315" height="522"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Lmv-NZ-Dzg">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="522"/>
@@ -1628,7 +1628,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                         </constraints>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwD-tK-QXd" userLabel="mapView">
-                                                        <rect key="frame" x="0.0" y="1086.5" width="315" height="339.5"/>
+                                                        <rect key="frame" x="0.0" y="1087" width="315" height="340"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jFV-HP-HdH" userLabel="mapView">
                                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="340"/>
@@ -1689,7 +1689,6 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="U77-Cc-rCr" firstAttribute="leading" secondItem="DD0-iv-9dS" secondAttribute="leading" id="CvK-7W-fe4"/>
-                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1501" id="KU2-yH-KzY"/>
                                                     <constraint firstAttribute="trailing" secondItem="qwD-tK-QXd" secondAttribute="trailing" id="PNQ-v0-hGn"/>
                                                     <constraint firstAttribute="trailing" secondItem="U77-Cc-rCr" secondAttribute="trailing" id="PtE-rp-dXf"/>
                                                     <constraint firstItem="qwD-tK-QXd" firstAttribute="leading" secondItem="DD0-iv-9dS" secondAttribute="leading" id="Wzl-SQ-YuU"/>
@@ -1697,56 +1696,32 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                                     <constraint firstAttribute="trailing" secondItem="nb1-Cf-1hf" secondAttribute="trailing" id="bML-g0-Jef"/>
                                                 </constraints>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNd-Py-20F" userLabel="Favorite">
-                                                <rect key="frame" x="0.0" y="1476" width="375" height="100"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V4q-b8-P83" customClass="FontAwesomeView" customModule="FontAwesome_swift">
-                                                        <rect key="frame" x="162" y="25" width="50" height="50"/>
-                                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="bW4-Xw-y4U"/>
-                                                            <constraint firstAttribute="width" secondItem="V4q-b8-P83" secondAttribute="height" multiplier="1:1" id="qId-9I-RKW"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="iconCode" value="fa-star-o"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="V4q-b8-P83" firstAttribute="centerX" secondItem="DNd-Py-20F" secondAttribute="centerX" id="52A-m1-HiR"/>
-                                                    <constraint firstAttribute="height" constant="100" id="HJO-Mv-KF5"/>
-                                                    <constraint firstItem="V4q-b8-P83" firstAttribute="centerY" secondItem="DNd-Py-20F" secondAttribute="centerY" id="UbP-fO-oo1"/>
-                                                </constraints>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nlm-Md-M5F" userLabel="SpaceForAds">
-                                                <rect key="frame" x="0.0" y="1576" width="375" height="60"/>
+                                                <rect key="frame" x="0.0" y="1427" width="375" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="md3-3D-CjV"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="nlm-Md-M5F" firstAttribute="top" secondItem="DNd-Py-20F" secondAttribute="bottom" id="43X-Ta-TV4"/>
                                             <constraint firstAttribute="trailing" secondItem="nlm-Md-M5F" secondAttribute="trailing" id="6B8-3e-P4R"/>
-                                            <constraint firstAttribute="trailing" secondItem="DNd-Py-20F" secondAttribute="trailing" id="6GZ-uB-2cP"/>
                                             <constraint firstAttribute="trailing" secondItem="DD0-iv-9dS" secondAttribute="trailing" constant="30" id="BvZ-yc-V3B"/>
+                                            <constraint firstItem="nlm-Md-M5F" firstAttribute="top" secondItem="DD0-iv-9dS" secondAttribute="bottom" id="Mce-Ta-1sD"/>
                                             <constraint firstItem="nlm-Md-M5F" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" id="P7E-kq-4Jv"/>
-                                            <constraint firstItem="DNd-Py-20F" firstAttribute="top" secondItem="DD0-iv-9dS" secondAttribute="bottom" id="Te0-vg-jK3"/>
                                             <constraint firstAttribute="bottom" secondItem="nlm-Md-M5F" secondAttribute="bottom" id="UXI-CA-AfI"/>
-                                            <constraint firstItem="5eV-mn-nM2" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" id="eFB-Es-6e1"/>
-                                            <constraint firstItem="5eV-mn-nM2" firstAttribute="top" secondItem="Dr0-R1-4hB" secondAttribute="top" id="fcD-hh-U4D"/>
+                                            <constraint firstItem="DD0-iv-9dS" firstAttribute="top" secondItem="Dr0-R1-4hB" secondAttribute="top" id="g83-yw-zvt"/>
                                             <constraint firstItem="DD0-iv-9dS" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" constant="30" id="iID-m3-XGl"/>
-                                            <constraint firstAttribute="trailing" secondItem="5eV-mn-nM2" secondAttribute="trailing" id="iXy-8H-oKB"/>
-                                            <constraint firstItem="DNd-Py-20F" firstAttribute="leading" secondItem="Dr0-R1-4hB" secondAttribute="leading" id="mrN-8r-E7d"/>
-                                            <constraint firstItem="DD0-iv-9dS" firstAttribute="top" secondItem="5eV-mn-nM2" secondAttribute="bottom" id="y1r-SR-4m3"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="5eV-mn-nM2" firstAttribute="leading" secondItem="nQ5-En-Ble" secondAttribute="leading" id="0sS-0c-Y6K"/>
                                     <constraint firstItem="Dr0-R1-4hB" firstAttribute="leading" secondItem="nQ5-En-Ble" secondAttribute="leading" id="BHo-PI-ort"/>
-                                    <constraint firstItem="Dr0-R1-4hB" firstAttribute="top" secondItem="nQ5-En-Ble" secondAttribute="top" id="D5Q-BB-LsJ"/>
                                     <constraint firstAttribute="width" secondItem="Dr0-R1-4hB" secondAttribute="width" id="P4v-BS-ygH"/>
+                                    <constraint firstItem="Dr0-R1-4hB" firstAttribute="top" secondItem="5eV-mn-nM2" secondAttribute="bottom" id="c6t-5o-sjB"/>
+                                    <constraint firstAttribute="trailing" secondItem="5eV-mn-nM2" secondAttribute="trailing" id="ekV-Ye-wiL"/>
                                     <constraint firstAttribute="bottom" secondItem="Dr0-R1-4hB" secondAttribute="bottom" id="pAT-xi-gPP"/>
+                                    <constraint firstItem="5eV-mn-nM2" firstAttribute="top" secondItem="nQ5-En-Ble" secondAttribute="top" id="x5r-Xi-7qH"/>
                                     <constraint firstAttribute="trailing" secondItem="Dr0-R1-4hB" secondAttribute="trailing" id="xRk-Po-oEI"/>
                                 </constraints>
                             </scrollView>
@@ -1774,7 +1749,13 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM">
+                        <barButtonItem key="rightBarButtonItem" title="Favorite" id="2oe-te-zqH">
+                            <connections>
+                                <action selector="favoriteMark:" destination="JEX-9P-axG" id="zr9-bb-ZD7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="bannerView" destination="o8G-Yu-iHS" id="6BO-At-emo"/>
@@ -2517,7 +2498,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2865,7 +2846,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2885,7 +2866,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2905,7 +2886,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
