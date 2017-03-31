@@ -413,11 +413,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                 // if not found jump to the next subarray
                 }else{
                     
-                    count += count
+                    count += 1
                     
                     // if it checked all of the sub arrays, mark "not found"
                     if count == array.count{
                         
+                        // append into the favored list
                         boolValue = true
                         favoredPosts.append(string)
 
