@@ -381,32 +381,48 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         var boolValue: Bool = false
         var count: Int = 0
         
+        // if the array is empty
         if favoredPosts.count == 0{
             self.favoredPosts[0] = string
             self.userRef.child("favoredPosts").setValue(self.favoredPosts)
             boolValue = true
-        }else if (favoredPosts.count == 1 && favoredPosts[0] == ""){
         
+        // if array has nothing in it
+        }else if (favoredPosts.count == 1 && favoredPosts[0] == ""){
             self.favoredPosts[0] = string
             self.userRef.child("favoredPosts").setValue(self.favoredPosts)
             boolValue = true
-            
+        
+        // if array has subarrays in it
         }else{
+            // check every subarrays one by one
             for aSub in array{
+                // if subarray matches the string
                 if string == aSub{
+                    // mark "found"
                     boolValue = false
                     
+                    // if it has only 1 subarray
                     if favoredPosts.count == 1{
+                        // unfavorite the subarray and erase it
                         favoredPosts[0] = ""
                     }else{
+                        // if it has more than subarray delete at count
                         favoredPosts.remove(at: count)
                     }
-                    
+                // if not found jump to the next subarray
                 }else{
-                    boolValue = true
-                    favoredPosts.append(string)
+                    
+                    count += count
+                    
+                    // if it checked all of the sub arrays, mark "not found"
+                    if count == array.count{
+                        
+                        boolValue = true
+                        favoredPosts.append(string)
+
+                    }
                 }
-                count += count
             }
         }
         
