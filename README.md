@@ -19,45 +19,45 @@ There are countless part-time jobs out there but it seems so hard to find one wh
 
 ## FEATURES TO BE ADDED
 
-###Login
+### Login
 - [x] Press enter to Log in
 
-###Sign up
+### Sign up
   - [ ] Employer sign-up ?
 
-###Home
+### Home
 - [x] Latest post hippo to new hippo
 - [x] Loop around the featured
 
-###Post
+### Post
   - [x] Upload photo from Library
   - [ ] New post for employers
   - [ ] Upload at least 3 photos
-  - [ ] Employers Contact
+  - [ ] Employers' Contact
 
-###TableView
+### TableView
   - [ ] Able to delete what they posted
   - [ ] Mark favorites
   - [ ] Put deadlines for posts
-  - [ ] Employer look different from other cells ?
-  - [ ] filter for employers only ?
+  - [ ] Employers' posts look different from other cells ?
+  - [ ] filter for employers' posts only ?
 
-###Detail View
+### Detail View
   - [ ] Comments function
-  - [ ] Employers Contact ?
-  - [ ] Share the post in Facebook
-  - [ ] Job is taken Button
+  - [ ] Employers' Contact ?
+  - [ ] Share posts in Facebook
+  - [ ] Create "job is taken" Button
   - [x] image zoom-in feature
 
-###Profile
-- [x] Able to See their own posts
+### Profile
+  - [x] Able to See their own posts
 
-###Overall
-- [x] Address needs to be more specific (surrey USA issue)
-- [x] Create Profile Page
-- [ ] App tour for new-comers
-- [ ] Push notification for favourite category within 24hrs
-- [ ] Better user interface for user privacy (camera, location)
+### Overall
+  - [x] Address needs to be more specific (Surrey USA, Surrey Canada issue)
+  - [x] Create Profile Page
+  - [ ] App tour for new-comers
+  - [ ] Push notification for favourite category within 24hrs
+  - [x] Better user interface for user privacy (camera, location)
 
 ## Contacts
 
