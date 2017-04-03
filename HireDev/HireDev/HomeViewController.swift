@@ -52,13 +52,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.itemCounter = 0
         
         container.backgroundColor = self.hexStringToUIColor("444444", alpha: 1)
-        container.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.midY / 8)
+        container.center = CGPoint.init(x: self.view.bounds.width / 2, y: self.categoryCollectionView.bounds.size.height / 2)
         container.layer.cornerRadius = 10
         self.latestCollectionView.addSubview(container)
         container.bringSubview(toFront: self.latestCollectionView)
         
         indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        indicator.frame = CGRect.init(x: 11.5, y: 11.5, width: 50, height: 50)
+        indicator.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
+        indicator.center = CGPoint.init(x: self.container.bounds.size.width / 2, y: self.container.bounds.size.height / 2)
         container.addSubview(indicator)
         indicator.bringSubview(toFront: container)
         indicator.startAnimating()
