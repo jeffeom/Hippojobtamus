@@ -334,7 +334,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
-                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.84819135270000001" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" white="0.90128580729166663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="lub-0f-4KO" secondAttribute="trailing" constant="10" id="1Ub-Bf-Ayq"/>
                                                             <constraint firstItem="lub-0f-4KO" firstAttribute="leading" secondItem="heh-Xg-amg" secondAttribute="leading" constant="10" id="6S8-l1-JBJ"/>
@@ -354,7 +354,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.84819135270000001" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.90128580729999996" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="dYI-t4-4z2" secondAttribute="bottom" id="Cs4-Or-Frv"/>
                                     <constraint firstAttribute="trailing" secondItem="dYI-t4-4z2" secondAttribute="trailing" id="YGb-zo-tS6"/>
@@ -369,7 +369,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.84819135270000001" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.90128580729999996" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TB1-83-YEt" firstAttribute="leading" secondItem="QP1-0U-O4Y" secondAttribute="leading" id="AxZ-aQ-i4i"/>
                             <constraint firstItem="V2q-So-kFN" firstAttribute="height" secondItem="QP1-0U-O4Y" secondAttribute="height" id="HH5-sO-gZF"/>
@@ -472,7 +472,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nz9-5o-gTy">
                                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.84819135270000001" colorSpace="calibratedRGB"/>
+                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="40" id="Ydx-r2-iAd"/>
                                                                         </constraints>
@@ -485,18 +485,19 @@
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffC-Fg-iS7">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="10" height="40"/>
+                                                                                <color key="backgroundColor" white="0.90128580729999996" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="10" id="kSQ-Nr-7eG"/>
                                                                                 </constraints>
                                                                             </view>
                                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ex - &quot;Blenz Barista - Robson @ Richards&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-25-bZt">
                                                                                 <rect key="frame" x="10" y="0.0" width="365" height="40"/>
+                                                                                <color key="backgroundColor" white="0.90128580729999996" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                             </textField>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </stackView>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRe-Dd-fsN">
                                                                         <rect key="frame" x="0.0" y="80" width="375" height="40"/>
@@ -520,11 +521,11 @@
                                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="xNP-xI-1mf"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.84819135270000001" colorSpace="calibratedRGB"/>
+                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstItem="4Qm-K0-svy" firstAttribute="leading" secondItem="cRe-Dd-fsN" secondAttribute="leading" id="1Ec-S2-Yzg"/>
                                                                             <constraint firstAttribute="trailing" secondItem="408-5w-gaw" secondAttribute="trailing" constant="8" id="GMu-wX-Mpb"/>
@@ -540,7 +541,7 @@
                                                                     </view>
                                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HOy-Ed-gdn">
                                                                         <rect key="frame" x="0.0" y="120" width="375" height="150"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <color key="backgroundColor" white="0.90128580729999996" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="150" id="4y5-L7-Jqb"/>
                                                                         </constraints>
@@ -561,6 +562,7 @@
                                                                                         </label>
                                                                                     </subviews>
                                                                                 </tableViewCellContentView>
+                                                                                <color key="backgroundColor" white="0.90128580729999996" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </tableViewCell>
                                                                         </prototypes>
                                                                         <connections>
@@ -570,7 +572,7 @@
                                                                     </tableView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAW-OF-F0q" userLabel="Comments">
                                                                         <rect key="frame" x="0.0" y="270" width="375" height="40"/>
-                                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.84819135270000001" colorSpace="calibratedRGB"/>
+                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -580,24 +582,25 @@
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npl-gw-7lC">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="10" height="100"/>
+                                                                                <color key="backgroundColor" white="0.90128580729999996" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="width" constant="10" id="eru-XC-ZPJ"/>
                                                                                 </constraints>
                                                                             </view>
                                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dNk-ge-gEI">
                                                                                 <rect key="frame" x="10" y="0.0" width="365" height="100"/>
+                                                                                <color key="backgroundColor" white="0.90128580729999996" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                             </textView>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="100" id="pyk-Ru-Rds"/>
                                                                         </constraints>
                                                                     </stackView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ob-rf-a7E">
                                                                         <rect key="frame" x="0.0" y="410" width="375" height="40"/>
-                                                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.84819135270000001" colorSpace="calibratedRGB"/>
+                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
@@ -617,6 +620,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
+                                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="gcB-Fg-Zvt" secondAttribute="bottom" id="5Jk-14-9iW"/>
                                                                             <constraint firstAttribute="trailing" secondItem="gcB-Fg-Zvt" secondAttribute="trailing" id="D5d-Yb-X9J"/>
@@ -663,7 +667,6 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="NQZ-L3-UhH" firstAttribute="leading" secondItem="3GA-pF-8VO" secondAttribute="leading" id="8BP-UA-dgq"/>
                                             <constraint firstItem="NQZ-L3-UhH" firstAttribute="top" secondItem="3GA-pF-8VO" secondAttribute="top" id="gOB-sx-AFD"/>
@@ -672,7 +675,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="3GA-pF-8VO" secondAttribute="trailing" id="G4o-nH-FKF"/>
                                     <constraint firstItem="3GA-pF-8VO" firstAttribute="top" secondItem="EdS-OP-XBf" secondAttribute="top" id="Pkf-i0-dB5"/>
@@ -688,7 +690,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.90128580729999996" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ke8-eV-Xsq" firstAttribute="leading" secondItem="gu0-ZF-QS3" secondAttribute="leading" id="5qf-zn-PYb"/>
                             <constraint firstItem="q3P-0u-VI1" firstAttribute="top" secondItem="Ke8-eV-Xsq" secondAttribute="bottom" id="6re-G4-V05"/>
@@ -1118,7 +1120,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="0.84819135270000001" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.90128580729999996" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="6Sb-0k-JvD" secondAttribute="bottom" id="9Xt-KF-E1Z"/>
                                             <constraint firstAttribute="trailing" secondItem="6Sb-0k-JvD" secondAttribute="trailing" id="J7X-Db-95X"/>
@@ -1141,7 +1143,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.90128580729999996" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="y64-k5-fWl" firstAttribute="centerY" secondItem="gcs-gM-c2S" secondAttribute="centerY" id="8t4-oD-IcF"/>
                             <constraint firstItem="y64-k5-fWl" firstAttribute="height" secondItem="gcs-gM-c2S" secondAttribute="height" id="A40-Ce-INh"/>
@@ -2498,7 +2500,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <tabBarItem key="tabBarItem" title="Home" id="L8U-Th-QVA"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="bfQ-Jh-SaR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2810,7 +2812,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.91372549020000005" green="0.90980392160000001" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.90128580729999996" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5xm-hA-eOs" firstAttribute="top" secondItem="7Mt-Kw-6tO" secondAttribute="bottom" id="Buc-lA-NQ3"/>
                             <constraint firstItem="QVg-Ty-qPR" firstAttribute="top" secondItem="ImY-Vo-4cn" secondAttribute="bottom" constant="20" id="G9o-Vp-vUM"/>
@@ -2846,7 +2848,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
             <objects>
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="wgg-bE-bqI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2866,7 +2868,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tdb-Qu-Mq7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2886,7 +2888,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MsH-j3-AzO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
