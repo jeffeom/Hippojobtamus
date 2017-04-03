@@ -48,18 +48,32 @@ class TableViewController: UITableViewController {
         
         if contents == "myPosts" {
             self.fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
-                for aPost in self.postNames{
-                    self.fetchPersonalDBUsingNames(name: aPost, completion: {_ in
-                        NSLog("all done")
-                    })
+                if self.postNames.count != 0{
+                    for aPost in self.postNames{
+                        self.fetchPersonalDBUsingNames(name: aPost, completion: {_ in
+                            NSLog("all done")
+                        })
+                    }
+                }else{
+                    NSLog("empty!")
+                    self.indicator.stopAnimating()
+                    self.indicator.hidesWhenStopped = true
+                    self.container.isHidden = true
                 }
             })
         }else if contents == "myFavorites"{
             self.fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
-                for aPost in self.postRef{
-                    self.fetchPersonalDBUsingRef(refString: aPost, completion: {_ in
-                        NSLog("all done")
-                    })
+                if self.postRef.count != 0{
+                    for aPost in self.postRef{
+                        self.fetchPersonalDBUsingRef(refString: aPost, completion: {_ in
+                            NSLog("all done")
+                        })
+                    }
+                }else{
+                    NSLog("empty!")
+                    self.indicator.stopAnimating()
+                    self.indicator.hidesWhenStopped = true
+                    self.container.isHidden = true
                 }
             })
         }else{
