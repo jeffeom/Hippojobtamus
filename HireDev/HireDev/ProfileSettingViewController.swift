@@ -31,8 +31,6 @@ class ProfileSettingViewController: UIViewController {
             bannerView.rootViewController = self
             bannerView.load(GADRequest())
         }
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,5 +51,9 @@ class ProfileSettingViewController: UIViewController {
     }
     
     @IBAction func starredPosts(_ sender: Any) {
+        let myStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "tableVC") as! TableViewController
+        vc.contents = "myFavorites"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

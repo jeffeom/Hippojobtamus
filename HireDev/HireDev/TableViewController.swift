@@ -23,6 +23,7 @@ class TableViewController: UITableViewController {
     let myPostRef = FIRDatabase.database().reference(withPath: "users").child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
     var newItems: [JobItem] = []
     var postNames: [String] = []
+    var postRef: [String] = []
     var rejectionCounter = 0
     var itemCounter = 0
     var readableOrigin: String = ""
@@ -45,10 +46,18 @@ class TableViewController: UITableViewController {
         indicator.bringSubview(toFront: container)
         indicator.startAnimating()
         
-        if contents == "myPosts"{
-            self.fetchPersonalDB(personalRef: myPostRef, completion: {_ in
+        if contents == "myPosts" {
+            self.fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
                 for aPost in self.postNames{
                     self.fetchPersonalDBUsingNames(name: aPost, completion: {_ in
+                        NSLog("all done")
+                    })
+                }
+            })
+        }else if contents == "myFavorites"{
+            self.fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
+                for aPost in self.postRef{
+                    self.fetchPersonalDBUsingRef(refString: aPost, completion: {_ in
                         NSLog("all done")
                     })
                 }
@@ -227,31 +236,67 @@ class TableViewController: UITableViewController {
         })
     }
     
-    func fetchPersonalDB(personalRef: FIRDatabaseReference, completion:@escaping ((_ finished:Bool) -> Void)) {
+    func fetchPersonalDB(personalRef: FIRDatabaseReference, type: String, completion:@escaping ((_ finished:Bool) -> Void)) {
         
-        personalRef.child("uploadedPosts").observe(.value, with: {(snapshot1) in
-            
-            let snapshotValue = snapshot1.value as! [String]
-            
-            if snapshotValue.count != 0{
+        if type == "myPosts"{
+            personalRef.child("uploadedPosts").observe(.value, with: {(snapshot1) in
                 
-                for aPost in snapshotValue {
-                    self.postNames.append(aPost)
-                    completion(true)
+                let snapshotValue = snapshot1.value as! [String]
+                
+                if snapshotValue.count != 0{
+                    self.postRef = snapshotValue
                 }
-            }
-        })
+                completion(true)
+            })
+        }else if type == "myFavorites"{
+            personalRef.child("favoredPosts").observe(.value, with: {(snapshot1) in
+                
+                let snapshotValue = snapshot1.value as! [String]
+                
+                if snapshotValue.count != 0{
+                    self.postRef = snapshotValue
+                }
+                completion(true)
+            })
+        }
+        
     }
     
     func fetchPersonalDBUsingNames(name: String, completion: @escaping ((_ finished: Bool) -> Void)) {
         
         if name != ""{
-            
+            self.newItems = []
             self.jobPostRef.child("All").child(name).observe(.value, with: {(snapshot2) in
                 
                 let snapshotValue = snapshot2.value as! [String: AnyObject]
                 
-                let myJob: JobItem = JobItem.init(title: snapshotValue["title"] as! String, category: snapshotValue["category"] as! [String], comments: snapshotValue["comments"] as! String, photo: snapshotValue["photo"] as! String, addedByUser: snapshotValue["addedByUser"] as! String, date: snapshotValue["date"] as! String, location: snapshotValue["location"] as! String)
+                let myJob: JobItem = JobItem.init(title: snapshotValue["title"] as! String, category: snapshotValue["category"] as! [String], comments: snapshotValue["comments"] as! String, photo: snapshotValue["photo"] as! String, addedByUser: snapshotValue["addedByUser"] as! String, date: snapshotValue["date"] as! String, location: snapshotValue["location"] as! String, ref: self.jobPostRef.child("All").child(name))
+                
+                let jobItem = myJob
+                self.newItems.append(jobItem)
+                
+                self.categoryContents = self.newItems
+                self.tableView.reloadData()
+                completion(true)
+                
+            })
+        }
+        self.indicator.stopAnimating()
+        self.indicator.hidesWhenStopped = true
+        self.container.isHidden = true
+    }
+    
+    func fetchPersonalDBUsingRef(refString: String, completion: @escaping ((_ finished: Bool) -> Void)){
+        
+        if refString != ""{
+            self.newItems = []
+            let ref: FIRDatabaseReference = FIRDatabase.database().reference(fromURL: refString)
+            
+            ref.observeSingleEvent(of: .value, with: {(snapshot) in
+                
+                let snapshotValue = snapshot.value as! [String: AnyObject]
+                
+                let myJob: JobItem = JobItem.init(title: snapshotValue["title"] as! String, category: snapshotValue["category"] as! [String], comments: snapshotValue["comments"] as! String, photo: snapshotValue["photo"] as! String, addedByUser: snapshotValue["addedByUser"] as! String, date: snapshotValue["date"] as! String, location: snapshotValue["location"] as! String, ref: ref)
                 
                 let jobItem = myJob
                 self.newItems.append(jobItem)

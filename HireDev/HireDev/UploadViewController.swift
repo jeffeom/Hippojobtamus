@@ -249,7 +249,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
             self.present(alert, animated: true) {
                 let currentDate = self.getCurrentDate()
                 let timeStamp = self.getTimeStamp()
-                let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString, addedByUser: (UserDefaults.standard.object(forKey: "email") as? String)!, date: currentDate, location: self.locationLabel.text!)
+                let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString, addedByUser: (UserDefaults.standard.object(forKey: "email") as? String)!, date: currentDate, location: self.locationLabel.text!, ref: nil)
                 self.savedJobs.append(jobItem)
                 
                 for aCategory in selectedCategory{

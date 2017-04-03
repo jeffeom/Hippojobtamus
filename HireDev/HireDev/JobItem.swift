@@ -21,7 +21,7 @@ struct JobItem{
     let location: String
     let ref: FIRDatabaseReference?
     
-    init(title: String, category: [String], comments: String, photo: String, addedByUser: String, date: String, location: String, key: String = "") {
+    init(title: String, category: [String], comments: String, photo: String, addedByUser: String, date: String, location: String, key: String = "", ref: FIRDatabaseReference?) {
         self.key = key
         self.title = title
         self.category = category
@@ -30,7 +30,7 @@ struct JobItem{
         self.addedByUser = addedByUser
         self.date = date
         self.location = location
-        self.ref = nil
+        self.ref = ref
     }
     
     init(snapshot: FIRDataSnapshot) {

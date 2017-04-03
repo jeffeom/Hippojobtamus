@@ -30,7 +30,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var mapView: UIView!
     @IBOutlet weak var segmentedControl: SegmentedControl!
     
-    var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", photo: "", addedByUser: "", date: "", location: "")
+    var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", photo: "", addedByUser: "", date: "", location: "", ref: nil)
     let screenSize: CGRect = UIScreen.main.bounds
     var latitude: Double = 0
     var longitude: Double = 0
@@ -228,7 +228,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
 
     @IBAction func favoriteMark(_ sender: Any) {
-        NSLog("favorite clicked, \(jobTitle), \(jobRef)")
+        NSLog("favorite clicked, \(String(describing: jobTitle)), \(String(describing: jobRef))")
         
         if self.checkForSameData(favoredPosts, string: jobRef!){
             // if no samedata
