@@ -127,6 +127,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		402C039A1EF337ED00F592B9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */,
+				406132081DA270F30025EF0E /* ViewController+SetLocation.swift */,
+				40DFE3E71DA482510052E6EF /* ViewController+CheckDistance.swift */,
+				4000EE8B1DA8A47300449F0F /* ViewController+getLatLong.swift */,
+				403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */,
+				403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */,
+				40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		407638921D82421600C7A892 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +162,11 @@
 		4076389D1D82421600C7A892 /* HireDev */ = {
 			isa = PBXGroup;
 			children = (
+				407638A71D82421600C7A892 /* Assets.xcassets */,
+				404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */,
+				407638AC1D82421600C7A892 /* Info.plist */,
+				406132021DA250B90025EF0E /* Keys.plist */,
+				4076389E1D82421600C7A892 /* AppDelegate.swift */,
 				40D0F0841D86643F0076891D /* HireDev.entitlements */,
 				407638B61D82441E00C7A892 /* Controller */,
 				407638B51D82441E00C7A892 /* View */,
@@ -162,7 +181,6 @@
 			children = (
 				407638A41D82421600C7A892 /* Main.storyboard */,
 				407638A91D82421600C7A892 /* LaunchScreen.storyboard */,
-				407638A71D82421600C7A892 /* Assets.xcassets */,
 				407CAB361E63A4EC002F6FED /* ProfileSettings.xib */,
 			);
 			name = UI;
@@ -171,24 +189,9 @@
 		407638B31D82441400C7A892 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */,
-				407638AC1D82421600C7A892 /* Info.plist */,
-				406132021DA250B90025EF0E /* Keys.plist */,
-				4076389E1D82421600C7A892 /* AppDelegate.swift */,
+				402C039A1EF337ED00F592B9 /* Extensions */,
 				40DAA3A41D99F040005806BE /* JobItem.swift */,
 				40B4C4781DBEF0FB00C1C606 /* User.swift */,
-				4032FF801D9D0E7900C91B5E /* JobTableViewCell.swift */,
-				4072DAF71DA6436B000D2B97 /* LatestJobCollectionViewCell.swift */,
-				40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */,
-				406132081DA270F30025EF0E /* ViewController+SetLocation.swift */,
-				40DFE3E71DA482510052E6EF /* ViewController+CheckDistance.swift */,
-				4000EE8B1DA8A47300449F0F /* ViewController+getLatLong.swift */,
-				403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */,
-				403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */,
-				40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */,
-				405AE72F1E0791B30026A33E /* CategoryCollectionViewCell.swift */,
-				405AE7311E0791F70026A33E /* SuggestedTableViewCell.swift */,
-				404EEBDD1E529BE20015040E /* SegmentedControl.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -196,7 +199,11 @@
 		407638B51D82441E00C7A892 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				40F301611D9680DC0035D47A /* TabBarController.swift */,
+				4032FF801D9D0E7900C91B5E /* JobTableViewCell.swift */,
+				4072DAF71DA6436B000D2B97 /* LatestJobCollectionViewCell.swift */,
+				405AE72F1E0791B30026A33E /* CategoryCollectionViewCell.swift */,
+				405AE7311E0791F70026A33E /* SuggestedTableViewCell.swift */,
+				404EEBDD1E529BE20015040E /* SegmentedControl.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -211,9 +218,10 @@
 				400842C51D8D1C9000B30904 /* HomeViewController.swift */,
 				409B00821D9509D700E5174E /* UploadViewController.swift */,
 				40F3015F1D9680880035D47A /* SettingViewController.swift */,
-				40D111481DA0331000AAD34E /* LocationSettingViewController.swift */,
 				4000EE8D1DA8EEA800449F0F /* HelpViewController.swift */,
+				40D111481DA0331000AAD34E /* LocationSettingViewController.swift */,
 				407CAB381E63A6E0002F6FED /* ProfileSettingViewController.swift */,
+				40F301611D9680DC0035D47A /* TabBarController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
