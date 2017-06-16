@@ -31,7 +31,6 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
   
   let jobref = Database.database().reference(withPath: "job-post")
   let userRef = Database.database().reference(withPath: "users")
-  let storageRef = Storage.storage().reference()
   var savedJobs: [JobItem] = []
   let category: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "Education", "Sales", "Receptionist", "Others"]
   var hidden: Bool = true
@@ -150,7 +149,6 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
       photoView.image = image
       photoView.contentMode = .scaleAspectFit
       imageData = UIImageJPEGRepresentation(image, 0.1)! as Data
-      imageString = imageData.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters)
       self.photoButton.setTitle("Tap again to retake", for: .normal)
       
       // Saves to Library
@@ -252,7 +250,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
       self.present(alert, animated: true) {
         let currentDate = self.getCurrentDate()
         let timeStamp = self.getTimeStamp()
-        let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, photo: self.imageString, addedByUser: (UserDefaults.standard.object(forKey: "email") as? String)!, date: currentDate, location: self.locationLabel.text!, ref: nil)
+        let jobItem = JobItem(title: self.titleField.text!, category: selectedCategory, comments: self.commentsField.text, addedByUser: (UserDefaults.standard.object(forKey: "email") as? String)!, date: currentDate, location: self.locationLabel.text!, ref: nil)
         self.savedJobs.append(jobItem)
         
         for aCategory in selectedCategory{
@@ -281,36 +279,9 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
             }
           })
         }
-        
-        let imageRef = self.storageRef.child("post-images").child(self.jobId!)
-        let spaceRef = imageRef.child("0")
-        let uploadTask = spaceRef.putData(self.imageData, metadata: nil)
-        uploadTask.resume()
-        
-        uploadTask.observe(.progress) { snapshot in
-          // Upload reported progress
-          let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
-            / Double(snapshot.progress!.totalUnitCount)
-          let percentString = "Uploading: " + String(format: "%.0f", percentComplete) + "%"
-          SwiftSpinner.show(percentString)
-          print(percentString)
-        }
-        
-        uploadTask.observe(.success) { snapshot in
-          SwiftSpinner.hide({
-            SwiftSpinner.show(duration: 2, title: "Image Upload Completed")
-            self.reset()
-          })
-        }
-        uploadTask.observe(.failure) { snapshot in
-          if let error = snapshot.error as NSError? {
-            SwiftSpinner.hide({
-              SwiftSpinner.show(duration: 2, title: error.localizedDescription)
-              self.reset()
-            })
-          }
-        }
-        
+        self.uploadPhoto(to: self.jobId!, with: self.imageData, completion: {
+          self.reset()
+        })
       }
     }else{
       let alert = UIAlertController(title: "Error", message: "Sorry, I think you left one of the fields empty", preferredStyle: UIAlertControllerStyle.alert)

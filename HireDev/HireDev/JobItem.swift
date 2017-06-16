@@ -15,18 +15,16 @@ struct JobItem{
   let title: String
   let category: [String]
   let comments: String
-  let photo: String
   let addedByUser: String
   let date: String
   let location: String
   let ref: DatabaseReference?
   
-  init(title: String, category: [String], comments: String, photo: String, addedByUser: String, date: String, location: String, key: String = "", ref: DatabaseReference?) {
+  init(title: String, category: [String], comments: String, addedByUser: String, date: String, location: String, key: String = "", ref: DatabaseReference?) {
     self.key = key
     self.title = title
     self.category = category
     self.comments = comments
-    self.photo = photo
     self.addedByUser = addedByUser
     self.date = date
     self.location = location
@@ -39,7 +37,6 @@ struct JobItem{
     title = snapshotValue["title"] as! String
     category = snapshotValue["category"] as! [String]
     comments = snapshotValue["comments"] as! String
-    photo = snapshotValue["photo"] as! String
     addedByUser = snapshotValue["addedByUser"] as! String
     date = snapshotValue["date"] as! String
     location = snapshotValue["location"] as! String
@@ -51,7 +48,6 @@ struct JobItem{
       "title": title,
       "category": category,
       "comments": comments,
-      "photo": photo,
       "addedByUser": addedByUser,
       "date": date,
       "location": location

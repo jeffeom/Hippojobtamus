@@ -15,6 +15,7 @@
 		4032FF811D9D0E7900C91B5E /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032FF801D9D0E7900C91B5E /* JobTableViewCell.swift */; };
 		403A169D1D9B8709001FB468 /* ViewController+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */; };
 		403A169F1D9B8939001FB468 /* UIAlertController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */; };
+		403F42711EF49F9200EB3A57 /* ViewController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F42701EF49F9200EB3A57 /* ViewController+Photo.swift */; };
 		404B3ED41DAA854300415DF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */; };
 		404EEBDE1E529BE20015040E /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EEBDD1E529BE20015040E /* SegmentedControl.swift */; };
 		405AE7301E0791B30026A33E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AE72F1E0791B30026A33E /* CategoryCollectionViewCell.swift */; };
@@ -57,6 +58,7 @@
 		4032FF801D9D0E7900C91B5E /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTableViewCell.swift; sourceTree = "<group>"; };
 		403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+AlertView.swift"; sourceTree = "<group>"; };
 		403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Present.swift"; sourceTree = "<group>"; };
+		403F42701EF49F9200EB3A57 /* ViewController+Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Photo.swift"; sourceTree = "<group>"; };
 		404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		404EEBDD1E529BE20015040E /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		405AE72F1E0791B30026A33E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */,
 				403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */,
 				40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */,
+				403F42701EF49F9200EB3A57 /* ViewController+Photo.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */,
 				407CAB391E63A6E0002F6FED /* ProfileSettingViewController.swift in Sources */,
 				40B4C47B1DBF013E00C1C606 /* ViewController + HexColor.swift in Sources */,
+				403F42711EF49F9200EB3A57 /* ViewController+Photo.swift in Sources */,
 				40DAA3A51D99F040005806BE /* JobItem.swift in Sources */,
 				4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */,
 				4000EE8E1DA8EEA800449F0F /* HelpViewController.swift in Sources */,

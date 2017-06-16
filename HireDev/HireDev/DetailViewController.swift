@@ -31,7 +31,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
   @IBOutlet weak var mapView: UIView!
   @IBOutlet weak var segmentedControl: SegmentedControl!
   
-  var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", photo: "", addedByUser: "", date: "", location: "", ref: nil)
+  var detailItem: JobItem = JobItem.init(title: "", category: [""], comments: "", addedByUser: "", date: "", location: "", ref: nil)
   let screenSize: CGRect = UIScreen.main.bounds
   var latitude: Double = 0
   var longitude: Double = 0
@@ -39,7 +39,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
   var jobTitle: String?
   var jobRef: String?
   let userRef: DatabaseReference = Database.database().reference(withPath: "users").child((UserDefaults.standard.string(forKey: "email")?.replacingOccurrences(of: ".", with: ""))!)
-  let storageRef: StorageReference = Storage.storage().reference(withPath: "post-images")
   var favoredPosts: [String] = []
   
   override func viewDidLoad() {
@@ -64,17 +63,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     jobTitle = detailItem.title
     jobRef = detailItem.ref?.description()
     
-    guard let dbTitle = detailItem.ref?.key else { return }
-    let imageRef = storageRef.child(dbTitle).child("0")
-    print(dbTitle)
-    
-    imageRef.downloadURL { url, error in
-      guard error == nil else { return }
-      self.imageView.sd_setImage(with: url)
-    }
-    
-//    self.imageView.image = self.getImageFromString((self.detailItem.photo))
-    
+    self.downloadPhoto(from: detailItem, to: self.imageView)
     
     self.photosView.layer.cornerRadius = 20
     self.overView.layer.cornerRadius = 20
@@ -356,10 +345,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     image = self.setProfileImage(image, onImageView: self.imageView)
     
     return image
-  }
-  
-  func getImageFromDB() {
-    
   }
   
   func setProfileImage(_ imageToResize: UIImage, onImageView: UIImageView) -> UIImage
