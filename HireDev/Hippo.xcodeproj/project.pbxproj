@@ -163,13 +163,14 @@
 			isa = PBXGroup;
 			children = (
 				407638A71D82421600C7A892 /* Assets.xcassets */,
+				4076389E1D82421600C7A892 /* AppDelegate.swift */,
 				404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */,
 				407638AC1D82421600C7A892 /* Info.plist */,
 				406132021DA250B90025EF0E /* Keys.plist */,
-				4076389E1D82421600C7A892 /* AppDelegate.swift */,
 				40D0F0841D86643F0076891D /* HireDev.entitlements */,
 				407638B61D82441E00C7A892 /* Controller */,
 				407638B51D82441E00C7A892 /* View */,
+				402C039A1EF337ED00F592B9 /* Extensions */,
 				407638B31D82441400C7A892 /* Model */,
 				407638B21D82440400C7A892 /* UI */,
 			);
@@ -189,7 +190,6 @@
 		407638B31D82441400C7A892 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				402C039A1EF337ED00F592B9 /* Extensions */,
 				40DAA3A41D99F040005806BE /* JobItem.swift */,
 				40B4C4781DBEF0FB00C1C606 /* User.swift */,
 			);

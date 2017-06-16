@@ -22,7 +22,7 @@ struct User{
     let searchHistory: [String]
     let uploadedPosts: [String]
     let favoredPosts: [String]
-    let ref: FIRDatabaseReference?
+    let ref: DatabaseReference?
     
     init(uid: String, firstName: String, lastName: String, email: String, emailVerify: Bool, currentLocation: [Float], searchDistance: Float, searchHistory: [String], uploadedPosts: [String], favoredPosts: [String], key: String = "") {
         self.key = key
@@ -54,7 +54,7 @@ struct User{
      - favoredPost
      */
     
-    init(snapshot: FIRDataSnapshot) {
+    init(snapshot: DataSnapshot) {
         key = snapshot.key
         let snapshotValue = snapshot.value as! [String: AnyObject]
         uid = snapshotValue["uid"] as! String

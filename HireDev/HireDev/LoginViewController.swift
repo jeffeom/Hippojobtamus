@@ -15,7 +15,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Properties
     
-    let ref = FIRDatabase.database().reference(withPath: "users")
+    let ref = Database.database().reference(withPath: "users")
     var emailVerification: Bool = false
     var retypedEmail: String = ""
     
@@ -62,28 +62,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     //MARK: Button Functions
     
     @IBAction func loginEmailButtonClicked(_ sender: AnyObject) {
-        FIRAuth.auth()?.signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+        Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if let _ = error{
                 self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
                 self.passwordField.text = ""
                 self.signInLogo.isHighlighted = false
             }else{
-                if (FIRAuth.auth()?.currentUser?.isEmailVerified)!{
+                if (Auth.auth().currentUser?.isEmailVerified)!{
                     
-                    let userRef = FIRDatabase.database().reference(withPath: "users")
-                    let userId = FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "")
+                    let userRef = Database.database().reference(withPath: "users")
+                    let userId = Auth.auth().currentUser?.email?.replacingOccurrences(of: ".", with: "")
                     
                     userRef.observeSingleEvent(of: .value, with: { (snapshot) in
                         if snapshot.hasChild(userId!){
                             
-                            let userRef = self.ref.child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
+                            let userRef = self.ref.child((Auth.auth().currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
                             userRef.child("emailVerify").setValue(true)
                             
                             self.verifiedUser()
                         }else{
-                            let aUser = User(uid: (user?.uid)!, firstName: "", lastName: "", email: FIRAuth.auth()!.currentUser!.email!, emailVerify: true, currentLocation: [0.0], searchDistance: 10.0, searchHistory: [""], uploadedPosts: [""], favoredPosts: [""])
+                            let aUser = User(uid: (user?.uid)!, firstName: "", lastName: "", email: Auth.auth().currentUser!.email!, emailVerify: true, currentLocation: [0.0], searchDistance: 10.0, searchHistory: [""], uploadedPosts: [""], favoredPosts: [""])
                             
-                            let userRef = self.ref.child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
+                            let userRef = self.ref.child((Auth.auth().currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
                             userRef.setValue(aUser.toAnyObject())
                             return
                         }
@@ -115,13 +115,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.errorLabel.text = "Facebook Canceled"
                     self.fbLogo.isHighlighted = false
                 }else {
-                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                    let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                    Auth.auth().signIn(with: credential) { (user, error) in
                         if let _ = error{
                             self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
                         }else{
                             
-                            self.ref.observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+                            self.ref.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
                                 if let _ = user?.email{
                                     if !snapshot.hasChild((user?.email?.replacingOccurrences(of: ".", with: ""))!){
                                         let fullName: [String] = (user?.displayName!.components(separatedBy: " "))!
@@ -135,9 +135,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                             firstName = ""
                                         }
                                         
-                                        let aUser = User(uid: (user?.uid)!, firstName: firstName, lastName: lastName, email: FIRAuth.auth()!.currentUser!.email!, emailVerify: true, currentLocation: [0.0], searchDistance: 10.0, searchHistory: [""], uploadedPosts: [""], favoredPosts: [""])
+                                        let aUser = User(uid: (user?.uid)!, firstName: firstName, lastName: lastName, email: Auth.auth().currentUser!.email!, emailVerify: true, currentLocation: [0.0], searchDistance: 10.0, searchHistory: [""], uploadedPosts: [""], favoredPosts: [""])
                                         
-                                        let userRef = self.ref.child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
+                                        let userRef = self.ref.child((Auth.auth().currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
                                         userRef.setValue(aUser.toAnyObject())
                                         
                                     }
@@ -190,7 +190,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func forgotPassword(_ sender: AnyObject) {
         if emailField.text != "" {
-            FIRAuth.auth()?.sendPasswordReset(withEmail: emailField.text!, completion: { (error) in
+            Auth.auth().sendPasswordReset(withEmail: emailField.text!, completion: { (error) in
                 if let _ = error{
                     self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
                 }else{
@@ -225,7 +225,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.navigationController?.pushViewController(confirmedViewController!
                 , animated: true)
         }else{
-            UserDefaults.standard.set(FIRAuth.auth()!.currentUser!.email, forKey: "email")
+            UserDefaults.standard.set(Auth.auth().currentUser!.email, forKey: "email")
             UserDefaults.standard.synchronize()
             let confirmedViewController = self.storyboard?.instantiateViewController(withIdentifier: "verifiedVC")
             self.navigationController?.pushViewController(confirmedViewController!
@@ -234,7 +234,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func checkIfUserExists(email: String) {
-        let userRef = FIRDatabase.database().reference(withPath: "users")
+        let userRef = Database.database().reference(withPath: "users")
         let userId = email.replacingOccurrences(of: ".", with: "")
         
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in

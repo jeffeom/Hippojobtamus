@@ -25,7 +25,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var allItems = [JobItem]()
     var latestContents = [JobItem]()
     var indicator = UIActivityIndicatorView()
-    let ref = FIRDatabase.database().reference(withPath: "job-post")
+    let ref = Database.database().reference(withPath: "job-post")
     var rejectionCounter = 0
     var itemCounter = 0
     let container: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 70))
@@ -285,7 +285,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 var latestItems: [JobItem] = []
                 
                 for item in snapshot.children {
-                    let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
+                    let jobItem = JobItem(snapshot: item as! DataSnapshot)
                     self.itemCounter += 1
                     
                     let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!

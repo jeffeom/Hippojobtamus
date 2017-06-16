@@ -19,7 +19,7 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     var newAddress: String = ""
     var newLocationHistory: [String] = []
     let locationManager = CLLocationManager()
-    let userRef: FIRDatabaseReference = FIRDatabase.database().reference(withPath: "users").child((UserDefaults.standard.string(forKey: "email")?.replacingOccurrences(of: ".", with: ""))!)
+    let userRef: DatabaseReference = Database.database().reference(withPath: "users").child((UserDefaults.standard.string(forKey: "email")?.replacingOccurrences(of: ".", with: ""))!)
     
     //MARK: IBOutlets
     

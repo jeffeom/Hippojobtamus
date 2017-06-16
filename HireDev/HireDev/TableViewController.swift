@@ -19,8 +19,8 @@ class TableViewController: UITableViewController {
     var contents = ""
     var categoryContents = [JobItem]()
     var indicator = UIActivityIndicatorView()
-    let jobPostRef = FIRDatabase.database().reference(withPath: "job-post")
-    let myPostRef = FIRDatabase.database().reference(withPath: "users").child((FIRAuth.auth()!.currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
+    let jobPostRef = Database.database().reference(withPath: "job-post")
+    let myPostRef = Database.database().reference(withPath: "users").child((Auth.auth().currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
     var newItems: [JobItem] = []
     var postNames: [String] = []
     var postRef: [String] = []
@@ -161,7 +161,7 @@ class TableViewController: UITableViewController {
             for item in snapshot.children {
                 self.itemCounter += 1
                 
-                let jobItem = JobItem(snapshot: item as! FIRDataSnapshot)
+                let jobItem = JobItem(snapshot: item as! DataSnapshot)
                 
                 if let theLocation = UserDefaults.standard.string(forKey: "currentLocation"){
                     self.readableOrigin = theLocation
@@ -250,7 +250,7 @@ class TableViewController: UITableViewController {
         })
     }
     
-    func fetchPersonalDB(personalRef: FIRDatabaseReference, type: String, completion:@escaping ((_ finished:Bool) -> Void)) {
+    func fetchPersonalDB(personalRef: DatabaseReference, type: String, completion:@escaping ((_ finished:Bool) -> Void)) {
         
         if type == "myPosts"{
             personalRef.child("uploadedPosts").observe(.value, with: {(snapshot1) in
@@ -284,8 +284,8 @@ class TableViewController: UITableViewController {
                 
                 let snapshotValue = snapshot2.value as! [String: AnyObject]
                 
-                let myJob: JobItem = JobItem.init(title: snapshotValue["title"] as! String, category: snapshotValue["category"] as! [String], comments: snapshotValue["comments"] as! String, photo: snapshotValue["photo"] as! String, addedByUser: snapshotValue["addedByUser"] as! String, date: snapshotValue["date"] as! String, location: snapshotValue["location"] as! String, ref: self.jobPostRef.child("All").child(name))
-                
+              let myJob: JobItem = JobItem.init(title: snapshotValue["title"] as! String, category: snapshotValue["category"] as! [String], comments: snapshotValue["comments"] as! String, photo: snapshotValue["photo"] as! String, addedByUser: snapshotValue["addedByUser"] as! String, date: snapshotValue["date"] as! String, location: snapshotValue["location"] as! String, ref: self.jobPostRef.child("All").child(name))
+              
                 let jobItem = myJob
                 self.newItems.append(jobItem)
                 
@@ -304,7 +304,7 @@ class TableViewController: UITableViewController {
         
         if refString != ""{
             self.newItems = []
-            let ref: FIRDatabaseReference = FIRDatabase.database().reference(fromURL: refString)
+            let ref: DatabaseReference = Database.database().reference(fromURL: refString)
             
             ref.observeSingleEvent(of: .value, with: {(snapshot) in
                 
