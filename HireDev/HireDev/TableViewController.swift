@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FontAwesome_swift
+import SwiftSpinner
 
 class TableViewController: UITableViewController {
   
@@ -16,9 +17,43 @@ class TableViewController: UITableViewController {
   
   //MARK: Properties
   
-  var contents = ""
+  var contents = "" {
+    didSet{
+      self.title = contents
+      if contents == "myPosts" {
+        self.title = "Posts"
+        self.fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
+          if self.postRef.count != 0{
+            for aPost in self.postRef{
+              self.fetchPersonalDBUsingNames(name: aPost, completion: {_ in
+                NSLog("all done")
+              })
+            }
+          }else{
+            NSLog("empty!")
+            SwiftSpinner.hide()
+          }
+        })
+      }else if contents == "myFavorites"{
+        self.title = "Favorites"
+        self.fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
+          if self.postRef.count != 0{
+            for aPost in self.postRef{
+              self.fetchPersonalDBUsingRef(refString: aPost, completion: {_ in
+                NSLog("all done")
+              })
+            }
+          }else{
+            NSLog("empty!")
+            SwiftSpinner.hide()
+          }
+        })
+      }else{
+        self.fetchDataFromDB()
+      }
+    }
+  }
   var categoryContents = [JobItem]()
-  var indicator = UIActivityIndicatorView()
   let jobPostRef = Database.database().reference(withPath: "job-post")
   let myPostRef = Database.database().reference(withPath: "users").child((Auth.auth().currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
   var newItems: [JobItem] = []
@@ -27,59 +62,12 @@ class TableViewController: UITableViewController {
   var rejectionCounter = 0
   var itemCounter = 0
   var readableOrigin: String = ""
-  let container: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 70))
   
   //MARK: UITableView
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.title = contents
-    container.backgroundColor = self.hexStringToUIColor("444444", alpha: 0.5)
-    container.center = CGPoint.init(x: self.view.frame.midX, y: self.view.frame.height / 13)
-    container.layer.cornerRadius = 10
-    self.view.addSubview(container)
-    container.bringSubview(toFront: self.view)
-    
-    indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-    indicator.frame = CGRect.init(x: 11.5, y: 11.5, width: 50, height: 50)
-    container.addSubview(indicator)
-    indicator.bringSubview(toFront: container)
-    indicator.startAnimating()
-    
-    if contents == "myPosts" {
-      self.fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
-        if self.postRef.count != 0{
-          for aPost in self.postRef{
-            self.fetchPersonalDBUsingNames(name: aPost, completion: {_ in
-              NSLog("all done")
-            })
-          }
-        }else{
-          NSLog("empty!")
-          self.indicator.stopAnimating()
-          self.indicator.hidesWhenStopped = true
-          self.container.isHidden = true
-        }
-      })
-    }else if contents == "myFavorites"{
-      self.fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
-        if self.postRef.count != 0{
-          for aPost in self.postRef{
-            self.fetchPersonalDBUsingRef(refString: aPost, completion: {_ in
-              NSLog("all done")
-            })
-          }
-        }else{
-          NSLog("empty!")
-          self.indicator.stopAnimating()
-          self.indicator.hidesWhenStopped = true
-          self.container.isHidden = true
-        }
-      })
-    }else{
-      self.fetchDataFromDB()
-    }
-    
+    SwiftSpinner.show("Loading")
     self.navigationController?.setNavigationBarHidden(false, animated: true)
   }
   
@@ -93,11 +81,6 @@ class TableViewController: UITableViewController {
     nav?.tintColor = UIColor.white
     
     self.navigationController?.setNavigationBarHidden(false, animated: true)
-  }
-  
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
   
   // MARK: - Segues
@@ -210,8 +193,6 @@ class TableViewController: UITableViewController {
                 
                 self.categoryContents = newItems
                 self.tableView.reloadData()
-                
-                
               }
             }else{
               self.rejectionCounter += 1
@@ -235,16 +216,12 @@ class TableViewController: UITableViewController {
           }
         }
       }
-      
-      self.indicator.stopAnimating()
-      self.indicator.hidesWhenStopped = true
-      self.container.isHidden = true
-      
+    SwiftSpinner.hide()
     })
   }
   
   func fetchPersonalDB(personalRef: DatabaseReference, type: String, completion:@escaping ((_ finished:Bool) -> Void)) {
-    
+    // use case
     if type == "myPosts"{
       personalRef.child("uploadedPosts").observe(.value, with: {(snapshot1) in
         
@@ -266,7 +243,6 @@ class TableViewController: UITableViewController {
         completion(true)
       })
     }
-    
   }
   
   func fetchPersonalDBUsingNames(name: String, completion: @escaping ((_ finished: Bool) -> Void)) {
@@ -288,9 +264,7 @@ class TableViewController: UITableViewController {
         
       })
     }
-    self.indicator.stopAnimating()
-    self.indicator.hidesWhenStopped = true
-    self.container.isHidden = true
+    SwiftSpinner.hide()
   }
   
   func fetchPersonalDBUsingRef(refString: String, completion: @escaping ((_ finished: Bool) -> Void)){
@@ -298,10 +272,11 @@ class TableViewController: UITableViewController {
     if refString != ""{
       self.newItems = []
       let ref: DatabaseReference = Database.database().reference(fromURL: refString)
-      
       ref.observeSingleEvent(of: .value, with: {(snapshot) in
-        
-        let snapshotValue = snapshot.value as! [String: AnyObject]
+        guard let snapshotValue = snapshot.value as? [String: AnyObject] else {
+          SwiftSpinner.hide()
+          return
+        }
         
         let myJob: JobItem = JobItem.init(title: snapshotValue["title"] as! String, category: snapshotValue["category"] as! [String], comments: snapshotValue["comments"] as! String, addedByUser: snapshotValue["addedByUser"] as! String, date: snapshotValue["date"] as! String, location: snapshotValue["location"] as! String, ref: ref)
         
@@ -311,12 +286,9 @@ class TableViewController: UITableViewController {
         self.categoryContents = self.newItems
         self.tableView.reloadData()
         completion(true)
-        
       })
     }
-    self.indicator.stopAnimating()
-    self.indicator.hidesWhenStopped = true
-    self.container.isHidden = true
+    SwiftSpinner.hide()
   }
 }
 
