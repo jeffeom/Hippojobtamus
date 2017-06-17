@@ -48,8 +48,8 @@ class TableViewController: UITableViewController {
     
     if contents == "myPosts" {
       self.fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
-        if self.postNames.count != 0{
-          for aPost in self.postNames{
+        if self.postRef.count != 0{
+          for aPost in self.postRef{
             self.fetchPersonalDBUsingNames(name: aPost, completion: {_ in
               NSLog("all done")
             })
@@ -129,7 +129,6 @@ class TableViewController: UITableViewController {
       let categoryContent = self.categoryContents[(indexPath as NSIndexPath).row]
       cell.titleLabel!.text = categoryContent.title
       cell.commentsLabel.text = categoryContent.date
-//      cell.myImageView.image = self.getImageFromString(categoryContents.photo)
       self.downloadPhoto(from: categoryContent, to: cell.myImageView)
       cell.locationLabel.text = categoryContent.location
     }

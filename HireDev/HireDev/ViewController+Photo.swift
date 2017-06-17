@@ -46,12 +46,17 @@ extension UIViewController {
   
   func downloadPhoto(from jobItem: JobItem, to imageView: UIImageView){
     let storageRef: StorageReference = Storage.storage().reference(withPath: "post-images")
+    // need fix
+    let placeholderImage = UIImage(named: "All")
     guard let dbTitle = jobItem.ref?.key else { return }
     let imageRef = storageRef.child(dbTitle).child("0")
     
     imageRef.downloadURL { url, error in
-      guard error == nil else { return }
-      imageView.sd_setImage(with: url)
+      guard error == nil else {
+        imageView.image = placeholderImage
+        return
+      }
+      imageView.sd_setImage(with: url, placeholderImage: placeholderImage)
     }
   }
 }
