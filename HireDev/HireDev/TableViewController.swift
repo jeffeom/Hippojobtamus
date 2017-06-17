@@ -13,13 +13,15 @@ import SwiftSpinner
 
 class TableViewController: UITableViewController {
   
-  var detailViewController: DetailViewController? = nil
-  
   //MARK: Properties
   
+  var detailViewController: DetailViewController?
   var contents = "" {
     didSet{
       self.title = contents
+      SwiftSpinner.show("Loading").addTapHandler({
+        SwiftSpinner.hide()
+      })
       if contents == "myPosts" {
         self.title = "Posts"
         self.fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
@@ -67,19 +69,16 @@ class TableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    SwiftSpinner.show("Loading")
     self.navigationController?.setNavigationBarHidden(false, animated: true)
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-    
     let nav = self.navigationController?.navigationBar
     let font = UIFont.boldSystemFont(ofSize: 18)
     nav?.titleTextAttributes = [NSFontAttributeName: font]
     nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     nav?.tintColor = UIColor.white
-    
     self.navigationController?.setNavigationBarHidden(false, animated: true)
   }
   
@@ -115,12 +114,11 @@ class TableViewController: UITableViewController {
       self.downloadPhoto(from: categoryContent, to: cell.myImageView)
       cell.locationLabel.text = categoryContent.location
     }
-    
     return cell
   }
   
   func fetchDataFromDB() {
-    
+    // use enum case
     if contents == "Recently Posted"{
       contents = "All"
     }else if contents == "Expire Soon"{
@@ -133,35 +131,31 @@ class TableViewController: UITableViewController {
     
     self.jobPostRef.child(contents).observe(.value, with: { (snapshot) in
       var newItems: [JobItem] = []
-      
+      guard snapshot.hasChildren() else {
+        SwiftSpinner.show(duration: 1, title: "No Post Found")
+        return
+      }
       for item in snapshot.children {
         self.itemCounter += 1
-        
         let jobItem = JobItem(snapshot: item as! DataSnapshot)
-        
         if let theLocation = UserDefaults.standard.string(forKey: "currentLocation"){
           self.readableOrigin = theLocation
         }else{
           let alert = UIAlertController(title: "Current Location Needed", message: "Please set your current location", preferredStyle: UIAlertControllerStyle.alert)
-          
           alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
             
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
             self.navigationController?.pushViewController(vc!, animated: true)
           }))
-          
           alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
             return
           }))
-          
+          SwiftSpinner.hide()
           alert.show()
         }
-        
         let readableDestination: String = jobItem.location
-        
         self.checkDistance(self.readableOrigin, destination: readableDestination) { (fetchedData) in
           DispatchQueue.main.async {
-            
             let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
             let readableDistanceRequest = userDistanceRequest * 1000
             
@@ -182,16 +176,15 @@ class TableViewController: UITableViewController {
                   alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
                     return
                   }))
-                  
+                  SwiftSpinner.hide()
                   alert.show()
                 }
-                
               }else{
                 newItems.append(jobItem)
-                
                 newItems = newItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
                 
                 self.categoryContents = newItems
+                SwiftSpinner.hide()
                 self.tableView.reloadData()
               }
             }else{
@@ -209,14 +202,13 @@ class TableViewController: UITableViewController {
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
                   return
                 }))
-                
+                SwiftSpinner.hide()
                 alert.show()
               }
             }
           }
         }
       }
-    SwiftSpinner.hide()
     })
   }
   
@@ -243,10 +235,10 @@ class TableViewController: UITableViewController {
         completion(true)
       })
     }
+    SwiftSpinner.hide()
   }
   
   func fetchPersonalDBUsingNames(name: String, completion: @escaping ((_ finished: Bool) -> Void)) {
-    
     if name != ""{
       self.newItems = []
       self.jobPostRef.child("All").child(name).observe(.value, with: {(snapshot2) in
@@ -261,25 +253,18 @@ class TableViewController: UITableViewController {
         self.categoryContents = self.newItems
         self.tableView.reloadData()
         completion(true)
-        
       })
     }
     SwiftSpinner.hide()
   }
   
   func fetchPersonalDBUsingRef(refString: String, completion: @escaping ((_ finished: Bool) -> Void)){
-    
     if refString != ""{
       self.newItems = []
       let ref: DatabaseReference = Database.database().reference(fromURL: refString)
       ref.observeSingleEvent(of: .value, with: {(snapshot) in
-        guard let snapshotValue = snapshot.value as? [String: AnyObject] else {
-          SwiftSpinner.hide()
-          return
-        }
-        
+        guard let snapshotValue = snapshot.value as? [String: AnyObject] else { return }
         let myJob: JobItem = JobItem.init(title: snapshotValue["title"] as! String, category: snapshotValue["category"] as! [String], comments: snapshotValue["comments"] as! String, addedByUser: snapshotValue["addedByUser"] as! String, date: snapshotValue["date"] as! String, location: snapshotValue["location"] as! String, ref: ref)
-        
         let jobItem = myJob
         self.newItems.append(jobItem)
         
