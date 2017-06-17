@@ -306,7 +306,7 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
   // MARK: Check
   
   func check() -> Bool {
-    if let _ = titleField.text, !imageString.isEmpty {
+    if let _ = titleField.text, !imageData.isEmpty {
       return true
     }
     else{

@@ -48,7 +48,6 @@ extension UIViewController {
     let storageRef: StorageReference = Storage.storage().reference(withPath: "post-images")
     guard let dbTitle = jobItem.ref?.key else { return }
     let imageRef = storageRef.child(dbTitle).child("0")
-    print(dbTitle)
     
     imageRef.downloadURL { url, error in
       guard error == nil else { return }
