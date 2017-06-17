@@ -24,6 +24,6 @@ target 'Hippo' do
   pod 'SwiftSpinner'
   
   platform :ios, '8.0'
-  pod 'SDWebImage', '~>3.8'
+  pod 'SDWebImage'
 
 end
