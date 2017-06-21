@@ -22,6 +22,7 @@ target 'Hippo' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'SwiftSpinner'
+  pod 'DZNEmptyDataSet'
   
   platform :ios, '8.0'
   pod 'SDWebImage'
