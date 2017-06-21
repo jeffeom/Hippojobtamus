@@ -10,21 +10,20 @@ import UIKit
 import Firebase
 import FontAwesome_swift
 import SwiftSpinner
+import DZNEmptyDataSet
 
-class TableViewController: UITableViewController {
-  
-  //MARK: Properties
-  
+// MARK: - Properties
+final class TableViewController: UITableViewController {
   var detailViewController: DetailViewController?
   var contents = "" {
     didSet{
-      self.title = contents
+      title = contents
       SwiftSpinner.show("Loading").addTapHandler({
         SwiftSpinner.hide()
       })
       if contents == "myPosts" {
-        self.title = "Posts"
-        self.fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
+        title = "Posts"
+        fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
           if self.postRef.count != 0{
             for aPost in self.postRef{
               self.fetchPersonalDBUsingNames(name: aPost, completion: {_ in
@@ -37,8 +36,8 @@ class TableViewController: UITableViewController {
           }
         })
       }else if contents == "myFavorites"{
-        self.title = "Favorites"
-        self.fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
+        title = "Favorites"
+        fetchPersonalDB(personalRef: myPostRef, type: contents, completion: {_ in
           if self.postRef.count != 0{
             for aPost in self.postRef{
               self.fetchPersonalDBUsingRef(refString: aPost, completion: {_ in
@@ -51,7 +50,7 @@ class TableViewController: UITableViewController {
           }
         })
       }else{
-        self.fetchDataFromDB()
+        fetchDataFromDB()
       }
     }
   }
@@ -64,12 +63,16 @@ class TableViewController: UITableViewController {
   var rejectionCounter = 0
   var itemCounter = 0
   var readableOrigin: String = ""
-  
-  //MARK: UITableView
+}
+
+// MARK: - LifeCycle
+extension TableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    self.navigationController?.setNavigationBarHidden(false, animated: true)
+    tableView.emptyDataSetSource = self
+    tableView.emptyDataSetDelegate = self
+    tableView.tableFooterView = UIView()
+    navigationController?.setNavigationBarHidden(false, animated: true)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -79,22 +82,25 @@ class TableViewController: UITableViewController {
     nav?.titleTextAttributes = [NSFontAttributeName: font]
     nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     nav?.tintColor = UIColor.white
-    self.navigationController?.setNavigationBarHidden(false, animated: true)
+    navigationController?.setNavigationBarHidden(false, animated: true)
   }
-  
-  // MARK: - Segues
-  
+}
+
+// MARK: - Segues
+extension TableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showDetail" {
-      if let indexPath = self.tableView.indexPathForSelectedRow {
-        let categoryContent = self.categoryContents[(indexPath as NSIndexPath).row]
+      if let indexPath = tableView.indexPathForSelectedRow {
+        let categoryContent = categoryContents[(indexPath as NSIndexPath).row]
         let controller = segue.destination as! DetailViewController
         controller.detailItem = categoryContent as JobItem
       }
     }
   }
-  
-  // MARK: - Table View
+}
+
+// MARK: - Table View
+extension TableViewController {
   
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -108,15 +114,18 @@ class TableViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! JobTableViewCell
     
     if (categoryContents.count != 0) {
-      let categoryContent = self.categoryContents[(indexPath as NSIndexPath).row]
+      let categoryContent = categoryContents[(indexPath as NSIndexPath).row]
       cell.titleLabel!.text = categoryContent.title
       cell.commentsLabel.text = categoryContent.date
-      self.downloadPhoto(from: categoryContent, to: cell.myImageView)
+      downloadPhoto(from: categoryContent, to: cell.myImageView)
       cell.locationLabel.text = categoryContent.location
     }
     return cell
   }
-  
+}
+
+// MARK: - Functions
+extension TableViewController {
   func fetchDataFromDB() {
     // use enum case
     if contents == "Recently Posted"{
@@ -129,7 +138,7 @@ class TableViewController: UITableViewController {
       contents = "All"
     }
     
-    self.jobPostRef.child(contents).observe(.value, with: { (snapshot) in
+    jobPostRef.child(contents).observe(.value, with: { (snapshot) in
       var newItems: [JobItem] = []
       guard snapshot.hasChildren() else {
         SwiftSpinner.show(duration: 1, title: "No Post Found")
@@ -277,3 +286,56 @@ class TableViewController: UITableViewController {
   }
 }
 
+// DZNEmptyDataSet
+extension TableViewController {
+  func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    return NSAttributedString(string: "No posts to show")
+  }
+  
+  func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    switch title! {
+    case "Favorites":
+      return NSAttributedString(string: "Tap the button to start browsing")
+    default:
+      return NSAttributedString(string: "Tap the button to add new post")
+    }
+  }
+  
+  func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+    var str: String!
+    switch title! {
+    case "Favorites":
+      str = "Start Browsing"
+    default:
+      str = "Add New Post"
+    }
+    let attr = [NSForegroundColorAttributeName: UIColor.white]
+    return NSAttributedString(string: str, attributes: attr)
+  }
+  
+  func buttonBackgroundImage(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> UIImage! {
+    let capInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+    let rectInsets = UIEdgeInsets(top: 20, left: -40, bottom: 20, right: -40)
+    let image = #imageLiteral(resourceName: "cancelbutton")
+    return image.resizableImage(withCapInsets: capInsets).withAlignmentRectInsets(rectInsets)
+  }
+  
+  func spaceHeight(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
+    return 35
+  }
+  
+  func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+    switch title! {
+    case "Favorites":
+      let homeVC = self.tabBarController?.viewControllers?[0]
+      self.tabBarController?.selectedViewController = homeVC
+    default:
+      let uploadVC = self.tabBarController?.viewControllers?[1]
+      self.tabBarController?.selectedViewController = uploadVC
+    }
+  }
+  
+  func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
+    return -(navigationController?.navigationBar.bounds.height)!
+  }
+}
