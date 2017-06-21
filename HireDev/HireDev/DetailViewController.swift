@@ -35,7 +35,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
   let screenSize: CGRect = UIScreen.main.bounds
   var latitude: Double = 0
   var longitude: Double = 0
-  var newImageView = UIImageView.init()
+  var newImageView: UIImageView?
   var jobTitle: String?
   var jobRef: String?
   let userRef: DatabaseReference = Database.database().reference(withPath: "users").child((UserDefaults.standard.string(forKey: "email")?.replacingOccurrences(of: ".", with: ""))!)
@@ -193,10 +193,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     scrollImg.addGestureRecognizer(tap)
     self.view.addSubview(scrollImg)
     
-    let imageView = sender.view as! UIImageView
-    newImageView = UIImageView(image: imageView.image)
     let screenWidth = self.screenSize.width
     let screenHeight = self.screenSize.height
+    newImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+    guard let newImageView = newImageView else { return }
+    newImageView.image = setProfileImage(imageView.image!, onImageView: newImageView)
     newImageView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight)
     newImageView.backgroundColor = UIColor.black
     newImageView.contentMode = .scaleAspectFit
@@ -337,15 +338,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
   }
   
   //MARK: Function
-  
-  func getImageFromString(_ string: String) -> UIImage {
-    let data: Data = Data.init(base64Encoded: string, options: Data.Base64DecodingOptions.ignoreUnknownCharacters)!
-    var image: UIImage = UIImage.init(data: data as Data)!
-    
-    image = self.setProfileImage(image, onImageView: self.imageView)
-    
-    return image
-  }
   
   func setProfileImage(_ imageToResize: UIImage, onImageView: UIImageView) -> UIImage
   {
