@@ -1382,7 +1382,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="svH-Pt-448">
+                    <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
                         <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -2381,7 +2381,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2td-M2-BB0">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2td-M2-BB0">
                                             <rect key="frame" x="8" y="8" width="88" height="88"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="88" id="fzL-8w-u3i"/>
@@ -2918,7 +2918,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
         <image name="upload_box" width="231" height="213"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hcU-FG-nwL"/>
         <segue reference="gt5-9K-Ggq"/>
+        <segue reference="3g5-t3-D5n"/>
     </inferredMetricsTieBreakers>
 </document>
