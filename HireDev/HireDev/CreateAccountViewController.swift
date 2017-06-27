@@ -50,7 +50,7 @@ class CreateAccountViewController: UIViewController {
                 }else{
                     Auth.auth().currentUser?.sendEmailVerification()
                     
-                    let aUser = User(uid: "", firstName: self.firstName.text!, lastName: self.lastName.text!, email: self.email.text!, emailVerify: false, currentLocation: [0.0], searchDistance: 10.0, searchHistory: [""], uploadedPosts: [""], favoredPosts: [""])
+                    let aUser = User(uid: (user?.uid)!, firstName: self.firstName.text!, lastName: self.lastName.text!, email: self.email.text!, emailVerify: false, currentLocation: [0.0], searchDistance: 10.0, searchHistory: [""], uploadedPosts: [""], favoredPosts: [""])
                     
                     let userRef = self.ref.child(self.email.text!.replacingOccurrences(of: ".", with: ""))
                     userRef.setValue(aUser.toAnyObject())
