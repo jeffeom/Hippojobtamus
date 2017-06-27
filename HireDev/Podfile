@@ -11,6 +11,7 @@ target 'Hippo' do
   pod 'Firebase/Database'
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
   pod 'Firebase/AdMob'
   pod 'FontAwesome.swift', :git => 'https://github.com/thii/FontAwesome.swift'
   pod 'GooglePlaces'

@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import Firebase
-import SDWebImage
+import FirebaseStorageUI
 import SwiftSpinner
 
 extension UIViewController {
@@ -51,12 +50,6 @@ extension UIViewController {
     guard let dbTitle = jobItem.ref?.key else { return }
     let imageRef = storageRef.child(dbTitle).child("0")
     
-    imageRef.downloadURL { url, error in
-      guard error == nil else {
-        imageView.image = placeholderImage
-        return
-      }
-      imageView.sd_setImage(with: url, placeholderImage: placeholderImage)
-    }
+    imageView.sd_setImage(with: imageRef, placeholderImage: placeholderImage)
   }
 }

@@ -150,17 +150,7 @@ extension TableViewController {
         if let theLocation = UserDefaults.standard.string(forKey: "currentLocation"){
           self.readableOrigin = theLocation
         }else{
-          let alert = UIAlertController(title: "Current Location Needed", message: "Please set your current location", preferredStyle: UIAlertControllerStyle.alert)
-          alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
-            
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
-            self.navigationController?.pushViewController(vc!, animated: true)
-          }))
-          alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
-            return
-          }))
-          SwiftSpinner.hide()
-          alert.show()
+          self.currentLocationNeeded()
         }
         let readableDestination: String = jobItem.location
         self.checkDistance(self.readableOrigin, destination: readableDestination) { (fetchedData) in
@@ -172,26 +162,11 @@ extension TableViewController {
               if aDistance > Float(readableDistanceRequest){
                 self.rejectionCounter += 1
                 if self.rejectionCounter == self.itemCounter{
-                  let serachDistance = UserDefaults.standard.integer(forKey: "searchDistance")
-                  
-                  let alert = UIAlertController(title: "No jobs found", message: "Could not find any jobs within \(serachDistance) Km. Please increase the Search Distance", preferredStyle: UIAlertControllerStyle.alert)
-                  
-                  alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
-                    
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
-                    self.navigationController?.pushViewController(vc!, animated: true)
-                  }))
-                  
-                  alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
-                    return
-                  }))
-                  SwiftSpinner.hide()
-                  alert.show()
+                  self.noJobsFound()
                 }
               }else{
                 newItems.append(jobItem)
                 newItems = newItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
-                
                 self.categoryContents = newItems
                 SwiftSpinner.hide()
                 self.tableView.reloadData()
@@ -199,20 +174,7 @@ extension TableViewController {
             }else{
               self.rejectionCounter += 1
               if self.rejectionCounter == self.itemCounter{
-                
-                let alert = UIAlertController(title: "Not Available", message: "Not available in this area", preferredStyle: UIAlertControllerStyle.alert)
-                
-                alert.addAction(UIAlertAction(title: "Location Settings", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
-                  
-                  let vc = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
-                  self.navigationController?.pushViewController(vc!, animated: true)
-                }))
-                
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert: UIAlertAction) in
-                  return
-                }))
-                SwiftSpinner.hide()
-                alert.show()
+                self.areaNotAvailable()
               }
             }
           }

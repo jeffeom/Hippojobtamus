@@ -10,7 +10,6 @@ import UIKit
 import GoogleMaps
 import GoogleMobileAds
 import Firebase
-import SDWebImage
 
 class DetailViewController: UIViewController, UIScrollViewDelegate {
   
@@ -422,7 +421,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     return boolValue
   }
-  
   
   func favorite(){
     self.showAlert("Successfully favored the post!", title: "Favorited", fn: {
