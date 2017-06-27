@@ -24,11 +24,29 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   var othersObjects = [JobItem]()
   var allItems = [JobItem]()
   var latestContents = [JobItem]()
-  var indicator = UIActivityIndicatorView()
   let ref = Database.database().reference(withPath: "job-post")
   var rejectionCounter = 0
   var itemCounter = 0
-  let container: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 70))
+  var container = UIView() {
+    didSet{
+      container = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 70))
+      container.backgroundColor = self.hexStringToUIColor("444444", alpha: 1)
+      container.center = CGPoint.init(x: self.view.bounds.width / 2, y: self.categoryCollectionView.bounds.size.height / 2)
+      container.layer.cornerRadius = 10
+      self.latestCollectionView.addSubview(container)
+      container.bringSubview(toFront: self.latestCollectionView)
+    }
+  }
+  var indicator = UIActivityIndicatorView() {
+    didSet{
+      indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+      indicator.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
+      indicator.center = CGPoint.init(x: self.container.bounds.size.width / 2, y: self.container.bounds.size.height / 2)
+      container.addSubview(indicator)
+      indicator.bringSubview(toFront: container)
+      indicator.startAnimating()
+    }
+  }
   let categoryString: [String] = ["cafe", "restaurant", "grocery", "bank", "All", "education", "retail", "receptionist", "others"]
   let categoryContents: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "All", "Education", "Sales", "Reception", "Others"]
   var loadingView: UIView = UIView()
@@ -48,41 +66,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.rejectionCounter = 0
-    self.itemCounter = 0
-    
-    container.backgroundColor = self.hexStringToUIColor("444444", alpha: 1)
-    container.center = CGPoint.init(x: self.view.bounds.width / 2, y: self.categoryCollectionView.bounds.size.height / 2)
-    container.layer.cornerRadius = 10
-    self.latestCollectionView.addSubview(container)
-    container.bringSubview(toFront: self.latestCollectionView)
-    
-    indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-    indicator.frame = CGRect.init(x: 0, y: 0, width: 50, height: 50)
-    indicator.center = CGPoint.init(x: self.container.bounds.size.width / 2, y: self.container.bounds.size.height / 2)
-    container.addSubview(indicator)
-    indicator.bringSubview(toFront: container)
-    indicator.startAnimating()
-    
     fetchDataFromDB()
-    
     var keys: NSDictionary?
-    
     if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
       keys = NSDictionary(contentsOfFile: path)
     }
     if let dict = keys {
       let gaAPI = dict["googleBanner"] as? String
-      
       print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
       //            bannerView.adUnitID = gaAPI!
       bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // TEST
       bannerView.rootViewController = self
       bannerView.load(GADRequest())
     }
-    
     self.setUpLocationForButton(locationButton)
-    
     self.startTimer()
   }
   
