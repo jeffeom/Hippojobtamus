@@ -26,13 +26,11 @@ class ProfileSettingViewController: UIViewController {
         if let dict = keys {
             let gaAPI = dict["googleBanner"] as? String
             
-            print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
-            bannerView.adUnitID = gaAPI!
+            //            bannerView.adUnitID = gaAPI!
+            bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // TEST
             bannerView.rootViewController = self
             bannerView.load(GADRequest())
         }
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,5 +51,9 @@ class ProfileSettingViewController: UIViewController {
     }
     
     @IBAction func starredPosts(_ sender: Any) {
+        let myStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = myStoryboard.instantiateViewController(withIdentifier: "tableVC") as! TableViewController
+        vc.contents = "myFavorites"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

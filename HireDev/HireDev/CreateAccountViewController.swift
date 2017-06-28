@@ -14,7 +14,7 @@ class CreateAccountViewController: UIViewController {
     
     //MARK: Properties
     
-    let ref = FIRDatabase.database().reference(withPath: "users")
+    let ref = Database.database().reference(withPath: "users")
     
     //MARK: IBOutlets
     
@@ -44,13 +44,13 @@ class CreateAccountViewController: UIViewController {
     
     @IBAction func signUpClicked(_ sender: AnyObject) {
         if let _ = self.firstName.text, let _ = self.lastName.text, let _ = self.email.text{
-            FIRAuth.auth()?.createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
+            Auth.auth().createUser(withEmail: email.text!, password: password.text!, completion: { (user, error) in
                 if let _ = error {
                     self.errorLabel.text = "\(error.unsafelyUnwrapped.localizedDescription)"
                 }else{
-                    FIRAuth.auth()?.currentUser?.sendEmailVerification()
+                    Auth.auth().currentUser?.sendEmailVerification()
                     
-                    let aUser = User(uid: "", firstName: self.firstName.text!, lastName: self.lastName.text!, email: self.email.text!, emailVerify: false, currentLocation: [0.0], searchDistance: 10.0, searchHistory: [""], uploadedPosts: [""], favoredPosts: [""])
+                    let aUser = User(uid: (user?.uid)!, firstName: self.firstName.text!, lastName: self.lastName.text!, email: self.email.text!, emailVerify: false, currentLocation: [0.0], searchDistance: 10.0, searchHistory: [""], uploadedPosts: [""], favoredPosts: [""])
                     
                     let userRef = self.ref.child(self.email.text!.replacingOccurrences(of: ".", with: ""))
                     userRef.setValue(aUser.toAnyObject())

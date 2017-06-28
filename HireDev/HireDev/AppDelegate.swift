@@ -18,54 +18,53 @@ import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+  
+  var window: UIWindow?
+  
+  override init() {
+    super.init()
+    // Firebase Init
+    FirebaseApp.configure()
+  }
+  
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
-    var window: UIWindow?
+    // Facebook
+    FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     
-    override init() {
-        super.init()
-        // Firebase Init
-        FIRApp.configure()
+    // GooglePlaces
+    
+    var keys: NSDictionary?
+    
+    if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
+      keys = NSDictionary(contentsOfFile: path)
+    }
+    if let dict = keys {
+      let gpAPI = dict["googleAPI"] as? String
+      let ggAPI = dict["googleGeocode"] as? String
+      let gaAPI = dict["googleAds"] as? String
+      
+      GMSPlacesClient.provideAPIKey(gpAPI!)
+      GMSServices.provideAPIKey(ggAPI!)
+      GADMobileAds.configure(withApplicationID: gaAPI!)
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        // Facebook
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
-        // GooglePlaces
-        
-        var keys: NSDictionary?
-        
-        if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
-            keys = NSDictionary(contentsOfFile: path)
-        }
-        if let dict = keys {
-            let gpAPI = dict["googleAPI"] as? String
-            let ggAPI = dict["googleGeocode"] as? String
-            let gaAPI = dict["googleAds"] as? String
-            
-            GMSPlacesClient.provideAPIKey(gpAPI!)
-            GMSServices.provideAPIKey(ggAPI!)
-            GADMobileAds.configure(withApplicationID: gaAPI!)
-        }
-        
-        // Fabric - Crashlytics
-        
-        Fabric.sharedSDK().debug = true
-        Fabric.with([Crashlytics.self])
-        
-        return true
-    }
+    // Fabric - Crashlytics
     
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        
-        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
-    }
+    Fabric.sharedSDK().debug = true
+    let storage = Storage.storage()
+    Fabric.with([Crashlytics.self])
     
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        FBSDKAppEvents.activateApp()
-    }
+    return true
+  }
+  
+  func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
     
-    
+    return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+  }
+  
+  func applicationDidBecomeActive(_ application: UIApplication) {
+    FBSDKAppEvents.activateApp()
+  }
 }
 

@@ -10,6 +10,8 @@ target 'Hippo' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Core'
+  pod 'Firebase/Storage'
+  pod 'FirebaseUI/Storage'
   pod 'Firebase/AdMob'
   pod 'FontAwesome.swift', :git => 'https://github.com/thii/FontAwesome.swift'
   pod 'GooglePlaces'
@@ -20,5 +22,10 @@ target 'Hippo' do
   pod 'GoogleParsingUtilities'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'SwiftSpinner'
+  pod 'DZNEmptyDataSet'
+  
+  platform :ios, '8.0'
+  pod 'SDWebImage'
 
 end
