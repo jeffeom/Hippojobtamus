@@ -103,7 +103,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     self.tabBarController?.tabBar.tintColor = UIColor.white
     self.setUpLocationForButton(locationButton)
     
-    //        fetchDataFromDB()
+//    fetchDataFromDB()
   }
   
   override func didReceiveMemoryWarning() {
@@ -265,58 +265,44 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
           let jobItem = JobItem(snapshot: item as! DataSnapshot)
           self.itemCounter += 1
           let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!
+          let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
           let readableDestination: String = jobItem.location
+          let readableDistanceRequest = userDistanceRequest * 1000
+          
           HippoApiManager.shared.getDistance(origin: readableOrigin, destination: readableDestination, completion: { result in
             switch result {
-            case .failure(let reason):
-              SwiftSpinner.show(reason)
+            case .failure(_):
+              self.areaNotAvailable()
             case .success(let distance):
-              print(distance!.distance)
+              let distanceKm = distance!.distance
+              if distanceKm > Double(readableDistanceRequest){
+                self.rejectionCounter += 1
+                if self.rejectionCounter == self.itemCounter{
+                  self.noJobsFound()
+                }
+              }else {
+                latestItems.append(jobItem)
+                
+                let availablePosts = snapshot.children.allObjects.count - self.rejectionCounter
+                if latestItems.count == availablePosts {
+                  let firstItem = latestItems.first
+                  let lastItem = latestItems.last
+                  
+                  latestItems.append(firstItem!)
+                  latestItems.insert(lastItem!, at: 0)
+                  
+                  self.latestContents = latestItems
+                  self.latestCollectionView.reloadData()
+                  
+                  if !self.onceOnly {
+                    let indexToScrollTo = IndexPath.init(item: 1, section: 0)
+                    self.latestCollectionView.scrollToItem(at: indexToScrollTo as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+                    self.onceOnly = true
+                  }
+                }
+              }
             }
           })
-//          
-//          self.checkDistance(readableOrigin, destination: readableDestination) { (fetchedData) in
-//            let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
-//            let readableDistanceRequest = userDistanceRequest * 1000
-//            if let aDistance = fetchedData?.first{
-//              if aDistance > Float(readableDistanceRequest){
-//                self.rejectionCounter += 1
-//                if self.rejectionCounter == self.itemCounter{
-//                  self.noJobsFound()
-//                }
-//              }else{
-//                latestItems.append(jobItem)
-//                
-//                latestItems = latestItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
-//                
-//                if latestItems.count == snapshot.children.allObjects.count - self.rejectionCounter{
-//                  
-//                  let firstItem =  latestItems.first
-//                  let lastItem = latestItems.last
-//                  
-//                  latestItems.append(firstItem!)
-//                  latestItems.insert(lastItem!, at: 0)
-//                  
-//                  self.itemCounter = 0
-//                  self.rejectionCounter = 0
-//                  
-//                  let indexToScrollTo = IndexPath.init(item: 1, section: 0)
-//                  self.latestCollectionView.scrollToItem(at: indexToScrollTo as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
-//                  self.onceOnly = true
-//                  
-//                }
-//                DispatchQueue.main.async {
-//                  self.latestContents = latestItems
-//                  self.latestCollectionView.reloadData()
-//                }
-//              }
-//            }else{
-//              self.rejectionCounter += 1
-//              if self.rejectionCounter == self.itemCounter{
-//                self.areaNotAvailable()
-//              }
-//            }
-//          }
         }
         self.indicator.stopAnimating()
         self.indicator.hidesWhenStopped = true
