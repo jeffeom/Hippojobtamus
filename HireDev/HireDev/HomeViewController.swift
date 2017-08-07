@@ -265,6 +265,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
           self.itemCounter += 1
           let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!
           let readableDestination: String = jobItem.location
+          HippoApiManager.shared.getDistance(origin: readableOrigin, destination: readableDestination, completion: { result in
+            print(result)
+          })
+          
           self.checkDistance(readableOrigin, destination: readableDestination) { (fetchedData) in
             let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
             let readableDistanceRequest = userDistanceRequest * 1000

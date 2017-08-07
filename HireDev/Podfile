@@ -24,6 +24,8 @@ target 'Hippo' do
   pod 'Crashlytics'
   pod 'SwiftSpinner'
   pod 'DZNEmptyDataSet'
+  pod 'SwiftyJSON'
+  pod 'Alamofire'
   
   platform :ios, '8.0'
   pod 'SDWebImage'
