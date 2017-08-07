@@ -17,11 +17,11 @@ enum MapsRouter: URLRequestConvertible {
     var method: HTTPMethod {
       switch self {
       case .getDistance, .getLatLong:
-        return .post
+        return .get
       }
     }
     
-    let params: [String: Any]? = {
+    let params: [String: String]? = {
       guard let path = Bundle.main.path(forResource: "Keys", ofType: "plist") else { return nil }
       guard let keys = NSDictionary(contentsOfFile: path) else { return nil }
       switch self {
@@ -35,10 +35,14 @@ enum MapsRouter: URLRequestConvertible {
     }()
     
     var url: URL {
-      let relativePath: String
+      var relativePath: String
       switch self {
       case .getDistance:
-        relativePath = "distancematrix/json"
+        if let params = params, let origins = params["origins"], let destinations = params["destinations"], let key = params["key"] {
+          relativePath = "distancematrix/json?origins=\(origins)&destinations=\(destinations)&key=\(key)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        }else {
+          relativePath = ""
+        }
       case .getLatLong:
         relativePath = "geocode/json"
       }
@@ -49,6 +53,6 @@ enum MapsRouter: URLRequestConvertible {
     var urlRequest = URLRequest(url: url)
     urlRequest.httpMethod = method.rawValue
     
-    return try JSONEncoding.default.encode(urlRequest, with: params)
+    return try JSONEncoding.default.encode(urlRequest)
   }
 }

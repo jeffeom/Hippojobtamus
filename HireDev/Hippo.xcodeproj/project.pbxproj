@@ -38,6 +38,7 @@
 		409B00831D9509D700E5174E /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B00821D9509D700E5174E /* UploadViewController.swift */; };
 		40B3C1121F3800C50036ED9F /* MapsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1111F3800C50036ED9F /* MapsRouter.swift */; };
 		40B3C1141F3800DE0036ED9F /* HippoApimanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1131F3800DE0036ED9F /* HippoApimanger.swift */; };
+		40B3C1161F381B130036ED9F /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1151F381B130036ED9F /* Distance.swift */; };
 		40B4C4791DBEF0FB00C1C606 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4C4781DBEF0FB00C1C606 /* User.swift */; };
 		40B4C47B1DBF013E00C1C606 /* ViewController + HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */; };
 		40D0F0811D864CA90076891D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */; };
@@ -85,6 +86,7 @@
 		409B00821D9509D700E5174E /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		40B3C1111F3800C50036ED9F /* MapsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsRouter.swift; sourceTree = "<group>"; };
 		40B3C1131F3800DE0036ED9F /* HippoApimanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HippoApimanger.swift; sourceTree = "<group>"; };
+		40B3C1151F381B130036ED9F /* Distance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
 		40B4C4781DBEF0FB00C1C606 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController + HexColor.swift"; sourceTree = "<group>"; };
 		40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				40DAA3A41D99F040005806BE /* JobItem.swift */,
 				40B4C4781DBEF0FB00C1C606 /* User.swift */,
+				40B3C1151F381B130036ED9F /* Distance.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				407CAB391E63A6E0002F6FED /* ProfileSettingViewController.swift in Sources */,
 				40B4C47B1DBF013E00C1C606 /* ViewController + HexColor.swift in Sources */,
 				403F42711EF49F9200EB3A57 /* ViewController+Photo.swift in Sources */,
+				40B3C1161F381B130036ED9F /* Distance.swift in Sources */,
 				40DAA3A51D99F040005806BE /* JobItem.swift in Sources */,
 				4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */,
 				4000EE8E1DA8EEA800449F0F /* HelpViewController.swift in Sources */,

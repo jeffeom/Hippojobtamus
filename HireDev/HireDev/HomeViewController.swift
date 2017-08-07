@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftSpinner
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource{
   
@@ -266,51 +267,56 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
           let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!
           let readableDestination: String = jobItem.location
           HippoApiManager.shared.getDistance(origin: readableOrigin, destination: readableDestination, completion: { result in
-            print(result)
-          })
-          
-          self.checkDistance(readableOrigin, destination: readableDestination) { (fetchedData) in
-            let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
-            let readableDistanceRequest = userDistanceRequest * 1000
-            if let aDistance = fetchedData?.first{
-              if aDistance > Float(readableDistanceRequest){
-                self.rejectionCounter += 1
-                if self.rejectionCounter == self.itemCounter{
-                  self.noJobsFound()
-                }
-              }else{
-                latestItems.append(jobItem)
-                
-                latestItems = latestItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
-                
-                if latestItems.count == snapshot.children.allObjects.count - self.rejectionCounter{
-                  
-                  let firstItem =  latestItems.first
-                  let lastItem = latestItems.last
-                  
-                  latestItems.append(firstItem!)
-                  latestItems.insert(lastItem!, at: 0)
-                  
-                  self.itemCounter = 0
-                  self.rejectionCounter = 0
-                  
-                  let indexToScrollTo = IndexPath.init(item: 1, section: 0)
-                  self.latestCollectionView.scrollToItem(at: indexToScrollTo as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
-                  self.onceOnly = true
-                  
-                }
-                DispatchQueue.main.async {
-                  self.latestContents = latestItems
-                  self.latestCollectionView.reloadData()
-                }
-              }
-            }else{
-              self.rejectionCounter += 1
-              if self.rejectionCounter == self.itemCounter{
-                self.areaNotAvailable()
-              }
+            switch result {
+            case .failure(let reason):
+              SwiftSpinner.show(reason)
+            case .success(let distance):
+              print(distance!.distance)
             }
-          }
+          })
+//          
+//          self.checkDistance(readableOrigin, destination: readableDestination) { (fetchedData) in
+//            let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
+//            let readableDistanceRequest = userDistanceRequest * 1000
+//            if let aDistance = fetchedData?.first{
+//              if aDistance > Float(readableDistanceRequest){
+//                self.rejectionCounter += 1
+//                if self.rejectionCounter == self.itemCounter{
+//                  self.noJobsFound()
+//                }
+//              }else{
+//                latestItems.append(jobItem)
+//                
+//                latestItems = latestItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
+//                
+//                if latestItems.count == snapshot.children.allObjects.count - self.rejectionCounter{
+//                  
+//                  let firstItem =  latestItems.first
+//                  let lastItem = latestItems.last
+//                  
+//                  latestItems.append(firstItem!)
+//                  latestItems.insert(lastItem!, at: 0)
+//                  
+//                  self.itemCounter = 0
+//                  self.rejectionCounter = 0
+//                  
+//                  let indexToScrollTo = IndexPath.init(item: 1, section: 0)
+//                  self.latestCollectionView.scrollToItem(at: indexToScrollTo as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+//                  self.onceOnly = true
+//                  
+//                }
+//                DispatchQueue.main.async {
+//                  self.latestContents = latestItems
+//                  self.latestCollectionView.reloadData()
+//                }
+//              }
+//            }else{
+//              self.rejectionCounter += 1
+//              if self.rejectionCounter == self.itemCounter{
+//                self.areaNotAvailable()
+//              }
+//            }
+//          }
         }
         self.indicator.stopAnimating()
         self.indicator.hidesWhenStopped = true
