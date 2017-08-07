@@ -258,7 +258,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   
   func fetchDataFromDB() {
     if let _ = UserDefaults.standard.string(forKey: "currentLocation"){
-      ref.child("All").observe(.value, with: { snapshot in
+      ref.child("All").queryOrdered(byChild: "date").queryLimited(toFirst: 5).observe(.value, with: { snapshot in
         var latestItems: [JobItem] = []
         for item in snapshot.children {
           let jobItem = JobItem(snapshot: item as! DataSnapshot)
@@ -266,44 +266,44 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
           let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!
           let readableDestination: String = jobItem.location
           self.checkDistance(readableOrigin, destination: readableDestination) { (fetchedData) in
-            DispatchQueue.main.async {
-              let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
-              let readableDistanceRequest = userDistanceRequest * 1000
-              if let aDistance = fetchedData?.first{
-                if aDistance > Float(readableDistanceRequest){
-                  self.rejectionCounter += 1
-                  if self.rejectionCounter == self.itemCounter{
-                    self.noJobsFound()
-                  }
-                }else{
-                  latestItems.append(jobItem)
+            let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
+            let readableDistanceRequest = userDistanceRequest * 1000
+            if let aDistance = fetchedData?.first{
+              if aDistance > Float(readableDistanceRequest){
+                self.rejectionCounter += 1
+                if self.rejectionCounter == self.itemCounter{
+                  self.noJobsFound()
+                }
+              }else{
+                latestItems.append(jobItem)
+                
+                latestItems = latestItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
+                
+                if latestItems.count == snapshot.children.allObjects.count - self.rejectionCounter{
                   
-                  latestItems = latestItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
+                  let firstItem =  latestItems.first
+                  let lastItem = latestItems.last
                   
-                  if latestItems.count == snapshot.children.allObjects.count - self.rejectionCounter{
-                    
-                    let firstItem =  latestItems.first
-                    let lastItem = latestItems.last
-                    
-                    latestItems.append(firstItem!)
-                    latestItems.insert(lastItem!, at: 0)
-                    
-                    self.itemCounter = 0
-                    self.rejectionCounter = 0
-                    
-                    let indexToScrollTo = IndexPath.init(item: 1, section: 0)
-                    self.latestCollectionView.scrollToItem(at: indexToScrollTo as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
-                    self.onceOnly = true
-                    
-                  }
+                  latestItems.append(firstItem!)
+                  latestItems.insert(lastItem!, at: 0)
+                  
+                  self.itemCounter = 0
+                  self.rejectionCounter = 0
+                  
+                  let indexToScrollTo = IndexPath.init(item: 1, section: 0)
+                  self.latestCollectionView.scrollToItem(at: indexToScrollTo as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
+                  self.onceOnly = true
+                  
+                }
+                DispatchQueue.main.async {
                   self.latestContents = latestItems
                   self.latestCollectionView.reloadData()
                 }
-              }else{
-                self.rejectionCounter += 1
-                if self.rejectionCounter == self.itemCounter{
-                  self.areaNotAvailable()
-                }
+              }
+            }else{
+              self.rejectionCounter += 1
+              if self.rejectionCounter == self.itemCounter{
+                self.areaNotAvailable()
               }
             }
           }
