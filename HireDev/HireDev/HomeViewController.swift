@@ -52,7 +52,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   let categoryContents: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "All", "Education", "Sales", "Reception", "Others"]
   var loadingView: UIView = UIView()
   let optionsString: [String] = ["Recently Posted", "Expire Soon", "Posts You Might Like", "Job Map"]
-  var onceOnly = false
   
   //MARK: IBOutlets
   
@@ -103,7 +102,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     self.tabBarController?.tabBar.tintColor = UIColor.white
     self.setUpLocationForButton(locationButton)
     
-//    fetchDataFromDB()
+    //    fetchDataFromDB()
   }
   
   override func didReceiveMemoryWarning() {
@@ -269,6 +268,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
           let readableDestination: String = jobItem.location
           let readableDistanceRequest = userDistanceRequest * 1000
           
+                    //                latestItems = latestItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
+          
           HippoApiManager.shared.getDistance(origin: readableOrigin, destination: readableDestination, completion: { result in
             switch result {
             case .failure(_):
@@ -294,11 +295,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                   self.latestContents = latestItems
                   self.latestCollectionView.reloadData()
                   
-                  if !self.onceOnly {
-                    let indexToScrollTo = IndexPath.init(item: 1, section: 0)
-                    self.latestCollectionView.scrollToItem(at: indexToScrollTo as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
-                    self.onceOnly = true
-                  }
+                  let indexToScrollTo = IndexPath.init(item: 1, section: 0)
+                  self.latestCollectionView.scrollToItem(at: indexToScrollTo as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
                 }
               }
             }
