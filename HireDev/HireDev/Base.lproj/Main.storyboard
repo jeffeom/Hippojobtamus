@@ -1181,11 +1181,11 @@
                         <viewControllerLayoutGuide type="bottom" id="MGC-uC-Sq1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mi5-3l-08s">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UVF-xS-Zou">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -1216,11 +1216,11 @@
                         <viewControllerLayoutGuide type="bottom" id="QWL-ba-BQh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Mtc-zj-t74">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zJq-jE-rEe">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Last updated: (October 5, 2016) 
 Please read these Terms of Service ("Terms", "Terms and Conditions") carefully before using the Hippojobtamus mobile application (the "Service") operated by Fourj Studios ("us", "we", or "our"). 
@@ -1280,11 +1280,11 @@ Contact Us
                         <viewControllerLayoutGuide type="bottom" id="Jus-nq-ZD3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZGX-Dt-Df9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRf-Mm-4Ve">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="599"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">This privacy policy governs your use of the software application Hippojobtamus (“Hippojobtamus”), operated by Fourj Studios (“we,” “us,” or “our”). Hippojobtamus provides users an intuitive and easy way to find local hiring positions. Simply upload a photo of any ‘Now Hiring’ signs you come across and browse through photos uploaded by other users to find job positions you may have missed in your job search.  
 1. What information does Hippojobtamus obtain?
@@ -2505,7 +2505,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="bfQ-Jh-SaR">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2853,7 +2853,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                 <navigationController storyboardIdentifier="loginVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="26I-HY-EX6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wgg-bE-bqI">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2873,7 +2873,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <tabBarItem key="tabBarItem" enabled="NO" title="Profile" id="1kH-wq-trp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdb-Qu-Mq7">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2893,7 +2893,7 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
                     <tabBarItem key="tabBarItem" enabled="NO" title="Photo" id="EYX-TT-t6c"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MsH-j3-AzO">
-                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
