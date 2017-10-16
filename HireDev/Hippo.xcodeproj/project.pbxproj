@@ -34,6 +34,8 @@
 		407CAB371E63A4EC002F6FED /* ProfileSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407CAB361E63A4EC002F6FED /* ProfileSettings.xib */; };
 		407CAB391E63A6E0002F6FED /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CAB381E63A6E0002F6FED /* ProfileSettingViewController.swift */; };
 		409B00831D9509D700E5174E /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B00821D9509D700E5174E /* UploadViewController.swift */; };
+		40B14B3E1F95666F00C4E53F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */; };
+		40B14B401F95667800C4E53F /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 406132021DA250B90025EF0E /* Keys.plist */; };
 		40B3C1121F3800C50036ED9F /* MapsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1111F3800C50036ED9F /* MapsRouter.swift */; };
 		40B3C1141F3800DE0036ED9F /* HippoApimanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1131F3800DE0036ED9F /* HippoApimanger.swift */; };
 		40B3C1161F381B130036ED9F /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1151F381B130036ED9F /* Distance.swift */; };
@@ -323,6 +325,8 @@
 			files = (
 				407CAB371E63A4EC002F6FED /* ProfileSettings.xib in Resources */,
 				407638AB1D82421600C7A892 /* LaunchScreen.storyboard in Resources */,
+				40B14B3E1F95666F00C4E53F /* GoogleService-Info.plist in Resources */,
+				40B14B401F95667800C4E53F /* Keys.plist in Resources */,
 				407638A81D82421600C7A892 /* Assets.xcassets in Resources */,
 				407638A61D82421600C7A892 /* Main.storyboard in Resources */,
 			);

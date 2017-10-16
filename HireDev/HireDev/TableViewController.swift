@@ -101,7 +101,6 @@ extension TableViewController {
 
 // MARK: - Table View
 extension TableViewController {
-  
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
@@ -112,7 +111,6 @@ extension TableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! JobTableViewCell
-    
     if (categoryContents.count != 0) {
       let categoryContent = categoryContents[(indexPath as NSIndexPath).row]
       cell.titleLabel!.text = categoryContent.title
@@ -151,6 +149,7 @@ extension TableViewController {
           self.readableOrigin = theLocation
         }else{
           self.currentLocationNeeded()
+          self.tableView.reloadData()
         }
         let readableDestination: String = jobItem.location
         self.checkDistance(self.readableOrigin, destination: readableDestination) { (fetchedData) in
@@ -162,6 +161,7 @@ extension TableViewController {
               self.rejectionCounter += 1
               if self.rejectionCounter == self.itemCounter{
                 self.noJobsFound()
+                self.tableView.reloadData()
               }
             }else{
               newItems.append(jobItem)
@@ -176,6 +176,7 @@ extension TableViewController {
             self.rejectionCounter += 1
             if self.rejectionCounter == self.itemCounter{
               self.areaNotAvailable()
+              self.tableView.reloadData()
             }
           }
         }

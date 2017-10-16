@@ -294,15 +294,15 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="173"/>
                                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <prototypes>
-                                                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="optionCell" textLabel="fOp-sW-ehu" style="IBUITableViewCellStyleDefault" id="9VS-zY-PbP">
-                                                                                        <rect key="frame" x="0.0" y="28" width="355" height="44"/>
+                                                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="optionCell" textLabel="fOp-sW-ehu" rowHeight="40" style="IBUITableViewCellStyleDefault" id="9VS-zY-PbP">
+                                                                                        <rect key="frame" x="0.0" y="28" width="355" height="40"/>
                                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9VS-zY-PbP" id="gcW-v9-pGg">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="39.5"/>
                                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                                             <subviews>
                                                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fOp-sW-ehu">
-                                                                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                                                                    <rect key="frame" x="15" y="0.0" width="325" height="39.5"/>
                                                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                     <nil key="textColor"/>
@@ -396,6 +396,8 @@
                         <outlet property="latestCollectionView" destination="FFJ-hU-wYe" id="QR3-ag-X2S"/>
                         <outlet property="locationButton" destination="PL7-Gb-mfj" id="9ia-CP-Ew2"/>
                         <outlet property="optionTableView" destination="0rs-bM-aZk" id="DT4-8g-QRX"/>
+                        <outlet property="optionView" destination="yah-Ds-GaY" id="FkR-pa-9Jf"/>
+                        <outlet property="tableViewHeight" destination="cP1-cT-pfd" id="Bh2-Re-9on"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z44-37-d6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1269,7 +1271,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zJq-jE-rEe">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Last updated: (October 5, 2016) 
+                                <string key="text">Last updated: (October 5, 2016) 
 Please read these Terms of Service ("Terms", "Terms and Conditions") carefully before using the Hippojobtamus mobile application (the "Service") operated by Fourj Studios ("us", "we", or "our"). 
 Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service. 
 By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service. 
@@ -1299,7 +1301,7 @@ Changes
 Contact Us 
 •	If you have any questions about these Terms, please contact us at hippojobtamus@gmail.com.
 
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -2974,6 +2976,6 @@ If you have any questions regarding privacy while using Hippojobtamus, or have q
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gt5-9K-Ggq"/>
-        <segue reference="3g5-t3-D5n"/>
+        <segue reference="hcU-FG-nwL"/>
     </inferredMetricsTieBreakers>
 </document>

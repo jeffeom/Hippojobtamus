@@ -51,7 +51,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   let categoryString: [String] = ["cafe", "restaurant", "grocery", "bank", "All", "education", "retail", "receptionist", "others"]
   let categoryContents: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "All", "Education", "Sales", "Reception", "Others"]
   var loadingView: UIView = UIView()
-  let optionsString: [String] = ["Recently Posted", "Expire Soon", "Posts You Might Like", "Job Map"]
+//  let optionsString: [String] = ["Recently Posted", "Expire Soon", "Posts You Might Like", "Job Map"]
+  var optionsString: [String]?
+
   
   //MARK: IBOutlets
   
@@ -60,12 +62,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   @IBOutlet weak var bannerView: GADBannerView!
   @IBOutlet weak var categoryCollectionView: UICollectionView!
   @IBOutlet weak var optionTableView: UITableView!
+  @IBOutlet weak var optionView: UIView!
+  @IBOutlet var tableViewHeight: NSLayoutConstraint!
   
   //MARK: UIViewController
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    optionsString = ["Recently Posted", "Starred Posts", "Jobs Posted By You"]
+    if let optionsString = optionsString {
+      tableViewHeight.constant = CGFloat(40 * optionsString.count)
+    }else {
+      optionView.isHidden = true
+      optionTableView.isHidden = true
+    }
     fetchDataFromDB()
     var keys: NSDictionary?
     if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
@@ -193,16 +204,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   //MARK: TableView
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 4
+    guard let optionsString = optionsString else { return 0 }
+    return optionsString.count
   }
+  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "optionCell", for: indexPath)
-    cell.textLabel?.text = self.optionsString[indexPath.row]
+    cell.textLabel?.text = self.optionsString?[indexPath.row]
     return cell
   }
   
-  //MARK: Segue
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 40
+  }
   
+  //MARK: Segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let _ = segue.identifier {
       switch segue.identifier! as String {
@@ -223,7 +239,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
       case "optionShow":
         let cell = sender as! UITableViewCell
         if let indexPath = self.optionTableView!.indexPath(for: cell){
-          let optionContent = self.optionsString[indexPath.row]
+          guard let optionsString = self.optionsString else { break }
+          var optionContent = optionsString[indexPath.row]
+          if optionContent == "Starred Posts" {
+            optionContent = "myFavorites"
+          }else if optionContent == "Jobs Posted By You" {
+            optionContent = "myPosts"
+          }
           let controller = segue.destination as! TableViewController
           controller.contents = optionContent
         }
@@ -233,7 +255,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
   }
   //MARK: IBAction
-  
   @IBAction func locationSetting(_ sender: AnyObject) {
     let locationSettingController = self.storyboard?.instantiateViewController(withIdentifier: "locationSetting")
     self.navigationController?.pushViewController(locationSettingController!
@@ -241,7 +262,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   }
   
   //MARK: Function
-  
   func scrollToNextCell(){
     let collectionView = latestCollectionView
     //get cell size
