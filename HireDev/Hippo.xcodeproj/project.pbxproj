@@ -41,9 +41,6 @@
 		40B3C1161F381B130036ED9F /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1151F381B130036ED9F /* Distance.swift */; };
 		40B4C4791DBEF0FB00C1C606 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4C4781DBEF0FB00C1C606 /* User.swift */; };
 		40B4C47B1DBF013E00C1C606 /* ViewController + HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */; };
-		40D0F0811D864CA90076891D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */; };
-		40D0F0821D864CA90076891D /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */; };
-		40D0F0831D864CA90076891D /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F0801D864CA90076891D /* FBSDKShareKit.framework */; };
 		40D0F0861D8799A00076891D /* ViewController+KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */; };
 		40D111491DA0331000AAD34E /* LocationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D111481DA0331000AAD34E /* LocationSettingViewController.swift */; };
 		40DAA3A51D99F040005806BE /* JobItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA3A41D99F040005806BE /* JobItem.swift */; };
@@ -89,9 +86,6 @@
 		40B3C1151F381B130036ED9F /* Distance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
 		40B4C4781DBEF0FB00C1C606 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController + HexColor.swift"; sourceTree = "<group>"; };
-		40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		40D0F0801D864CA90076891D /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		40D0F0841D86643F0076891D /* HireDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HireDev.entitlements; sourceTree = "<group>"; };
 		40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+KeyboardDismiss.swift"; sourceTree = "<group>"; };
 		40D111481DA0331000AAD34E /* LocationSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSettingViewController.swift; sourceTree = "<group>"; };
@@ -111,9 +105,6 @@
 				406132071DA25F7C0025EF0E /* CoreLocation.framework in Frameworks */,
 				406132051DA259820025EF0E /* MapKit.framework in Frameworks */,
 				401BDED31D93BFA500D5A749 /* Bolts.framework in Frameworks */,
-				40D0F0831D864CA90076891D /* FBSDKShareKit.framework in Frameworks */,
-				40D0F0811D864CA90076891D /* FBSDKCoreKit.framework in Frameworks */,
-				40D0F0821D864CA90076891D /* FBSDKLoginKit.framework in Frameworks */,
 				159A6D3230BDBAC85DD7EA15 /* Pods_Hippo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,9 +118,6 @@
 				406132061DA25F7C0025EF0E /* CoreLocation.framework */,
 				406132041DA259820025EF0E /* MapKit.framework */,
 				401BDED21D93BFA500D5A749 /* Bolts.framework */,
-				40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */,
-				40D0F07F1D864CA90076891D /* FBSDKLoginKit.framework */,
-				40D0F0801D864CA90076891D /* FBSDKShareKit.framework */,
 				35045641DE56E6292EF8270D /* Pods_Hippo.framework */,
 			);
 			name = Frameworks;
