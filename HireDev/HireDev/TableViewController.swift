@@ -154,28 +154,28 @@ extension TableViewController {
         }
         let readableDestination: String = jobItem.location
         self.checkDistance(self.readableOrigin, destination: readableDestination) { (fetchedData) in
-          DispatchQueue.main.async {
-            let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
-            let readableDistanceRequest = userDistanceRequest * 1000
-            
-            if let aDistance = fetchedData?.first{
-              if aDistance > Float(readableDistanceRequest){
-                self.rejectionCounter += 1
-                if self.rejectionCounter == self.itemCounter{
-                  self.noJobsFound()
-                }
-              }else{
-                newItems.append(jobItem)
-                newItems = newItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
+          let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
+          let readableDistanceRequest = userDistanceRequest * 1000
+          
+          if let aDistance = fetchedData?.first{
+            if aDistance > Float(readableDistanceRequest){
+              self.rejectionCounter += 1
+              if self.rejectionCounter == self.itemCounter{
+                self.noJobsFound()
+              }
+            }else{
+              newItems.append(jobItem)
+              newItems = newItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
+              DispatchQueue.main.async {
                 self.categoryContents = newItems
                 SwiftSpinner.hide()
                 self.tableView.reloadData()
               }
-            }else{
-              self.rejectionCounter += 1
-              if self.rejectionCounter == self.itemCounter{
-                self.areaNotAvailable()
-              }
+            }
+          }else{
+            self.rejectionCounter += 1
+            if self.rejectionCounter == self.itemCounter{
+              self.areaNotAvailable()
             }
           }
         }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftSpinner
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource{
   
@@ -51,7 +52,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   let categoryContents: [String] = ["Cafe", "Restaurant", "Grocery", "Bank", "All", "Education", "Sales", "Reception", "Others"]
   var loadingView: UIView = UIView()
   let optionsString: [String] = ["Recently Posted", "Expire Soon", "Posts You Might Like", "Job Map"]
-  var onceOnly = false
   
   //MARK: IBOutlets
   
@@ -102,7 +102,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     self.tabBarController?.tabBar.tintColor = UIColor.white
     self.setUpLocationForButton(locationButton)
     
-    //        fetchDataFromDB()
+    //    fetchDataFromDB()
   }
   
   override func didReceiveMemoryWarning() {
@@ -258,55 +258,49 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   
   func fetchDataFromDB() {
     if let _ = UserDefaults.standard.string(forKey: "currentLocation"){
-      ref.child("All").observe(.value, with: { snapshot in
+      ref.child("All").queryOrdered(byChild: "date").queryLimited(toFirst: 5).observe(.value, with: { snapshot in
         var latestItems: [JobItem] = []
         for item in snapshot.children {
           let jobItem = JobItem(snapshot: item as! DataSnapshot)
           self.itemCounter += 1
           let readableOrigin: String = (UserDefaults.standard.string(forKey: "currentLocation"))!
+          let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
           let readableDestination: String = jobItem.location
-          self.checkDistance(readableOrigin, destination: readableDestination) { (fetchedData) in
-            DispatchQueue.main.async {
-              let userDistanceRequest = UserDefaults.standard.integer(forKey: "searchDistance")
-              let readableDistanceRequest = userDistanceRequest * 1000
-              if let aDistance = fetchedData?.first{
-                if aDistance > Float(readableDistanceRequest){
-                  self.rejectionCounter += 1
-                  if self.rejectionCounter == self.itemCounter{
-                    self.noJobsFound()
-                  }
-                }else{
-                  latestItems.append(jobItem)
-                  
-                  latestItems = latestItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
-                  
-                  if latestItems.count == snapshot.children.allObjects.count - self.rejectionCounter{
-                    
-                    let firstItem =  latestItems.first
-                    let lastItem = latestItems.last
-                    
-                    latestItems.append(firstItem!)
-                    latestItems.insert(lastItem!, at: 0)
-                    
-                    self.itemCounter = 0
-                    self.rejectionCounter = 0
-                    
-                    let indexToScrollTo = IndexPath.init(item: 1, section: 0)
-                    self.latestCollectionView.scrollToItem(at: indexToScrollTo as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
-                    self.onceOnly = true
-                    
-                  }
-                  self.latestContents = latestItems
-                  self.latestCollectionView.reloadData()
-                }
-              }else{
+          let readableDistanceRequest = userDistanceRequest * 1000
+          
+                    //                latestItems = latestItems.sorted(by: {$0.date.compare($1.date) == ComparisonResult.orderedDescending})
+          
+          HippoApiManager.shared.getDistance(origin: readableOrigin, destination: readableDestination, completion: { result in
+            switch result {
+            case .failure(_):
+              self.areaNotAvailable()
+            case .success(let distance):
+              let distanceKm = distance!.distance
+              if distanceKm > Double(readableDistanceRequest){
                 self.rejectionCounter += 1
                 if self.rejectionCounter == self.itemCounter{
-                  self.areaNotAvailable()
+                  self.noJobsFound()
+                }
+              }else {
+                latestItems.append(jobItem)
+                
+                let availablePosts = snapshot.children.allObjects.count - self.rejectionCounter
+                if latestItems.count == availablePosts {
+                  let firstItem = latestItems.first
+                  let lastItem = latestItems.last
+                  
+                  latestItems.append(firstItem!)
+                  latestItems.insert(lastItem!, at: 0)
+                  
+                  self.latestContents = latestItems
+                  self.latestCollectionView.reloadData()
+                  
+                  let indexToScrollTo = IndexPath.init(item: 1, section: 0)
+                  self.latestCollectionView.scrollToItem(at: indexToScrollTo as IndexPath, at: UICollectionViewScrollPosition.left, animated: false)
                 }
               }
             }
-          }
+          })
         }
         self.indicator.stopAnimating()
         self.indicator.hidesWhenStopped = true

@@ -36,6 +36,9 @@
 		407CAB371E63A4EC002F6FED /* ProfileSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407CAB361E63A4EC002F6FED /* ProfileSettings.xib */; };
 		407CAB391E63A6E0002F6FED /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CAB381E63A6E0002F6FED /* ProfileSettingViewController.swift */; };
 		409B00831D9509D700E5174E /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B00821D9509D700E5174E /* UploadViewController.swift */; };
+		40B3C1121F3800C50036ED9F /* MapsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1111F3800C50036ED9F /* MapsRouter.swift */; };
+		40B3C1141F3800DE0036ED9F /* HippoApimanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1131F3800DE0036ED9F /* HippoApimanger.swift */; };
+		40B3C1161F381B130036ED9F /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1151F381B130036ED9F /* Distance.swift */; };
 		40B4C4791DBEF0FB00C1C606 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4C4781DBEF0FB00C1C606 /* User.swift */; };
 		40B4C47B1DBF013E00C1C606 /* ViewController + HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */; };
 		40D0F0811D864CA90076891D /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */; };
@@ -81,6 +84,9 @@
 		407CAB361E63A4EC002F6FED /* ProfileSettings.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileSettings.xib; sourceTree = "<group>"; };
 		407CAB381E63A6E0002F6FED /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		409B00821D9509D700E5174E /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		40B3C1111F3800C50036ED9F /* MapsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsRouter.swift; sourceTree = "<group>"; };
+		40B3C1131F3800DE0036ED9F /* HippoApimanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HippoApimanger.swift; sourceTree = "<group>"; };
+		40B3C1151F381B130036ED9F /* Distance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
 		40B4C4781DBEF0FB00C1C606 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController + HexColor.swift"; sourceTree = "<group>"; };
 		40D0F07E1D864CA90076891D /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 		4076389D1D82421600C7A892 /* HireDev */ = {
 			isa = PBXGroup;
 			children = (
+				40B3C10F1F3800850036ED9F /* NetworkingLayer */,
 				407638A71D82421600C7A892 /* Assets.xcassets */,
 				4076389E1D82421600C7A892 /* AppDelegate.swift */,
 				404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */,
@@ -195,6 +202,7 @@
 			children = (
 				40DAA3A41D99F040005806BE /* JobItem.swift */,
 				40B4C4781DBEF0FB00C1C606 /* User.swift */,
+				40B3C1151F381B130036ED9F /* Distance.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -227,6 +235,23 @@
 				40F301611D9680DC0035D47A /* TabBarController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		40B3C10F1F3800850036ED9F /* NetworkingLayer */ = {
+			isa = PBXGroup;
+			children = (
+				40B3C1131F3800DE0036ED9F /* HippoApimanger.swift */,
+				40B3C1101F3800980036ED9F /* Routers */,
+			);
+			name = NetworkingLayer;
+			sourceTree = "<group>";
+		};
+		40B3C1101F3800980036ED9F /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				40B3C1111F3800C50036ED9F /* MapsRouter.swift */,
+			);
+			name = Routers;
 			sourceTree = "<group>";
 		};
 		A3F390E2B9BE805657DB250C /* Pods */ = {
@@ -392,6 +417,7 @@
 				407638BA1D8245C100C7A892 /* LoginViewController.swift in Sources */,
 				40D111491DA0331000AAD34E /* LocationSettingViewController.swift in Sources */,
 				403A169D1D9B8709001FB468 /* ViewController+AlertView.swift in Sources */,
+				40B3C1121F3800C50036ED9F /* MapsRouter.swift in Sources */,
 				406132091DA270F30025EF0E /* ViewController+SetLocation.swift in Sources */,
 				4000EE8C1DA8A47300449F0F /* ViewController+getLatLong.swift in Sources */,
 				4032FF811D9D0E7900C91B5E /* JobTableViewCell.swift in Sources */,
@@ -404,11 +430,13 @@
 				409B00831D9509D700E5174E /* UploadViewController.swift in Sources */,
 				40F301621D9680DC0035D47A /* TabBarController.swift in Sources */,
 				40DFE3E81DA482510052E6EF /* ViewController+CheckDistance.swift in Sources */,
+				40B3C1141F3800DE0036ED9F /* HippoApimanger.swift in Sources */,
 				405AE7301E0791B30026A33E /* CategoryCollectionViewCell.swift in Sources */,
 				400842C61D8D1C9000B30904 /* HomeViewController.swift in Sources */,
 				407CAB391E63A6E0002F6FED /* ProfileSettingViewController.swift in Sources */,
 				40B4C47B1DBF013E00C1C606 /* ViewController + HexColor.swift in Sources */,
 				403F42711EF49F9200EB3A57 /* ViewController+Photo.swift in Sources */,
+				40B3C1161F381B130036ED9F /* Distance.swift in Sources */,
 				40DAA3A51D99F040005806BE /* JobItem.swift in Sources */,
 				4076389F1D82421600C7A892 /* AppDelegate.swift in Sources */,
 				4000EE8E1DA8EEA800449F0F /* HelpViewController.swift in Sources */,
