@@ -38,54 +38,40 @@ class LocationSettingViewController: UIViewController, UISearchBarDelegate, CLLo
     super.viewDidLoad()
     
     self.userRef.observeSingleEvent(of: .value, with: { (snapshot) in
-      
       self.newLocationHistory = snapshot.childSnapshot(forPath: "searchHistory").value! as! [String]
       self.tableView.reloadData()
-      
     }) { (error) in
       print(error.localizedDescription)
       self.newLocationHistory = [""]
     }
-    
     locationManager.delegate = self
     locationManager.requestWhenInUseAuthorization()
     locationManager.desiredAccuracy = kCLLocationAccuracyBest
     locationManager.startUpdatingLocation()
-    
     if newLocationHistory.count == 0{
       if let myLocationHistory = UserDefaults.standard.array(forKey: "locationHistory"){
         newLocationHistory = myLocationHistory as! [String]
       }
     }
-    
     let theCase = UserDefaults.standard.integer(forKey: "distanceCase")
     var theDistance = UserDefaults.standard.integer(forKey: "searchDistance")
-    
     if theCase != 0{
       sliderDistance.value = Float(theCase)
-      
       let number = sliderDistance.value
-      
       switch number {
       case 1:
         theDistance = 1
-        
       case 2:
         theDistance = 5
-        
       case 3:
         theDistance = 10
-        
       case 4:
         theDistance = 20
-        
       case 5:
         theDistance = 50
-        
       default:
         theDistance = 10
       }
-      
       UserDefaults.standard.set(theDistance, forKey: "searchDistance")
     }else{
       sliderDistance.value = 3

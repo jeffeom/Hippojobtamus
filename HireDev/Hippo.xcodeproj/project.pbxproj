@@ -16,11 +16,9 @@
 		403A169D1D9B8709001FB468 /* ViewController+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */; };
 		403A169F1D9B8939001FB468 /* UIAlertController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */; };
 		403F42711EF49F9200EB3A57 /* ViewController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F42701EF49F9200EB3A57 /* ViewController+Photo.swift */; };
-		404B3ED41DAA854300415DF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */; };
 		404EEBDE1E529BE20015040E /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EEBDD1E529BE20015040E /* SegmentedControl.swift */; };
 		405AE7301E0791B30026A33E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AE72F1E0791B30026A33E /* CategoryCollectionViewCell.swift */; };
 		405AE7321E0791F70026A33E /* SuggestedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AE7311E0791F70026A33E /* SuggestedTableViewCell.swift */; };
-		406132031DA250B90025EF0E /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 406132021DA250B90025EF0E /* Keys.plist */; };
 		406132051DA259820025EF0E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 406132041DA259820025EF0E /* MapKit.framework */; };
 		406132071DA25F7C0025EF0E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 406132061DA25F7C0025EF0E /* CoreLocation.framework */; };
 		406132091DA270F30025EF0E /* ViewController+SetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406132081DA270F30025EF0E /* ViewController+SetLocation.swift */; };
@@ -323,10 +321,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				406132031DA250B90025EF0E /* Keys.plist in Resources */,
 				407CAB371E63A4EC002F6FED /* ProfileSettings.xib in Resources */,
 				407638AB1D82421600C7A892 /* LaunchScreen.storyboard in Resources */,
-				404B3ED41DAA854300415DF8 /* GoogleService-Info.plist in Resources */,
 				407638A81D82421600C7A892 /* Assets.xcassets in Resources */,
 				407638A61D82421600C7A892 /* Main.storyboard in Resources */,
 			);
