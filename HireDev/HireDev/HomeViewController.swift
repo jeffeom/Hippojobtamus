@@ -69,7 +69,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     optionsString = ["Recently Posted", "Starred Posts", "Jobs Posted By You"]
     if let optionsString = optionsString {
       tableViewHeight.constant = CGFloat(40 * optionsString.count)
@@ -90,40 +89,33 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
       bannerView.rootViewController = self
       bannerView.load(GADRequest())
     }
-    self.setUpLocationForButton(locationButton)
-    self.startTimer()
+    setUpLocationForButton(locationButton)
+    startTimer()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    
-    self.setUpLocationForButton(locationButton)
+    fetchDataFromDB()
+    setUpLocationForButton(locationButton)
     
     let nav = self.navigationController?.navigationBar
     nav?.barTintColor = UIColor.init(red: 255.0/255.0, green: 121.0/255.0, blue: 121.0/255.0, alpha: 1.0)
-    
     let attrs = [
       NSForegroundColorAttributeName: UIColor.white,
       NSFontAttributeName: UIFont(name: "Futura-MediumItalic", size: 25)!
     ]
-    
     nav?.titleTextAttributes = attrs
-    
-    self.tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
-    self.tabBarController?.tabBar.tintColor = UIColor.white
-    self.setUpLocationForButton(locationButton)
-    
-    //    fetchDataFromDB()
+    tabBarController?.tabBar.barTintColor = UIColor.init(red: 56.0/255.0, green: 61.0/255.0, blue: 59.0/255.0, alpha: 0.2)
+    tabBarController?.tabBar.tintColor = UIColor.white
+    setUpLocationForButton(locationButton)
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
-    
   }
   
   //MARK: CollectionViewDataSource
-  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
     
     if collectionView == latestCollectionView{
