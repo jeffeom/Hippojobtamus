@@ -28,7 +28,6 @@ public final class HippoApiManager {
 public extension HippoApiManager {
   func getDistance(origin: String, destination: String, completion: @escaping (Result<Distance?>) -> ()){
     Alamofire.request(MapsRouter.getDistance(origin: origin, destination: destination)).responseJSON { response in
-      
       guard let response = response.result.value else { return completion(.failure(reason: "Unable to connect to the server.")) }
       let json = JSON(response)
       let distance = Distance(json: json)
