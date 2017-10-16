@@ -10,9 +10,7 @@ import UIKit
 
 extension UIViewController{
   func fetchLatLong(_ address: String, completion: @escaping (_ fetchedData: [String: Float]?) -> ()){
-    
     var latLong: [String: Float] = [:]
-    
     var keys: NSDictionary?
     
     if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
@@ -48,9 +46,7 @@ extension UIViewController{
                     }
                   }
                 }
-                DispatchQueue.main.async {
-                  completion(latLong)
-                }
+                completion(latLong)
               }
             }catch {
               print("Error with Json: \(error)")
