@@ -28,8 +28,8 @@ class SettingViewController: UIViewController, MFMailComposeViewControllerDelega
     if let dict = keys {
       let gaAPI = dict["googleBanner"] as? String
       
-      //            bannerView.adUnitID = gaAPI!
-      bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // TEST
+      bannerView.adUnitID = gaAPI!
+      //      bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // TEST
       bannerView.rootViewController = self
       bannerView.load(GADRequest())
     }
