@@ -189,8 +189,10 @@ extension TableViewController {
     if type == "myPosts"{
       personalRef.child("uploadedPosts").observe(.value, with: {(snapshot1) in
         
-        let snapshotValue = snapshot1.value as! [String]
-        
+        guard let snapshotValue = snapshot1.value as? [String] else {
+          completion(true)
+          return
+        }
         if snapshotValue.count != 0{
           self.postRef = snapshotValue
         }
@@ -199,8 +201,10 @@ extension TableViewController {
     }else if type == "myFavorites"{
       personalRef.child("favoredPosts").observe(.value, with: {(snapshot1) in
         
-        let snapshotValue = snapshot1.value as! [String]
-        
+        guard let snapshotValue = snapshot1.value as? [String] else {
+          completion(true)
+          return
+        }
         if snapshotValue.count != 0{
           self.postRef = snapshotValue
         }
