@@ -28,14 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    
     // Facebook
     FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     
     // GooglePlaces
-    
     var keys: NSDictionary?
-    
     if let path = Bundle.main.path(forResource: "Keys", ofType: "plist") {
       keys = NSDictionary(contentsOfFile: path)
     }
@@ -48,13 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       GMSServices.provideAPIKey(ggAPI!)
       GADMobileAds.configure(withApplicationID: gaAPI!)
     }
-    
     // Fabric - Crashlytics
-    
     Fabric.sharedSDK().debug = true
-    let storage = Storage.storage()
     Fabric.with([Crashlytics.self])
-    
     return true
   }
   
