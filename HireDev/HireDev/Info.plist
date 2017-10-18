@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0.0</string>
+	<string>2.0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -30,7 +30,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2.0.0</string>
+	<string>2.0.1</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -71,10 +71,10 @@
 	<string>Please allow our app to use your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please allow our app to use your location</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Please allow our app to use your photo library.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Please allow our app to use your photo library.</string>
-  <key>NSPhotoLibraryAddUsageDescription</key>
-  <string>Please allow our app to use your photo library.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

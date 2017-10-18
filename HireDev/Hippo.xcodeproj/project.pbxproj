@@ -17,6 +17,44 @@
 		403A169F1D9B8939001FB468 /* UIAlertController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */; };
 		403F42711EF49F9200EB3A57 /* ViewController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F42701EF49F9200EB3A57 /* ViewController+Photo.swift */; };
 		404EEBDE1E529BE20015040E /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EEBDD1E529BE20015040E /* SegmentedControl.swift */; };
+		405526701F96E98B009E3197 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638BB1D82958900C7A892 /* CreateAccountViewController.swift */; };
+		405526711F96E98B009E3197 /* LatestJobCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072DAF71DA6436B000D2B97 /* LatestJobCollectionViewCell.swift */; };
+		405526721F96E98B009E3197 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638B91D8245C100C7A892 /* LoginViewController.swift */; };
+		405526731F96E98B009E3197 /* LocationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D111481DA0331000AAD34E /* LocationSettingViewController.swift */; };
+		405526741F96E98B009E3197 /* ViewController+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169C1D9B8709001FB468 /* ViewController+AlertView.swift */; };
+		405526751F96E98B009E3197 /* MapsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1111F3800C50036ED9F /* MapsRouter.swift */; };
+		405526761F96E98B009E3197 /* ViewController+SetLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406132081DA270F30025EF0E /* ViewController+SetLocation.swift */; };
+		405526771F96E98B009E3197 /* ViewController+getLatLong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000EE8B1DA8A47300449F0F /* ViewController+getLatLong.swift */; };
+		405526781F96E98B009E3197 /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032FF801D9D0E7900C91B5E /* JobTableViewCell.swift */; };
+		405526791F96E98B009E3197 /* ViewController+KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F0851D8799A00076891D /* ViewController+KeyboardDismiss.swift */; };
+		4055267A1F96E98B009E3197 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A21D82421600C7A892 /* DetailViewController.swift */; };
+		4055267B1F96E98B009E3197 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407638A01D82421600C7A892 /* TableViewController.swift */; };
+		4055267C1F96E98B009E3197 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F3015F1D9680880035D47A /* SettingViewController.swift */; };
+		4055267D1F96E98B009E3197 /* UIAlertController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403A169E1D9B8939001FB468 /* UIAlertController+Present.swift */; };
+		4055267E1F96E98B009E3197 /* SuggestedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AE7311E0791F70026A33E /* SuggestedTableViewCell.swift */; };
+		4055267F1F96E98B009E3197 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409B00821D9509D700E5174E /* UploadViewController.swift */; };
+		405526801F96E98B009E3197 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F301611D9680DC0035D47A /* TabBarController.swift */; };
+		405526811F96E98B009E3197 /* ViewController+CheckDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DFE3E71DA482510052E6EF /* ViewController+CheckDistance.swift */; };
+		405526821F96E98B009E3197 /* HippoApimanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1131F3800DE0036ED9F /* HippoApimanger.swift */; };
+		405526831F96E98B009E3197 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AE72F1E0791B30026A33E /* CategoryCollectionViewCell.swift */; };
+		405526841F96E98B009E3197 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400842C51D8D1C9000B30904 /* HomeViewController.swift */; };
+		405526851F96E98B009E3197 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407CAB381E63A6E0002F6FED /* ProfileSettingViewController.swift */; };
+		405526861F96E98B009E3197 /* ViewController + HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4C47A1DBF013E00C1C606 /* ViewController + HexColor.swift */; };
+		405526871F96E98B009E3197 /* ViewController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F42701EF49F9200EB3A57 /* ViewController+Photo.swift */; };
+		405526881F96E98B009E3197 /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3C1151F381B130036ED9F /* Distance.swift */; };
+		405526891F96E98B009E3197 /* JobItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DAA3A41D99F040005806BE /* JobItem.swift */; };
+		4055268A1F96E98B009E3197 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076389E1D82421600C7A892 /* AppDelegate.swift */; };
+		4055268B1F96E98B009E3197 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000EE8D1DA8EEA800449F0F /* HelpViewController.swift */; };
+		4055268C1F96E98B009E3197 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404EEBDD1E529BE20015040E /* SegmentedControl.swift */; };
+		4055268D1F96E98B009E3197 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B4C4781DBEF0FB00C1C606 /* User.swift */; };
+		4055268F1F96E98B009E3197 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 406132061DA25F7C0025EF0E /* CoreLocation.framework */; };
+		405526901F96E98B009E3197 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 406132041DA259820025EF0E /* MapKit.framework */; };
+		405526911F96E98B009E3197 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401BDED21D93BFA500D5A749 /* Bolts.framework */; };
+		405526921F96E98B009E3197 /* Pods_Hippo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35045641DE56E6292EF8270D /* Pods_Hippo.framework */; };
+		405526941F96E98B009E3197 /* ProfileSettings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407CAB361E63A4EC002F6FED /* ProfileSettings.xib */; };
+		405526951F96E98B009E3197 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407638A91D82421600C7A892 /* LaunchScreen.storyboard */; };
+		405526981F96E98B009E3197 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407638A71D82421600C7A892 /* Assets.xcassets */; };
+		405526991F96E98B009E3197 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 407638A41D82421600C7A892 /* Main.storyboard */; };
 		405AE7301E0791B30026A33E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AE72F1E0791B30026A33E /* CategoryCollectionViewCell.swift */; };
 		405AE7321E0791F70026A33E /* SuggestedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405AE7311E0791F70026A33E /* SuggestedTableViewCell.swift */; };
 		406132051DA259820025EF0E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 406132041DA259820025EF0E /* MapKit.framework */; };
@@ -47,9 +85,11 @@
 		40DFE3E81DA482510052E6EF /* ViewController+CheckDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DFE3E71DA482510052E6EF /* ViewController+CheckDistance.swift */; };
 		40F301601D9680880035D47A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F3015F1D9680880035D47A /* SettingViewController.swift */; };
 		40F301621D9680DC0035D47A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F301611D9680DC0035D47A /* TabBarController.swift */; };
+		8CE246243E50AB1E6632AFAC /* Pods_Hippo_BuddyBuild.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB80CA43B6E3D991C812E4A1 /* Pods_Hippo_BuddyBuild.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1FBC529621751194746EEEA8 /* Pods-Hippo BuddyBuild.debug buddy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hippo BuddyBuild.debug buddy.xcconfig"; path = "Pods/Target Support Files/Pods-Hippo BuddyBuild/Pods-Hippo BuddyBuild.debug buddy.xcconfig"; sourceTree = "<group>"; };
 		35045641DE56E6292EF8270D /* Pods_Hippo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hippo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4000EE8B1DA8A47300449F0F /* ViewController+getLatLong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+getLatLong.swift"; sourceTree = "<group>"; };
 		4000EE8D1DA8EEA800449F0F /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +101,7 @@
 		403F42701EF49F9200EB3A57 /* ViewController+Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+Photo.swift"; sourceTree = "<group>"; };
 		404B3ED31DAA854300415DF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		404EEBDD1E529BE20015040E /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		405526A21F96E98B009E3197 /* Hippo BuddyBuild.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hippo BuddyBuild.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		405AE72F1E0791B30026A33E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		405AE7311E0791F70026A33E /* SuggestedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestedTableViewCell.swift; sourceTree = "<group>"; };
 		406132021DA250B90025EF0E /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
@@ -93,11 +134,29 @@
 		40DFE3E71DA482510052E6EF /* ViewController+CheckDistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+CheckDistance.swift"; sourceTree = "<group>"; };
 		40F3015F1D9680880035D47A /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		40F301611D9680DC0035D47A /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		56CA42CB9C8F22CF5956B8F1 /* Pods-Hippo BuddyBuild.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hippo BuddyBuild.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hippo BuddyBuild/Pods-Hippo BuddyBuild.release.xcconfig"; sourceTree = "<group>"; };
 		5ACC2761F8EA4EAFB8AF7470 /* Pods-Hippo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hippo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hippo/Pods-Hippo.debug.xcconfig"; sourceTree = "<group>"; };
+		7C6324FC5EA895A73B9C0E61 /* Pods-Hippo.release buddy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hippo.release buddy.xcconfig"; path = "Pods/Target Support Files/Pods-Hippo/Pods-Hippo.release buddy.xcconfig"; sourceTree = "<group>"; };
+		CA02CB0C5314643379E483EA /* Pods-Hippo.debug buddy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hippo.debug buddy.xcconfig"; path = "Pods/Target Support Files/Pods-Hippo/Pods-Hippo.debug buddy.xcconfig"; sourceTree = "<group>"; };
+		DB80CA43B6E3D991C812E4A1 /* Pods_Hippo_BuddyBuild.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hippo_BuddyBuild.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1A8F2CF0EBD256A86C6F21 /* Pods-Hippo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hippo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hippo/Pods-Hippo.release.xcconfig"; sourceTree = "<group>"; };
+		EDEC31D6AE3705FBBEAF55FD /* Pods-Hippo BuddyBuild.release buddy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hippo BuddyBuild.release buddy.xcconfig"; path = "Pods/Target Support Files/Pods-Hippo BuddyBuild/Pods-Hippo BuddyBuild.release buddy.xcconfig"; sourceTree = "<group>"; };
+		F43A4EAA972301E1CA9AE175 /* Pods-Hippo BuddyBuild.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hippo BuddyBuild.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hippo BuddyBuild/Pods-Hippo BuddyBuild.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4055268E1F96E98B009E3197 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4055268F1F96E98B009E3197 /* CoreLocation.framework in Frameworks */,
+				405526901F96E98B009E3197 /* MapKit.framework in Frameworks */,
+				405526911F96E98B009E3197 /* Bolts.framework in Frameworks */,
+				405526921F96E98B009E3197 /* Pods_Hippo.framework in Frameworks */,
+				8CE246243E50AB1E6632AFAC /* Pods_Hippo_BuddyBuild.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		407638981D82421600C7A892 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,6 +178,7 @@
 				406132041DA259820025EF0E /* MapKit.framework */,
 				401BDED21D93BFA500D5A749 /* Bolts.framework */,
 				35045641DE56E6292EF8270D /* Pods_Hippo.framework */,
+				DB80CA43B6E3D991C812E4A1 /* Pods_Hippo_BuddyBuild.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				4076389B1D82421600C7A892 /* Hippo.app */,
+				405526A21F96E98B009E3197 /* Hippo BuddyBuild.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,6 +308,12 @@
 			children = (
 				5ACC2761F8EA4EAFB8AF7470 /* Pods-Hippo.debug.xcconfig */,
 				DF1A8F2CF0EBD256A86C6F21 /* Pods-Hippo.release.xcconfig */,
+				CA02CB0C5314643379E483EA /* Pods-Hippo.debug buddy.xcconfig */,
+				7C6324FC5EA895A73B9C0E61 /* Pods-Hippo.release buddy.xcconfig */,
+				F43A4EAA972301E1CA9AE175 /* Pods-Hippo BuddyBuild.debug.xcconfig */,
+				1FBC529621751194746EEEA8 /* Pods-Hippo BuddyBuild.debug buddy.xcconfig */,
+				56CA42CB9C8F22CF5956B8F1 /* Pods-Hippo BuddyBuild.release.xcconfig */,
+				EDEC31D6AE3705FBBEAF55FD /* Pods-Hippo BuddyBuild.release buddy.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -254,6 +321,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4055266D1F96E98B009E3197 /* Hippo BuddyBuild */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4055269D1F96E98B009E3197 /* Build configuration list for PBXNativeTarget "Hippo BuddyBuild" */;
+			buildPhases = (
+				4055266E1F96E98B009E3197 /* [CP] Check Pods Manifest.lock */,
+				4055266F1F96E98B009E3197 /* Sources */,
+				4055268E1F96E98B009E3197 /* Frameworks */,
+				405526931F96E98B009E3197 /* Resources */,
+				4055269A1F96E98B009E3197 /* ShellScript */,
+				4055269B1F96E98B009E3197 /* [CP] Embed Pods Frameworks */,
+				4055269C1F96E98B009E3197 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hippo BuddyBuild";
+			productName = HireDev;
+			productReference = 405526A21F96E98B009E3197 /* Hippo BuddyBuild.app */;
+			productType = "com.apple.product-type.application";
+		};
 		4076389A1D82421600C7A892 /* Hippo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 407638AF1D82421600C7A892 /* Build configuration list for PBXNativeTarget "Hippo" */;
@@ -285,6 +373,9 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Jeff Eom";
 				TargetAttributes = {
+					4055266D1F96E98B009E3197 = {
+						DevelopmentTeam = U43R3UYB5A;
+					};
 					4076389A1D82421600C7A892 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = U43R3UYB5A;
@@ -314,11 +405,23 @@
 			projectRoot = "";
 			targets = (
 				4076389A1D82421600C7A892 /* Hippo */,
+				4055266D1F96E98B009E3197 /* Hippo BuddyBuild */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		405526931F96E98B009E3197 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				405526941F96E98B009E3197 /* ProfileSettings.xib in Resources */,
+				405526951F96E98B009E3197 /* LaunchScreen.storyboard in Resources */,
+				405526981F96E98B009E3197 /* Assets.xcassets in Resources */,
+				405526991F96E98B009E3197 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		407638991D82421600C7A892 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -335,6 +438,64 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4055266E1F96E98B009E3197 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4055269A1F96E98B009E3197 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run f320732fb948c3d3bd644b9129a2b78b235f1976 9165100b3502113a1ac97fc1e1ec2afe2cd264b398d42647a7df0703fbcba29f";
+		};
+		4055269B1F96E98B009E3197 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hippo BuddyBuild/Pods-Hippo BuddyBuild-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4055269C1F96E98B009E3197 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hippo BuddyBuild/Pods-Hippo BuddyBuild-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		407216721DAE27E2002AA8C9 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -396,6 +557,43 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4055266F1F96E98B009E3197 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				405526701F96E98B009E3197 /* CreateAccountViewController.swift in Sources */,
+				405526711F96E98B009E3197 /* LatestJobCollectionViewCell.swift in Sources */,
+				405526721F96E98B009E3197 /* LoginViewController.swift in Sources */,
+				405526731F96E98B009E3197 /* LocationSettingViewController.swift in Sources */,
+				405526741F96E98B009E3197 /* ViewController+AlertView.swift in Sources */,
+				405526751F96E98B009E3197 /* MapsRouter.swift in Sources */,
+				405526761F96E98B009E3197 /* ViewController+SetLocation.swift in Sources */,
+				405526771F96E98B009E3197 /* ViewController+getLatLong.swift in Sources */,
+				405526781F96E98B009E3197 /* JobTableViewCell.swift in Sources */,
+				405526791F96E98B009E3197 /* ViewController+KeyboardDismiss.swift in Sources */,
+				4055267A1F96E98B009E3197 /* DetailViewController.swift in Sources */,
+				4055267B1F96E98B009E3197 /* TableViewController.swift in Sources */,
+				4055267C1F96E98B009E3197 /* SettingViewController.swift in Sources */,
+				4055267D1F96E98B009E3197 /* UIAlertController+Present.swift in Sources */,
+				4055267E1F96E98B009E3197 /* SuggestedTableViewCell.swift in Sources */,
+				4055267F1F96E98B009E3197 /* UploadViewController.swift in Sources */,
+				405526801F96E98B009E3197 /* TabBarController.swift in Sources */,
+				405526811F96E98B009E3197 /* ViewController+CheckDistance.swift in Sources */,
+				405526821F96E98B009E3197 /* HippoApimanger.swift in Sources */,
+				405526831F96E98B009E3197 /* CategoryCollectionViewCell.swift in Sources */,
+				405526841F96E98B009E3197 /* HomeViewController.swift in Sources */,
+				405526851F96E98B009E3197 /* ProfileSettingViewController.swift in Sources */,
+				405526861F96E98B009E3197 /* ViewController + HexColor.swift in Sources */,
+				405526871F96E98B009E3197 /* ViewController+Photo.swift in Sources */,
+				405526881F96E98B009E3197 /* Distance.swift in Sources */,
+				405526891F96E98B009E3197 /* JobItem.swift in Sources */,
+				4055268A1F96E98B009E3197 /* AppDelegate.swift in Sources */,
+				4055268B1F96E98B009E3197 /* HelpViewController.swift in Sources */,
+				4055268C1F96E98B009E3197 /* SegmentedControl.swift in Sources */,
+				4055268D1F96E98B009E3197 /* User.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		407638971D82421600C7A892 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -455,6 +653,303 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		405526671F96E82E009E3197 /* Debug buddy */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = "Debug buddy";
+		};
+		405526681F96E82E009E3197 /* Debug buddy */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA02CB0C5314643379E483EA /* Pods-Hippo.debug buddy.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = U43R3UYB5A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"~/Documents/FacebookSDK",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"DISABLE_PUSH_NOTIFICATIONS=1",
+				);
+				INFOPLIST_FILE = HireDev/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourj.Hippojobtamus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = "Debug buddy";
+		};
+		405526691F96E831009E3197 /* Release buddy */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release buddy";
+		};
+		4055266A1F96E831009E3197 /* Release buddy */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C6324FC5EA895A73B9C0E61 /* Pods-Hippo.release buddy.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = U43R3UYB5A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
+					"~/Documents/FacebookSDK",
+				);
+				INFOPLIST_FILE = HireDev/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourj.Hippojobtamus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = "Release buddy";
+		};
+		4055269E1F96E98B009E3197 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F43A4EAA972301E1CA9AE175 /* Pods-Hippo BuddyBuild.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = U43R3UYB5A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"~/Documents/FacebookSDK",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"DISABLE_PUSH_NOTIFICATIONS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/HireDev/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourj.Hippojobtamus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		4055269F1F96E98B009E3197 /* Debug buddy */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FBC529621751194746EEEA8 /* Pods-Hippo BuddyBuild.debug buddy.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = U43R3UYB5A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"~/Documents/FacebookSDK",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"DISABLE_PUSH_NOTIFICATIONS=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/HireDev/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourj.Hippojobtamus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = "Debug buddy";
+		};
+		405526A01F96E98B009E3197 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56CA42CB9C8F22CF5956B8F1 /* Pods-Hippo BuddyBuild.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = U43R3UYB5A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
+					"~/Documents/FacebookSDK",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/HireDev/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourj.Hippojobtamus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		405526A11F96E98B009E3197 /* Release buddy */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDEC31D6AE3705FBBEAF55FD /* Pods-Hippo BuddyBuild.release buddy.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HireDev/HireDev.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = U43R3UYB5A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseAuth/Frameworks/frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleNetworkingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleParsingUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
+					"~/Documents/FacebookSDK",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/HireDev/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fourj.Hippojobtamus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = "Release buddy";
+		};
 		407638AD1D82421600C7A892 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -617,11 +1112,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4055269D1F96E98B009E3197 /* Build configuration list for PBXNativeTarget "Hippo BuddyBuild" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4055269E1F96E98B009E3197 /* Debug */,
+				4055269F1F96E98B009E3197 /* Debug buddy */,
+				405526A01F96E98B009E3197 /* Release */,
+				405526A11F96E98B009E3197 /* Release buddy */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		407638961D82421600C7A892 /* Build configuration list for PBXProject "Hippo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				407638AD1D82421600C7A892 /* Debug */,
+				405526671F96E82E009E3197 /* Debug buddy */,
 				407638AE1D82421600C7A892 /* Release */,
+				405526691F96E831009E3197 /* Release buddy */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -630,7 +1138,9 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				407638B01D82421600C7A892 /* Debug */,
+				405526681F96E82E009E3197 /* Debug buddy */,
 				407638B11D82421600C7A892 /* Release */,
+				4055266A1F96E831009E3197 /* Release buddy */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
