@@ -73,6 +73,8 @@
 	<string>Please allow our app to use your location</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Please allow our app to use your photo library.</string>
+  <key>NSPhotoLibraryAddUsageDescription</key>
+  <string>Please allow our app to use your photo library.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

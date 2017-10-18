@@ -260,23 +260,21 @@ class UploadViewController: UIViewController, UITextViewDelegate, UITableViewDel
           jobItemRef.setValue(jobItem.toAnyObject())
           
           let userRef = self.userRef.child((Auth.auth().currentUser!.email?.replacingOccurrences(of: ".", with: ""))!)
-          
-          userRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            if let postSnapshot = snapshot.childSnapshot(forPath: "uploadedPosts").value {
-              var uploadedPosts: [String] = postSnapshot as! [String]
-              
-              if uploadedPosts[0] == "" {
-                uploadedPosts[0] = self.jobId!
-                userRef.updateChildValues([
-                  "uploadedPosts": uploadedPosts
-                  ])
-              }else{
-                uploadedPosts.append(self.jobId!)
-                userRef.updateChildValues([
-                  "uploadedPosts": uploadedPosts
-                  ])
+          userRef.child("uploadedPosts").observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let jobID = self.jobId else { return }
+            var updatedPosts: [String] = []
+            if snapshot.hasChildren() {
+              guard let uploadedPosts = snapshot.children.allObjects as? [String] else { return }
+              updatedPosts = uploadedPosts
+              if updatedPosts[0] == "" || updatedPosts.isEmpty {
+                updatedPosts = [jobID]
+              }else {
+                updatedPosts.append(jobID)
               }
+            }else {
+              updatedPosts = [jobID]
             }
+            userRef.child("uploadedPosts").setValue(updatedPosts)
           })
         }
         self.uploadPhoto(to: self.jobId!, with: self.imageData, completion: {
